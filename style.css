@@ -7,7 +7,8 @@
     --vurgu-color: #a7ff43;
     --vurguRed-color: rgb(212, 91, 35);
     --vurguMavgi-color: #0084ff;
-
+    --canvas-color: rgb(240, 231, 194);
+    --canvas-borderRadius: 100px;
 
 
     --paragraf-wt: 500;
@@ -431,14 +432,40 @@ body {
 
 
 
+
+#nokta-ucgen-canvas{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-left: 0;
+    position: relative;
+    background-color: var(--canvas-color);
+    border-radius: var(--canvas-borderRadius);
+}
+
+
+
+#ucgenAci{
+    width: 6300px;
+    height: 600px;
+    position: relative;
+    margin: 0 auto;
+    margin-left: 200px;
+    background-color: #000000;
+}
+
 /* birim çember */
 
 #birimçember {
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 600px;
     margin: 0 auto;
+    /* margin-top: 100px; */
     position: relative;
+    /* background-color: #000000; */
 }
+
 
 
 

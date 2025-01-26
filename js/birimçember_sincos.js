@@ -3,13 +3,13 @@
     // Global değişkenler ve fonksiyonlar
     let svg2 = d3.select('#birimçember')
         .append('svg')
-        .attr('width', 400)
-        .attr('height', 400);
+        .attr('width', 600)
+        .attr('height', 600);
 
     // Çemberin merkezi ve yarıçapı
-    const centerX = 200;
-    const centerY = 200;
-    const radius = 150;
+    const centerX = 300;
+    const centerY = 300;
+    const radius = 250;
     const smallCircleRadius = 20;
 
     // Birim çemberi çiziyoruz

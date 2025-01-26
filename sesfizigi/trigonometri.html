@@ -7,20 +7,50 @@
     <title>Document</title>
     <link rel="stylesheet" href="/style.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
 </head>
-
+<!-- Bu paragrafta bir metin <a href="https://example.com" target="_blank"><small>kaynak</small></a> yer alıyor.  ispat için -->
 <body>
     <ex-header-fizik></ex-header-fizik>   <!--HEADER-->
     <div class="mainCanvas">
         <div class="ana">
             <h2>Trigonometri</h2>
+            <p>
+               Trigonometri konularına geçmeden önce üçgenleri hatırlamakta fayda var.
+            </p>
+            <br>
+            <br>
+            <br>
+            <h3>Üçgen</h3>
+            <br>
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+                <h4 style="flex-shrink: 0; white-space: nowrap;">Tanım:</h4>
+                <p style="margin: 0;">
+                    AB, BC ve CA <a href="https://tr.wikipedia.org/wiki/Do%C4%9Fru_(geometri)" target="_blank" style="color:blueviolet;">doğru</a>
+                    parçalarının birleşimine ABC üçgeni adı verilir.
+                </p>
+            </div>
+            <canvas id="nokta-ucgen-canvas"></canvas>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h3>Üçgende Açı</h3>
+            <br>
+            <br>
+            <div id="ücgenAci"></div>
+            <br>
+            <br>
+            <br>
+            <br>
             <div id="birimçember"></div>
         </div>
     </div>
     <ex-sidebar-fizik></ex-sidebar-fizik>
-    <ex-footer></ex-footer>
+    <!-- <ex-footer></ex-footer> -->
     <script src="/scripts.js"></script>
+    <script src="/js/noktadanÜçgen.js"></script>
+    <script src="/js/üçgenAçı.js"></script>
     <script src="/js/birimçember_sincos.js" defer></script>
 </body>
-
 </html>
