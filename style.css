@@ -10,7 +10,7 @@
 
 
 
-    --paragraf-wt: 400;
+    --paragraf-wt: 500;
     --vurgu-wt: 600;
 }
 
@@ -258,6 +258,7 @@ body {
 
 .mainCanvas {
     display: flex;
+    flex: 1;
     flex-direction: column;
     position: relative;
     background-color: var(--body-color);
@@ -297,10 +298,43 @@ body {
     margin-left: 0;
 }
 
+.ana h3 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--vurguRed-color);
+}
+
+
+.ana h4 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
 .ana p {
     font-size: 20px;
     color: #000000;
     font-weight: var(--paragraf-wt);
+}
+
+
+.next-btn {
+    margin-top: 120px;
+    text-align: center;
+    width: 150px;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    background-color: var(--vurguMavgi-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+
+.next-btn:hover {
+    transform: scale(1.1);
 }
 
 .welcome-image {
@@ -396,14 +430,26 @@ body {
 
 
 
+
+/* birim çember */
+
+#birimçember {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+
+
+
 .footer {
     background-color: #000000;
     color: white;
     text-align: center;
     padding: 20px;
-    position: auto;
-    /* Ekranın altında sabitlemek için `relative` */
-    bottom: 0;
+    position: relative;
     width: 100%;
 }
 
