@@ -433,7 +433,7 @@ body {
 
 
 
-#nokta-ucgen-canvas{
+#nokta-ucgen-canvas {
     width: 500px;
     height: 500px;
     margin: 0 auto;
@@ -446,14 +446,22 @@ body {
 
 
 
-#ucgenAci{
-    width: 6300px;
-    height: 600px;
+
+#dikUcgen {
     position: relative;
-    margin: 0 auto;
-    margin-left: 200px;
-    background-color: #000000;
+    width: 600px;
+    height: 600px;
+    /* background-color: var(--canvas-color); */
+    margin-left: 0px;
 }
+
+#maddeUcgendeAci {
+    position: absolute;
+    margin-top: 70%;
+    margin-left: 35%;
+}
+
+
 
 /* birim çember */
 

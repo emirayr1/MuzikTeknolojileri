@@ -1,26 +1,55 @@
+
 (function () {
-    let mySketch = function (p) {
-        p.setup = function () {
-            p.createCanvas(400, 400, p.WEBGL).parent('ücgenAci'); // Canvas'ı 'üçgenAci' div'ine bağla
-            p.describe('A white triangle spins around on a gray canvas.');
-        };
+    let svg = d3.select('#ücgenAci')
+        .append('svg')
+        .attr('width', 600)
+        .attr('height', 600);
 
-        p.draw = function () {
-            p.background(200);
+    const centerX = 300;
+    const centerY = 300;
 
-            // Rotate around the y-axis
-            p.rotateY(p.frameCount * 0.01);
 
-            // Draw the triangle
-            p.fill(255);
-            p.noStroke();
-            p.beginShape();
-            p.vertex(-50, 50);
-            p.vertex(50, 50);
-            p.vertex(0, -50);
-            p.endShape(p.CLOSE);
-        };
-    };
+    svg.append("polygon")
+        .attr("points", `${centerX},${centerY - 150} ${centerX + 150},${centerY + 150} ${centerX - 150},${centerY + 150}`)
+        .attr("fill", "none")
+        .attr("stroke", "black")
+        .attr("stroke-width", 5);
 
-    new p5(mySketch);
+    // clipPath Tanımlama
+    const clipPath = svg.append("defs")
+        .append("clipPath")   // belirli bir alan hariç her yeri görünmez yapıyor bu
+        .attr("id", "triangle-clip");
+
+
+    clipPath.append("polygon")
+        .attr("points", `${centerX},${centerY - 150} ${centerX + 150},${centerY + 150} ${centerX - 150},${centerY + 150}`);
+
+
+    svg.append("circle")
+        .attr("cx", centerX)
+        .attr("cy", centerY - 135) // 15 fark koyduk açıya 
+        .attr("r", 20)
+        .attr("fill", "none")
+        .attr("stroke", "black")
+        .attr("stroke-width", 5)
+        .attr("clip-path", "url(#triangle-clip)");
+
+    svg.append("circle")
+        .attr("cx", centerX - 140)
+        .attr("cy", centerY + 145) // 15 fark koyduk açıya 
+        .attr("r", 20)
+        .attr("fill", "none")
+        .attr("stroke", "black")
+        .attr("stroke-width", 5)
+        .attr("clip-path", "url(#triangle-clip)");
+
+    svg.append("circle")
+        .attr("cx", centerX + 140)
+        .attr("cy", centerY + 145) // 15 fark koyduk açıya 
+        .attr("r", 20)
+        .attr("fill", "none")
+        .attr("stroke", "black")
+        .attr("stroke-width", 5)
+        .attr("clip-path", "url(#triangle-clip)");
+
 })();
