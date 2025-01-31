@@ -485,8 +485,7 @@ body {
     border-radius: var(--canvas-borderRadius);
 }
 
-
-#derece_cember{
+#derece_cember {
     margin: 0 auto;
     cursor: pointer;
 }
@@ -508,10 +507,18 @@ body {
     margin-left: 50%;
 }
 
-#radyanMadde{
+#radyanMadde {
     position: absolute;
     margin-top: 265%;
     margin-left: 45%;
+}
+
+#derecedenRadyanaFormul {
+    border: 2px solid red;
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+    margin-left: 160px;
 }
 
 /* birim çember */
