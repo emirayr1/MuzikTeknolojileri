@@ -1,40 +1,38 @@
 (function () {
-
-
     const canvas = document.getElementById("sineCanvas");
     const clearButton = document.getElementById("clearBalls-btn");
     const ctx = canvas.getContext("2d");
     const body = document.body;
 
     // Özel imleç oluştur
-    const customCursor = document.createElement('div');
-    customCursor.style.width = '35px'; // Ball radius ile aynı
-    customCursor.style.height = '35px'; // Ball radius ile aynı
-    customCursor.style.backgroundColor = 'rgb(0, 150, 196)'; // Ball color ile aynı
-    customCursor.style.borderRadius = '50%'; // Yuvarlak
-    customCursor.style.position = 'absolute';
-    customCursor.style.pointerEvents = 'none'; // Tıklamayı engelle
-    customCursor.style.zIndex = '1000';
-    customCursor.style.transform = 'translate(-50%, -50%)';
-    customCursor.style.display = 'none'; // Başlangıçta gizli
+    const customCursor = document.createElement("div");
+    customCursor.style.width = "35px"; // Ball radius ile aynı
+    customCursor.style.height = "35px"; // Ball radius ile aynı
+    customCursor.style.backgroundColor = "rgb(0, 150, 196)"; // Ball color ile aynı
+    customCursor.style.borderRadius = "50%"; // Yuvarlak
+    customCursor.style.position = "absolute";
+    customCursor.style.pointerEvents = "none"; // Tıklamayı engelle
+    customCursor.style.zIndex = "1000";
+    customCursor.style.transform = "translate(-50%, -50%)";
+    customCursor.style.display = "none"; // Başlangıçta gizli
     body.appendChild(customCursor);
 
     // Canvas üzerinde fare hareketlerini dinle
-    canvas.addEventListener('mousemove', (e) => {
+    canvas.addEventListener("mousemove", (e) => {
         customCursor.style.left = `${e.pageX}px`;
         customCursor.style.top = `${e.pageY}px`;
     });
 
     // Canvas üzerine gelince özel imleci göster ve varsayılan imleci gizle
-    canvas.addEventListener('mouseenter', () => {
-        customCursor.style.display = 'block';
-        canvas.style.cursor = 'none'; // Varsayılan imleci gizle
+    canvas.addEventListener("mouseenter", () => {
+        customCursor.style.display = "block";
+        canvas.style.cursor = "none"; // Varsayılan imleci gizle
     });
 
     // Canvas'tan çıkınca özel imleci gizle ve varsayılan imleci geri getir
-    canvas.addEventListener('mouseleave', () => {
-        customCursor.style.display = 'none';
-        canvas.style.cursor = 'default'; // Varsayılan imleci geri getir
+    canvas.addEventListener("mouseleave", () => {
+        customCursor.style.display = "none";
+        canvas.style.cursor = "default"; // Varsayılan imleci geri getir
     });
 
     // Canvas boyutlarını ayarla
@@ -62,17 +60,17 @@
     // Sinüs dalgası çizimi
     function drawSineWave() {
         ctx.beginPath();
-        ctx.moveTo(-50, centerY); // x eksenini -50 yaptım çünkü ekranda centerdan aldıgı gözükmesin diye 
+        ctx.moveTo(-50, centerY); // x eksenini -50 yaptım çünkü ekranda centerdan aldıgı gözükmesin diye
         for (let x = 0; x < width; x++) {
-            const y = centerY - amplitude * Math.cos((2 * Math.PI * x) / waveLength + phase);
+            const y =
+                centerY -
+                amplitude * Math.cos((2 * Math.PI * x) / waveLength + phase);
             ctx.lineTo(x, y);
         }
         ctx.strokeStyle = "rgb(212, 91, 35)";
         ctx.lineWidth = 10;
         ctx.stroke();
     }
-
-
 
     // Top nesnesi
     class Ball {
@@ -93,20 +91,28 @@
                 this.y += this.vy;
 
                 // Sinüs dalgasına çarpışma kontrolü
-                const waveY = centerY - amplitude * Math.cos((2 * Math.PI * this.x) / waveLength + phase);
+                const waveY =
+                    centerY -
+                    amplitude *
+                        Math.cos((2 * Math.PI * this.x) / waveLength + phase);
                 if (this.y >= waveY - this.radius) {
                     this.onWave = true;
                     this.y = waveY - this.radius; // Sinüs dalgası üzerinde
                 }
             } else {
                 // Sinüs dalgası üzerinde hareket
-                const waveSlope = Math.sin((2 * Math.PI * this.x) / waveLength + phase); // Eğri eğimi
+                const waveSlope = Math.sin(
+                    (2 * Math.PI * this.x) / waveLength + phase
+                ); // Eğri eğimi
                 this.vx += waveSlope * 0.7; // Eğime göre hızlanma
                 this.vx *= friction; // Sürtünme etkisi
                 this.x += this.vx;
 
                 // Sinüs dalgasındaki y konumunu güncelle
-                this.y = centerY - amplitude * Math.cos((2 * Math.PI * this.x) / waveLength + phase);
+                this.y =
+                    centerY -
+                    amplitude *
+                        Math.cos((2 * Math.PI * this.x) / waveLength + phase);
 
                 // Ekrandan çıktıysa listeden çıkar
                 if (this.x > width || this.x < 0) {
@@ -133,7 +139,7 @@
 
         phase += phaseSpeed;
         // Tüm topları güncelle ve çiz
-        balls.forEach(ball => {
+        balls.forEach((ball) => {
             ball.update();
             ball.draw();
         });
@@ -151,7 +157,7 @@
         const distanceFromCenter = Math.abs(mouseY - (centerY - amplitude));
 
         // Hızı aralığa indirgeme (0 ile 5 arasında)
-        let initialSpeed = 5 * (distanceFromCenter / amplitude) / 3; // Yaklaştıkça hız azalır
+        let initialSpeed = (5 * (distanceFromCenter / amplitude)) / 3; // Yaklaştıkça hız azalır
         //initialSpeed = Math.max(0, Math.min(initialSpeed, 5)); // Hızı 0 ile 5 arasında tut
 
         // Yeni top oluştur
@@ -174,5 +180,4 @@
 
     // Animasyonu başlat
     animate();
-
 })();

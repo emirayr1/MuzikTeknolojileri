@@ -1,6 +1,6 @@
 (function () {
 
-    let svg = d3.select('#dikUcgen')
+    let svg = d3.select('#dikUcgenHipotenus')
         .append('svg')
         .attr('width', 600)
         .attr('height', 600);

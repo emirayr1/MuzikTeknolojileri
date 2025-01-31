@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-    --navbar-color: #F76C5E;
-    --sidebar-color: #4A4A4A;
+    --navbar-color: #f76c5e;
+    --sidebar-color: #4a4a4a;
     --body-color: rgb(255, 246, 204);
     --vurgu-color: #a7ff43;
     --vurguRed-color: rgb(212, 91, 35);
@@ -10,19 +10,20 @@
     --canvas-color: rgb(240, 231, 194);
     --canvas-borderRadius: 100px;
 
-
     --paragraf-wt: 500;
     --vurgu-wt: 600;
 }
 
+.mathjax-bold {
+    font-weight: 800 !important;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
-
 
 /* background: linear-gradient(to right, #ff0000 50%, #0000ff 50%); */
 /* C6D2ED body */
@@ -34,8 +35,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-
-
 
 .scrollbox::-webkit-scrollbar {
     width: 5px;
@@ -61,7 +60,6 @@ body {
     z-index: 100;
 }
 
-
 /* sidebar background için 463730 */
 
 .sidebar {
@@ -78,9 +76,9 @@ body {
     padding: 20px 5px 0 20px;
     z-index: 5;
     overflow: hidden;
-    transition: width 0.7s cubic-bezier(0.6, 0.05, 0.28, 0.9), height 0.7s cubic-bezier(0.6, 0.05, 0.28, 0.9);
+    transition: width 0.7s cubic-bezier(0.6, 0.05, 0.28, 0.9),
+        height 0.7s cubic-bezier(0.6, 0.05, 0.28, 0.9);
     /* Zamanlama fonksiyonu eklendi */
-    ;
 }
 
 .sidebar:hover {
@@ -107,7 +105,8 @@ body {
     visibility: hidden;
 }
 
-.konular {}
+.konular {
+}
 
 .menuSvg {
     visibility: visible;
@@ -125,7 +124,6 @@ body {
     opacity: 0;
     left: 30%;
     transition: opacity 1s ease;
-
 }
 
 .sidebar ul {
@@ -157,9 +155,8 @@ body {
     font-size: 16px;
 }
 
-
 .sidebar ul li a.active::before {
-    content: '•';
+    content: "•";
     /* Nokta simgesi */
     color: var(--vurgu-color);
     /* Noktanın rengi */
@@ -232,20 +229,19 @@ body {
     transition: font-size 0.4s ease;
 }
 
-
 .navbar a:hover {
     font-size: 19px;
 }
 
 .navbar a::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 100%;
     left: 0;
     width: 0;
     height: 2px;
     background-color: #ffffff;
-    transition: width .3s;
+    transition: width 0.3s;
 }
 
 .navbar a:hover::before {
@@ -268,7 +264,6 @@ body {
     height: auto;
     margin: 80px auto 0;
 }
-
 
 .ana {
     display: flex;
@@ -305,7 +300,6 @@ body {
     color: var(--vurguRed-color);
 }
 
-
 .ana h4 {
     font-size: 20px;
     font-weight: 700;
@@ -316,7 +310,6 @@ body {
     color: #000000;
     font-weight: var(--paragraf-wt);
 }
-
 
 .next-btn {
     margin-top: 120px;
@@ -332,7 +325,6 @@ body {
     cursor: pointer;
     transition: transform 0.3s ease;
 }
-
 
 .next-btn:hover {
     transform: scale(1.1);
@@ -350,9 +342,6 @@ body {
     pointer-events: none;
 }
 
-
-
-
 /* TÜM ANİMASYON CANVASLARI */
 
 #sineCanvas {
@@ -365,9 +354,7 @@ body {
     z-index: 1;
     /* clip-path: inset(0 0 300px 0); */
     /* Sadece alt kısmını kıs */
-
 }
-
 
 #mainBaslik-sesFizigi {
     font-size: 70px;
@@ -380,7 +367,6 @@ body {
     z-index: 2;
     pointer-events: none;
 }
-
 
 .derseBasla_btn {
     position: absolute;
@@ -399,11 +385,9 @@ body {
     transition: transform 0.3s ease;
 }
 
-
 .derseBasla_btn:hover {
     transform: scale(1.1);
 }
-
 
 .clearBalls_btn {
     position: absolute;
@@ -426,12 +410,13 @@ body {
     transform: scale(1.1);
 }
 
-
-
-
-
-
-
+.pk {
+    position: absolute;
+    margin: 0 auto;
+    margin-top: 25%;
+    margin-left: 50%;
+    pointer-events: none;
+}
 
 #nokta-ucgen-canvas {
     width: 500px;
@@ -444,9 +429,6 @@ body {
     border-radius: var(--canvas-borderRadius);
 }
 
-
-
-
 #dikUcgen {
     position: relative;
     width: 600px;
@@ -457,11 +439,80 @@ body {
 
 #maddeUcgendeAci {
     position: absolute;
-    margin-top: 70%;
+    margin-top: 66%;
     margin-left: 35%;
 }
 
+#dikUcgenHipotenus {
+    position: relative;
+    width: 600px;
+    height: 600px;
+}
 
+#maddePisagor {
+    position: absolute;
+    margin-left: 35%;
+    margin-top: 108%;
+}
+
+/* çember */
+
+#playButton {
+    margin-top: 186%;
+    margin-left: 35%;
+    position: absolute; /* hardCode ama yapacak bir şey yok */
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+#playButton:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+#noktadanCember {
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    margin-left: 0;
+    position: relative;
+    /* background-color: var(--canvas-color);  */
+    border-radius: var(--canvas-borderRadius);
+}
+
+
+#derece_cember{
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#dereceLabel {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    position: absolute;
+    margin-top: 232%;
+    margin-left: 27%;
+    background-color: var(--canvas-color);
+    border-radius: var(--canvas-borderRadius);
+}
+
+#maddeCember {
+    position: absolute;
+    margin-top: 160%;
+    margin-left: 50%;
+}
+
+#radyanMadde{
+    position: absolute;
+    margin-top: 265%;
+    margin-left: 45%;
+}
 
 /* birim çember */
 
@@ -473,11 +524,6 @@ body {
     position: relative;
     /* background-color: #000000; */
 }
-
-
-
-
-
 
 .footer {
     background-color: #000000;

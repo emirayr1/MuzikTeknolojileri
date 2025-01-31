@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <!-- Bu paragrafta bir metin <a href="https://example.com" target="_blank"><small>kaynak</small></a> yer alıyor.  ispat için -->
-
-<body>
+<body style="height: 500vh;">
     <ex-header-fizik></ex-header-fizik> <!--HEADER-->
     <div class="mainCanvas">
         <div class="ana">
@@ -43,39 +43,245 @@
             <div style="display: flex; align-items: flex-start; gap: 10px;">
                 <h4 style="flex-shrink: 0; white-space: nowrap;">Açı:</h4>
                 <p style="margin: 0;">
-                    Açı iki kenar arasında kalan yerdir. ÖRNEK
+                    Açı, başlangıç noktaları aynı olan iki <a href="https://www.youtube.com/watch?v=J3_J26KQmLc"
+                        target="_blank">ışının</a> birleşimidir.
                 </p>
             </div>
-            <div style="display: flex; align-items: flex-start; gap: 10px;">
-                <h4 style="flex-shrink: 0; white-space: nowrap;">Derece:</h4>
-                <p style="margin: 0;">
-                    hmm
-                </p>
-            </div>
-            <br>
+            <br> <!--\(α + β + C = 180^\circ\)       \( \alpha < 90 \implies \text{dar açı} \)-->
             <div id="maddeUcgendeAci">
                 <div style="display: flex; align-items: flex-start; gap: 10px;">
-                    <h4 style="flex-shrink: 0; white-space: nowrap;">-</h4>
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
                     <p style="margin: 0;">
-                        Üçgenin iç açılarının toplamı \(A + B + C = 180^\circ\)
+                        90 dereceden küçük açılara dar, 90 dereceye eşit açılara dik, 90 dereceden büyük açılara ise
+                        geniş açı denir
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        Soldaki üçgen bir açısının 90 dereceye eşit olmasından dolayı dik üçgen olarak adlandırılır
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        Dik açıya komşu olan kenarlara dik kenar denir (A, B)
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        Üçgenin içinde kalan açılara üçgenin iç açıları denir
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        Bir geometrik cismin üçgen olması için iç açıları toplamının 180 derece olması ve herhangi iki
+                        kenarın uzunlukları toplamının 3. kenarın uzunluğundan büyük olması
+                        gerekmektedir <a href="https://www.youtube.com/watch?v=yWaQyUAXp-A"
+                            target="_blank"><small>ispat</small></a>
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        α açısının karşı kenarı A, komşu kenarı ise B kenarıdır.
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        β açısının karşı kenarı B, komşu kenarı ise A kenarıdır.
+                    </p>
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap; color: rgb(212, 65, 65);">•</h4>
+                    <p style="margin: 0; color: red;">
+                        Açı ne kadar büyükse karşısındaki kenarın uzunluğu da o kadar büyüktür
                 </div>
             </div>
             <div id="dikUcgen"></div>
             <br>
-            <div id="ücgenAci"></div>
+            <br>
+            <br>
+            <br>
+            <h3>Pisagor ve Hipotenüs</h3>
+            <div id="maddePisagor">
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        Hipotenüs dik üçgenlerde bulunur ve dik açının karşısındaki kenara verilen addır
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        Soldaki üçgendeki en büyük açı 90 derece olduğundan C kenarı en uzun kenardır
+                </div>
+                <br>
+                <br>
+                <h4 style="text-decoration: underline; text-decoration-thickness: 3px;">Pisagor Teoremi</h4>
+                <br>
+                <p>Pisagor teoremi dik üçgenin kenarları arasındaki ilişkiyi açıklar</p>
+                <br>
+                <p>\( A^2 + B^2 = C^2 \)</p>
+                <br>
+                <p>Örneğin A = 3cm ve B = 4cm olsun. Pisagor teoremini kullanarak C kenarının uzunluğunu bulalım </p>
+                <br>
+                <p>\(3 \, ^2 + 4 \, ^2 = C^2 \)</p>
+                <p>\(C^2 = 9 + 16 \)</p>
+                <p>\(C^2 = 25 \)</p>
+                <p>\(C = 5 \,cm \)</p>
+            </div>
+            <div id="dikUcgenHipotenus"></div>
+            <!-- <div id="ücgenAci"></div> -->
+            <!--SİNCOSTANI ÜÇGENLERDE Mİ ANLATICAKSIN DAİREDE Mİ KARAR VER-->
             <br>
             <br>
             <br>
             <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h3>Çember</h3>
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+                <h4 style="flex-shrink: 0; white-space: nowrap;">Tanım: </h4>
+                <p style="margin: 0;">
+                    Çember, merkez noktasından yarıçap kadar uzaklıkta bulunan sonsuz sayıdaki noktaların bütünüdür
+                </p>
+            </div>
+            <br>
+            <button id="playButton">Başlat</button>
+            <div id="maddeCember">
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        "O" noktası çemberin merkezidir
+                    </p>
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        "r" uzunluğu çemberin yarıçapıdır
+                    </p>
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        Çemberin çevresi \( 2\pi r \) formülü ile bulunur <small>
+                            <a href="https://www.youtube.com/watch?v=5pZR24_tQYY&list=WL&index=4" target="_blank">tavsiye içerik</a>
+                        </small>
+                    </p>
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        Çemberin alanı \(\pi r^2\) formülü ile bulunur
+                    </p>
+                </div>
+                <br>
+                <p style="color: red;">Peki pi sayısı nedir?</p>
+            </div>
+            <div id="noktadanCember"></div>
+            <br>
+            <br>
+            <h4 style="text-decoration: underline; color: red;">Pi sayısı</h4>
+            <p>Bir çemberin çevresinin çapına oranı, tüm çemberler için sabit bir değerdir ve bu sabite <i style="color: red;">pi sayısı</i> adı verilir. 
+                Pi, adını Yunanca çevre anlamına gelen (περίμετρον) kelimesinin 
+                ilk harfi π'den alır. İrrasyonel bir sayı olduğu için kesirli olarak tam ifade edilemez ve virgülden sonra sonsuza kadar devam eden, belirli bir örüntü izlemeyen 
+            düzensiz bir ondalık dizisine sahiptir.</p>
+            <br>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Pi sayısının ilk 10 basamağı:&nbsp; \(\pi =\) 3.1415926535</p>
+            <br>
+            <br>
+            <h4 style="text-decoration: underline; color: red;">Derece</h4>
+            <p>Derece, çemberin merkezinde oluşan açıları ölçmek için kullanılan bir birimdir. 
+                Tam bir çember, 360 eşit parçaya bölünebilir ve her bir parçaya 1 derece denir. 
+                Böylece, çember üzerindeki her noktanın konumu, merkezden çizilen yarıçapın oluşturduğu açı ile ifade edilebilir.
+            </p>
+            <br>
+            <p>Aşağıdaki çemberin yarıçapını fare ile hareket ettirerek derece değerinin değişimini gözlemleyiniz... </p>
+            <label id="dereceLabel">Açı: 0°</label> <!-- Dereceyi gösterecek label -->
+            <div id="derece_cember"></div>
+            <br>
+            <br>
+            <h4 style="text-decoration: underline; color: red;">Radyan</h4>
+            <p>
+                Radyan, çemberin yay uzunluğuna bağlı bir açı ölçü birimidir. 
+                "O" merkezli bir çemberde, merkezden bir yay belirleyelim. 
+                Eğer bu yayın uzunluğu, çemberin yarıçapına eşitse, bu yayın gördüğü açı 1 radyan olarak tanımlanır.
+            </p>
+            <div id="radyanMadde">
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p style="margin: 0;">
+                        Soldaki çemberde kırmızı ile işaretlenmiş olan yayın uzunluğu yarıçapa eşit olduğu için 
+                        <i style="color: red;">"θ"</i> açısı 1 radyandır.
+                    </p>
+                </div>
+                <br>
+                <p>Şimdi bu bilgiden yola çıkarak çemberin çevresinin kaç radyan olduğunu bulalım(türDZ)</p>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p>Çemberin çevresinin \(2\pi r\) ile hesaplandığını biliyoruz. Radyan ve yayın uzunluğu arasında bir orantı kurup çevrenin radyanını böyle hesaplayabiliriz.</p>
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p>r uzunluğu 1 radyan ise 2r uzunluğu 2 radyandır. Buna göre \(2\pi r\) uzunluğu da \(2\pi\) radyana eşittir. Yani çemberin çevresinin uzunluğu \(2\pi\) radyan açıya
+                        eşittir.
+                    </p>
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p>Çemberin bir tam turu 360 derece olduğundan \(2\pi\) radyan 360 dereceye eşittir.</p>
+                </div>
+                <br>
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                    <p>En çok karıştırılan konulardan biri, π sayısının 180 dereceye eşit olduğu yanılgısıdır. 
+                        Aslında 180 dereceye eşit olan şey π radyandır. 
+                        1 radyan yaklaşık 57.3 derece olup, π radyan tam olarak 180 dereceye karşılık gelir.
+                    </p>
+                </div>
+            </div>
+            <div id="radyan_cember"></div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h3>Birim Çember</h3>
             <div id="birimçember"></div>
+            <img src="/images/plak2.png" alt="plak2" class="pk" width="200" height="200">
         </div>
         <ex-sidebar-fizik></ex-sidebar-fizik>
         <!-- <ex-footer></ex-footer> -->
         <script src="/scripts.js"></script>
         <script src="/js/noktadanÜçgen.js"></script>
         <script src="/js/dikÜçgen.js"></script>
+        <script src="/js/dikÜçgenHipotenüs.js"></script>
         <script src="/js/üçgenAçı.js"></script>
+        <script src="/js/noktadanÇember.js"></script>
+        <script src="/js/dereceÇember.js"></script>
+        <script src="/js/radyanÇember.js"></script>
         <script src="/js/birimçember_sincos.js" defer></script>
 </body>
-
 </html>

@@ -18,7 +18,8 @@
         .attr("cy", centerY)
         .attr("r", radius)
         .attr("fill", "none")
-        .attr("stroke", "grey");
+        .attr("stroke", "black")
+        .attr("stroke-width", 5);
 
     // Başlangıçta çizilecek çap çizgisi
     const line = svg2.append("line")
@@ -27,7 +28,7 @@
         .attr("x2", centerX + radius)
         .attr("y2", centerY)
         .attr("stroke", "red")
-        .attr("stroke-width", 2);
+        .attr("stroke-width", 5);
 
 
     const sinLine = svg2.append("line")
@@ -36,7 +37,7 @@
         .attr("x2", centerX + radius)
         .attr("y2", centerY)
         .attr("stroke", "blue")
-        .attr("stroke-width", 2);
+        .attr("stroke-width", 5);
 
     // Kosinüs çizgisi (yatay)
     const cosLine = svg2.append("line")
@@ -45,7 +46,7 @@
         .attr("x2", centerX + radius)
         .attr("y2", centerY)
         .attr("stroke", "green")
-        .attr("stroke-width", 2);
+        .attr("stroke-width", 5);
 
     const smallCircle = svg2.append("circle")
         .attr("cx", centerX)
@@ -53,7 +54,8 @@
         .attr("r", smallCircleRadius)  // Küçük çemberin yarıçapı
         .attr("fill", "none")
         .attr("stroke", "none")
-        .attr("oppacity", 0)
+        .attr("stroke-width", 5)
+        .attr("oppacity", 0);
 
 
     const smallCircleY = svg2.append("line")
@@ -63,7 +65,7 @@
         .attr("y2", centerY)
         .attr("fill", "none")
         .attr("stroke", "none")
-        .attr("oppacity", 0)
+        .attr("oppacity", 0);
 
 
     const arcPath = svg2.append("path")
