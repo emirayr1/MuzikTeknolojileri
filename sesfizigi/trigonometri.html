@@ -263,17 +263,30 @@
             <br>
             <br>
             <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
             <h3>Birim Çember</h3>
-            <div id="birimçember"></div>
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+                <h4 style="flex-shrink: 0; white-space: nowrap;">Tanım:</h4>
+                <p style="margin: 0;">
+                    Yarıçapı 1 birim olan çembere birim çember denir.  */ eklemen gereken yönlü açı orijin noktası ve bir noktanın (x,y) biçiminde gösterilmesi bunları çembere ekle buraya degil
+                </p>
+            </div>
+            <br>
+            <br>
+            <label>
+                <input type="checkbox" id="toggleKoordinat" checked> Koordinat
+            </label>
+
+            <label>
+                <input type="checkbox" id="toggleRadyan" checked> Radyan
+            </label>
+
+            <label>
+                <input type="checkbox" id="toggleDegree" checked> Derece
+            </label>
+            <div id="birimCemberBos"></div>
+            <br>
+            <br>
+            <div id="birimçemberAni"></div>
             <img src="/images/plak2.png" alt="plak2" class="pk" width="200" height="200">
         </div>
         <ex-sidebar-fizik></ex-sidebar-fizik>
@@ -286,6 +299,7 @@
         <script src="/js/noktadanÇember.js"></script>
         <script src="/js/dereceÇember.js"></script>
         <script src="/js/radyanÇember.js"></script>
+        <script src="/js/birimçemberBOS.js"></script>
         <script src="/js/birimçember_sincos.js" defer></script>
 </body>
 </html>

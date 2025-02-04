@@ -105,8 +105,6 @@ body {
     visibility: hidden;
 }
 
-.konular {
-}
 
 .menuSvg {
     visibility: visible;
@@ -523,7 +521,15 @@ body {
 
 /* birim çember */
 
-#birimçember {
+
+#birimCemberBos{
+    width: 700;
+    height: 700;
+    margin-left: 0;
+}
+
+
+#birimçemberAni {
     width: 600px;
     height: 600px;
     margin: 0 auto;

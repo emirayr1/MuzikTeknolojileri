@@ -1,7 +1,7 @@
 (function () {
 
     // Global değişkenler ve fonksiyonlar
-    let svg2 = d3.select('#birimçember')
+    let svg2 = d3.select('#birimçemberAni')
         .append('svg')
         .attr('width', 600)
         .attr('height', 600);
