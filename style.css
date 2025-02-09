@@ -751,8 +751,36 @@ input[type="range"]:active::-moz-range-thumb {
 }
 /* #endregion */
 
-#parkur{
+#parkurKapsamasi{
+    display: flex;
+    flex-direction: row;
 }
+
+#parkur{
+
+}
+
+
+
+#parkur-btns button{
+    margin-top: 10%;
+    text-align: center;
+    width: 150px;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    background-color: var(--vurguMavgi-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#parkur-btns button:hover{
+    transform: scale(1.1);
+}
+
 
 #birimçemberAni {
     width: 600px;
