@@ -289,7 +289,7 @@
             <br>
             <div id="birimCemberKapsamasi">
                 <div id="birimCemberBos"></div>
-                <div id="checkBoxes">
+                <div class="checkBoxes" id="cemberCB">
                     <label>
                         <input type="checkbox" id="toggleKoordinat" checked> Koordinat
                     </label>
@@ -325,6 +325,75 @@
             <br>
             <br>
             <h4 style="text-decoration: underline; color: red;">Esas Ölçü</h4>
+            <p>Bir açının esas ölçüsü, o açının pozitif veya negatif yönde kaç tur attığından bağımsız olarak, 0° ile 360° arasına düşen karşılığıdır. 
+                Yani, bir açıyı bu aralığa indirerek, aynı yönü gösteren ve eşdeğer olan en küçük pozitif açıyı elde ederiz. 
+                Örneğin, 500°’lik bir açı, bir tam tur (360°) çıkarıldığında 140° olarak ifade edilir ve bu, açının esas ölçüsüdür.
+            </p>
+            <br>
+            <br>
+            <h4>Pozitif Açılarda</h4>
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+                <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                <p>
+                    Derece cinsinden bir açının esas ölçüsünü bulmak için, açıyı 360°'ye bölüp kalanını almak yeterlidir.
+                    Örneğin, 750°’lik bir açının esas ölçüsü, 750’yi 360’a böldüğümüzde kalan değer olan 30°’dir.
+                </p>
+            </div>
+            <br>
+            <p style="color: brown;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Örnek: 800° % 360° = <i style="color:black;">80°</i>
+            </p>
+            <p style="color: brown;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Örnek: 1250° % 360° = <i style="color:black;">170°</i>
+            </p>
+            <br>
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+                <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                <p>
+                    Radyan cinsinden bir açının esas ölçüsünü bulmak için ise 2π'ye bölümünden kalanını almamız yeterlidir.
+                </p>
+            </div>
+            <br>
+            <p style="color: brown;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Örnek: 3π % 2π = <i style="color:black;">π radyan</i>
+            </p>
+            <p style="color: brown;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Örnek: (5π / 2) % 2π = <i style="color:black;">π radyan</i>
+            </p>
+            <br>
+            <h4>Negatif Açılarda</h4>
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+                <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                <p>
+                    Derece cinsinden negatif bir açının esas ölçüsünü bulmak için, açıyı pozitif olana kadar 360° ekleyerek uygun aralığa getiririz. 
+                    Büyük açılar için bu işlemi hızlandırmak adına, açının 360°'ye bölümünden kalanını alıp bu kalan negatifse 360° ekleyerek esas ölçüyü doğrudan elde edebiliriz.
+                </p>
+            </div>
+            <br>
+            <p style="color: brown;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Örnek: -800° + 360° = -440° + 360° = -80° + 360° = <i style="color:rgb(0, 0, 0);">280° Esas Ölçüsüdür</i>
+            </p>
+            <p style="color: brown;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Örnek: -800° % 360° = -80° + 360° = <i style="color:black;">280° Esas Ölçüsüdür</i>
+            </p>
+            <br>
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+                <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
+                <p>
+                    Radyan cinsinden bir açının esas ölçüsünü bulmak için, açıyı pozitif olana kadar 2π ekleyerek uygun aralığa getiririz.
+                    Büyük açılarda 2π'ye bölümünden kalanı alıp kalan negatif ise 2π ekleyerek esas ölçüyü elde ederiz. 
+                </p>
+            </div>
+            <br>
+            <p style="color: brown;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Örnek: -3π % 2π = -π + 2π = <i style="color:black;">π radyan</i>
+            </p>
+            <p style="color: brown;">
+                &nbsp;&nbsp;&nbsp;&nbsp;Örnek: (-11π / 4) + 2π = (-3π / 4) + 2π = <i style="color:black;">(5π / 4) radyan</i>
+            </p>
+            <br>
+            <p style="font-weight: 600;">Aşağıdaki animasyonda, koşucu "Başlat" butonuna bastıktan sonra koşmaya başlar. 
+                Tamamladığı tur sayısını ve kat ettiği toplam açının esas ölçüsünü animasyon üzerinde görebilirsiniz.</p>
             <div id="parkurKapsamasi">
                 <div id="parkur"></div>
                 <div id="parkur-btns">
@@ -333,7 +402,30 @@
                 </div>
                 <div id="counters">
                     <div id="lapCounter">Turlar: 0</div>
-                    <div id="degreeCounter">Derece: 0</div>
+                    <div id="degreeCounter">Açı: 0°</div>
+                    <div id="esasCounter">Esas ölçü: 0°</div>
+                </div>
+                <div id="parkurSlider">
+                    <input type="range" id="speedSlider" min="0.0008" max="0.005" step="0.0001" value="0.002">
+                </div>
+                <div class="checkBoxes" id="parkurCB">
+                    <div id="posnegCB">
+                        <label>
+                            <input type="checkbox" id="pozitifCB" checked> Pozitif Açı
+                        </label>
+            
+                        <label>
+                            <input type="checkbox" id="negatifCB"> Negatif Açı
+                        </label>
+                    </div>
+        
+                    <label>
+                        <input type="checkbox" id="dereceCB" checked> Derece
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="radyanCB"> Radyan
+                    </label>
                 </div>
             </div>
             <br>

@@ -22,6 +22,11 @@
     font-weight: 800 !important;
 }
 
+.disabled {
+    pointer-events: none; /* Etkileşimi kapatır */
+    opacity: 0.5; /* Butonun kapalı olduğunu belli eder */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -677,9 +682,9 @@ input[type="range"]:active::-moz-range-thumb {
 /* #region  CHECKBOXES STYLES   */
 
 /* Genel Stil */
-#checkBoxes {
+#cemberCB{
     z-index: 10;
-    margin-bottom: 33%;
+    margin-bottom: 50%;
     display: flex;
     flex-direction: column;
     gap: 12px; /* Elemanlar arasında boşluk bırak */
@@ -688,11 +693,14 @@ input[type="range"]:active::-moz-range-thumb {
     border-radius: 10px; /* Köşeleri yuvarlat */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
     width: 200px; /* Kutu genişliği */
-   
+}
+
+#parkurCB{
+
 }
 
 /* Label Stil */
-#checkBoxes label {
+.checkBoxes label {
     display: flex;
     align-items: center;
     gap: 10px; /* Checkbox ve metin arasında boşluk */
@@ -707,7 +715,7 @@ input[type="range"]:active::-moz-range-thumb {
 
 
 /* Checkboxları gizle ama etiketleri kullan */
-#checkBoxes input[type="checkbox"] {
+.checkBoxes input[type="checkbox"] {
     appearance: none; /* Varsayılan checkbox görünümünü kaldır */
     width: 20px;
     height: 20px;
@@ -720,13 +728,13 @@ input[type="range"]:active::-moz-range-thumb {
 }
 
 /* Checkbox işaretlendiğinde içini doldur */
-#checkBoxes input[type="checkbox"]:checked {
+.checkBoxes input[type="checkbox"]:checked {
     background-color: #007bff; /* Mavi arka plan */
     border: 2px solid #0056b3;
 }
 
 /* Checkbox işaretlendiğinde tik ekle */
-#checkBoxes input[type="checkbox"]:checked::before {
+.checkBoxes input[type="checkbox"]:checked::before {
     content: "✔";
     font-size: 14px;
     color: white;
@@ -738,13 +746,13 @@ input[type="range"]:active::-moz-range-thumb {
 }
 
 /* Hover efekti */
-#checkBoxes label:hover {
+.checkBoxes label:hover {
     background-color: rgb(218, 208, 172); /* Hafif mavi arka plan */
     border-radius: 5px;
 }
 
 /* Aktif olan buton gibi görünmeli */
-#checkBoxes input[type="checkbox"]:checked + label {
+.checkBoxes input[type="checkbox"]:checked + label {
     background-color: #007bff;
     color: white;
     border-radius: 5px;
