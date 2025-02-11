@@ -264,7 +264,6 @@
         }
     }
     
-
     function updateAngleDisplay(posneg) {
         const isDegree = document.getElementById("dereceCB").checked;
         
