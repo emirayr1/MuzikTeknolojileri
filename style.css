@@ -789,6 +789,24 @@ input[type="range"]:active::-moz-range-thumb {
     transform: scale(1.1);
 }
 
+#motorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 700px;
+    height: 500px;
+
+}
+svg {
+    width: 100%;
+    height: auto;
+}
+.steam {
+    fill: #ccc;
+    opacity: 0.7;
+}
 
 #birimçemberAni {
     width: 600px;
