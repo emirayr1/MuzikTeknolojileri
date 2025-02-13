@@ -1,10 +1,10 @@
 (function () {
-
     // Global değişkenler ve fonksiyonlar
-    let svg2 = d3.select('#birimçemberSin')
-        .append('svg')
-        .attr('width', 1000)
-        .attr('height', 700);
+    let svg2 = d3
+        .select("#birimçemberSin")
+        .append("svg")
+        .attr("width", 1000)
+        .attr("height", 700);
 
     // Çemberin merkezi ve yarıçapı
     const centerX = 300;
@@ -24,7 +24,8 @@
         .attr("stroke-width", 5);
 
     // Başlangıçta çizilecek çap çizgisi
-    const line = svg2.append("line")
+    const line = svg2
+        .append("line")
         .attr("x1", centerX)
         .attr("y1", centerY)
         .attr("x2", centerX + radius)
@@ -33,33 +34,37 @@
         .lower()
         .attr("stroke-width", 2);
 
-    const point = svg2.append("circle")
-        .attr("cx",centerX + radius)
-        .attr("cy",centerY)
-        .attr("r",8)
-        .attr("fill","red")
-        .attr("stroke","red")
-        .attr("stroke-width",4)
+    const point = svg2
+        .append("circle")
+        .attr("cx", centerX + radius)
+        .attr("cy", centerY)
+        .attr("r", 8)
+        .attr("fill", "red")
+        .attr("stroke", "red")
+        .attr("stroke-width", 4)
         .raise();
 
-    dashLines = svg2.append("line")
-        .attr("x1",centerX + radius)
-        .attr("y1",centerY)
-        .attr("x2",centerX + radius)
-        .attr("y2",centerY)
-        .attr("stroke","black")
-        .attr("stroke-dasharray","10,5")
-        .attr("stroke-width",2);
+    dashLines = svg2
+        .append("line")
+        .attr("x1", centerX + radius)
+        .attr("y1", centerY)
+        .attr("x2", centerX + radius)
+        .attr("y2", centerY)
+        .attr("stroke", "black")
+        .attr("stroke-dasharray", "10,5")
+        .attr("stroke-width", 2);
 
-    const sinLine = svg2.append("line")
+    const sinLine = svg2
+        .append("line")
         .attr("x1", centerX + radius)
         .attr("y1", centerY)
         .attr("x2", centerX + radius)
         .attr("y2", centerY)
         .attr("stroke", "blue")
-        .attr("stroke-width", 5);
+        .attr("stroke-width", 10);
 
-    const sinLineRight = svg2.append("line")
+    const sinLineRight = svg2
+        .append("line")
         .attr("x1", centerX + radius + 200)
         .attr("y1", centerY)
         .attr("x2", centerX + radius + 200)
@@ -67,18 +72,18 @@
         .attr("stroke", "blue")
         .attr("stroke-width", 5);
 
-    
-    const smallCircle = svg2.append("circle")
+    const smallCircle = svg2
+        .append("circle")
         .attr("cx", centerX)
         .attr("cy", centerY)
-        .attr("r", smallCircleRadius)  // Küçük çemberin yarıçapı
+        .attr("r", smallCircleRadius) // Küçük çemberin yarıçapı
         .attr("fill", "none")
         .attr("stroke", "none")
         .attr("stroke-width", 5)
         .attr("oppacity", 0);
 
-
-    const smallCircleY = svg2.append("line")
+    const smallCircleY = svg2
+        .append("line")
         .attr("x1", centerX)
         .attr("y1", centerY)
         .attr("x2", centerX + smallCircleRadius)
@@ -87,12 +92,12 @@
         .attr("stroke", "none")
         .attr("oppacity", 0);
 
-
-    const arcPath = svg2.append("path")
+    const arcPath = svg2
+        .append("path")
         .attr("fill", "grey")
-        .attr("oppacity", 0.001)
+        .attr("oppacity", 0.001);
 
-        svg2.append("line")
+    svg2.append("line")
         .attr("x1", centerX)
         .attr("y1", 10)
         .attr("x2", centerX)
@@ -168,12 +173,16 @@
         .style("user-select", "none")
         .text("y");
 
-
-        const tapeContainer = svg2.append("g")
+    const tapeContainer = svg2
+        .append("g")
         .attr("id", "tapeContainer")
-        .attr("transform", `translate(${centerX + radius + 400 - tapeWidth / 2}, ${centerY})`);
+        .attr(
+            "transform",
+            `translate(${centerX + radius + 200 - tapeWidth / 2}, ${centerY})`
+        );
 
-    const body = tapeContainer.append("rect")
+    const body = tapeContainer
+        .append("rect")
         .attr("x", -30)
         .attr("y", -50)
         .attr("width", 60)
@@ -185,7 +194,8 @@
         .attr("stroke-width", 3);
 
     // **Şerit (Sarı Dikdörtgen)**
-    const tape = tapeContainer.append("rect")
+    const tape = tapeContainer
+        .append("rect")
         .attr("x", -tapeWidth / 2)
         .attr("y", -50)
         .attr("width", tapeWidth)
@@ -195,22 +205,43 @@
         .attr("stroke-width", 2);
 
     // **Şeritin Ucundaki Gri Tutacak**
-    const tapeGrip = tapeContainer.append("rect")
+    const tapeGrip = tapeContainer
+        .append("rect")
         .attr("x", -tapeWidth / 2 - 5)
-        .attr("y", -50 - gripHeight)
+        .attr("y", 0)
         .attr("width", tapeWidth + 10)
         .attr("height", gripHeight)
         .attr("fill", "#B0B0B0")
         .attr("stroke", "black")
         .attr("stroke-width", 2);
 
+    const tapeText = tapeContainer
+        .append("text")
+        .attr("x", -tapeWidth / 2 + 100)
+        .attr("y", 10)
+        .attr("font-size", "22px")
+        .attr("font-weight", 600)
+        .attr("fill", "FF5722")
+        .attr("pointer-events", "none")
+        .style("user-select", "none")
+        .text("0");
+
+    const tapeDegreeText = tapeContainer
+        .append("text")
+        .attr("x", -7)
+        .attr("y", -10)
+        .attr("font-size", "21px")
+        .attr("font-weight", 600)
+        .attr("fill", "white")
+        .attr("pointer-events", "none")
+        .style("user-select", "none")
+        .text("0°");
     let isDragging = false;
 
     // Fare basıldığında (mousedown) drag işlemini başlat
     svg2.on("mousedown", (event) => {
         isDragging = true;
         updateLine(event);
-
     });
 
     // Fare hareket ettiğinde (mousemove) çizgiyi güncelle
@@ -232,28 +263,28 @@
         // Merkezden fareye olan açıyı hesapla
         const angleCircle = Math.atan2(mouseY - centerY, mouseX - centerX);
 
-        let angleDegrees = (-1 * angleCircle) * (180 / Math.PI);
+        let angleDegrees = -1 * angleCircle * (180 / Math.PI);
         if (angleDegrees < 0) {
             angleDegrees += 360;
         }
 
-        let angleCircleTransform = (-1 * angleDegrees * (Math.PI / 180));
+        let angleCircleTransform = -1 * angleDegrees * (Math.PI / 180);
 
-
-        const arcGenerator = d3.arc()
-            .innerRadius(0)  // İç yarıçap
-            .outerRadius(smallCircleRadius)  // Dış yarıçap (küçük çemberin yarıçapı)
-            .startAngle(0)  // Başlangıç açısı
-            .endAngle(angleCircleTransform);  // Son açı (yavaşça büyüyen dilim)
-
+        const arcGenerator = d3
+            .arc()
+            .innerRadius(0) // İç yarıçap
+            .outerRadius(smallCircleRadius) // Dış yarıçap (küçük çemberin yarıçapı)
+            .startAngle(0) // Başlangıç açısı
+            .endAngle(angleCircleTransform); // Son açı (yavaşça büyüyen dilim)
 
         // Küçük çemberin diliminin yolunu çiz
         arcPath
             .attr("d", arcGenerator)
-            .attr("transform", `translate(${centerX}, ${centerY}) rotate(90)`)  // Çevreyi merkeze taşır
+            .attr("opacity", 0.4)
+            .attr("transform", `translate(${centerX}, ${centerY}) rotate(90)`); // Çevreyi merkeze taşır
 
         distanceCos = Math.cos(angleCircle);
-        distanceSin = (-1 * Math.sin(angleCircle));
+        distanceSin = -1 * Math.sin(angleCircle);
 
         const newX2 = centerX + radius * Math.cos(angleCircle);
         const newY2 = centerY + radius * Math.sin(angleCircle);
@@ -269,44 +300,45 @@
         // Eğer nokta merkezden yukarıdaysa (newY2 < centerY), şerit yukarı doğru uzar
         const tapeY = newY2 > centerY ? 0 : -tapeLength;
 
+        tape.attr("y", tapeY).attr("height", tapeLength);
 
-        tape.attr("y", tapeY)
-            .attr("height", tapeLength);
-
-        console.log(tapeLength)
+        console.log(tapeLength);
 
         tapeLength = newY2 > centerY ? tapeLength : -tapeLength;
-        tapeGrip.attr("y", tapeLength );
-    
+        tapeGrip.attr("y", tapeLength);
+        tapeText
+            .attr("y", tapeLength + 10)
+            .text(-Math.sin(angleCircle).toFixed(2));
+        
+        tapeDegreeText
+            .attr("y",-Math.sin(angleCircle) > 0 ? 35 : -10)
+            .attr("x", function() {
+                let length = angleDegrees.toFixed(0).length;
+                return length === 1 ? -7 : length === 2 ? -15 : -21;
+            })
+            .text(angleDegrees.toFixed(0) + "°");
 
         // Çizgiyi güncelle
-        line
-            .attr("x2", newX2)
-            .attr("y2", newY2);
+        line.attr("x2", newX2).attr("y2", newY2);
 
-        point
-            .attr("cx",newX2)
-            .attr("cy",newY2)
+        point.attr("cx", newX2).attr("cy", newY2);
 
         sinLine
             .attr("x1", centerX)
             .attr("y1", newY2)
             .attr("x2", centerX)
             .attr("y2", centerY);
-        sinLineRight
-            .attr("x1",centerX + radius + 250)
-            .attr("y1",newY2)
-            .attr("x2",centerX + radius + 250)
-            .attr("y2",centerY)
+        // sinLineRight
+        //     .attr("x1",centerX + radius + 250)
+        //     .attr("y1",newY2)
+        //     .attr("x2",centerX + radius + 250)
+        //     .attr("y2",centerY)
         dashLines
-            .attr("x1",newX2)
-            .attr("y1",newY2)
-            .attr("x2",centerX)
-            .attr("y2",newY2)
+            .attr("x1", newX2)
+            .attr("y1", newY2)
+            .attr("x2", centerX)
+            .attr("y2", newY2);
 
-        smallCircleY
-            .attr("x2", sNewX2)
-            .attr("y2", sNewY2);
-
+        smallCircleY.attr("x2", sNewX2).attr("y2", sNewY2);
     }
 })();

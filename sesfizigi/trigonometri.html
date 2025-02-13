@@ -441,26 +441,45 @@
                 Bu noktanın y eksenindeki izdüşümü, açının sinüs değerini ifade eder. 
                 Yani, noktanın y koordinatı, o noktaya karşılık gelen açının sinüs değerine eşittir.
             </p>
-            <div id="birimçemberSin"></div>
             <br>
             <br>
-            <div id="motorContainer">
-                <svg
-                    id="motorSvg"
-                    viewBox="0 0 700 138"
-                    preserveAspectRatio="xMidYMid meet"
-                ></svg>
-                <svg
-                    id="beltSvg"
-                    viewBox="0 0 1100 200"
-                    preserveAspectRatio="xMidYMid meet"
-                ></svg>
+            <br>
+            <div id="sinKapsamasi">
+                <div id="birimçemberSin"></div>
+                
+                <div id="tabloKapsamasi">
+                    <br>
+                        <br>
+                        <br>
+                    <div id="sinMadde">
+                        <p style="font-size: 17px;">
+                            Yandaki çemberde açı arttıkça, sinüs ekseni üzerindeki izdüşüm de artıp azalmaktadır.
+                            Sinüs fonksiyonu, minimum -1 ve maksimum 1 değerini alır. 
+                            Bir tablo aracılığıyla, sinüsün -1, 0 ve 1 değerlerini aldığı açıları inceleyelim.
+                        </p>
+                        
+                    </div>
+                    <div id="sinusTablo"></div>
+                    <div id="motorContainer">
+                        <svg
+                            id="motorSvg"
+                            viewBox="0 0 700 138"
+                            preserveAspectRatio="xMidYMid meet"
+                        ></svg>
+                        <svg
+                            id="beltSvg"
+                            viewBox="0 0 1100 200"
+                            preserveAspectRatio="xMidYMid meet"
+                        ></svg>
+                    </div>
+                    <div class="controls">
+                        <button id="startBtn">Başlat</button>
+                        <button id="stopBtn">Durdur</button>
+                    </div>
+                </div>
             </div>
+            <div id="birimçemberSin2"></div>
     
-            <div class="controls">
-                <button id="startBtn">Başlat</button>
-                <button id="stopBtn">Durdur</button>
-            </div>
             <div id="birimçemberSinCos"></div>
             <img src="/images/plak2.png" alt="plak2" class="pk" width="200" height="200">
         </div>
@@ -477,6 +496,8 @@
         <script src="/js/trigonometri/birimçemberBOS.js"></script>
         <script src="/js/trigonometri/parkur.js"></script>
         <script src="/js/trigonometri/birimçember_sin.js"></script>
+        <script src="/js/trigonometri/birimçember_sin2.js"></script>
+        <script src="/js/trigonometri/sinüsTablo.js"></script>
         <script src="/js/trigonometri/makine.js"></script>
         <script src="/js/trigonometri/birimçember_sincos.js" defer></script>
 </body>
