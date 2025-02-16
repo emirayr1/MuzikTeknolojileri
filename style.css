@@ -820,7 +820,63 @@ input[type="range"]:active::-moz-range-thumb {
 
 }
 
+#sin2Kapsamasi{
+    display: flex;
+}
 
+.sin2maddeleri{
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
+    background-color: var(--canvas-color);
+    border-radius: 10px; /* Köşeleri yuvarlat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    min-width: 840px;
+}
+
+.sin2maddeleri p{
+    font-size: 17px;
+}
+
+#sin2madde{
+    height: 270px;
+}
+
+#sin2CB{
+    background-color: var(--canvas-color);
+    border-radius: 10px;
+    margin-bottom: 23%;
+    margin-right: 20px;
+}
+
+#sin2CB label{
+    text-align: center;
+    padding-left: 27px;
+}
+
+#toggle30madde{
+    height: 500px;
+  
+}
+#toggle45madde{
+    height: 500px;
+}
+#toggle60madde{
+
+}
+#toggle150madde{
+
+}
+#toggleBos{
+    opacity: 0;
+    
+}
+
+#birimçemberSin2{
+    /* background-color: #cfafaf; */
+    width: 640px;
+    height: 650px;
+}
 
 #birimçemberAni {
     width: 600px;
