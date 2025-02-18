@@ -213,6 +213,7 @@
         .attr("height", gripHeight)
         .attr("fill", "#B0B0B0")
         .attr("stroke", "black")
+        .raise()
         .attr("stroke-width", 2);
 
     const tapeText = tapeContainer
@@ -309,16 +310,33 @@
         tapeText
             .attr("y", tapeLength + 10)
             .text(-Math.sin(angleCircle).toFixed(2));
-        
+
         tapeDegreeText
-            .attr("y",-Math.sin(angleCircle) > 0 ? 35 : -10)
-            .attr("x", function() {
+            .attr("y", -Math.sin(angleCircle) > 0 ? 35 : -10)
+            .attr("x", function () {
                 let length = angleDegrees.toFixed(0).length;
                 return length === 1 ? -7 : length === 2 ? -15 : -21;
             })
             .text(angleDegrees.toFixed(0) + "°");
 
-        // Çizgiyi güncelle
+        function drawLines() {
+            tapeContainer.selectAll(".tape-line").remove();
+            for (let i = 0; i < Math.abs(tapeLength + gripHeight); i += 20) {
+                tapeContainer
+                    .append("line")
+                    .attr("class", "tape-line")
+                    .attr("x1", -10)
+                    .attr("y1", tapeLength < 0 ? -i  : i)
+                    .attr("x2", tapeWidth - 20)
+                    .attr("y2", tapeLength < 0 ? -i : i)
+                    .attr("stroke", "black")
+                    .attr("stroke-width", 2)
+                    .attr("stroke-dasharray", "5,5");
+                }
+        }
+        drawLines(); // Başlangıçta çizgileri çiz
+    
+
         line.attr("x2", newX2).attr("y2", newY2);
 
         point.attr("cx", newX2).attr("cy", newY2);
