@@ -828,10 +828,10 @@ input[type="range"]:active::-moz-range-thumb {
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 40px;
+    
     background-color: var(--canvas-color);
     border-radius: 10px; /* Köşeleri yuvarlat */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
-    min-width: 840px;
 }
 
 .sin2maddeleri p{
@@ -855,28 +855,76 @@ input[type="range"]:active::-moz-range-thumb {
 }
 
 #toggle30madde{
-    height: 500px;
-  
+    height: 540px;
 }
 #toggle45madde{
-    height: 500px;
+    height: 540px;
 }
 #toggle60madde{
-
+    height: 540px;
 }
 #toggle150madde{
-
+    height: 540px;
+}
+#toggle240madde{    /* bunları classda toplayıp öyle height belirle teker teker yapma */
+    height: 540px;
+}
+#toggle330madde{    /* bunları classda toplayıp öyle height belirle teker teker yapma */
+    height: 540px;
 }
 #toggleBos{
     opacity: 0;
     
 }
 
+
 #birimçemberSin2{
     /* background-color: #cfafaf; */
     width: 640px;
     height: 650px;
 }
+
+.sin369tri{
+    margin-right: 40px;
+}
+
+#sin369trimad{
+    display: flex;
+    height: 200px;
+}
+
+#sin30tri{
+    margin-right: 40px;
+}
+
+#sin45-90tri{
+    margin-right: 40px;
+}
+
+#sin45tri{
+    margin-right: 40px;
+}
+
+#sin60tri{
+    margin-right: 40px;
+}
+
+#sin30trimad{
+    display: flex;
+    height: 140px;
+}
+
+#genelFormul180{
+    
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 8%;
+    text-align: center;
+    border: 3px solid #ec303081;
+    border-radius: 10px;
+    width: 300px;
+}
+
 
 #birimçemberAni {
     width: 600px;

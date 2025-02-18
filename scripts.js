@@ -279,3 +279,16 @@ customElements.define('ex-footer', ExFooter);
 
 
 
+
+// scroll into
+
+document.querySelectorAll(".ispat_369").forEach(element => {
+    element.addEventListener("click", function () {
+        document.getElementById("ucgendeAciKapsamasi").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    });
+});
+
+

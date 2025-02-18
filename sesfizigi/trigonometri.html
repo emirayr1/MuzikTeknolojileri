@@ -498,27 +498,161 @@
                     <label>
                         <input type="checkbox" id="toggle150"> 150°
                     </label>
+
+                    <label>
+                        <input type="checkbox" id="toggle240"> 240°
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="toggle330"> 330°
+                    </label>
                 </div>
                 <div class="sin2maddeleri" id="sin2madde">
-                    <p style="font-size: 17px;">Sinüs değerinin 1, -1 ve 0 olduğu açıları 
+                    <p style="font-size: 17px; font-weight: 500;">Sinüs değerinin 1, -1 ve 0 olduğu açıları 
                     birimçember üzerinden görmek kolay ancak 30 45 60 gibi açıların sinüs değerini nasıl bulacağız?</p>
                     <br>
-                    <p style="font-size: 17px;">Bu değerleri belirlemek için üçgenlerden faydalanacağız. 
+                    <br>
+                    <p style="font-size: 15px; font-weight: 400;">Bu değerleri belirlemek için üçgenlerden faydalanacağız. 
                         Birim çemberde sinüs, açının karşısındaki kenarın uzunluğunu temsil eder. 
                         Dolayısıyla, herhangi bir açının sinüsünü bulmak için o açıyı içeren bir üçgen çizip 
                         Pisagor teoremi ve çeşitli geometrik yöntemlerle karşı kenarın uzunluğunu hesaplayabiliriz.</p>
                 </div>
                 <div class="sin2maddeleri" id="toggle30madde">
-                    <p>30</p>
+                        <p>• 30° açısı, birim çemberin 1. bölgesinde yer aldığı için sinüs değeri pozitiftir. (+,+)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                        <br>
+                        <br>
+                        <div id="sin369trimad">
+                            <div class="sin369tri"></div>
+                            <small id="sin369sm" style="padding: 20px; margin-top: 30px;">30-60-90 üçgeninin açı-kenar oranları bu şekildedir. 
+                                Yarıçapın uzunluğu hipotenüse eşit olduğu için hipotenüsü 1 birim alarak bu oranları diğer kenarlara uygulayalım.
+                                <span class="ispat_369" style="cursor: pointer; color: blue; text-decoration: underline;"><small style="font-size: 0.6em;">ispat</small></span>
+                                <br>
+                                <br>
+                                <br>
+                                <small>2a = 1 <br> <small>a = 0.5</small>
+                                </small>
+                            </small>
+                        </div>
+                        <div id="sin30trimad">
+                            <div id="sin30tri"></div>
+                            <small id="sin30sm" style="padding: 20px; margin-top: 30px;">Oranları hipotenüsü 1 birim alarak uyguladığımızda kenarların değerleri bu şekildedir.
+                                Artık sin30°' yi bulmak için tek yapmamız gereken 30°'nin karşısındaki kenar uzunluğuna bakmaktır.
+                                <br>
+                                <br>
+                                <p style="font-size: 14px; font-weight: 600; border: 3px solid #ec303081; width: 155px; padding: 2px;">
+                                    Sin(30°) = 0.5 =  <math><mfrac>
+                                        <mn>1</mn>
+                                        <mn>2</mn>
+                                      </mfrac></math></p>
+                                </p>
+                            </small>
+                        </div>
                 </div>
                 <div class="sin2maddeleri" id="toggle45madde">
-                    <p>45</p>
+                    <p>• 45° açısı, birim çemberin 1. bölgesinde yer aldığı için sinüs değeri pozitiftir. (+,+)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                        <br>
+                        <br>
+                        <div id="sin369trimad">
+                            <div id="sin45-90tri"></div>
+                            <small id="sin369sm" style="padding: 20px; margin-top: 30px;">45-45-90 üçgeninin açı-kenar oranları bu şekildedir. 
+                                Yarıçapın uzunluğu hipotenüse eşit olduğu için hipotenüsü 1 birim alarak bu oranları diğer kenarlara uygulayalım.
+                                <span class="ispat_369" style="cursor: pointer; color: blue; text-decoration: underline;"><small style="font-size: 0.6em;">ispat</small></span>
+                                <br>
+                                <br>
+                                <br>
+                                <small>a√2 = 1 
+                                <br> 
+                                <small>a = <math><mfrac>
+                                    <mn>1</mn>
+                                    <mn>√2</mn>
+                                  </mfrac></math>
+                                  =
+                                  <math><mfrac>
+                                    <mn>√2</mn>
+                                    <mn>2</mn>
+                                  </mfrac></math>
+                                  
+                                </small>
+                                </small>
+                            </small>
+                        </div>
+                        <div id="sin30trimad">
+                            <div id="sin45tri"></div>
+                            <small id="sin30sm" style="padding: 20px; margin-top: 30px;">Oranları hipotenüsü 1 birim alarak uyguladığımızda kenarların değerleri bu şekildedir.
+                                Artık sin45°' yi bulmak için tek yapmamız gereken 45°'nin karşısındaki kenar uzunluğuna bakmaktır.
+                                <br>
+                                <br>
+                                <p style="font-size: 14px; font-weight: 600; border: 3px solid #ec303081; width: 115px; padding: 2px;">
+                                    Sin(45°) =<math><mfrac>
+                                        <mn>√2</mn>
+                                        <mn>2</mn>
+                                      </mfrac></math></p>
+                            </small>
+                        </div>
                 </div>
                 <div class="sin2maddeleri" id="toggle60madde">
-                    <p>60</p>
+                    <p>• 60° açısı, birim çemberin 1. bölgesinde yer aldığı için sinüs değeri pozitiftir. (+,+)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                        <br>
+                        <br>
+                        <div id="sin369trimad">
+                            <div class="sin369tri"></div>
+                            <small id="sin369sm" style="padding: 20px; margin-top: 30px;">30-60-90 üçgeninin açı-kenar oranları bu şekildedir. 
+                                Yarıçapın uzunluğu hipotenüse eşit olduğu için hipotenüsü 1 birim alarak bu oranları diğer kenarlara uygulayalım.
+                                <span id="369_ispat" style="cursor: pointer; color: blue; text-decoration: underline;"><small style="font-size: 0.6em;">ispat</small></span>
+                                <br>
+                                <br>
+                                <br>
+                                <small>2a = 1 <br> <small>a = 0.5</small>
+                                </small>
+                            </small>
+                        </div>
+                        <div id="sin30trimad">
+                            <div id="sin60tri"></div>
+                            <small id="sin30sm" style="padding: 20px; margin-top: 30px;">Oranları hipotenüsü 1 birim alarak uyguladığımızda kenarların değerleri bu şekildedir.
+                                Artık sin60°' yi bulmak için tek yapmamız gereken 60°'nin karşısındaki kenar uzunluğuna bakmaktır.
+                                <br>
+                                <br>
+                                <p style="font-size: 14px; font-weight: 600; border: 3px solid #ec303081; width: 185px; padding: 2px;">
+                                    Sin(60°) = 0.5√3 = <math><mfrac>
+                                        <mn>√3</mn>
+                                        <mn>2</mn>
+                                      </mfrac></math></p>
+                            </small>
+                        </div>
                 </div>
                 <div class="sin2maddeleri" id="toggle150madde">
-                    <p>150</p>
+                    <p>• 150° açısı, birim çemberin 2. bölgesinde yer aldığı için sinüs değeri pozitiftir. (-,+)</p>
+                    <br>
+                    <p style="font-size: 14px; font-weight: 400;"><span style="font-size: 15px;">Referans Açı:</span> &nbsp;Referans açı, açının 
+                        birim çemberde x eksenine göre olan en küçük pozitif açısıdır.</p>
+                    <br>
+                    <p style="font-size: 16px;">• 150° ' yi herhangi bir dik üçgende göstermemiz mümkün olmadığı için referans açısını kullanmamız gerekir. </p>
+                    <br>
+                    <p style="font-size: 16px;">• 150° ' nin referans açısı yani x eksenine göre en küçük pozitif açısı 30° ' dir. 
+                        Referans açısının sinüs değeri yani sin30°, sin150° ile aynıdır.
+                    </p>
+                    <br>
+                    <br>
+                    <p style="font-style: italic; font-size: 15px;">Sin150° = Sin30° = <math><mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                      </mfrac></math></p>
+                    <div id="genelFormul180">
+                        <p>Genel Formül</p>
+                        <br>
+                        <p>sin(180° - x) = sin(x)</p>
+                    </div>
+                </div>
+
+                <div class="sin2maddeleri" id="toggle240madde">
+                    <p>240</p>
+
+                </div>
+                <div class="sin2maddeleri" id="toggle330madde">
+                    <p>330</p>
                 </div>
             </div>
     
@@ -541,6 +675,11 @@
         <script src="/js/trigonometri/birimçember_sin2.js"></script>
         <script src="/js/trigonometri/sinüsTablo.js"></script>
         <script src="/js/trigonometri/makine.js"></script>
+        <script src="/js/trigonometri/sin369triangle.js"></script>
+        <script src="/js/trigonometri/sin30triangle.js"></script>
+        <script src="/js/trigonometri/sin45-90triangle.js"></script>
+        <script src="/js/trigonometri/sin45triangle.js"></script>
+        <script src="/js/trigonometri/sin60triangle.js"></script>
         <script src="/js/trigonometri/birimçember_sincos.js" defer></script>
 </body>
 </html>
