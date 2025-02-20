@@ -14,7 +14,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <!-- Bu paragrafta bir metin <a href="https://example.com" target="_blank"><small>kaynak</small></a> yer alıyor.  ispat için -->
-<body style="height: 1000vh;">
+<body style="height: 1500vh;">
     <ex-header-fizik></ex-header-fizik> <!--HEADER-->
     <div class="mainCanvas">
         <div class="ana">
@@ -749,8 +749,348 @@
             <div id="cosKapsamasi">
                 <div id="birimçemberCos"></div>
             </div>
-            <div id="birimçemberSinCos"></div>
-            <img src="/images/plak2.png" alt="plak2" class="pk" width="200" height="200">
+            <div id="cos2Kapsamasi">
+                <div id="birimçemberCos2"></div>
+                <div class="checkBoxes" id="cos2CB">
+                    <label>
+                        <input type="checkbox" id="toggleBosCos"> <img src="/images/home.svg" alt="home">
+                    </label>
+                    <label>
+                        <input type="checkbox" id="toggle30Cos"> 30°
+                    </label>
+                    
+                    <label>
+                        <input type="checkbox" id="toggle45Cos"> 45°
+                    </label>
+        
+                    <label>
+                        <input type="checkbox" id="toggle60Cos"> 60°
+                    </label>
+    
+                    <label>
+                        <input type="checkbox" id="toggle150Cos"> 150°
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="toggle240Cos"> 240°
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="toggle330Cos"> 330°
+                    </label>
+                </div>
+                <div class="sin2maddeleri" id="cos2madde">
+                    <p style="font-size: 15px; font-weight: 400;">Kosinüs ekseni 
+                        x-eksenidir. Sinüs değerini bulmak için açının karşı kenarının uzunluğuna bakarken, 
+                        kosinüs değerini bulmak için açının komşu kenarının uzunluğunu dikkate alırız.
+                    </p>
+                    <div id="cosineTablo"> </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Bölge</th>
+                                    <th>Özdeşlik</th>
+                                    <th>Kosinüsün İşareti</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1. Bölge (0° - 90°)</td>
+                                    <td style="font-size: 15px; font-weight: 600;">cos(x) = cos(x)</td>
+                                    <td class="positive">Pozitif ✅</td>
+                                </tr>
+                                <tr>
+                                    <td>2. Bölge (90° - 180°)</td>
+                                    <td style="font-size: 15px; font-weight: 600;">cos(180° - x) = -cos(x)</td>
+                                    <td class="negative">Negatif ❌</td>
+                                </tr>
+                                <tr>
+                                    <td>3. Bölge (180° - 270°)</td>
+                                    <td style="font-size: 15px; font-weight: 600;">cos(180° + x) = -cos(x)</td>
+                                    <td class="negative">Negatif ❌</td>
+                                </tr>
+                                <tr>
+                                    <td>4. Bölge (270° - 360°)</td>
+                                    <td style="font-size: 15px; font-weight: 600;">cos(360° - x) = cos(x)</td>
+                                    <td class="positive">Pozitif ✅</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="sin2maddeleri" id="toggle30maddeCos">
+                    <p>• 30° açısı, birim çemberin <span style="color: black; font-size: 16px;">1. bölgesinde</span> yer aldığı için kosinüs değeri pozitiftir. (+,+)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                        <br>
+                        <br>
+                        <div class="costrimad">
+                            <div id="cos30tri"></div>
+                            <small id="sin369sm" style="padding: 20px; margin-top: 30px;">Yandaki üçgende hipotenüs uzunluğunu 1 birim alıp 30-60-90
+                                üçgeni oranlarını yazdık.
+                                <br>
+                                ---
+                                <br>
+                                30° 'nin kosinüsünü bulmak için açının komşu kenarının uzunluğuna bakarız.
+                                <br>
+                                <br>
+                                <small>cos(30°) = 0.5√3 =  <math><mfrac>
+                                    <mn>√3</mn>
+                                    <mn>2</mn>
+                                  </mfrac></math></p>
+                                </small>
+                            </small>
+                        </div>
+                        <div class="costrimad">
+                            <div id="cos30triSin"></div>
+                            <small id="sin30sm" style="padding: 20px; margin-top: 30px;">Dik üçgende 30°α 60°β ve 90° 'lik 3 tane açımız olsun.
+                                Bu durumda cos(30°) ile sin(60°) aynı kenar uzunluğunu verir.
+                                <br>
+                                <small>Buradan yola çıkarak sinüs ve kosinüsün birbirini 90° 'ye tamamladığını söyleyebiliriz.</small>
+                                <br>
+                                <br>
+                                <p style="font-size: 14px; font-weight: 600; border: 3px solid #ec303081; width: 155px; padding: 2px;">
+                                    sin(x) = cos(90° - x)
+                                    <br>
+                                    cos(x) = sin(90° - x)
+                                </p>
+                            </small>
+                        </div>
+                </div>
+                <div class="sin2maddeleri" id="toggle45maddeCos">
+                    <p>• 45° açısı, birim çemberin <span style="color: black; font-size: 16px;">1. bölgesinde</span> yer aldığı için kosinüs değeri pozitiftir. (+,+)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                        <br>
+                        <br>
+                        <div class="costrimad">
+                            <div id="cos45tri"></div>
+                            <small id="sin369sm" style="padding: 20px; margin-top: 30px;">
+                                45° 'nin kosinüsünü bulmak için açının komşu kenarının uzunluğuna bakarız.
+                                <br>
+                                <small>İki kenarın uzunluğu da aynı olduğundan dolayı iki açının da kosinüsü aynıdır.</small>
+                                <br>
+                                <br>
+                                <small>cos(45°) = <math><mfrac>
+                                    <mn>√2</mn>
+                                    <mn>2</mn>
+                                  </mfrac></math></p>
+                                </small>
+                            </small>
+                        </div>
+                        <div class="costrimad">
+                            <div id="cos45triSin"></div>
+                            <small id="sin30sm" style="padding: 20px; margin-top: 30px;">cos(x) = sin(90° - x) eşitliğini uyguladığımız zaman
+                                <br>
+                                <br>
+                                <p style="font-size: 14px; font-weight: 600; border: 3px solid #ec303081; width: 155px; padding: 2px;">
+                                    cos(45°) = sin(45°)
+                                </p>
+                            </small>
+                        </div>
+                </div>
+                <div class="sin2maddeleri" id="toggle60maddeCos">
+                    <p>• 60° açısı, birim çemberin <span style="color: black; font-size: 16px;">1. bölgesinde</span> yer aldığı için kosinüs değeri pozitiftir. (+,+)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                        <br>
+                        <br>
+                        <div class="costrimad">
+                            <div id="cos60tri"></div>
+                            <small id="sin369sm" style="padding: 20px; margin-top: 30px;">
+                                60° 'nin kosinüsünü bulmak için açının komşu kenarının uzunluğuna bakarız.
+                                <br>
+                                <br>
+                                <small>cos(60°) = 0.5 =  <math><mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                  </mfrac></math></p>
+                                </small>
+                            </small>
+                        </div>
+                        <div class="costrimad">
+                            <div id="cos60triSin"></div>
+                            <small id="sin30sm" style="padding: 20px; margin-top: 30px;">cos(x) = sin(90° - x) eşitliğini uyguladığımız zaman
+                                <br>
+                                cos(60°) 'ın sin(30°) 'a eşit olduğunu görürüz.
+                                <br>
+                                
+                                <br>
+                                <br>
+                                <p style="font-size: 14px; font-weight: 600; border: 3px solid #ec303081; width: 155px; padding: 2px;">
+                                    cos(60°) = sin(30°)
+                                </p>
+                            </small>
+                        </div>
+                </div>
+                <div class="sin2maddeleri" id="toggle150maddeCos">
+                    <p>• 150° açısı, birim çemberin <span style="color: black; font-size: 16px;">2. bölgesinde</span> yer aldığı için kosinüs değeri negatiftir. (-,+)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                        <br>
+                        <br>
+                        <div class="costrimad">
+                            <div id="cos150tri"></div>
+                            <small id="sin369sm" style="padding: 20px; margin-top: 30px;">
+                                150° 'nin kosinüsünü bulmak için referans açısından yararlanabiliriz.
+                                <br>
+                                <small>2. Bölgede olduğumuz için sonuç negatif çıkacaktır.</small>
+                                <br>
+                                <small>Referans açı olan 30° 'nin kosinüsünü alırız ve sonuç negatif olacağı için "-" ile çarparız.</small>
+                                <br>
+                                <p>• Böylelikle cos(150°) = -cos(30°) = -<math><mfrac>
+                                    <mn>√3</mn>
+                                    <mn>2</mn>
+                                  </mfrac></math></p>
+                                </p> 
+                            </small>
+                        </div>
+                            <div id="costriMad">
+                                <p>2. Bölge Formül</p>
+                                <br>
+                                <p>cos(180° - x) = -cos(x)</p>
+                            </div>
+                </div>
+                <div class="sin2maddeleri" id="toggle240maddeCos">
+                    <p>• 240° açısı, birim çemberin <span style="color: black; font-size: 16px;">3. bölgesinde</span> yer aldığı için kosinüs değeri negatiftir. (-,-)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                        <br>
+                        <br>
+                        <div class="costrimad">
+                            <div id="cos240tri"></div>
+                            <small id="sin369sm" style="padding: 20px; margin-top: 30px;">
+                                <br>
+                                <small>3. Bölgede olduğumuz için sonuç negatif çıkacaktır.</small>
+                                <br>
+                                <small>Referans açı olan 60° 'nin kosinüsünü alırız ve sonuç negatif olacağı için "-" ile çarparız.</small>
+                                <br>
+                                <p>• Böylelikle cos(240°) = -cos(60°) = -<math><mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                  </mfrac></math></p>
+                                </p> 
+                            </small>
+                        </div>
+                            <div id="costriMad">
+                                <p>3. Bölge Formül</p>
+                                <br>
+                                <p>cos(180° + x) = -cos(x)</p>
+                            </div>
+                </div>
+                <div class="sin2maddeleri" id="toggle330maddeCos">
+                    <p>• 240° açısı, birim çemberin <span style="color: black; font-size: 16px;">4. bölgesinde</span> yer aldığı için kosinüs değeri pozitiftir. (+,-)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                        <br>
+                        <br>
+                        <div class="costrimad">
+                            <div id="cos330tri"></div>
+                            <small id="sin369sm" style="padding: 20px; margin-top: 30px;">
+                                <br>
+                                <small>4. Bölgede olduğumuz için sonuç pozitif çıkacaktır.</small>
+                                <br>
+                                <small>Referans açı olan 30° 'nin kosinüsünü alırız ve sonuç pozitif olacağı için başka bir işlem yapmamıza gerek kalmaz.</small>
+                                <br>
+                                <p>• Böylelikle cos(330°) = cos(30°) = <math><mfrac>
+                                    <mn>√3</mn>
+                                    <mn>2</mn>
+                                  </mfrac></math></p>
+                                </p> 
+                            </small>
+                        </div>
+                            <div id="costriMad">
+                                <p>4. Bölge Formül</p>
+                                <br>
+                                <p>cos(360° - x) = cos(x)</p>
+                            </div>
+                </div>
+            </div>
+            <p style="font-weight: 600;">Sinüs ve kosinüs hesaplamalarını, birim çember üzerinde oluşan ve hipotenüsü 1 birim olan dik üçgenlerde gerçekleştirdik. 
+                Şimdi ise hipotenüsü 1’den farklı olan dik üçgenlerde trigonometrik oranların nasıl hesaplanacağını inceleyelim.
+            </p>
+            <br>
+            <p>• Asıl amacımız, hipotenüsü 1’e indirerek oranları birim çemberdeki trigonometrik tanımlarla uyumlu hale getirmektir. 
+                Bu nedenle, herhangi bir dik üçgende sinüs veya kosinüs hesaplanırken, ilgili kenar uzunluğu hipotenüse bölünerek oran elde edilir.</p>
+                <br>
+                <br>
+            <div id="sincosColumn">
+                    <div id="equationSinCos">
+                    <p>sinθ = 
+                        <span class="fraction">
+                            <span style="color: black;" class="numerator">Karşı Kenar</span>
+                            <span style="color: rgb(255, 0, 0);" class="denominator">Hipotenüs</span>
+                        </span>
+                    </p>
+                    <br>
+                    <p>
+                        cosθ = 
+                        <span class="fraction">
+                            <span style="color: black;" class="numerator">Komşu Kenar</span>
+                            <span style="color: rgb(255, 0, 0);" class="denominator">Hipotenüs</span>
+                        </span>
+                    </p>
+                    </div>
+                <div class="tris" id="tri1H">
+                    <div id="tri_1"></div>
+                    <small>
+                        sinθ = <math><mfrac>
+                            <mn>5</mn>
+                            <mn>13</mn>
+                          </mfrac></math>
+                    </small>
+                    <br>
+                    <small>
+                        cosθ = <math><mfrac>
+                            <mn>12</mn>
+                            <mn>13</mn>
+                          </mfrac></math>
+                    </small>
+                </div>
+                <div class="tris" id="tri2H">
+                    <div id="tri_2"></div>
+                    <small>
+                        sinα = <math><mfrac>
+                            <mn>15</mn>
+                            <mn>17</mn>
+                          </mfrac></math>
+                    </small>
+                    <br>
+                    <small>
+                        cosα = <math><mfrac>
+                            <mn>8</mn>
+                            <mn>17</mn>
+                          </mfrac></math>
+                    </small>
+                </div>
+                <div class="tris" id="tri3H">
+                    <div id="tri_3"></div>
+                    <small>
+                        sinθ = <math><mfrac>
+                            <mn>3</mn>
+                            <mn>5</mn>
+                          </mfrac></math>
+                    </small>
+                    <br>
+                    <small>
+                        cosθ = <math><mfrac>
+                            <mn>4</mn>
+                            <mn>5</mn>
+                          </mfrac></math>
+                    </small>
+                </div>
+                <div class="tris" id="tri4H">
+                    <div id="tri_4"></div>
+                    <small>
+                        sinα = <math><mfrac>
+                            <mn>30</mn>
+                            <mn>34</mn>
+                          </mfrac></math>
+                    </small>
+                    <br>
+                    <small>
+                        cosα = <math><mfrac>
+                            <mn>16</mn>
+                            <mn>34</mn>
+                          </mfrac></math>
+                    </small>
+                </div>
+            </div>
         </div>
         <ex-sidebar-fizik></ex-sidebar-fizik>
         <!-- <ex-footer></ex-footer> -->
@@ -774,6 +1114,18 @@
         <script src="/js/trigonometri/sin45triangle.js"></script>
         <script src="/js/trigonometri/sin60triangle.js"></script>
         <script src="/js/trigonometri/birimçember_cos.js"></script>
+        <script src="/js/trigonometri/birimçember_cos2.js"></script>
+        <script src="/js/trigonometri/kosinüsTablo.js"></script>
+        <script src="/js/trigonometri/cos30triangle.js"></script>
+        <script src="/js/trigonometri/cos30triSin.js"></script>
+        <script src="/js/trigonometri/cos45triangle.js"></script>
+        <script src="/js/trigonometri/cos45triSin.js"></script>
+        <script src="/js/trigonometri/cos60triangle.js"></script>
+        <script src="/js/trigonometri/cos60triSin.js"></script>
+        <script src="/js/trigonometri/cos150triangle.js"></script>
+        <script src="/js/trigonometri/cos240triangle.js"></script>
+        <script src="/js/trigonometri/cos330triangle.js"></script>
+        <script src="/js/trigonometri/tri1234.js"></script>
         <script src="/js/trigonometri/birimçember_sincos.js" defer></script>
 </body>
 </html>

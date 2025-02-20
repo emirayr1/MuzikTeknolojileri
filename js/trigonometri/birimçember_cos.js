@@ -44,7 +44,7 @@
         .attr("stroke-width", 4)
         .raise();
 
-    dashLines = svg2
+    dashLinesC = svg2
         .append("line")
         .attr("x1", centerX + radius)
         .attr("y1", centerY)
@@ -60,6 +60,7 @@
         .attr("y1", centerY)
         .attr("x2", centerX + radius)
         .attr("y2", centerY)
+        .lower()
         .attr("stroke", "blue")
         .attr("stroke-width", 10);
 
@@ -402,7 +403,7 @@
             })
             .text(angleDegrees.toFixed(0) + "°");
 
-        dashLines
+        dashLinesC
             .attr("x1", newX2)
             .attr("y1", newY2)
             .attr("x2", newX2)

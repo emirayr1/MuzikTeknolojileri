@@ -831,7 +831,7 @@ input[type="range"]:active::-moz-range-thumb {
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 40px;
-    
+    height: 560px;
     background-color: var(--canvas-color);
     border-radius: 10px; /* Köşeleri yuvarlat */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
@@ -854,30 +854,28 @@ input[type="range"]:active::-moz-range-thumb {
     padding-left: 27px;
 }
 
-#sin2madde{
-    height: 560px;
+#cos2Kapsamasi{
+    display: flex;
 }
-#toggle30madde{
-    height: 560px;
+
+#cos2CB{
+    background-color: var(--canvas-color);
+    border-radius: 10px;
+    margin-bottom: 23%;
+    margin-right: 20px;
 }
-#toggle45madde{
-    height: 560px;
+
+#cos2CB label{
+    text-align: center;
+    padding-left: 27px;
 }
-#toggle60madde{
-    height: 560px;
-}
-#toggle150madde{
-    height: 560px;
-}
-#toggle240madde{    /* bunları classda toplayıp öyle height belirle teker teker yapma */
-    height: 560px;
-    width: 813px;
-}
-#toggle330madde{    /* bunları classda toplayıp öyle height belirle teker teker yapma */
-    height: 560px;
-    width: 813px;
-}
+
+
 #toggleBos{
+    opacity: 0;
+}
+
+#toggleBosCos{
     opacity: 0;
 }
 
@@ -944,9 +942,17 @@ tbody tr:nth-child(odd) {
     height: 650px;
 }
 
-#birimçemberCos{
-    
+#birimçemberCos2{
+    width: 640px;
+    height: 650px;
 }
+
+#cosineTablo{
+    transform: scale(0.8);
+    align-items: center;
+    text-align: center;
+}
+
 
 .sin369tri{
     margin-right: 40px;
@@ -956,6 +962,18 @@ tbody tr:nth-child(odd) {
     display: flex;
     height: 200px;
 }
+
+.costrimad{
+    display: flex;
+    height: 200px;
+}
+
+#costriMad{
+    align-items: center;
+    text-align: center;
+    margin-top: 10%;
+}
+
 
 #sin30tri{
     margin-right: 40px;
@@ -1025,13 +1043,43 @@ tbody tr:nth-child(odd) {
     width: 300px;
 }
 
-#birimçemberAni {
-    width: 600px;
-    height: 600px;
-    margin: 0 auto;
-    /* margin-top: 100px; */
+.fraction {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.2em;
+}
+
+.fraction .numerator {
+    display: block;
+    font-weight: bold;
+}
+
+.fraction .denominator {
+    display: block;
+    font-weight: bold;
+    border-top: 2px solid black; /* Bölme çizgisi */
+    padding-top: 3px;
+}
+
+
+#sincosColumn{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.tris{
+    margin-left: 77px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tris small{
     position: relative;
-    /* background-color: #000000; */
+    font-weight: 600;
+    margin: 0 auto;
+    bottom: 25%;
 }
 
 .footer {
