@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Büyük Kronometre Örneği</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body {
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="kronometre"></div>
+
+  <script>
+    // SVG boyutlarını belirleyelim
+    const width = 500;
+    const height = 500;
+    const svg = d3
+      .select("#kronometre")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    const centerX = width / 2;
+    const centerY = height / 2;
+
+    // Kronometrenin genel boyutları
+    const outerRadius = 180; // Dış gövde yarıçapı
+    const innerRadius = 140; // Ekranın bulunduğu iç kısım
+
+    // ----------------------------
+    // 1) Dış Gövde (Ana gövde)
+    // ----------------------------
+    svg.append("circle")
+      .attr("cx", centerX)
+      .attr("cy", centerY)
+      .attr("r", outerRadius)
+      .attr("fill", "#333") // Koyu gri/siyah gövde
+      .attr("stroke", "#000")
+      .attr("stroke-width", 2);
+
+    // Dış gövdede hafif kabartma (içte ikinci bir çember)
+    svg.append("circle")
+      .attr("cx", centerX)
+      .attr("cy", centerY)
+      .attr("r", outerRadius - 10)
+      .attr("fill", "#444")
+      .attr("stroke", "#000")
+      .attr("stroke-width", 1);
+
+    // ----------------------------
+    // 2) Üst Kısım (Kronometre Tepesi, Tuşlar)
+    // ----------------------------
+    // Üstteki merkezi tuş (küçük silindir görünümü)
+    svg.append("rect")
+      .attr("x", centerX - 15)
+      .attr("y", centerY - outerRadius - 10)
+      .attr("width", 30)
+      .attr("height", 20)
+      .attr("rx", 5)
+      .attr("fill", "#111");
+
+    // Sol üst tuş
+    svg.append("circle")
+      .attr("cx", centerX - 60)
+      .attr("cy", centerY - outerRadius + 20)
+      .attr("r", 12)
+      .attr("fill", "#222");
+
+    // Sağ üst tuş
+    svg.append("circle")
+      .attr("cx", centerX + 60)
+      .attr("cy", centerY - outerRadius + 20)
+      .attr("r", 12)
+      .attr("fill", "#222");
+
+    svg.append("circle")
+      .attr("cx", centerX)
+      .attr("cy", centerY)
+      .attr("r", innerRadius)
+      .attr("fill", "#222");
+
+    // Dijital ekranı temsil eden dikdörtgen
+    const screenWidth = 160;
+    const screenHeight = 60;
+    svg.append("rect")
+      .attr("x", centerX - screenWidth / 2)
+      .attr("y", centerY - screenHeight / 2)
+      .attr("width", screenWidth)
+      .attr("height", screenHeight)
+      .attr("rx", 5)
+      .attr("fill", "#000")
+      .attr("stroke", "#555")
+      .attr("stroke-width", 1);
+
+    const ropePath = d3.path();
+    // Halatı sağ kenardan çıkıp döngü oluşturacak şekilde tasarlıyoruz
+    ropePath.moveTo(centerX + outerRadius - 10, centerY + 20);
+    ropePath.bezierCurveTo(
+      centerX + 240, centerY + 40, // kontrol noktası 1
+      centerX + 240, centerY - 40, // kontrol noktası 2
+      centerX + outerRadius - 10, centerY - 20
+    );
+
+    svg.append("path")
+      .attr("d", ropePath.toString())
+      .attr("fill", "none")
+      .attr("stroke", "#000")
+      .attr("stroke-width", 10)
+      .attr("stroke-linecap", "round");
+
+    // Daha koyu bir gölge efekti için ikinci path (biraz offset vererek)
+    const ropeShadow = d3.path();
+    ropeShadow.moveTo(centerX + outerRadius - 12, centerY + 20);
+    ropeShadow.bezierCurveTo(
+      centerX + 238, centerY + 40,
+      centerX + 238, centerY - 40,
+      centerX + outerRadius - 12, centerY - 20
+    );
+
+    svg.append("path")
+      .attr("d", ropeShadow.toString())
+      .attr("fill", "none")
+      .attr("stroke", "#111")
+      .attr("stroke-width", 6)
+      .attr("stroke-linecap", "round")
+      .attr("opacity", 0.6);
+
+    // Halatın uç kısımlarını kronometreye bağlayan küçük detaylar
+    svg.append("circle")
+      .attr("cx", centerX + outerRadius - 10)
+      .attr("cy", centerY + 20)
+      .attr("r", 4)
+      .attr("fill", "#000");
+
+    svg.append("circle")
+      .attr("cx", centerX + outerRadius - 10)
+      .attr("cy", centerY - 20)
+      .attr("r", 4)
+      .attr("fill", "#000");
+  </script>
+</body>
+</html>

@@ -293,7 +293,7 @@ body {
 }
 
 .ana h2 {
-    font-size: 50px;
+    font-size: 45px;
     color: #000000;
     text-decoration: underline;
     display: block;
@@ -301,18 +301,18 @@ body {
 }
 
 .ana h3 {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 800;
     color: var(--vurguRed-color);
 }
 
 .ana h4 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
 }
 
 .ana p {
-    font-size: 20px;
+    font-size: 16px;
     color: #000000;
     font-weight: var(--paragraf-wt);
 }
@@ -321,7 +321,7 @@ body {
     margin-top: 120px;
     text-align: center;
     width: 150px;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 500;
     text-decoration: none;
     color: white;
@@ -383,7 +383,7 @@ body {
     top: 100px;
     right: 120px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 500;
     text-decoration: none;
     z-index: 2;
@@ -406,7 +406,7 @@ body {
     width: 134px;
     padding: 10px 20px;
     z-index: 2;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 500;
     color: white;
     background-color: #ff4c4c;
@@ -512,7 +512,7 @@ body {
 }
 
 #dereceLabel {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
     display: block;
     position: absolute;
@@ -527,6 +527,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
 }
 
 #maddeCember {
@@ -597,7 +598,7 @@ body {
 }
 
 label {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: #333;
     display: block;
@@ -704,7 +705,7 @@ input[type="range"]:active::-moz-range-thumb {
     display: flex;
     align-items: center;
     gap: 10px; /* Checkbox ve metin arasında boşluk */
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     color: #333;
     cursor: pointer;
@@ -762,6 +763,7 @@ input[type="range"]:active::-moz-range-thumb {
 #parkurKapsamasi{
     display: flex;
     flex-direction: row;
+    
 }
 
 #parkur{
@@ -774,7 +776,7 @@ input[type="range"]:active::-moz-range-thumb {
     margin-top: 10%;
     text-align: center;
     width: 150px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     text-decoration: none;
     color: white;
@@ -808,6 +810,7 @@ input[type="range"]:active::-moz-range-thumb {
 
 #sinKapsamasi{
     display: flex;
+    transform: scale(0.84);
 }
 
 #sinusTablo{
@@ -835,12 +838,9 @@ input[type="range"]:active::-moz-range-thumb {
 }
 
 .sin2maddeleri p{
-    font-size: 17px;
+    font-size: 16px;
 }
 
-#sin2madde{
-    height: 270px;
-}
 
 #sin2CB{
     background-color: var(--canvas-color);
@@ -854,34 +854,98 @@ input[type="range"]:active::-moz-range-thumb {
     padding-left: 27px;
 }
 
+#sin2madde{
+    height: 560px;
+}
 #toggle30madde{
-    height: 540px;
+    height: 560px;
 }
 #toggle45madde{
-    height: 540px;
+    height: 560px;
 }
 #toggle60madde{
-    height: 540px;
+    height: 560px;
 }
 #toggle150madde{
-    height: 540px;
+    height: 560px;
 }
 #toggle240madde{    /* bunları classda toplayıp öyle height belirle teker teker yapma */
-    height: 540px;
+    height: 560px;
+    width: 813px;
 }
 #toggle330madde{    /* bunları classda toplayıp öyle height belirle teker teker yapma */
-    height: 540px;
+    height: 560px;
+    width: 813px;
 }
 #toggleBos{
     opacity: 0;
-    
 }
 
+.maddelers{
+    width: 100vh;
+}
+
+#cosKapsamasi{
+    transform: scale(0.84);
+}
+
+
+/* #region tables */
+.table-container {
+    margin: 0 auto;
+    width: 90%;
+    transform: scale(0.9);
+    max-width: 700px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    font-size: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #444;
+    padding: 12px;
+    text-align: center;
+    font-size: 13px;
+}
+
+th {
+    background-color: #919090;
+    font-size: 15px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--body-color);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--body-color);
+}
+
+.positive {
+    color: #03a003;
+    font-weight: bold;
+}
+
+.negative {
+    color: #ff4c4c;
+    font-weight: bold;
+}
+/* #endregion */
 
 #birimçemberSin2{
     /* background-color: #cfafaf; */
     width: 640px;
     height: 650px;
+}
+
+#birimçemberCos{
+    
 }
 
 .sin369tri{
@@ -925,6 +989,41 @@ input[type="range"]:active::-moz-range-thumb {
     width: 300px;
 }
 
+.paper{
+    position: relative;
+}
+
+.paper img{
+    transform: scaleX(1.4);
+    width: 20%;
+    height: 20%;
+}
+
+#bolge3ornek {
+    position: absolute;
+    top: 58%;
+    left: 7%;
+    transform: translate(-50%, -50%); /* Tam ortaya hizalar */
+    border-radius: 5px;
+}
+
+#genelFormul240{
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    border: 3px solid #ec303081;
+    border-radius: 10px;
+    width: 300px;
+}
+
+#genelFormul330{
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    border: 3px solid #ec303081;
+    border-radius: 10px;
+    width: 300px;
+}
 
 #birimçemberAni {
     width: 600px;

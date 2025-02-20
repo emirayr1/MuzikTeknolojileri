@@ -659,10 +659,7 @@
 
     const degreeArcNe330 = labels330
         .append("path")
-        .attr(
-            "transform",
-            `translate(${centerX}, ${centerY}) rotate(90, 0, 0)`
-        )
+        .attr("transform", `translate(${centerX}, ${centerY}) rotate(90, 0, 0)`)
         .attr(
             "d",
             d3.arc()({
@@ -807,6 +804,45 @@
         .style("user-select", "none")
         .text("y");
 
+    svg2.append("text")
+        .attr("x", centerX + 10)
+        .attr("y", 90)
+        .attr("font-size", "20px")
+        .attr("font-weight", 400)
+        .attr("fill", "FF5722")
+        .attr("pointer-events", "none")
+        .style("user-select", "none")
+        .text("+1");
+
+    svg2.append("text")
+        .attr("x", centerX + 10)
+        .attr("y", 525)
+        .attr("font-size", "20px")
+        .attr("font-weight", 400)
+        .attr("fill", "FF5722")
+        .attr("pointer-events", "none")
+        .style("user-select", "none")
+        .text("-1");
+
+    svg2.append("text")
+        .attr("x", centerX + radius + 10)
+        .attr("y", centerY - 10)
+        .attr("font-size", "20px")
+        .attr("font-weight", 400)
+        .attr("fill", "FF5722")
+        .attr("pointer-events", "none")
+        .style("user-select", "none")
+        .text("+1");
+    svg2.append("text")
+        .attr("x", centerX - radius - 35)
+        .attr("y", centerY - 10)
+        .attr("font-size", "20px")
+        .attr("font-weight", 400)
+        .attr("fill", "FF5722")
+        .attr("pointer-events", "none")
+        .style("user-select", "none")
+        .text("-1");
+
     // #endregion
     const ilkMadde = document.getElementById("sin2madde");
     const toggle30madde = document.getElementById("toggle30madde");
@@ -816,7 +852,7 @@
     const toggle240madde = document.getElementById("toggle240madde");
     const toggle330madde = document.getElementById("toggle330madde");
 
-    toggleDisplay("330");
+    toggleDisplay("bos");
     function toggleDisplay(selected) {
         if (selected === "30") {
             toggle30madde.style.display = "block";

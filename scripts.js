@@ -278,6 +278,16 @@ class ExFooter extends HTMLElement {
 customElements.define('ex-footer', ExFooter);
 
 
+// favicon
+(function() {
+    if (!document.querySelector("link[rel='icon']")) {  // Eğer favicon zaten eklenmişse, tekrar ekleme
+        let link = document.createElement("link");
+        link.rel = "icon";
+        link.type = "image/x-icon";
+        link.href = "/favicon.ico";  // Dosyanın yolunu doğru ayarla
+        document.head.appendChild(link);
+    }
+})();
 
 
 // scroll into
