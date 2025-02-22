@@ -9,8 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
-    <script type="text/javascript" async
-      src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <!-- Bu paragrafta bir metin <a href="https://example.com" target="_blank"><small>kaynak</small></a> yer alıyor.  ispat için -->
@@ -1091,6 +1089,25 @@
                     </small>
                 </div>
             </div>
+            <h3 style="color: black;">Eğim</h3>
+            <p>• Bir doğrunun eğimi, o doğrunun yukarı veya aşağı ne kadar dik olduğunu gösteren bir ölçüdür.</p>
+            <p>• Dikey değişimin, yatay değişime oranıyla hesaplanır.</p>
+            <p>• Eğim = 
+                <span class="fraction">
+                    <span style="color: rgb(0, 0, 0);" class="numerator">Δy</span>
+                    <span style="color: rgb(0, 0, 0);" class="denominator">Δx</span>
+                </span>
+                =
+                <span class="fraction">
+                    <span style="color: rgb(0, 0, 0);" class="numerator">sinθ</span>
+                    <span style="color: rgb(0, 0, 0);" class="denominator">cosθ</span>
+                </span></p>
+                <br>
+            <small>! Eğim, 90°, 270°, -90° ve -270° açılarında tanımsızdır, 
+                çünkü bu açılarda x eksenindeki değişim sıfır olur. <br>
+                Bir sayının sıfıra bölünmesi matematikte tanımsız olduğundan, bu açılarda eğim belirlenemez.</small>
+            <div id="egimDogru"></div>
+            <h3>Tanjant</h3>
         </div>
         <ex-sidebar-fizik></ex-sidebar-fizik>
         <!-- <ex-footer></ex-footer> -->
@@ -1126,6 +1143,7 @@
         <script src="/js/trigonometri/cos240triangle.js"></script>
         <script src="/js/trigonometri/cos330triangle.js"></script>
         <script src="/js/trigonometri/tri1234.js"></script>
+        <script src="/js/trigonometri/eğimDoğru.js"></script>
         <script src="/js/trigonometri/birimçember_sincos.js" defer></script>
 </body>
 </html>

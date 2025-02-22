@@ -902,7 +902,7 @@
     const toggle240maddeCos = document.getElementById("toggle240maddeCos");
     const toggle330maddeCos = document.getElementById("toggle330maddeCos");
 
-    toggleDisplay("330");
+    toggleDisplay("bos");
     function toggleDisplay(selected) {
         if (selected === "30") {
             toggle30maddeCos.style.display = "block";
