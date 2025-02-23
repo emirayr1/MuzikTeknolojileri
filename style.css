@@ -933,10 +933,19 @@ tbody tr:nth-child(odd) {
 }
 /* #endregion */
 
+#birimçemberSin{
+    cursor: pointer;
+}
+
 #birimçemberSin2{
     /* background-color: #cfafaf; */
     width: 640px;
     height: 650px;
+}
+
+
+#birimçemberCos{
+    cursor: pointer;
 }
 
 #birimçemberCos2{
@@ -1079,6 +1088,45 @@ tbody tr:nth-child(odd) {
     bottom: 25%;
 }
 
+#tanRow{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    gap: 150px;
+    margin-left: 0;
+}
+
+.tans{
+    display: flex;
+    flex-direction: column;
+    /* border: 3px solid rgb(148, 72, 72); */
+    padding: 20px;
+}
+
+#tanjant1{
+    /* background-color: #000000; */
+}
+
+#proofYazi{
+    padding: 30px;
+    background-color: var(--canvas-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+
+}
+
+#tanProofs{
+    display: flex;
+    gap: 100px;
+    padding: 50px;
+}
+
+
+#egimDogru{
+    /* background-color: #007bff; */
+    cursor: pointer;
+}
+
 .footer {
     background-color: #000000;
     color: white;
@@ -1087,11 +1135,6 @@ tbody tr:nth-child(odd) {
     position: relative;
     width: 100%;
 }
-
-#egimDogru{
-    /* background-color: #007bff; */
-}
-
 .footer a {
     color: var(--vurgu-color);
     text-decoration: none;

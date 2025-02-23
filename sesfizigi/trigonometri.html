@@ -1108,6 +1108,88 @@
                 Bir sayının sıfıra bölünmesi matematikte tanımsız olduğundan, bu açılarda eğim belirlenemez.</small>
             <div id="egimDogru"></div>
             <h3>Tanjant</h3>
+            <p>• Tanjant, bir doğrunun eğimini veren trigonometrik bir fonksiyondur.</p>
+            <p>• Tanjant fonksiyonu, 
+                eğimin tanımsız olduğu açılar (90°+𝑘180°, k ∈ 
+                <a href="https://tr.wikipedia.org/wiki/Tam_say%C4%B1#:~:text=Tam%20say%C4%B1lar%2C%20say%C4%B1lar%20k%C3%BCmesinde%20yer,
+                temsil%20etmek%20amac%C4%B1yla%20tercih%20edilir." target="_blank">ℤ</a>
+                ) hariç tüm reel sayılar için tanımlıdır ve çıktı olarak -∞ 'dan +∞ 'a kadar değer verebilir.</p>
+            <p>• <a href="https://www.desmos.com/calculator/ilkci6u9dz?lang=tr" target="_blank">x = 1 doğrusuna</a> tanjant ekseni adı verilir.</p>
+            <p>• Tanjant değeri, θ açısıyla çizilen bir yarıçapın x = 1 doğrusuyla(tanjant ekseni) kesiştiği noktanın y eksenindeki iz düşümüdür.</p>
+            <p>• Tanjant fonksiyonu doğrunun eğimini verdiğinden dolayı denklemi: tanθ = 
+                <span class="fraction">
+                    <span style="color: rgb(255, 0, 0); font-size: 16px;" class="numerator">sinθ</span>
+                    <span style="color: rgb(255, 0, 0); font-size: 16px;" class="denominator">cosθ</span>
+                </span> 'dır</p>
+            <br>
+            <div id="tanRow">
+                <div class="tans" id="tan1H">
+                    <small>• Tanjant eksenini çizelim (x = 1)</small>
+                    <br>
+                    <div id="tanjant1"></div>
+                </div>
+                <div class="tans" id="tan2H">
+                    <small>• θ açısıyla bir yarıçap çizip sinüs ve kosinüs bileşenlerine ayıralım</small>
+                    <br>
+                    <div id="tanjant2"></div>
+                </div>
+                <div class="tans" id="tan3H">
+                    <small>• Çizdiğimiz yarıçapı tanjant eksenine kadar uzatıp kesiştiği noktanın uzunluğunu ölçelim</small>
+                    <br>
+                    <div id="tanjant3"></div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <p style="color: rgb(59, 13, 13);"><span style="font-size: 35px; color: rgb(59, 13, 13);">?</span>Peki neden tanθ = <span class="fraction">
+                <span style="color: rgb(59, 13, 13); font-size: 16px; font-weight: 500;" class="numerator">sinθ</span>
+                <span style="color: rgb(59, 13, 13); font-size: 16px; font-weight: 500;" class="denominator">cosθ</span>
+            </span></p>
+            <br>
+            <small>• Bu eşitliği, üçgen benzerliğinden yararlanıp ispatlayacağız.</small>
+            <div id="tanProofs">
+                <div id="kucukUcgen"></div>
+                <div id="buyukUcgen"></div>
+                <div id="proofYazi">
+                    <small>• Üçgen benzerliğine göre küçük üçgendeki <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">karşı</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">komşu</span>
+                    </span>
+                    oranı ile büyük üçgendeki
+                    <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">karşı</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">komşu</span>
+                    </span> kenar oranının eşit olması gerekmektedir.</small>
+                    <br>
+                    
+                    <small>• Küçük üçgen = <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">sinθ</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">cosθ</span>
+                    </span></small>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br>
+                    
+                    <small>• Büyük üçgen = <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">tanθ</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">1</span>
+                    </span></small>
+                    <br>
+                    
+                    <small>• <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">sinθ</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">cosθ</span>
+                    </span> = <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">tanθ</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">1</span>
+                    </span></small>
+                    <br>
+                    
+                    <small id="tanEquation">• tanθ = <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">sinθ</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">cosθ</span>
+                    </span></small>
+                </div>
+            </div>
         </div>
         <ex-sidebar-fizik></ex-sidebar-fizik>
         <!-- <ex-footer></ex-footer> -->
@@ -1144,6 +1226,8 @@
         <script src="/js/trigonometri/cos330triangle.js"></script>
         <script src="/js/trigonometri/tri1234.js"></script>
         <script src="/js/trigonometri/eğimDoğru.js"></script>
+        <script src="/js/trigonometri/tanjant1234.js"></script>
+        <script src="/js/trigonometri/tanProof.js"></script>
         <script src="/js/trigonometri/birimçember_sincos.js" defer></script>
 </body>
 </html>
