@@ -12,7 +12,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <!-- Bu paragrafta bir metin <a href="https://example.com" target="_blank"><small>kaynak</small></a> yer alıyor.  ispat için -->
-<body style="height: 1500vh;">
+<body style="height: 2000vh;">
     <ex-header-fizik></ex-header-fizik> <!--HEADER-->
     <div class="mainCanvas">
         <div class="ana">
@@ -1147,10 +1147,10 @@
             </span></p>
             <br>
             <small>• Bu eşitliği, üçgen benzerliğinden yararlanıp ispatlayacağız.</small>
-            <div id="tanProofs">
+            <div class="Proofs">
                 <div id="kucukUcgen"></div>
                 <div id="buyukUcgen"></div>
-                <div id="proofYazi">
+                <div class="proofYazi">
                     <small>• Üçgen benzerliğine göre küçük üçgendeki <span class="fraction">
                         <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">karşı</span>
                         <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">komşu</span>
@@ -1190,6 +1190,102 @@
                     </span></small>
                 </div>
             </div>
+            <br>
+            <p>Interactive</p>
+            <div id="interactiveKapsamasi" style="display: flex;">
+
+                <div id="tanInteractive"></div>
+                <button class="scale-Btn" id="scaleUp-btn">Up</button>
+                <button class="scale-Btn" id="scaleDown-btn">Down</button>
+            </div>
+            <br>
+            <br>
+            <h3>Kotanjant</h3>
+            <p>• Kotanjant, bir doğrunun ne kadar yatay olduğunu gösteren trigonometrik bir fonksiyondur.</p>
+            <p>• Kotanjant fonksiyonunun, 
+                tanımsız olduğu açılar (x = 𝑘π, k ∈ 
+                <a href="https://tr.wikipedia.org/wiki/Tam_say%C4%B1#:~:text=Tam%20say%C4%B1lar%2C%20say%C4%B1lar%20k%C3%BCmesinde%20yer,
+                temsil%20etmek%20amac%C4%B1yla%20tercih%20edilir." target="_blank">ℤ</a>
+                ) hariç tüm reel sayılar için tanımlıdır ve çıktı olarak -∞ 'dan +∞ 'a kadar değer verebilir.</p>
+            <p>• <a href="https://www.desmos.com/calculator/dmi48wldt9?lang=tr" target="_blank">y = 1 doğrusuna</a> kotanjant ekseni adı verilir.</p>
+            <p>• Kotanjant değeri, θ açısıyla çizilen bir yarıçapın y = 1 doğrusuyla(kotanjant ekseni) kesiştiği noktanın x eksenindeki iz düşümüdür.</p>
+            <p>• Kotanjant fonksiyonu doğrunun tanjant fonksiyonunun tersi gibi davrandığından dolayı denklemi: cotθ = 
+                <span class="fraction">
+                    <span style="color: rgb(255, 0, 0); font-size: 16px;" class="numerator">cosθ</span>
+                    <span style="color: rgb(255, 0, 0); font-size: 16px;" class="denominator">sinθ</span>
+                </span> 'dır</p>
+            <br>
+            <div id="tanRow">
+                <div class="tans" id="cot1H">
+                    <small>• Kotanjant eksenini çizelim (y = 1)</small>
+                    <br>
+                    <div id="kotanjant1"></div>
+                </div>
+                <div class="tans" id="cot2H">
+                    <small>• θ açısıyla bir yarıçap çizip sinüs ve kosinüs bileşenlerine ayıralım</small>
+                    <br>
+                    <div id="kotanjant2"></div>
+                </div>
+                <div class="tans" id="cot3H">
+                    <small>• Çizdiğimiz yarıçapı kotanjant eksenine kadar uzatıp kesiştiği noktanın x eksenindeki uzunluğunu ölçelim</small>
+                    <br>
+                    <div id="kotanjant3"></div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <p style="color: rgb(59, 13, 13);"><span style="font-size: 35px; color: rgb(59, 13, 13);">?</span>Peki neden cotθ = <span class="fraction">
+                <span style="color: rgb(59, 13, 13); font-size: 16px; font-weight: 500;" class="numerator">cosθ</span>
+                <span style="color: rgb(59, 13, 13); font-size: 16px; font-weight: 500;" class="denominator">sinθ</span>
+            </span></p>
+            <br>
+            <small>• Bu eşitliği, üçgen benzerliğinden yararlanıp ispatlayacağız.</small>
+            <div class="Proofs">
+                <div id="kucukUcgenCot"></div>
+                <div id="buyukUcgenCot"></div>
+                <div class="proofYazi">
+                    <small>• Üçgen benzerliğine göre küçük üçgendeki θ açısının <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">komşu</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">karşı</span>
+                    </span>
+                    oranı ile büyük üçgendeki
+                    <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">komşu</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">karşı</span>
+                    </span> kenar oranının eşit olması gerekmektedir.</small>
+                    <br>
+                    
+                    <small>• Küçük üçgen = <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">cosθ</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">sinθ</span>
+                    </span></small>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br>
+                    
+                    <small>• Büyük üçgen = <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">cotθ</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">1</span>
+                    </span></small>
+                    <br>
+                    
+                    <small>• <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">cosθ</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">sinθ</span>
+                    </span> = <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">cotθ</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">1</span>
+                    </span></small>
+                    <br>
+                    
+                    <small id="tanEquation">• tanθ = <span class="fraction">
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator">cosθ</span>
+                        <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator">sinθ</span>
+                    </span></small>
+                </div>
+            </div>
+            <br>
+            <p>Interactive</p>
+            <div id="cotInteractive"></div>
         </div>
         <ex-sidebar-fizik></ex-sidebar-fizik>
         <!-- <ex-footer></ex-footer> -->
@@ -1228,6 +1324,10 @@
         <script src="/js/trigonometri/eğimDoğru.js"></script>
         <script src="/js/trigonometri/tanjant1234.js"></script>
         <script src="/js/trigonometri/tanProof.js"></script>
+        <script src="/js/trigonometri/tanInteractive.js"></script>
+        <script src="/js/trigonometri/kotanjant123.js"></script>
+        <script src="/js/trigonometri/cotProof.js"></script>
+        <script src="/js/trigonometri/cotInteractive.js"></script>
         <script src="/js/trigonometri/birimçember_sincos.js" defer></script>
 </body>
 </html>

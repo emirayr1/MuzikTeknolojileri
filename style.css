@@ -1107,15 +1107,14 @@ tbody tr:nth-child(odd) {
     /* background-color: #000000; */
 }
 
-#proofYazi{
+.proofYazi{
     padding: 30px;
     background-color: var(--canvas-color);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
-
 }
 
-#tanProofs{
+.Proofs{
     display: flex;
     gap: 100px;
     padding: 50px;
@@ -1125,6 +1124,12 @@ tbody tr:nth-child(odd) {
 #egimDogru{
     /* background-color: #007bff; */
     cursor: pointer;
+}
+
+.scale-Btn{
+    margin-left: 20%;
+    height: 20px;
+    margin-top: 20%;
 }
 
 .footer {
