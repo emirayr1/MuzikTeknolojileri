@@ -959,6 +959,10 @@ tbody tr:nth-child(odd) {
     text-align: center;
 }
 
+#tanjantTablo{
+    align-items: center;
+    text-align: center;
+}
 
 .sin369tri{
     margin-right: 40px;
@@ -1130,6 +1134,19 @@ tbody tr:nth-child(odd) {
     margin-left: 20%;
     height: 20px;
     margin-top: 20%;
+}
+
+
+#tan2Kapsamasi{
+    display: flex;
+}
+
+#tanjantCounters{
+    display: flex;
+    gap: 10px;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 10%;
 }
 
 .footer {

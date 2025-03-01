@@ -401,7 +401,7 @@
                         <button id="parkurPlay-btn">Başlat</button>
                         <button id="parkurStop-btn">Durdur</button>
                     </div>
-                    <div id="counters">
+                    <div class="counters" id="parkurCounters">
                         <div id="lapCounter">Turlar: 0</div>
                         <div id="degreeCounter">Açı: 0°</div>
                         <div id="esasCounter">Esas ölçü: 0°</div>
@@ -1192,11 +1192,105 @@
             </div>
             <br>
             <p>Interactive</p>
-            <div id="interactiveKapsamasi" style="display: flex;">
-
+            <div id="tan2Kapsamasi">
                 <div id="tanInteractive"></div>
-                <button class="scale-Btn" id="scaleUp-btn">Up</button>
-                <button class="scale-Btn" id="scaleDown-btn">Down</button>
+                <div class="checkBoxes" id="tan2CB">
+                    <label>
+                        <input type="checkbox" id="toggleBosTan"> <img src="/images/home.svg" alt="home">
+                    </label>
+                    <label>
+                        <input type="checkbox" id="toggle30Tan"> 30°
+                    </label>
+                    
+                    <label>
+                        <input type="checkbox" id="toggle45Tan"> 45°
+                    </label>
+        
+                    <label>
+                        <input type="checkbox" id="toggle60Tan"> 60°
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="toggle90Tan"> 90°
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="toggle150Tan"> 150°
+                    </label>
+    
+                    <label>
+                        <input type="checkbox" id="toggle240Tan"> 240°
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="toggle270Tan"> 270°
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="toggle330Tan"> 330°
+                    </label>
+                </div>
+                
+                <div class="sin2maddeleri" id="toggleBosmaddeTan">
+                    <p style="font-size: 15px; font-weight: 400;">Kosinüs ekseni x-eksenidir. Sinüs değerini bulmak için açının karşı kenarının uzunluğuna bakarken, 
+                        kosinüs değerini bulmak için açının komşu kenarının uzunluğunu dikkate alırız
+                    </p>
+                    <div id="tanjantTablo"> </div>
+                    <div class="counters" id="tanjantCounters">
+                        <div id="eqTanCounter">tan45°</div>=
+                        <div id="sinDivCos">
+                            <span class="fraction" style="margin-bottom: 20px;">
+                                <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator"><div id="eqSinCounter"> sin45°</div></span>
+                                <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator"><div id="eqCosCounter"> cos45°</div></span>
+                            </span>
+                        </div>=
+                        <div id="payDivPayda">
+                            <span class="fraction">
+                                <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator"> <div id="eqPayCounter">
+                                    √2 / 2
+                                </div></span>
+                                <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator"><div id="eqPaydaCounter">
+                                    √2 / 2
+                                </div></span>
+                            </span>
+                        </div>=
+                        <div id="eqSonuçCounter">1</div>
+                    </div>
+                </div>
+                <div class="sin2maddeleri" id="toggle30maddeTan">
+                    <p>• 30° açısı, birim çemberin <span style="color: black; font-size: 16px;">1. bölgesinde</span> yer aldığı için kosinüs değeri pozitiftir. (+,+)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                </div>
+                <div class="sin2maddeleri" id="toggle45maddeTan">
+                    <p>• 45° açısı, birim çemberin <span style="color: black; font-size: 16px;">1. bölgesinde</span> yer aldığı için kosinüs değeri pozitiftir. (+,+)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                </div>
+                <div class="sin2maddeleri" id="toggle60maddeTan">
+                    <p>• 60° açısı, birim çemberin <span style="color: black; font-size: 16px;">1. bölgesinde</span> yer aldığı için kosinüs değeri pozitiftir. (+,+)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                </div>
+                <div class="sin2maddeleri" id="toggle90maddeTan">
+                    <p>• 90° açısı, birim çemberin <span style="color: black; font-size: 16px;">1. bölgesinde</span> yer aldığı için kosinüs değeri pozitiftir. (+,+)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                </div>
+                <div class="sin2maddeleri" id="toggle150maddeTan">
+                    <p>• 150° açısı, birim çemberin <span style="color: black; font-size: 16px;">2. bölgesinde</span> yer aldığı için kosinüs değeri negatiftir. (-,+)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                </div>
+                <div class="sin2maddeleri" id="toggle240maddeTan">
+                    <p>• 240° açısı, birim çemberin <span style="color: black; font-size: 16px;">3. bölgesinde</span> yer aldığı için kosinüs değeri negatiftir. (-,-)</p>
+                </div>
+                <div class="sin2maddeleri" id="toggle270maddeTan">
+                    <p>• 270° açısı, birim çemberin <span style="color: black; font-size: 16px;">3. bölgesinde</span> yer aldığı için kosinüs değeri negatiftir. (-,-)</p>
+                </div>
+                <div class="sin2maddeleri" id="toggle330maddeTan">
+                    <p>• 330° açısı, birim çemberin <span style="color: black; font-size: 16px;">4. bölgesinde</span> yer aldığı için kosinüs değeri pozitiftir. (+,-)</p>
+                        <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
+                </div>
+            <!-- <div id="interactiveKapsamasi" style="display: flex;"> -->
+                
+                <!-- <button class="scale-Btn" id="scaleUp-btn">Up</button>
+                <button class="scale-Btn" id="scaleDown-btn">Down</button> -->
             </div>
             <br>
             <br>
@@ -1325,6 +1419,7 @@
         <script src="/js/trigonometri/tanjant1234.js"></script>
         <script src="/js/trigonometri/tanProof.js"></script>
         <script src="/js/trigonometri/tanInteractive.js"></script>
+        <script src="/js/trigonometri/tanjantTablo.js"></script>
         <script src="/js/trigonometri/kotanjant123.js"></script>
         <script src="/js/trigonometri/cotProof.js"></script>
         <script src="/js/trigonometri/cotInteractive.js"></script>

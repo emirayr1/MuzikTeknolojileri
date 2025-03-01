@@ -6,22 +6,44 @@
         .append("svg")
         .attr("width", 600)
         .attr("height", height);
+    // .call(
+    //     d3
+    //         .zoom()
+    //         .scaleExtent([0.2, 1.3]) // Min ve max zoom seviyeleri
+    //         .on("zoom", (event) => {
+    //             svg2.select("g").attr("transform", event.transform);
+    //         })
+    // )
+    // .on("mousedown.zoom", null) // Mouse drag ile hareketi engelle
+    // .on("dblclick.zoom", null); // Çift tıklama zoom'u engelle
 
+    // const g = svg2.append("g");
     // Çemberin merkezi ve yarıçapı
+
+    const tanInteractiveG = svg2.append("g").attr("id", "tanInteractive_svg");
+    const tan30G = svg2.append("g").attr("id", "tan30_svg");
+    const tan45G = svg2.append("g").attr("id", "tan45_svg");
+    const tan60G = svg2.append("g").attr("id", "tan60_svg");
+    const tan90G = svg2.append("g").attr("id", "tan90_svg");
+    const tan150G = svg2.append("g").attr("id", "tan150_svg");
+    const tan240G = svg2.append("g").attr("id", "tan240_svg");
+    const tan270G = svg2.append("g").attr("id", "tan270_svg");
+    const tan330G = svg2.append("g").attr("id", "tan330_svg");
+
     const centerX = 300;
     let centerY = height / 2;
     const radius = 150;
     const smallCircleRadius = 20;
 
     // Birim çemberi çiziyoruz
-    const unitCircle = svg2.append("circle")
+    const unitCircle = svg2
+        .append("circle")
         .attr("cx", centerX)
         .attr("cy", centerY)
         .attr("r", radius)
         .attr("fill", "none")
         .attr("stroke", "black")
         .attr("stroke-width", 3);
-
 
     // Başlangıçta çizilecek çap çizgisi
     const line = svg2
@@ -65,7 +87,8 @@
         .attr("fill", "grey")
         .attr("oppacity", 0.001);
 
-    const yAxis = svg2.append("line")
+    const yAxis = svg2
+        .append("line")
         .attr("x1", centerX)
         .attr("y1", 50)
         .attr("x2", centerX)
@@ -74,7 +97,8 @@
         .attr("stroke-width", 3)
         .lower();
 
-    const xAxis = svg2.append("line")
+    const xAxis = svg2
+        .append("line")
         .attr("x1", 10)
         .attr("y1", centerY)
         .attr("x2", 590)
@@ -83,7 +107,8 @@
         .lower()
         .attr("stroke-width", 3);
 
-    const upTri = svg2.append("polygon") // üst
+    const upTri = svg2
+        .append("polygon") // üst
         .attr(
             "points",
             `${centerX},${centerY - (height / 2 - 40)} ${centerX - 10},${
@@ -94,7 +119,8 @@
         .attr("stroke", "none")
         .attr("stroke-width", 3);
 
-    const rightTri = svg2.append("polygon") // sağ
+    const rightTri = svg2
+        .append("polygon") // sağ
         .attr(
             "points",
             `${600},${centerY} ${/* 700 - 10 */ 590},${centerY - 10} ${590},${
@@ -105,7 +131,8 @@
         .attr("stroke", "none")
         .attr("stroke-width", 3);
 
-    const leftTri = svg2.append("polygon") // sol
+    const leftTri = svg2
+        .append("polygon") // sol
         .attr(
             "points",
             `${0},${centerY} ${10},${centerY - 10} ${10},${centerY + 10}`
@@ -114,7 +141,8 @@
         .attr("stroke", "none")
         .attr("stroke-width", 3);
 
-    const downTri = svg2.append("polygon") // alt
+    const downTri = svg2
+        .append("polygon") // alt
         .attr(
             "points",
             `${centerX},${centerY + (height / 2 - 40)} ${centerX - 10},${
@@ -125,7 +153,8 @@
         .attr("stroke", "none")
         .attr("stroke-width", 3);
 
-    xAxisText = svg2.append("text") // x text
+    xAxisText = svg2
+        .append("text") // x text
         .attr("x", 600)
         .attr("y", centerY + 40)
         .attr("font-size", "24px")
@@ -145,17 +174,41 @@
         .style("user-select", "none")
         .text("y");
 
+    const aci = svg2
+        .append("text")
+        .attr("x", centerX + 30 * Math.cos(Math.PI / 4))
+        .attr("y", centerY - 10 * Math.sin(Math.PI / 4))
+        .attr("font-size", "12px")
+        .attr("font-weight", 600)
+        .attr("fill", "black")
+        .attr("opacity", "0")
+        .attr("pointer-events", "none")
+        .style("user-select", "none")
+        .text("30°");
+
+    const dashLinesC = svg2
+        .append("line")
+        .attr("x1", centerX + radius)
+        .attr("y1", centerY - radius * Math.tan(Math.PI / 4))
+        .attr("x2", centerX)
+        .attr("y2", centerY - radius * Math.tan(Math.PI / 4))
+        .attr("stroke", "red")
+        .attr("stroke-dasharray", "5.5")
+        .attr("stroke-width", 3);
+
     let isDragging = false;
 
     // Fare basıldığında (mousedown) drag işlemini başlat
     svg2.on("mousedown", (event) => {
         isDragging = true;
+        console.log("bastıtuttu");
         updateLine(event);
     });
 
     // Fare hareket ettiğinde (mousemove) çizgiyi güncelle
     svg2.on("mousemove", (event) => {
         if (isDragging) {
+            console.log("hareketettirdi");
             updateLine(event);
         }
     });
@@ -200,9 +253,9 @@
 
         //console.log(Math.sin(-angleCircle))
 
+        aci.attr("opacity", "0");
         line.attr("x2", newX2).attr("y2", newY2);
 
-        console.log("angleCircle", angleCircleTransform);
         point.attr("cx", newX2).attr("cy", newY2);
 
         tanLine
@@ -214,94 +267,156 @@
         // 300den küçük olursa solda demek 550 max sağ 50 max sol NEWX2
 
         dashLinesC
-            .attr("x1", newX2)
-            .attr("y1", newY2)
-            .attr("x2", newX2)
-            .lower()
-            .attr("y2", centerY);
+            .attr("x1", centerX + radius)
+            .attr("y1", centerY - radius * Math.tan(-angleCircleTransform))
+            .attr("x2", centerX)
+            .attr("y2", centerY - radius * Math.tan(-angleCircleTransform))
+            .lower();
+
+        document.getElementById(
+            "eqTanCounter"
+        ).textContent = `tan${angleDegrees.toFixed(0)}°`;
+        document.getElementById(
+            "eqSinCounter"
+        ).textContent = `sin${angleDegrees.toFixed(0)}°`;
+        document.getElementById(
+            "eqCosCounter"
+        ).textContent = `cos${angleDegrees.toFixed(0)}°`;
+        document.getElementById(
+            "eqPayCounter"
+        ).textContent = `${distanceSin.toFixed(2)}`;
+        document.getElementById(
+            "eqPaydaCounter"
+        ).textContent = `${distanceCos.toFixed(2)}`;
+        document.getElementById("eqSonuçCounter").textContent = `${
+            (angleDegrees > 89 && angleDegrees < 92) ||
+            (angleDegrees > 269 && angleDegrees < 272)
+                ? `tanımsız`
+                : (distanceSin / distanceCos).toFixed(1)
+        }`;
     }
 
-    let state = true;
-    let count = 1;
+    function changeDegree(degree) {
+        const radian = -1 * ((degree * Math.PI) / 180);
 
-    function updateScale(state) {
-        //console.log(countPlus);
+        const arcGenerator = d3
+            .arc()
+            .innerRadius(0) // İç yarıçap
+            .outerRadius(smallCircleRadius) // Dış yarıçap (küçük çemberin yarıçapı)
+            .startAngle(0) // Başlangıç açısı
+            .endAngle(radian); // Son açı (yavaşça büyüyen dilim)
 
-        if (!state) {
-            height += count * 200;
-            svg2.style("scale", 1 - count / 20);
-            count += 1;
-            updateDraw(height);
-            return count;
-        } else {
-            count > 1 ? (count -= 1) : count;
-            height -= count * 200;
-            svg2.style("scale", 1 - count / 20);
-            updateDraw(height);
-            return count;
-        }
-    }
-    
-    function updateDraw(height){
-        centerY = height / 2;
-        svg2.attr("height", height);
-    
-    
-        unitCircle.attr("cy",centerY);
-    
-        line
-            .attr("y1", centerY)
-            .attr("y2", centerY - radius * Math.sin(Math.PI / 4));
-        
+        // Küçük çemberin diliminin yolunu çiz
+        arcPath
+            .attr("d", arcGenerator)
+            .attr("opacity", 0.4)
+            .attr("transform", `translate(${centerX}, ${centerY}) rotate(90)`); // Çevreyi merkeze taşır
+
+        const newX2 = centerX + radius * Math.cos(radian);
+        const newY2 = centerY + radius * Math.sin(radian);
+
+        //console.log(Math.sin(-angleCircle))
+
+        line.attr("x2", newX2).attr("y2", newY2);
+
+        point.attr("cx", newX2).attr("cy", newY2);
+
         tanLine
-        .attr("y1", centerY)
-        .attr("y2", centerY - radius * Math.tan(Math.PI / 4));
-    
-        point.attr("cy", centerY - radius * Math.sin(Math.PI / 4));
-    
-        tanAxis.attr("y1", height - 50);
-    
-        yAxis.attr("y2", height - 50);
-    
-        xAxis
+            .attr("x1", centerX)
             .attr("y1", centerY)
-            .attr("y2", centerY);
-        
-        upTri.attr(
-            "points",
-            `${centerX},${centerY - (height / 2 - 40)} ${centerX - 10},${
-                centerY - (height / 2 - 50)
-            } ${centerX + 10},${centerY - (height / 2 - 50)}`
-        )
-    
-        rightTri.attr(
-            "points",
-            `${600},${centerY} ${/* 700 - 10 */ 590},${centerY - 10} ${590},${
-                centerY + 10
-            }`
-        )
-    
-        leftTri.attr(
-            "points",
-            `${0},${centerY} ${10},${centerY - 10} ${10},${centerY + 10}`
-        )
-    
-        downTri.attr(
-            "points",
-            `${centerX},${centerY + (height / 2 - 40)} ${centerX - 10},${
-                centerY + (height / 2 - 50)
-            } ${centerX + 10},${centerY + (height / 2 - 50)}`
-        )
-    
-        xAxisText.attr("y", centerY + 40);
-    
+            .attr("x2", centerX + radius)
+            .attr("y2", centerY - radius * Math.tan(-radian));
+
+        // 300den küçük olursa solda demek 550 max sağ 50 max sol NEWX2
+        aci.attr("x", centerX + 40 * Math.cos(radian))
+            .attr("y", centerY + 10 * Math.sin(radian))
+            .attr("opacity","1")
+            .text(`${degree}°`);
+
+        dashLinesC
+            .attr("x1", centerX + radius)
+            .attr("y1", centerY - radius * Math.tan(-radian))
+            .attr("x2", centerX)
+            .attr("y2", centerY - radius * Math.tan(-radian))
+            .lower();
     }
 
-    document.getElementById("scaleUp-btn").addEventListener("click", () => {
-        updateScale(true);
-    });
+    toggleDeneme("Bos");
+    function toggleDeneme(selected){
+        changeDegree(selected === "Bos" ? 45 : selected);
 
-    document.getElementById("scaleDown-btn").addEventListener("click", () => {
-        updateScale(false);
-    });
+        const options = ["30", "45", "60", "90", "150", "240", "270", "330","Bos"];
+
+        const excluded = options.filter(item => item !== selected);
+
+        document.getElementById(`toggle${selected}maddeTan`).style.display = "block";
+        document.querySelector(`#toggle${selected}Tan`).checked = true;
+
+        excluded.forEach(item => {
+            document.getElementById(`toggle${item}maddeTan`).style.display = "none"; // burada hata var okuyamıyor
+            document.querySelector(`#toggle${item}Tan`).checked = false;
+        });
+    }
+    
+    document
+        .querySelector("#toggle30Tan")
+        .addEventListener("change", function () {
+            toggleDeneme("30");
+        });
+
+    document
+        .querySelector("#toggle45Tan")
+        .addEventListener("change", function () {
+            toggleDeneme("45");
+        });
+
+    document
+        .querySelector("#toggle60Tan")
+        .addEventListener("change", function () {
+            toggleDeneme("60");
+        });
+
+    document
+        .querySelector("#toggle90Tan")
+        .addEventListener("change", function () {
+            toggleDeneme("90");
+        });
+
+    document
+        .querySelector("#toggle150Tan")
+        .addEventListener("change", function () {
+            toggleDeneme("150");
+        });
+
+    document
+        .querySelector("#toggle240Tan")
+        .addEventListener("change", function () {
+            toggleDeneme("240");
+        });
+
+    document
+        .querySelector("#toggle270Tan")
+        .addEventListener("change", function () {
+            toggleDeneme("270");
+        });
+
+    document
+        .querySelector("#toggle330Tan")
+        .addEventListener("change", function () {
+            toggleDeneme("330");
+        });
+
+    document
+        .querySelector("#toggleBosTan")
+        .addEventListener("change", function () {
+            toggleDeneme("Bos");
+        });
+
+    // document.getElementById("scaleUp-btn").addEventListener("click", () => {
+    //     updateScale(true);
+    // });
+
+    // document.getElementById("scaleDown-btn").addEventListener("click", () => {
+    //     updateScale(false);
+    // });
 })();
