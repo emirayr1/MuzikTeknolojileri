@@ -1149,6 +1149,40 @@ tbody tr:nth-child(odd) {
     margin-top: 10%;
 }
 
+.tanIntRow{
+    display: flex;
+    
+}
+
+.tanAngles{
+    /* transform: scale(0.9); */
+    margin-right: 100px;
+}
+
+
+/* #tan30{
+    background-color: #007bff;
+} */
+
+.rootDivSvg{
+    position:absolute;
+}
+
+#RDS30{
+    margin-top: 10.5%;
+    margin-left: 7.2%;
+}
+
+#RDS150{
+    margin-top: 18.6%;
+    margin-left: 7.2%;
+}
+
+#RDS330{
+    margin-top: 18.6%;
+    margin-left: 7.2%;
+}
+
 .footer {
     background-color: #000000;
     color: white;

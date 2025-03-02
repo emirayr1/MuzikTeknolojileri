@@ -341,7 +341,7 @@
             .lower();
     }
 
-    toggleDeneme("Bos");
+    toggleDeneme("150");
     function toggleDeneme(selected){
         changeDegree(selected === "Bos" ? 45 : selected);
 
