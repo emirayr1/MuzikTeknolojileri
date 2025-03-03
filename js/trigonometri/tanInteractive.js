@@ -1,6 +1,6 @@
 (function () {
     // Global değişkenler ve fonksiyonlar
-    let height = 800;
+    let height = 700;
     let svg2 = d3
         .select("#tanInteractive")
         .append("svg")
@@ -341,7 +341,7 @@
             .lower();
     }
 
-    toggleDeneme("150");
+    toggleDeneme("Bos");
     function toggleDeneme(selected){
         changeDegree(selected === "Bos" ? 45 : selected);
 

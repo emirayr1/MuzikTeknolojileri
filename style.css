@@ -694,8 +694,27 @@ input[type="range"]:active::-moz-range-thumb {
 }
 
 #parkurCB{
-
+    background-color: var(--canvas-color);
+    border-radius: 10px;
+    width: fit-content;
+    margin: 0 auto;
 }
+
+#parkurCB label{
+    text-align: center;
+    align-items: center;
+    /* background-color: #0056b3; */
+    /* padding-left: 30%; */
+}
+
+#parkurLeftRow{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin-top: 7%;
+    gap: 60px;
+}
+
 
 /* Label Stil */
 .checkBoxes label {
@@ -760,7 +779,8 @@ input[type="range"]:active::-moz-range-thumb {
 #parkurKapsamasi{
     display: flex;
     flex-direction: row;
-    
+    gap: 130px;
+    padding: 20px;
 }
 
 #parkur{
@@ -1130,24 +1150,33 @@ tbody tr:nth-child(odd) {
     cursor: pointer;
 }
 
-.scale-Btn{
-    margin-left: 20%;
-    height: 20px;
-    margin-top: 20%;
+#tan2CB{
+    background-color: var(--canvas-color);
+    border-radius: 10px;
+    margin-bottom: 23%;
+    margin-right: 20px;
 }
 
+#tan2CB label{
+    text-align: center;
+    padding-left: 27px;
+}
 
 #tan2Kapsamasi{
     display: flex;
+    gap: 25px;
 }
 
 #tanjantCounters{
     display: flex;
     gap: 10px;
+    height: 100px;
     width: fit-content;
     margin: 0 auto;
+    align-items: center;
     margin-top: 10%;
 }
+
 
 .tanIntRow{
     display: flex;
@@ -1157,12 +1186,12 @@ tbody tr:nth-child(odd) {
 .tanAngles{
     /* transform: scale(0.9); */
     margin-right: 100px;
+    margin-top: 60px;
 }
 
-
-/* #tan30{
-    background-color: #007bff;
-} */
+#toggle30maddeTan, #toggle45maddeTan, #toggle60maddeTan, #toggle90maddeTan, #toggle150maddeTan, #toggle240maddeTan, #toggle270maddeTan, #toggle330maddeTan{
+    height: 700px;
+}
 
 .rootDivSvg{
     position:absolute;

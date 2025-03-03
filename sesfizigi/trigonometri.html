@@ -396,38 +396,43 @@
                 <p style="font-weight: 600;">Aşağıdaki animasyonda, koşucu "Başlat" butonuna bastıktan sonra koşmaya başlar. 
                     Tamamladığı tur sayısını ve kat ettiği toplam açının esas ölçüsünü animasyon üzerinde görebilirsiniz.</p>
                 <div id="parkurKapsamasi">
-                    <div id="parkur"></div>
-                    <div id="parkur-btns">
-                        <button id="parkurPlay-btn">Başlat</button>
-                        <button id="parkurStop-btn">Durdur</button>
+                    <div id="parkurLeftRow">
+                        <div class="checkBoxes" id="parkurCB">
+                            <div id="posnegCB">
+                                <label>
+                                    <input type="checkbox" id="pozitifCB" checked> Pozitif Açı
+                                </label>
+                    
+                                <label>
+                                    <input type="checkbox" id="negatifCB"> Negatif Açı
+                                </label>
+                            </div>
+                
+                            <label>
+                                <input type="checkbox" id="dereceCB" checked> Derece
+                            </label>
+        
+                            <label>
+                                <input type="checkbox" id="radyanCB"> Radyan
+                            </label>
+                        </div>
+                        <div id="parkurSlider">
+                            <img src="/images/speed.svg" alt="speed" style="margin-left: 135px;">
+                            <input type="range" id="speedSlider" min="0.0008" max="0.005" step="0.0001" value="0.002">
+                        </div>
+                        <div id="parkur-btns">
+                            <button id="parkurPlay-btn" style="background-color: green;">Başlat</button>
+                            <button id="parkurStop-btn" style="background-color: rgb(182, 2, 2);">Durdur</button>
+                        </div>
                     </div>
+                    <div id="parkur" style="transform: scale(0.9);"></div>
                     <div class="counters" id="parkurCounters">
                         <div id="lapCounter">Turlar: 0</div>
                         <div id="degreeCounter">Açı: 0°</div>
                         <div id="esasCounter">Esas ölçü: 0°</div>
                     </div>
-                    <div id="parkurSlider">
-                        <input type="range" id="speedSlider" min="0.0008" max="0.005" step="0.0001" value="0.002">
-                    </div>
-                    <div class="checkBoxes" id="parkurCB">
-                        <div id="posnegCB">
-                            <label>
-                                <input type="checkbox" id="pozitifCB" checked> Pozitif Açı
-                            </label>
-                
-                            <label>
-                                <input type="checkbox" id="negatifCB"> Negatif Açı
-                            </label>
-                        </div>
-            
-                        <label>
-                            <input type="checkbox" id="dereceCB" checked> Derece
-                        </label>
-    
-                        <label>
-                            <input type="checkbox" id="radyanCB"> Radyan
-                        </label>
-                    </div>
+                    
+                    
                 </div>
             </div>
             <h3>Sinüs</h3>
@@ -1193,10 +1198,10 @@
             <br>
             <p>Interactive</p>
             <div id="tan2Kapsamasi">
-                <div id="tanInteractive"></div>
+                <div id="tanInteractive" style="cursor: pointer;"></div>
                 <div class="checkBoxes" id="tan2CB">
                     <label>
-                        <input type="checkbox" id="toggleBosTan"> <img src="/images/home.svg" alt="home">
+                        <input type="checkbox" id="toggleBosTan" style="opacity: 0;"> <img src="/images/home.svg" alt="home">
                     </label>
                     <label>
                         <input type="checkbox" id="toggle30Tan"> 30°
@@ -1238,19 +1243,19 @@
                     </p>
                     <div id="tanjantTablo"> </div>
                     <div class="counters" id="tanjantCounters">
-                        <div id="eqTanCounter">tan45°</div>=
+                        <div id="eqTanCounter" style="font-size: 25px; font-weight: 500;">tan45°</div>=
                         <div id="sinDivCos">
-                            <span class="fraction" style="margin-bottom: 20px;">
-                                <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator"><div id="eqSinCounter"> sin45°</div></span>
-                                <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator"><div id="eqCosCounter"> cos45°</div></span>
+                            <span class="fraction">
+                                <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500;" class="numerator"><div id="eqSinCounter"> sin45°</div></span>
+                                <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500;" class="denominator"><div id="eqCosCounter"> cos45°</div></span>
                             </span>
                         </div>=
                         <div id="payDivPayda">
                             <span class="fraction">
-                                <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="numerator"> <div id="eqPayCounter">
+                                <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500;" class="numerator"> <div id="eqPayCounter">
                                     √2 / 2
                                 </div></span>
-                                <span style="color: rgb(0, 0, 0); font-size: 12px; font-weight: 500;" class="denominator"><div id="eqPaydaCounter">
+                                <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500;" class="denominator"><div id="eqPaydaCounter">
                                     √2 / 2
                                 </div></span>
                             </span>
@@ -1437,7 +1442,7 @@
             </div>
             <br>
             <p>Interactive</p>
-            <div id="cotInteractive"></div>
+            <div id="cotInteractive" style="cursor: pointer;"></div>
         </div>
         <ex-sidebar-fizik></ex-sidebar-fizik>
         <!-- <ex-footer></ex-footer> -->

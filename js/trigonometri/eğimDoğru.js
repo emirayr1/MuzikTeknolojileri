@@ -1,7 +1,7 @@
 (function () {
     // Global değişkenler ve fonksiyonlar
-    const width = 700;
-    const height = 700;
+    const width = 600;
+    const height = 600;
 
     let svg2 = d3
         .select("#egimDogru")
@@ -270,9 +270,9 @@
                     : (deltaY / deltaX).toFixed(2))
         );
 
-        // x 460 - 470   y 225 235
+        // x 460 - 470   y 225 235   240 230    475 465
 
-        if (newX2 >= 460 && newX2 <= 470 && newY2 >= 225 && newY2 <= 235) {
+        if (newX2 >= 388 && newX2 <= 400 && newY2 >= 205 && newY2 <= 215) {
             texts.attr("opacity", 1);
         } else {
             texts.attr("opacity", 0);
