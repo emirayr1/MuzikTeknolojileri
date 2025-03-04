@@ -432,8 +432,6 @@ body {
     margin-top: 30px;
     margin-left: 0;
     position: relative;
-    background-color: var(--canvas-color);
-    border-radius: var(--canvas-borderRadius);
 }
 
 
@@ -451,12 +449,12 @@ body {
 }
 
 #maddeUcgendeAci {
-    margin-top: 30px;
+    margin-top: 55px;
     margin-bottom: 100px;
     background-color: var(--canvas-color); /* Hafif gri arka plan */
     border-radius: 10px; /* Köşeleri yuvarlat */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
-    padding: 20px;
+    padding: 30px;
 }
 
 
@@ -473,39 +471,40 @@ body {
 }
 
 #maddePisagor {
-    /* position: absolute; */
+    margin-top: 55px;
     background-color: var(--canvas-color); /* Hafif gri arka plan */
     border-radius: 10px; /* Köşeleri yuvarlat */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
-    padding: 20px;
+    padding: 30px;
+    height: 500px;
 }
 
 /* çember */
 
 #playButton {
-    margin-top: 30%;
-    margin-left: 30%;
-    position: absolute; /* hardCode ama yapacak bir şey yok */
-    padding: 10px 20px;
-    font-size: 15px;
-    cursor: pointer;
-    background-color: #007bff;
+    height: 50px;
+    width: 50px;
+    margin-top: 15.5%;
+    margin-left: 50px;
+    padding: 5px;
+    background-color: green;
+    border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: white;
-    border: none;
-    border-radius: 6px;
+    cursor: pointer; 
+    transition: transform 0.5s ease;
+}
+
+#playCircleImage{
+    width: 30px;
+}
+
+#playButton:hover{
+    transform: scale(1.05);
 }
 
 #playButton:disabled {
-    background-color: gray;
     cursor: not-allowed;
-}
-
-
-
-#derece_cember {
-    margin: 0 auto;
-    cursor: pointer;
+    background-color: red;
 }
 
 #dereceLabel {
@@ -528,24 +527,26 @@ body {
 }
 
 #maddeCember {
-    /* position: absolute; */
     background-color: var(--canvas-color); /* Hafif gri arka plan*/
     border-radius: 10px; /* Köşeleri yuvarlat */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
-    align-items: center;
+    height: 380px;
     margin: 6%;
-    padding: 20px; 
+    padding: 30px; 
 }
 
 #radyanKapsamasi{
     display: flex;
     flex-direction: row;
-    
+    gap: 240px;
 }
 
 #cemberFormulKapsamasi{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-top: 34px;
+    gap: 40px;
 }
 
 #radyanMadde {
@@ -563,7 +564,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
     width: 300px;
     text-align: center;
-    margin-left: 160px;
 }
 
 /* birim çember */
@@ -571,20 +571,13 @@ body {
 #birimCemberKapsamasi{
     display: flex;
     flex-direction: row;
-    padding: 20px;
+    padding: 30px;
+    gap: 150px;
 }
 
-#birimCemberBolge{
-    width: 700;
-    height: 700;
+#esasolcuKapsamasi{
+    padding: 30px;
 }
-
-#birimCemberBos {
-    width: 700;
-    height: 700;
-    margin-left: 0;
-}
-
 
 /* #region SLIDERS */
 #slidersCember{
@@ -681,16 +674,15 @@ input[type="range"]:active::-moz-range-thumb {
 
 /* Genel Stil */
 #cemberCB{
-    z-index: 10;
-    margin-bottom: 50%;
+    height: fit-content;
+    /* margin-top: 12%; */
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Elemanlar arasında boşluk bırak */
-    padding: 15px;
-    background-color: var(--canvas-color); /* Hafif gri arka plan */
-    border-radius: 10px; /* Köşeleri yuvarlat */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
-    width: 200px; /* Kutu genişliği */
+    gap: 8px; /* Elemanlar arasında boşluk bırak */
+    padding: 10px;
+    background-color: var(--canvas-color);
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #parkurCB{
@@ -712,16 +704,23 @@ input[type="range"]:active::-moz-range-thumb {
     flex-direction: column;
     height: fit-content;
     margin-top: 7%;
+    margin-left: 50px;
     gap: 60px;
 }
 
-
 /* Label Stil */
+
+.checkBoxes{
+    text-align: center;
+    align-items: center;
+    
+}
+
 .checkBoxes label {
     display: flex;
     align-items: center;
-    gap: 10px; /* Checkbox ve metin arasında boşluk */
-    font-size: 15px;
+    gap: 8px; /* Checkbox ve metin arasında boşluk */
+    font-size: 14px;
     font-weight: 600;
     color: #333;
     cursor: pointer;
@@ -734,8 +733,8 @@ input[type="range"]:active::-moz-range-thumb {
 /* Checkboxları gizle ama etiketleri kullan */
 .checkBoxes input[type="checkbox"] {
     appearance: none; /* Varsayılan checkbox görünümünü kaldır */
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border: 2px solid #007bff; /* Mavi çerçeve */
     border-radius: 5px;
     background-color: white;
@@ -779,7 +778,6 @@ input[type="range"]:active::-moz-range-thumb {
 #parkurKapsamasi{
     display: flex;
     flex-direction: row;
-    gap: 130px;
     padding: 20px;
 }
 
@@ -850,8 +848,8 @@ input[type="range"]:active::-moz-range-thumb {
     padding-top: 40px;
     height: 560px;
     background-color: var(--canvas-color);
-    border-radius: 10px; /* Köşeleri yuvarlat */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .sin2maddeleri p{
@@ -860,7 +858,7 @@ input[type="range"]:active::-moz-range-thumb {
 
 
 #sin2CB{
-    background-color: var(--canvas-color);
+    /* background-color: var(--canvas-color); */
     border-radius: 10px;
     margin-bottom: 23%;
     margin-right: 20px;
@@ -1118,12 +1116,12 @@ tbody tr:nth-child(odd) {
     margin: 0 auto;
     gap: 150px;
     margin-left: 0;
+    border-radius: 20px;
 }
 
 .tans{
     display: flex;
     flex-direction: column;
-    /* border: 3px solid rgb(148, 72, 72); */
     padding: 20px;
 }
 
@@ -1185,12 +1183,17 @@ tbody tr:nth-child(odd) {
 
 .tanAngles{
     /* transform: scale(0.9); */
-    margin-right: 100px;
+    margin-right: 30px;
     margin-top: 60px;
 }
 
-#toggle30maddeTan, #toggle45maddeTan, #toggle60maddeTan, #toggle90maddeTan, #toggle150maddeTan, #toggle240maddeTan, #toggle270maddeTan, #toggle330maddeTan{
+#toggle150maddeTan, #toggle240maddeTan, #toggle270maddeTan, #toggle330maddeTan{
     height: 700px;
+}
+
+.tanRowMaddes{
+    margin-top: 60px;
+    height: fit-content;
 }
 
 .rootDivSvg{

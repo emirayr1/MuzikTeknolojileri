@@ -1,14 +1,17 @@
 (function () {
+    const height = 600;
+    const width = 600;
     let svg2 = d3
         .select("#birimCemberBos")
         .append("svg")
-        .attr("width", 710)
-        .attr("height", 710);
+        .attr("width", width)
+        // .style("background-color","white")
+        .attr("height", height);
 
     // Çemberin merkezi ve yarıçapı
-    const centerX = 350;
-    const centerY = 350;
-    const radius = 250;
+    const centerX = width / 2 - 10;
+    const centerY = height / 2 - 10;
+    const radius = 180;
     // Küçük çemberin yarıçapı
 
     // **Birim çemberi çiziyoruz**
@@ -26,7 +29,7 @@
         .attr("x1", centerX)
         .attr("y1", 10)
         .attr("x2", centerX)
-        .attr("y2", 690)
+        .attr("y2", 590)
         .attr("stroke", "black")
         .attr("stroke-width", 3)
         .lower();
@@ -34,7 +37,7 @@
     svg2.append("line")
         .attr("x1", 10)
         .attr("y1", centerY)
-        .attr("x2", 690)
+        .attr("x2", 590)
         .attr("y2", centerY)
         .attr("stroke", "black")
         .attr("stroke-width", 3);
@@ -51,7 +54,7 @@
     svg2.append("polygon") // sağ
         .attr(
             "points",
-            `${700},${centerY} ${/* 700 - 10 */ 690},${centerY - 10} ${690},${
+            `${600},${centerY} ${/* 700 - 10 */ 590},${centerY - 10} ${590},${
                 centerY + 10
             }`
         )
@@ -71,7 +74,7 @@
     svg2.append("polygon") // alt
         .attr(
             "points",
-            `${centerX},${700} ${centerX - 10},${690} ${centerX + 10},${690}`
+            `${centerX},${600} ${centerX - 10},${590} ${centerX + 10},${590}`
         )
         .attr("fill", "black")
         .attr("stroke", "none")
@@ -123,16 +126,16 @@
 
     let movingCircle = labelsKoordinat
         .append("circle")
-        .attr("cx", centerX + 200) // 0 derece konumu (1,0)
-        .attr("cy", centerY - 150)
+        .attr("cx", centerX + radius * Math.cos(Math.PI / 4)) // 0 derece konumu (1,0)
+        .attr("cy", centerY - radius * Math.sin(Math.PI / 4))
         .attr("r", 8)
         .attr("fill", "red")
         .attr("cursor", "pointer");
 
     let movingText = labelsKoordinat
         .append("text")
-        .attr("x", centerX + 210)
-        .attr("y", centerY - 160)
+        .attr("x", centerX + radius * Math.cos(Math.PI / 4) + 10)
+        .attr("y", centerY - radius * Math.sin(Math.PI / 4))
         .attr("font-size", "18px")
         .attr("font-weight", "bold")
         .attr("fill", "red")
@@ -563,7 +566,7 @@
 
     let arcPath = labelsYon
         .append("path")
-        .attr("transform", "translate(350,350) rotate(90, 0, 0)")
+        .attr("transform", "translate(290,290) rotate(90, 0, 0)")
         .attr(
             "d",
             d3.arc()({
@@ -580,7 +583,7 @@
         .append("polygon")
         .attr("id", "arrow")
         .attr("points", "0,-10 10,10 -10,10") // Üçgen şekli
-        .attr("transform", `translate(400, 350) rotate(0)`)
+        .attr("transform", `translate(340, 290) rotate(0)`)
         .attr("fill", "blue");
 
     function updatePositive() {
@@ -599,8 +602,8 @@
         let r = 50; // Yayın dış yarıçapı (Outer Radius)
 
         // **Yayın ucunun koordinatlarını hesapla**
-        let arcEndXPos = 350 + r * Math.cos(newEndAngle); // 350 -> Çemberin merkezi X
-        let arcEndYPos = 350 + r * Math.sin(newEndAngle); // 350 -> Çemberin merkezi Y
+        let arcEndXPos = 290 + r * Math.cos(newEndAngle); // 350 -> Çemberin merkezi X
+        let arcEndYPos = 290 + r * Math.sin(newEndAngle); // 350 -> Çemberin merkezi Y
 
         //console.log(`Yay Ucu Koordinatları: X = ${arcEndXPos.toFixed(2)}, Y = ${arcEndYPos.toFixed(2)}`);
 
@@ -629,8 +632,8 @@
         // **Yarıçapı al (outerRadius)**
         let r = 50; // Yayın dış yarıçapı (Outer Radius)
 
-        let arcEndXNeg = 350 + r * Math.cos(negativeRad);
-        let arcEndYNeg = 350 + r * Math.sin(negativeRad);
+        let arcEndXNeg = 290 + r * Math.cos(negativeRad);
+        let arcEndYNeg = 290 + r * Math.sin(negativeRad);
 
         arcPath.attr(
             "d",

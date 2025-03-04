@@ -24,7 +24,6 @@
             <br>
             <br>
             <h3>Üçgen</h3>
-            <br>
             <div style="display: flex; align-items: flex-start; gap: 10px;">
                 <h4 style="flex-shrink: 0; white-space: nowrap;">Tanım:</h4>
                 <p style="margin: 0;">
@@ -34,10 +33,6 @@
                 </p>
             </div>
             <canvas id="nokta-ucgen-canvas"></canvas>
-            <br>
-            <br>
-            <br>
-            <br>
             <h3>Üçgende Açı</h3>
             <div style="display: flex; align-items: flex-start; gap: 10px;">
                 <h4 style="flex-shrink: 0; white-space: nowrap;">Açı:</h4>
@@ -46,7 +41,6 @@
                         target="_blank">ışının</a> birleşimidir.
                 </p>
             </div>
-            <br>
             <div id="ucgendeAciKapsamasi">
                 <div id="dikUcgen"></div>
                 <div class = "maddelers" id="maddeUcgendeAci">
@@ -104,10 +98,6 @@
                     </div>
                 </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
             <h3>Pisagor ve Hipotenüs</h3>
             <div id="pisagorKapsamasi">
                 <div id="dikUcgenHipotenus"></div>
@@ -140,13 +130,6 @@
                 </div>
             </div>
             <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
             <h3>Çember</h3>
             <div style="display: flex; align-items: flex-start; gap: 10px;">
                 <h4 style="flex-shrink: 0; white-space: nowrap;">Tanım: </h4>
@@ -156,8 +139,8 @@
             </div>
             <br>
             <div id="cemberKapsamasi">
-            <button id="playButton">Başlat</button>
-            <div id="noktadanCember"></div>
+                <div id="noktadanCember"></div>
+                <button id="playButton"><img id="playCircleImage" src="/images/playCircle.svg" alt="play"></button>
                     <div class = "maddelers" id="maddeCember">
                         <div style="display: flex; align-items: flex-start; gap: 10px;">
                             <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
@@ -197,7 +180,7 @@
                         </p>
                     </div>
                     <br>
-                    <p style="color: red;">Peki pi sayısı nedir?</p>
+                    <p style="color: red; font-weight: 700; font-size: 17px;">Peki pi sayısı nedir?</p>
                 </div>
             </div>
             <br>
@@ -206,10 +189,16 @@
             <p>Bir çemberin çevresinin çapına oranı, tüm çemberler için sabit bir değerdir ve bu sabite <i style="color: red;">pi sayısı</i> adı verilir. 
                 Pi, adını Yunanca çevre anlamına gelen (περίμετρον) kelimesinin 
                 ilk harfi π'den alır. İrrasyonel bir sayı olduğu için kesirli olarak tam ifade edilemez ve virgülden sonra sonsuza kadar devam eden, belirli bir örüntü izlemeyen 
-            düzensiz bir ondalık dizisine sahiptir.</p>
+            düzensiz bir ondalık dizisine sahiptir. <small><a href="https://www.youtube.com/watch?v=yx5Sw2ivenc" target="_blank"">öneri</a></small></p>
             <br>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;Pi sayısının ilk 10 basamağı:&nbsp; \(\pi =\) 3.141592653</p>
-            <br>
+            <div id="pi" style="display: flex; align-items: center;">
+                <p style="font-weight: 800;">Pi sayısının ilk 10 basamağı:&nbsp; \(\pi =\) 3.141592653</p>
+                <div id="piCircle" style="margin-left: 300px;"></div>
+                <span class="fraction" style="margin-bottom: 20px;">
+                    <span style="color: rgb(0, 0, 0); font-size: 2*px; font-weight: 500; color: green;" class="numerator">2<a style="font-weight: 600;">π</a>r</span>
+                    <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500; color: red;" class="denominator">2r</span>
+                </span>
+            </div>
             <br>
             <h4 style="text-decoration: underline; color: red;">Derece</h4>
             <p>Derece, çemberin merkezinde oluşan açıları ölçmek için kullanılan bir birimdir. 
@@ -217,9 +206,9 @@
                 Böylece, çember üzerindeki her noktanın konumu, merkezden çizilen yarıçapın oluşturduğu açı ile ifade edilebilir.
             </p>
             <br>
-            <p>Aşağıdaki çemberin yarıçapını fare ile hareket ettirerek derece değerinin değişimini gözlemleyiniz... BURAYA BİR ŞEY DAHA EKLE ÇOK KISA KALDI</p>
-            <label id="dereceLabel">Açı: 0°</label> <!-- Dereceyi gösterecek label -->
-            <div id="derece_cember"></div>
+            <div id="derece_cember" style="margin: 0 auto;">
+                <img src="/images/zoom_in.svg" alt="zoom" style="width: 35px; position:absolute; margin-left: 28.2%; margin-top: 9%; user-select: none; pointer-events: none;">
+            </div>
             <br>
             <br>
             <h4 style="text-decoration: underline; color: red;">Radyan</h4>
@@ -230,7 +219,7 @@
             </p>
             <div id="radyanKapsamasi">
                 <div id="cemberFormulKapsamasi">
-                    <div id="radyan_cember"></div>
+                    <div id="radyan_cember" style="width: fit-content;"></div>
                     <div id="derecedenRadyanaFormul">
                         <p>\( \theta_{\text{rad}} = \theta_{\text{deg}} \times \frac{\pi}{180} \)</p>
                         <p>\( \theta_{\text{deg}} = \theta_{\text{rad}} \times \frac{180}{\pi} \)</p>
@@ -273,11 +262,6 @@
                     </div>
                 </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
             <h3>Birim Çember</h3>
             <div style="display: flex; align-items: flex-start; gap: 10px;">
                 <h4 style="flex-shrink: 0; white-space: nowrap;">Tanım:</h4>
@@ -285,10 +269,7 @@
                     Yarıçapı 1 birim ve merkez noktası orijin olan çembere birim çember denir.
                 </p>
             </div>
-            <br>
-            <br>
             <div id="birimCemberKapsamasi">
-                <div id="birimCemberBos"></div>
                 <div class="checkBoxes" id="cemberCB">
                     <label>
                         <input type="checkbox" id="toggleKoordinat" checked> Koordinat
@@ -310,7 +291,15 @@
                         <input type="checkbox" id="toggleBolge"> Bölgeler
                     </label>
                 </div>
-                <div id="birimCemberBolge"></div>
+                <div id="bcMaddeKapsamasiRow" style="display: flex; height: fit-content; padding: 30px; gap: 100px;">
+                    <div id="birimCemberBos" style="height: 88%;"></div>
+                    <div class="sin2maddeleri" id="bc2Madde">
+                        <p style="font-size: 15px; font-weight: 400;">Kosinüs ekseni 
+                            x-eksenidir. Sinüs değerini bulmak için açının karşı kenarının uzunluğuna bakarken, 
+                            kosinüs değerini bulmak için açının komşu kenarının uzunluğunu dikkate alırız.
+                        </p>
+                    </div>
+                </div>
                 <div id="slidersCember">
                     <div>
                         <label for="positiveAngle">Pozitif Açı: <span id="positiveAngleValue">0</span>°</label>
@@ -322,16 +311,12 @@
                     </div>
                 </div>
             </div>
-            <br>
-            <br>
             <h4 style="text-decoration: underline; color: red;">Esas Ölçü</h4>
+            <p>Bir açının esas ölçüsü, o açının pozitif veya negatif yönde kaç tur attığından bağımsız olarak, 0° ile 360° arasına düşen karşılığıdır. 
+                Yani, bir açıyı bu aralığa indirerek, aynı yönü gösteren ve eşdeğer olan en küçük pozitif açıyı elde ederiz. 
+                Örneğin, 500°’lik bir açı, bir tam tur (360°) çıkarıldığında 140° olarak ifade edilir ve bu, açının esas ölçüsüdür.
+            </p>
             <div  id="esasolcuKapsamasi">
-                <p>Bir açının esas ölçüsü, o açının pozitif veya negatif yönde kaç tur attığından bağımsız olarak, 0° ile 360° arasına düşen karşılığıdır. 
-                    Yani, bir açıyı bu aralığa indirerek, aynı yönü gösteren ve eşdeğer olan en küçük pozitif açıyı elde ederiz. 
-                    Örneğin, 500°’lik bir açı, bir tam tur (360°) çıkarıldığında 140° olarak ifade edilir ve bu, açının esas ölçüsüdür.
-                </p>
-                <br>
-                <br>
                 <h4>Pozitif Açılarda</h4>
                 <div style="display: flex; align-items: flex-start; gap: 10px;">
                     <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
@@ -395,44 +380,44 @@
                 <br>
                 <p style="font-weight: 600;">Aşağıdaki animasyonda, koşucu "Başlat" butonuna bastıktan sonra koşmaya başlar. 
                     Tamamladığı tur sayısını ve kat ettiği toplam açının esas ölçüsünü animasyon üzerinde görebilirsiniz.</p>
-                <div id="parkurKapsamasi">
-                    <div id="parkurLeftRow">
-                        <div class="checkBoxes" id="parkurCB">
-                            <div id="posnegCB">
-                                <label>
-                                    <input type="checkbox" id="pozitifCB" checked> Pozitif Açı
-                                </label>
+                <div id="parkurKapsamasiKapsamasi" style="background-color: #000000e0; padding: 30px; border-radius: 50px; padding-right: 50px; transform: scale(0.88);">
+                    <div id="parkurKapsamasi" style="background-color: rgb(228, 213, 147); border-radius: 20px;">
+                        <div id="parkurLeftRow">
+                            <div class="checkBoxes" id="parkurCB">
+                                <div id="posnegCB">
+                                    <label>
+                                        <input type="checkbox" id="pozitifCB" checked> Pozitif Açı
+                                    </label>
+                        
+                                    <label>
+                                        <input type="checkbox" id="negatifCB"> Negatif Açı
+                                    </label>
+                                </div>
                     
                                 <label>
-                                    <input type="checkbox" id="negatifCB"> Negatif Açı
+                                    <input type="checkbox" id="dereceCB" checked> Derece
+                                </label>
+            
+                                <label>
+                                    <input type="checkbox" id="radyanCB"> Radyan
                                 </label>
                             </div>
-                
-                            <label>
-                                <input type="checkbox" id="dereceCB" checked> Derece
-                            </label>
-        
-                            <label>
-                                <input type="checkbox" id="radyanCB"> Radyan
-                            </label>
+                            <div id="parkurSlider">
+                                <img src="/images/speed.svg" alt="speed" style="margin-left: 135px;">
+                                <input type="range" id="speedSlider" min="0.0008" max="0.005" step="0.0001" value="0.002">
+                            </div>
+                            <div id="parkur-btns">
+                                <button id="parkurPlay-btn" style="background-color: green;">Başlat</button>
+                                <button id="parkurStop-btn" style="background-color: rgb(182, 2, 2);">Durdur</button>
+                            </div>
                         </div>
-                        <div id="parkurSlider">
-                            <img src="/images/speed.svg" alt="speed" style="margin-left: 135px;">
-                            <input type="range" id="speedSlider" min="0.0008" max="0.005" step="0.0001" value="0.002">
-                        </div>
-                        <div id="parkur-btns">
-                            <button id="parkurPlay-btn" style="background-color: green;">Başlat</button>
-                            <button id="parkurStop-btn" style="background-color: rgb(182, 2, 2);">Durdur</button>
+                        <div id="parkur" style="transform: scale(0.9);"></div>
+                        <div class="counters" id="parkurCounters">
+                            <div id="lapCounter">Turlar: 0</div>
+                            <div id="degreeCounter">Açı: 0°</div>
+                            <div id="esasCounter">Esas ölçü: 0°</div>
                         </div>
                     </div>
-                    <div id="parkur" style="transform: scale(0.9);"></div>
-                    <div class="counters" id="parkurCounters">
-                        <div id="lapCounter">Turlar: 0</div>
-                        <div id="degreeCounter">Açı: 0°</div>
-                        <div id="esasCounter">Esas ölçü: 0°</div>
-                    </div>
-                    
-                    
                 </div>
             </div>
             <h3>Sinüs</h3>
@@ -1235,7 +1220,6 @@
                         <input type="checkbox" id="toggle330Tan"> 330°
                     </label>
                 </div>
-                
                 <div class="sin2maddeleri" id="toggleBosmaddeTan">
                     <p style="font-size: 15px; font-weight: 400;">Aşağıdaki tabloda tanjantın 0 ve tanımsız olduğu açılar verilmiştir. Yandaki birimçember üzerindeki noktayı hareket
                         ettirerek tanjant değerinin
@@ -1275,7 +1259,12 @@
                                 </span>
                                 </p>
                             </div>
-                            <p>tan240 zaten her zamanki gibi çok güzel gözüküyordur</p>
+                            <div class="tanRowMaddes" id="tan30RowMadde">
+                                <small>• Tanjantın pozitif mi negatif mi olduğunu bulmak için sinüs ve kosinüsün o bölgedeki işaretine bakarız.</small>
+                                <br>
+                                <br>
+                                <small>• Sinüs ve kosinüs değeri pozitifse tanjant da pozitif, içlerinden biri negatifse tanjant negatif ve ikisi de negatifse tanjant pozitif olur.</small>
+                            </div>
                         </div>
                         
                 </div>
@@ -1284,7 +1273,12 @@
                         <small>sin45° ve cos45° 'in değeri birbirine eşit olduğu için 45° 'nin tanjant değeri 1'dir.</small>
                         <div class="tanIntRow" id="tan45row">
                             <div class="tanAngles" id="tan45"></div>
-                            <p>tan240 zaten her zamanki gibi çok güzel gözüküyordur</p>
+                            <div class="tanRowMaddes" id="tan45RowMadde">
+                                <small>• Tanjantın pozitif mi negatif mi olduğunu bulmak için sinüs ve kosinüsün o bölgedeki işaretine bakarız.</small>
+                                <br>
+                                <br>
+                                <small>• Sinüs ve kosinüs değeri pozitifse tanjant da pozitif, içlerinden biri negatifse tanjant negatif ve ikisi de negatifse tanjant pozitif olur.</small>
+                            </div>
                         </div>
                 </div>
                 <div class="sin2maddeleri" id="toggle60maddeTan">
@@ -1292,7 +1286,12 @@
                         <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
                         <div class="tanIntRow" id="tan60row">
                             <div class="tanAngles" id="tan60"></div>
-                            <p>tan240 zaten her zamanki gibi çok güzel gözüküyordur</p>
+                            <div class="tanRowMaddes" id="tan60RowMadde">
+                                <small>• Tanjantın pozitif mi negatif mi olduğunu bulmak için sinüs ve kosinüsün o bölgedeki işaretine bakarız.</small>
+                                <br>
+                                <br>
+                                <small>• Sinüs ve kosinüs değeri pozitifse tanjant da pozitif, içlerinden biri negatifse tanjant negatif ve ikisi de negatifse tanjant pozitif olur.</small>
+                            </div>
                         </div>
                 </div>
                 <div class="sin2maddeleri" id="toggle90maddeTan">
@@ -1300,7 +1299,12 @@
                         <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
                         <div class="tanIntRow" id="tan90row">
                             <div class="tanAngles" id="tan90"></div>
-                            <p>tan240 zaten her zamanki gibi çok güzel gözüküyordur</p>
+                            <div class="tanRowMaddes" id="tan90RowMadde">
+                                <small>• Tanjantın pozitif mi negatif mi olduğunu bulmak için sinüs ve kosinüsün o bölgedeki işaretine bakarız.</small>
+                                <br>
+                                <br>
+                                <small>• Sinüs ve kosinüs değeri pozitifse tanjant da pozitif, içlerinden biri negatifse tanjant negatif ve ikisi de negatifse tanjant pozitif olur.</small>
+                            </div>
                         </div>
 
                 </div>
@@ -1316,7 +1320,12 @@
                                     </span>
                                     </p>
                             </div>
-                            <p>tan240 zaten her zamanki gibi çok güzel gözüküyordur</p>
+                            <div class="tanRowMaddes" id="tan150RowMadde">
+                                <small>• Tanjantın pozitif mi negatif mi olduğunu bulmak için sinüs ve kosinüsün o bölgedeki işaretine bakarız.</small>
+                                <br>
+                                <br>
+                                <small>• Sinüs ve kosinüs değeri pozitifse tanjant da pozitif, içlerinden biri negatifse tanjant negatif ve ikisi de negatifse tanjant pozitif olur.</small>
+                            </div>
                         </div>
 
                 </div>
@@ -1325,7 +1334,12 @@
                     <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
                     <div class="tanIntRow" id="tan240row">
                         <div class="tanAngles" id="tan240"></div>
-                        <p>tan240 zaten her zamanki gibi çok güzel gözüküyordur</p>
+                        <div class="tanRowMaddes" id="tan240RowMadde">
+                            <small>• Tanjantın pozitif mi negatif mi olduğunu bulmak için sinüs ve kosinüsün o bölgedeki işaretine bakarız.</small>
+                            <br>
+                            <br>
+                            <small>• Sinüs ve kosinüs değeri pozitifse tanjant da pozitif, içlerinden biri negatifse tanjant negatif ve ikisi de negatifse tanjant pozitif olur.</small>
+                        </div>
                     </div>
 
                 </div>
@@ -1334,7 +1348,12 @@
                     <small>Yanda oluşan dik üçgeni alıp inceleyelim.</small>
                     <div class="tanIntRow" id="tan240row">
                         <div class="tanAngles" id="tan270"></div>
-                        <p>tan240 zaten her zamanki gibi çok güzel gözüküyordur</p>
+                        <div class="tanRowMaddes" id="tan270RowMadde">
+                            <small>• Tanjantın pozitif mi negatif mi olduğunu bulmak için sinüs ve kosinüsün o bölgedeki işaretine bakarız.</small>
+                            <br>
+                            <br>
+                            <small>• Sinüs ve kosinüs değeri pozitifse tanjant da pozitif, içlerinden biri negatifse tanjant negatif ve ikisi de negatifse tanjant pozitif olur.</small>
+                        </div>
                     </div>
 
                 </div>
@@ -1350,7 +1369,12 @@
                                     </span>
                                     </p>
                             </div>
-                            <p>tan240 zaten her zamanki gibi çok güzel gözüküyordur</p>
+                            <div class="tanRowMaddes" id="tan330RowMadde">
+                                <small>• Tanjantın pozitif mi negatif mi olduğunu bulmak için sinüs ve kosinüsün o bölgedeki işaretine bakarız.</small>
+                                <br>
+                                <br>
+                                <small>• Sinüs ve kosinüs değeri pozitifse tanjant da pozitif, içlerinden biri negatifse tanjant negatif ve ikisi de negatifse tanjant pozitif olur.</small>
+                            </div>
                         </div>
 
                 </div>
@@ -1452,6 +1476,7 @@
         <script src="/js/trigonometri/dikÜçgenHipotenüs.js"></script>
         <script src="/js/trigonometri/üçgenAçı.js"></script>
         <script src="/js/trigonometri/noktadanÇember.js"></script>
+        <script src="/js/trigonometri/piCircle.js"></script>
         <script src="/js/trigonometri/dereceÇember.js"></script>
         <script src="/js/trigonometri/radyanÇember.js"></script>
         <script src="/js/trigonometri/birimçemberBOS.js"></script>

@@ -301,4 +301,3 @@ document.querySelectorAll(".ispat_369").forEach(element => {
     });
 });
 
-

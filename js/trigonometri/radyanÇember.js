@@ -2,13 +2,13 @@
     let svg2 = d3
         .select("#radyan_cember")
         .append("svg")
-        .attr("width", 600)
-        .attr("height", 600);
+        .attr("width", 360)
+        .attr("height", 360);
 
     // Çemberin merkezi ve yarıçapı
-    const centerX = 300;
-    const centerY = 300;
-    const radius = 200;
+    const centerX = 180;
+    const centerY = 180;
+    const radius = 160;
     const smallCircleRadius = 30; // Küçük çemberin yarıçapı
     const angleRad = (57 * Math.PI) / 180; // 57 dereceyi radyana çeviriyoruz
 
