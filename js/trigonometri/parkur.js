@@ -7,6 +7,9 @@
     let posneg = true;
     outerRadius = 270;
     tribuneRadius = 270;
+    var elementDegreeCounter = document.getElementById("degreeCounter");
+    var elementEsasCounter = document.getElementById("esasCounter");
+
     const svg = d3
         .select("#parkur")
         .append("svg")
@@ -72,7 +75,6 @@
         .attr("stroke-width", "20")
         .lower();
 
-    
     // Koşu parkurunun çemberlerini çizme
     for (let i = 0; i < lanes; i++) {
         const radius = innerRadius + i * trackWidth;
@@ -97,78 +99,84 @@
             .attr("stroke-width", trackWidth - 2) // Şerit genişliği
             .lower();
     }
-// 1) Glow (ışık parlaması) filtresi tanımlayalım.
-//    stdDeviation değerini küçük tutarak "birazcık" parlama elde ediyoruz.
-const glowFilter = defs.append("filter")
-    .attr("id", "lightGlow");
+    // 1) Glow (ışık parlaması) filtresi tanımlayalım.
+    //    stdDeviation değerini küçük tutarak "birazcık" parlama elde ediyoruz.
+    const glowFilter = defs.append("filter").attr("id", "lightGlow");
 
-glowFilter.append("feGaussianBlur")
-    .attr("in", "SourceGraphic")
-    .attr("stdDeviation", "2")  // Glow miktarı (düşük değer => hafif glow)
-    .attr("result", "blur");
+    glowFilter
+        .append("feGaussianBlur")
+        .attr("in", "SourceGraphic")
+        .attr("stdDeviation", "2") // Glow miktarı (düşük değer => hafif glow)
+        .attr("result", "blur");
 
-const feMerge = glowFilter.append("feMerge");
-feMerge.append("feMergeNode").attr("in", "blur");
-feMerge.append("feMergeNode").attr("in", "SourceGraphic");
+    const feMerge = glowFilter.append("feMerge");
+    feMerge.append("feMergeNode").attr("in", "blur");
+    feMerge.append("feMergeNode").attr("in", "SourceGraphic");
 
-// 2) Sadece yukarıdaki (sol üst, sağ üst) 2 ışık paneli konumu:
-const lightPositions = [
-    { x: centerX - 300, y: centerY - 300 }, // Sol Üst
-    { x: centerX + 300, y: centerY - 300 }  // Sağ Üst
-];
+    // 2) Sadece yukarıdaki (sol üst, sağ üst) 2 ışık paneli konumu:
+    const lightPositions = [
+        { x: centerX - 300, y: centerY - 300 }, // Sol Üst
+        { x: centerX + 300, y: centerY - 300 }, // Sağ Üst
+    ];
 
-// 3) Panelin kaç satır ve sütun ampulden oluşacağını, 
-//    ampuller arası boşluğu ve ampul boyutunu belirleyelim.
-const rows = 3;
-const cols = 5;
-const spacing = 18;
-const bulbRadius = 6;
+    // 3) Panelin kaç satır ve sütun ampulden oluşacağını,
+    //    ampuller arası boşluğu ve ampul boyutunu belirleyelim.
+    const rows = 3;
+    const cols = 5;
+    const spacing = 18;
+    const bulbRadius = 6;
 
-// Panelin arka dikdörtgenini çizerken, ampullerin kapladığı alandan biraz daha büyük tutuyoruz.
-const panelWidth  = (cols - 1) * spacing + bulbRadius * 4;
-const panelHeight = (rows - 1) * spacing + bulbRadius * 4;
+    // Panelin arka dikdörtgenini çizerken, ampullerin kapladığı alandan biraz daha büyük tutuyoruz.
+    const panelWidth = (cols - 1) * spacing + bulbRadius * 4;
+    const panelHeight = (rows - 1) * spacing + bulbRadius * 4;
 
-// 4) Her bir ışık panelini oluşturup stadyuma doğru baktırıyoruz
-lightPositions.forEach((pos) => {
-    // Stadyum merkezine doğru açı
-    let angleRad = Math.atan2(centerY - pos.y, centerX - pos.x);
-    let angleDeg = (angleRad * 180) / Math.PI;
+    // 4) Her bir ışık panelini oluşturup stadyuma doğru baktırıyoruz
+    lightPositions.forEach((pos) => {
+        // Stadyum merkezine doğru açı
+        let angleRad = Math.atan2(centerY - pos.y, centerX - pos.x);
+        let angleDeg = (angleRad * 180) / Math.PI;
 
-    // Panel grubunu oluştur
-    let lightGroup = svg.append("g")
-        .attr("class", "stadium-light")
-        .attr("transform", `translate(${pos.x}, ${pos.y}) rotate(${angleDeg})`);
+        // Panel grubunu oluştur
+        let lightGroup = svg
+            .append("g")
+            .attr("class", "stadium-light")
+            .attr(
+                "transform",
+                `translate(${pos.x}, ${pos.y}) rotate(${angleDeg})`
+            );
 
-    // Panelin arka dikdörtgeni (metal kasa gibi)
-    lightGroup.append("rect")
-        .attr("x", -panelWidth / 2)
-        .attr("y", -panelHeight / 2)
-        .attr("width", panelWidth)
-        .attr("height", panelHeight)
-        .attr("fill", "#333")
-        .attr("rx", 8)  // Kenarları hafif yuvarlatma
-        .attr("ry", 8)
-        .attr("stroke", "#555")
-        .attr("stroke-width", 2)
-        .attr("opacity", 0.8);
+        // Panelin arka dikdörtgeni (metal kasa gibi)
+        lightGroup
+            .append("rect")
+            .attr("x", -panelWidth / 2)
+            .attr("y", -panelHeight / 2)
+            .attr("width", panelWidth)
+            .attr("height", panelHeight)
+            .attr("fill", "#333")
+            .attr("rx", 8) // Kenarları hafif yuvarlatma
+            .attr("ry", 8)
+            .attr("stroke", "#555")
+            .attr("stroke-width", 2)
+            .attr("opacity", 0.8);
 
-    // 5) Panel üzerindeki ampulleri (dairesel) çizelim
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-            let cx = -panelWidth / 2 + bulbRadius * 2 + c * spacing;
-            let cy = -panelHeight / 2 + bulbRadius * 2 + r * spacing;
+        // 5) Panel üzerindeki ampulleri (dairesel) çizelim
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                let cx = -panelWidth / 2 + bulbRadius * 2 + c * spacing;
+                let cy = -panelHeight / 2 + bulbRadius * 2 + r * spacing;
 
-            // Ampul: beyaz daire, hafif glow filtresi
-            lightGroup.append("circle")
-                .attr("cx", cx)
-                .attr("cy", cy)
-                .attr("r", bulbRadius)
-                .attr("fill", "white")
-                .attr("filter", "url(#lightGlow)")
-                .attr("opacity", 0.95);
+                // Ampul: beyaz daire, hafif glow filtresi
+                lightGroup
+                    .append("circle")
+                    .attr("cx", cx)
+                    .attr("cy", cy)
+                    .attr("r", bulbRadius)
+                    .attr("fill", "white")
+                    .attr("filter", "url(#lightGlow)")
+                    .attr("opacity", 0.95);
+            }
         }
-    }
-});
+    });
     // İç alan (yeşil çim)
     svg.append("circle")
         .attr("cx", centerX)
@@ -375,8 +383,7 @@ lightPositions.forEach((pos) => {
         }
     }
 
-
-    let jumpingEnabled = false; 
+    let jumpingEnabled = false;
 
     // Her bir insan ikonunun zıplama döngüsü
     function jump(element) {
@@ -524,6 +531,16 @@ lightPositions.forEach((pos) => {
             angleRadSon = (angleDeg * Math.PI) / 180;
             drawStopLines(runnerX, runnerY, 2 * Math.PI - angleRadSon, posneg);
 
+            elementEsasCounter.style.color = "red";
+            elementEsasCounter.style.transition = "transform 1s, color 1s"; // Geçiş süresi
+            elementEsasCounter.style.transform = "scale(1.2)"; // 1.5 kat büyüt
+
+            // 1 saniye sonra eski haline getir
+            setTimeout(() => {
+                elementEsasCounter.style.transform = "scale(1)"; // Eski boyuta dön
+                elementEsasCounter.style.color = "black";
+            }, 3000);
+
             runner.attr("xlink:href", "/images/runner_still.png");
         }
     }
@@ -562,21 +579,24 @@ lightPositions.forEach((pos) => {
         document.getElementById("esasCounter").textContent = `Esas ölçü: ${
             posneg ? displayValueEsPo : displayValueEsNeg
         }`;
+
+        isDegree
+            ? (elementDegreeCounter.style.marginLeft = "150px")
+            : (elementDegreeCounter.style.marginLeft = "115px");
+        isDegree
+            ? (elementEsasCounter.style.marginLeft = "115px")
+            : (elementEsasCounter.style.marginLeft = "80px");
     }
 
     // Başlat ve Durdur butonları
-    document
-        .getElementById("parkurPlay-btn")
-        .addEventListener("click", () => {
-            startAnimation(posneg);
-            startJumping();
-        });
-    document
-        .getElementById("parkurStop-btn")
-        .addEventListener("click", () => {
-            stopAnimation(posneg)
-            stopJumping();
-        });
+    document.getElementById("parkurPlay-btn").addEventListener("click", () => {
+        startAnimation(posneg);
+        startJumping();
+    });
+    document.getElementById("parkurStop-btn").addEventListener("click", () => {
+        stopAnimation(posneg);
+        stopJumping();
+    });
     document
         .getElementById("speedSlider")
         .addEventListener("input", function () {

@@ -194,7 +194,7 @@
             <div id="pi" style="display: flex; align-items: center;">
                 <p style="font-weight: 800;">Pi sayısının ilk 10 basamağı:&nbsp; \(\pi =\) 3.141592653</p>
                 <div id="piCircle" style="margin-left: 300px;"></div>
-                <span class="fraction" style="margin-bottom: 20px;">
+                <span class="fraction" style="margin-bottom: 2px;">
                     <span style="color: rgb(0, 0, 0); font-size: 2*px; font-weight: 500; color: green;" class="numerator">2<a style="font-weight: 600;">π</a>r</span>
                     <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500; color: red;" class="denominator">2r</span>
                 </span>
@@ -206,7 +206,7 @@
                 Böylece, çember üzerindeki her noktanın konumu, merkezden çizilen yarıçapın oluşturduğu açı ile ifade edilebilir.
             </p>
             <br>
-            <div id="derece_cember" style="margin: 0 auto;">
+            <div id="derece_cember" style="margin-left: 16%;">
                 <img src="/images/zoom_in.svg" alt="zoom" style="width: 35px; position:absolute; margin-left: 28.2%; margin-top: 9%; user-select: none; pointer-events: none;">
             </div>
             <br>
@@ -403,7 +403,7 @@
                                 </label>
                             </div>
                             <div id="parkurSlider">
-                                <img src="/images/speed.svg" alt="speed" style="margin-left: 135px;">
+                                <img src="/images/speed.svg" alt="speed">
                                 <input type="range" id="speedSlider" min="0.0008" max="0.005" step="0.0001" value="0.002">
                             </div>
                             <div id="parkur-btns">
@@ -412,10 +412,12 @@
                             </div>
                         </div>
                         <div id="parkur" style="transform: scale(0.9);"></div>
-                        <div class="counters" id="parkurCounters">
-                            <div id="lapCounter">Turlar: 0</div>
-                            <div id="degreeCounter">Açı: 0°</div>
-                            <div id="esasCounter">Esas ölçü: 0°</div>
+                        <div id="kronometre" style="margin-top: 6%;">
+                            <div class="counters" id="parkurCounters" style="font-size: 25px; font-weight: 500; position: absolute; margin-top: 210px; display: flex; flex-direction: column; gap: 5px;">
+                                <div id="lapCounter" style="margin-left: 140px;">Turlar: 0</div>
+                                <div id="degreeCounter" style="margin-left: 150px;">Açı: 0°</div>
+                                <div id="esasCounter" style="margin-left: 115px;">Esas ölçü: 0°</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -993,7 +995,7 @@
                 Şimdi ise hipotenüsü 1’den farklı olan dik üçgenlerde trigonometrik oranların nasıl hesaplanacağını inceleyelim.
             </p>
             <br>
-            <p>• Asıl amacımız, hipotenüsü 1’e indirerek oranları birim çemberdeki trigonometrik tanımlarla uyumlu hale getirmektir. 
+            <p>• Asıl amacımız, hipotenüsü 1 birime indirerek oranları birim çemberdeki trigonometrik tanımlarla uyumlu hale getirmektir. 
                 Bu nedenle, herhangi bir dik üçgende sinüs veya kosinüs hesaplanırken, ilgili kenar uzunluğu hipotenüse bölünerek oran elde edilir.</p>
                 <br>
                 <br>
@@ -1464,9 +1466,31 @@
                     </span></small>
                 </div>
             </div>
-            <br>
-            <p>Interactive</p>
-            <div id="cotInteractive" style="cursor: pointer;"></div>
+            <div id="cotInteractiveRect" style="display: flex;">
+                <div id="tableCot">
+                    <div class="counters" id="cotCounters" style="position: absolute; margin-left: 45px;">
+                        <div id="eqCotCounter" style="font-size: 25px; font-weight: 500;">cot45°</div>=
+                        <div id="cosDivSin">
+                            <span class="fraction">
+                                <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500;" class="numerator"><div id="eqCosCotCounter"> cos45°</div></span>
+                                <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500;" class="denominator"><div id="eqSinCotCounter"> sin45°</div></span>
+                            </span>
+                        </div>=
+                        <div id="payDivPaydaCot">
+                            <span class="fraction">
+                                <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500;" class="numerator"> <div id="eqPayCotCounter">
+                                    √2 / 2
+                                </div></span>
+                                <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500;" class="denominator"><div id="eqPaydaCotCounter">
+                                    √2 / 2
+                                </div></span>
+                            </span>
+                        </div>=
+                        <div id="eqSonuçCotCounter">1</div>
+                    </div>
+                </div>
+                <div id="cotInteractive" style="cursor: pointer; margin: 0 auto;"></div>
+            </div>
         </div>
         <ex-sidebar-fizik></ex-sidebar-fizik>
         <!-- <ex-footer></ex-footer> -->
@@ -1481,6 +1505,7 @@
         <script src="/js/trigonometri/radyanÇember.js"></script>
         <script src="/js/trigonometri/birimçemberBOS.js"></script>
         <script src="/js/trigonometri/parkur.js"></script>
+        <script src="/js/trigonometri/kronometre.js"></script>
         <script src="/js/trigonometri/birimçember_sin.js"></script>
         <script src="/js/trigonometri/birimçember_sin2.js"></script>
         <script src="/js/trigonometri/sinüsTablo.js"></script>
@@ -1512,6 +1537,7 @@
         <script src="/js/trigonometri/kotanjant123.js"></script>
         <script src="/js/trigonometri/cotProof.js"></script>
         <script src="/js/trigonometri/cotInteractive.js"></script>
+        <script src="/js/trigonometri/tableCot.js"></script>
         <script src="/js/trigonometri/birimçember_sincos.js" defer></script>
 </body>
 </html>

@@ -475,7 +475,7 @@
 
     labelsBolge
         .append("text")
-        .attr("x", centerX + radius / 2 - 20)
+        .attr("x", centerX + radius / 2 - 5)
         .attr("y", centerY - radius / 2 + 35)
         .attr("font-size", "24px")
         .attr("fill", "black")
@@ -486,7 +486,7 @@
 
     labelsBolge
         .append("text")
-        .attr("x", centerX - radius / 2 + 20)
+        .attr("x", centerX - radius / 2 + 5)
         .attr("y", centerY - radius / 2 + 35)
         .attr("font-size", "24px")
         .attr("fill", "black")
@@ -497,7 +497,7 @@
 
     labelsBolge
         .append("text")
-        .attr("x", centerX - radius / 2 + 20)
+        .attr("x", centerX - radius / 2 + 5)
         .attr("y", centerY + radius / 2 - 15)
         .attr("font-size", "24px")
         .attr("fill", "black")
@@ -508,7 +508,7 @@
 
     labelsBolge
         .append("text")
-        .attr("x", centerX + radius / 2 - 20)
+        .attr("x", centerX + radius / 2 - 5)
         .attr("y", centerY + radius / 2 - 15)
         .attr("font-size", "24px")
         .attr("fill", "black")
@@ -520,9 +520,9 @@
     // üzerindeki bölge texti 1.bölge, 2.bölge,
     labelsBolge
         .append("text")
-        .attr("x", centerX + radius / 2 - 20)
+        .attr("x", centerX + radius / 2 - 5)
         .attr("y", centerY - radius / 2 - 10)
-        .attr("font-size", "24px")
+        .attr("font-size", "20px")
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("text-anchor", "middle")
@@ -531,9 +531,9 @@
 
     labelsBolge
         .append("text")
-        .attr("x", centerX - radius / 2 + 20)
+        .attr("x", centerX - radius / 2 + 5)
         .attr("y", centerY - radius / 2 - 10)
-        .attr("font-size", "24px")
+        .attr("font-size", "20px")
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("text-anchor", "middle")
@@ -542,9 +542,9 @@
 
     labelsBolge
         .append("text")
-        .attr("x", centerX - radius / 2 + 20)
+        .attr("x", centerX - radius / 2 + 5)
         .attr("y", centerY + radius / 2 + 25)
-        .attr("font-size", "24px")
+        .attr("font-size", "20px")
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("text-anchor", "middle")
@@ -553,9 +553,9 @@
 
     labelsBolge
         .append("text")
-        .attr("x", centerX + radius / 2 - 20)
+        .attr("x", centerX + radius / 2 - 5)
         .attr("y", centerY + radius / 2 + 25)
-        .attr("font-size", "24px")
+        .attr("font-size", "20px")
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("text-anchor", "middle")

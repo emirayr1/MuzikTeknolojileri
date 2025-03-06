@@ -1,18 +1,19 @@
 (function () {
     // Global değişkenler ve fonksiyonlar
 
-    function cot(x){
+    function cot(x) {
         return 1 / Math.tan(x);
     }
 
     let svg2 = d3
         .select("#cotInteractive")
         .append("svg")
-        .attr("width", 1500)
+        .attr("width", 1000)
+        // .style("background-color","white")
         .attr("height", 700);
 
     // Çemberin merkezi ve yarıçapı
-    const centerX = 750;
+    const centerX = 500;
     const centerY = 300;
     const radius = 150;
     const smallCircleRadius = 20;
@@ -37,6 +38,16 @@
         .attr("stroke", "red")
         .attr("stroke-width", 3);
 
+    const dashLinesCot = svg2
+        .append("line")
+        .attr("x1", centerX + radius * cot(Math.PI / 4))
+        .attr("y1", centerY - radius)
+        .attr("x2", centerX + radius * cot(Math.PI / 4))
+        .attr("y2", centerY)
+        .attr("stroke", "red")
+        .attr("stroke-dasharray", "5.5")
+        .attr("stroke-width", 3);
+
     const tanLine = svg2
         .append("line")
         .attr("x1", centerX)
@@ -58,7 +69,7 @@
         .append("line")
         .attr("x1", 20)
         .attr("y1", centerY - radius)
-        .attr("x2",  1480)
+        .attr("x2", 980)
         .attr("y2", centerY - radius)
         .lower()
         .attr("stroke", "black")
@@ -79,9 +90,9 @@
         .lower();
 
     svg2.append("line")
-        .attr("x1", centerX - 290)
+        .attr("x1", 20)
         .attr("y1", centerY)
-        .attr("x2", centerX + 290)
+        .attr("x2", 980)
         .attr("y2", centerY)
         .attr("stroke", "black")
         .lower()
@@ -99,7 +110,7 @@
     svg2.append("polygon") // sağ
         .attr(
             "points",
-            `${centerX + 300},${centerY} ${/* 700 - 10 */ centerX + 290},${centerY - 10} ${centerX + 290},${
+            `${990},${centerY} ${/* 700 - 10 */ 980},${centerY - 10} ${980},${
                 centerY + 10
             }`
         )
@@ -110,7 +121,7 @@
     svg2.append("polygon") // sol
         .attr(
             "points",
-            `${centerX - 290},${centerY} ${centerX - 280},${centerY - 10} ${centerX - 280},${centerY + 10}`
+            `${10},${centerY} ${20},${centerY - 10} ${20},${centerY + 10}`
         )
         .attr("fill", "black")
         .attr("stroke", "none")
@@ -202,7 +213,7 @@
 
         line.attr("x2", newX2).attr("y2", newY2);
 
-        console.log("angleCircle",angleCircleTransform)
+        console.log("angleCircle", angleCircleTransform);
         point.attr("cx", newX2).attr("cy", newY2);
 
         tanLine
@@ -211,6 +222,32 @@
             .attr("x2", centerX + radius * cot(-angleCircleTransform))
             .attr("y2", centerY - radius);
 
+
+        dashLinesCot
+            .attr("x1", centerX + radius * cot(-angleCircleTransform))
+            .attr("x2", centerX + radius * cot(-angleCircleTransform))
         // 300den küçük olursa solda demek 550 max sağ 50 max sol NEWX2
+
+        document.getElementById(
+            "eqCotCounter"
+        ).textContent = `tan${angleDegrees.toFixed(0)}°`;
+        document.getElementById(
+            "eqSinCotCounter"
+        ).textContent = `sin${angleDegrees.toFixed(0)}°`;
+        document.getElementById(
+            "eqCosCotCounter"
+        ).textContent = `cos${angleDegrees.toFixed(0)}°`;
+        document.getElementById(
+            "eqPayCotCounter"
+        ).textContent = `${distanceCos.toFixed(2)}`;
+        document.getElementById(
+            "eqPaydaCotCounter"
+        ).textContent = `${distanceSin.toFixed(2)}`;
+        document.getElementById("eqSonuçCotCounter").textContent = `${
+            (angleDegrees > 179 && angleDegrees < 182) ||
+            (angleDegrees > 358 || angleDegrees < 2)
+                ? `tanımsız`
+                : (distanceCos / distanceSin).toFixed(1)
+        }`;
     }
 })();

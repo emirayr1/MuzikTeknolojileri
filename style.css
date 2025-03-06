@@ -703,6 +703,7 @@ input[type="range"]:active::-moz-range-thumb {
     display: flex;
     flex-direction: column;
     height: fit-content;
+    text-align: center;
     margin-top: 7%;
     margin-left: 50px;
     gap: 60px;
@@ -1166,6 +1167,16 @@ tbody tr:nth-child(odd) {
 }
 
 #tanjantCounters{
+    display: flex;
+    gap: 10px;
+    height: 100px;
+    width: fit-content;
+    margin: 0 auto;
+    align-items: center;
+    margin-top: 10%;
+}
+
+#cotCounters{
     display: flex;
     gap: 10px;
     height: 100px;
