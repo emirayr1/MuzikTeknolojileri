@@ -129,6 +129,54 @@
                     <p>\(C = 5 \,cm \)</p>
                 </div>
             </div>
+            <h4 style="text-decoration: underline; font-size: 20px;">Örnek</h4>
+            <div id="trisKapsamasi" style="display: flex; margin: 0 auto; margin-top: 30px;">
+                <div class="tris" id="tri_1P">
+                    <div id="tri_1_Pisagor" style="height: 200px;"></div>
+                    <div class="formulas" style="margin-left: 80px;">
+                        <p>\(3 \, ^2 + 4 \, ^2 = C^2 \)</p>
+                        <p>\(C^2 = 9 + 16 \)</p>
+                        <p>\(C^2 = 25 \)</p>
+                        <p>\(C = 5 \,cm \)</p>
+                    </div>
+                </div>
+                <div class="tris" id="tri_2P">
+                    <div id="tri_2_Pisagor" style="height: 200px;"></div>
+                    <div class="formulas" style="margin-left: 80px;">
+                        <p>\(5 \, ^2 + 12 \, ^2 = C^2 \)</p>
+                        <p>\(C^2 = 25 + 144 \)</p>
+                        <p>\(C^2 = 169 \)</p>
+                        <p>\(C = 13 \,cm \)</p>
+                    </div>
+                </div>
+                <div class="tris" id="tri_3P">
+                    <button class="cozum-btn" id="tri3cozum-btn">Çözümü Göster</button>
+                    <div id="tri_3_Pisagor" style="height: 200px;"></div>
+                    <div id="tri3question" style="margin: 0 auto;">
+                        <p>\(C = ?\)</p>
+                    </div>
+                    <div class="formulas" id="tri3Res" style="margin-left: 80px; display: none;">
+                        <p>\(8 \, ^2 + 15 \, ^2 = C^2 \)</p>
+                        <p>\(C^2 = 64 + 225 \)</p>
+                        <p>\(C^2 = 289 \)</p>
+                        <p>\(C = 17 \,cm \)</p>
+                    </div>
+                </div>
+                <div class="tris" id="tri_4P">
+                    <button class="cozum-btn" id="tri4cozum-btn">Çözümü Göster</button>
+                    <div id="tri_4_Pisagor" style="height: 200px;"></div>
+                    <div id="tri4question" style="margin: 0 auto;">
+                        <p>\(B = ?\)</p>
+                    </div>
+                    <div class="formulas" id="tri4Res" style="margin-left: 70px; display: none;">
+                        <p>\(16 \, ^2 + B \, ^2 = 34^2 \)</p>
+                        <p>\(B^2 = 34 \, ^2 - 16 \, ^2 \)</p>
+                        <p>\(B^2 = 115\,6 +  14\,12 = 2568 \)</p>
+                        <p>\(C = 30 \,cm \)</p>
+                    </div>
+                </div>
+            </div>
+
             <br>
             <h3>Çember</h3>
             <div style="display: flex; align-items: flex-start; gap: 10px;">
@@ -447,6 +495,10 @@
                     </div>
                     <div id="sinusTablo"></div>
                     <div id="motorContainer">
+                        <div class="controls" style="position: absolute; margin-right: 40px; margin-bottom: 50px;">
+                            <button id="startBtn" style="background-color: green; width: 20px; height: 20px; border-radius: 20px;  cursor: pointer;"></button>
+                            <button id="stopBtn" style="background-color: red; width: 20px; height: 20px; border-radius: 20px;  cursor: pointer;"></button>
+                        </div>
                         <svg
                             id="motorSvg"
                             viewBox="0 0 700 138"
@@ -458,10 +510,7 @@
                             preserveAspectRatio="xMidYMid meet"
                         ></svg>
                     </div>
-                    <div class="controls">
-                        <button id="startBtn">Başlat</button>
-                        <button id="stopBtn">Durdur</button>
-                    </div>
+                    
                 </div>
             </div>
             <div id="sin2Kapsamasi">
@@ -1499,6 +1548,7 @@
         <script src="/js/trigonometri/dikÜçgen.js"></script>
         <script src="/js/trigonometri/dikÜçgenHipotenüs.js"></script>
         <script src="/js/trigonometri/üçgenAçı.js"></script>
+        <script src="/js/trigonometri/tri_1234Pisagor_Ornek.js"></script>
         <script src="/js/trigonometri/noktadanÇember.js"></script>
         <script src="/js/trigonometri/piCircle.js"></script>
         <script src="/js/trigonometri/dereceÇember.js"></script>

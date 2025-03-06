@@ -479,6 +479,25 @@ body {
     height: 500px;
 }
 
+.cozum-btn{
+    position: absolute;
+    cursor: pointer;
+    width: 90px; 
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 20px;
+
+    transition: transform 0.4s ease;
+}
+
+.cozum-btn:hover{
+    transform: scale(1.1);
+}
+
 /* çember */
 
 #playButton {
