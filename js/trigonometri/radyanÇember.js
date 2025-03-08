@@ -74,8 +74,8 @@
         .attr("stroke-width", 2);
 
     svg2.append("text")
-        .attr("x", centerX + radius / 2)
-        .attr("y", centerY - 10)
+        .attr("x", centerX + radius / 2 + 5)
+        .attr("y", centerY + 25)
         .attr("font-size", "25px")
         .attr("fill", "black")
         .attr("font-weight", 600)
@@ -83,8 +83,8 @@
         .text("r");
 
     svg2.append("text")
-        .attr("x", (centerX + angleX) / 2)
-        .attr("y", (centerY + angleY) / 2 - 10)
+        .attr("x", (centerX + angleX) / 2 - 12)
+        .attr("y", (centerY + angleY) / 2 - 5)
         .attr("font-size", "25px")
         .attr("fill", "black")
         .attr("font-weight", 600)
@@ -102,7 +102,7 @@
 
     svg2.append("text")
         .attr("x", centerX + radius)
-        .attr("y", centerY - 100)
+        .attr("y", centerY - 80)
         .attr("font-size", "25px")
         .attr("fill", "black")
         .attr("font-weight", 600)

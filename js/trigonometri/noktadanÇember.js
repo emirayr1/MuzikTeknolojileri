@@ -27,6 +27,7 @@
             .attr("cx", centerX)
             .attr("cy", centerY)
             .attr("r", 5)
+            .raise()
             .attr("fill", "black");
 
         svg.append("text")
@@ -46,11 +47,12 @@
             .attr("x2", centerX + radius)
             .attr("y2", centerY)
             .attr("stroke", "red")
+            .lower()
             .attr("stroke-width", 2);
 
         // **Yarıçap yazısı (r)**
         svg.append("text")
-            .attr("x", centerX + radius / 2)
+            .attr("x", centerX + radius / 2 - 20)
             .attr("y", centerY - 10)
             .attr("font-size", "25px")
             .attr("fill", "black")
@@ -89,6 +91,7 @@
             .attr("cx", centerX)
             .attr("cy", centerY)
             .attr("r", 5)
+            .raise()
             .attr("fill", "black");
 
         // **Yarıçap çizgisi**
@@ -99,6 +102,7 @@
             .attr("x2", centerX)
             .attr("y2", centerY)
             .attr("stroke", "red")
+            .lower()
             .attr("stroke-width", 2);
 
         // **Noktaları oluştur**

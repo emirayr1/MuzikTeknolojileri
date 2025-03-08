@@ -240,10 +240,16 @@
             düzensiz bir ondalık dizisine sahiptir. <small><a href="https://www.youtube.com/watch?v=yx5Sw2ivenc" target="_blank"">öneri</a></small></p>
             <br>
             <div id="pi" style="display: flex; align-items: center;">
-                <p style="font-weight: 800;">Pi sayısının ilk 10 basamağı:&nbsp; \(\pi =\) 3.141592653</p>
-                <div id="piCircle" style="margin-left: 300px;"></div>
-                <span class="fraction" style="margin-bottom: 2px;">
-                    <span style="color: rgb(0, 0, 0); font-size: 2*px; font-weight: 500; color: green;" class="numerator">2<a style="font-weight: 600;">π</a>r</span>
+                <p style="font-weight: 800; margin-left: 200px;">• Pi sayısının ilk 10 basamağı:&nbsp; \(\pi =\) 3.141592653....</p>
+                <div id="piCircle" style="margin-left: 80px;"></div>
+                <p style="font-size: 20px; font-weight: 500;"><a>\(\pi\)</a> = <span class="fraction" style="margin-bottom: 0px;">
+                    <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500; color: green;" class="numerator">Çevre</span>
+                    <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500; color: red;" class="denominator">Çap</span>
+                </span>
+                <p style="font-size: 20px; font-weight: 500;">&nbsp;=&nbsp;</p>
+                </p>
+                <span class="fraction" style="margin-bottom: 0px;">
+                    <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500; color: green;" class="numerator">2<a style="font-weight: 600;">π</a>r</span>
                     <span style="color: rgb(0, 0, 0); font-size: 20px; font-weight: 500; color: red;" class="denominator">2r</span>
                 </span>
             </div>
@@ -341,23 +347,56 @@
                 </div>
                 <div id="bcMaddeKapsamasiRow" style="display: flex; height: fit-content; padding: 30px; gap: 100px;">
                     <div id="birimCemberBos" style="height: 88%;"></div>
-                    <div class="sin2maddeleri" id="bc2Madde">
-                        <p style="font-size: 15px; font-weight: 400;">Kosinüs ekseni 
-                            x-eksenidir. Sinüs değerini bulmak için açının karşı kenarının uzunluğuna bakarken, 
-                            kosinüs değerini bulmak için açının komşu kenarının uzunluğunu dikkate alırız.
-                        </p>
+                    <div class="bc2maddeleri" id="bcMaddeKoordinat">
+                        <div id="KoordinatParagraf" >
+                            <h3 style="font-size: 22px; text-align: center;" >Koordinat</h3>
+                            <br>
+                            <p style="font-size: 15px; font-weight: 400;">
+                                • Bir noktanın x ve y koordinatları (x, y) şeklinde gösterilir.
+                                <br>
+                                • Merkezden çemberin yayına uzatılan her bir doğru yarıçaptır ve 1 birim uzunluğundadır.
+                                <br>
+                                • Çember yayının üzerindeki kırmızı nokta sola gittikçe "x" değeri, aşağı gittikçe de "y" değeri azalmaktadır.
+                            </p>
+                        </div>
+                        <div id="RadyanParagraf" >
+                            <h3 style="font-size: 22px; text-align: center;" >Radyan</h3>
+                            <p style="font-size: 15px; font-weight: 400;">
+                                Radyan
+                            </p>
+                        </div>
+                        <div id="DegreeParagraf">
+                            <h3 style="font-size: 22px; text-align: center;" >Derece</h3>
+                            <p style="font-size: 15px; font-weight: 400;">
+                                Degree
+                            </p>
+                        </div>
+                        <div id="YonParagraf">
+                            <h3 style="font-size: 22px; text-align: center;" >Yönlü Açı</h3>
+                            <p style="font-size: 15px; font-weight: 400;">
+                                Yon
+                            </p>
+                            <div id="slidersCember" style="position: absolute; margin: 0 auto; margin-top: 20%; margin-left: 8%;">
+                                <div>
+                                    <label for="positiveAngle">Pozitif Açı: <span id="positiveAngleValue">0</span>°</label>
+                                    <input type="range" id="positiveAngle" min="0" max="360" step="1" value="0">
+                                </div>
+                                <div>
+                                    <label for="negativeAngle">Negatif Açı: <span id="negativeAngleValue">0</span>°</label>
+                                    <input type="range" id="negativeAngle" min="0" max="360" step="1" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BolgeParagraf">
+                            <h3 style="font-size: 22px; text-align: center;" >Bölgeler</h3>
+                            <p style="font-size: 15px; font-weight: 400;">
+                                Bolge
+                            </p>
+                            
+                        </div>
                     </div>
                 </div>
-                <div id="slidersCember">
-                    <div>
-                        <label for="positiveAngle">Pozitif Açı: <span id="positiveAngleValue">0</span>°</label>
-                        <input type="range" id="positiveAngle" min="0" max="360" step="1" value="0">
-                    </div>
-                    <div>
-                        <label for="negativeAngle">Negatif Açı: <span id="negativeAngleValue">0</span>°</label>
-                        <input type="range" id="negativeAngle" min="0" max="360" step="1" value="0">
-                    </div>
-                </div>
+                
             </div>
             <h4 style="text-decoration: underline; color: red;">Esas Ölçü</h4>
             <p>Bir açının esas ölçüsü, o açının pozitif veya negatif yönde kaç tur attığından bağımsız olarak, 0° ile 360° arasına düşen karşılığıdır. 
@@ -452,7 +491,7 @@
                             </div>
                             <div id="parkurSlider">
                                 <img src="/images/speed.svg" alt="speed">
-                                <input type="range" id="speedSlider" min="0.0008" max="0.005" step="0.0001" value="0.002">
+                                <input type="range" id="speedSlider" min="0.0008" max="0.005" step="0.0001" value="0.0029">
                             </div>
                             <div id="parkur-btns">
                                 <button id="parkurPlay-btn" style="background-color: green;">Başlat</button>

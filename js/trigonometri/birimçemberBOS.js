@@ -12,6 +12,8 @@
     const centerX = width / 2 - 10;
     const centerY = height / 2 - 10;
     const radius = 180;
+    const koordinat = document.getElementById("bcMaddeKoordinat");
+    const sliders = document.getElementById("slidersCember");
     // Küçük çemberin yarıçapı
 
     // **Birim çemberi çiziyoruz**
@@ -104,16 +106,18 @@
 
     const labelsKoordinat = svg2.append("g").attr("id", "svgKoordinat");
 
-    labelsKoordinat.append("line")
-    .attr("x1", centerX + 2)
-    .attr("y1", centerY)
-    .attr("x2", centerX + radius - 2)
-    .attr("y2", centerY)
-    .attr("stroke", "red")
-    .attr("stroke-width", 4)
-    .raise();
+    labelsKoordinat
+        .append("line")
+        .attr("x1", centerX + 2)
+        .attr("y1", centerY)
+        .attr("x2", centerX + radius - 2)
+        .attr("y2", centerY)
+        .attr("stroke", "red")
+        .attr("stroke-width", 4)
+        .raise();
 
-    labelsKoordinat.append("text")
+    labelsKoordinat
+        .append("text")
         .attr("x", centerX + radius / 2)
         .attr("y", centerY - 10)
         .attr("font-size", "25px")
@@ -368,7 +372,7 @@
             .style("font-size", "18px")
             .style("font-weight", "500")
             .style("color", "black")
-            .html(angle.deg);
+            .html(`${angle.deg}°`);
     });
 
     // **MathJax ile Yazıları Güncelle**
@@ -662,84 +666,33 @@
 
     // toggle functions
 
-    toggleDisplay("koordinat");
+    toggleDisplay("Koordinat");
 
     function toggleDisplay(selected) {
-        if (selected === "koordinat") {
-            labelsKoordinat.style("display", "block");
-            labelsRadyan.style("display", "none");
-            labelsDegree.style("display", "none");
-            labelsYon.style("display", "none");
-            labelsBolge.style("display", "none");
-            document.querySelector("#toggleKoordinat").checked = true;
-            document.querySelector("#toggleRadyan").checked = false;
-            document.querySelector("#toggleDegree").checked = false;
-            document.querySelector("#toggleYon").checked = false;
-            document.querySelector("#toggleBolge").checked = false;
+        const options = ["Koordinat", "Radyan", "Degree", "Yon", "Bolge"];
+        console.log("girdi", selected);
 
-            //slider visibility
-            document.getElementById("slidersCember").style.display = "none";
+        koordinat.style.transition = "max-height 1s ease-out";
+        sliders.style.transition = "opacity 1s ease-in-out";
+        koordinat.style.maxHeight =
+            selected === "Koordinat" ? "300px" : "600px";
+        setTimeout(() => {
+            sliders.style.opacity = selected === "Yon" ? 1 : 0;
+        }, 500);
+        
 
-        } else if (selected === "radyan") {
-            labelsKoordinat.style("display", "none");
-            labelsRadyan.style("display", "block");
-            labelsDegree.style("display", "none");
-            labelsYon.style("display", "none");
-            labelsBolge.style("display", "none");
-            document.querySelector("#toggleKoordinat").checked = false;
-            document.querySelector("#toggleRadyan").checked = true;
-            document.querySelector("#toggleDegree").checked = false;
-            document.querySelector("#toggleYon").checked = false;
-            document.querySelector("#toggleBolge").checked = false;
+        const excluded = options.filter((item) => item !== selected);
+        d3.select(`#svg${selected}`).style("display", "block");
+        document.querySelector(`#toggle${selected}`).checked = true;
+        document.getElementById(`${selected}Paragraf`).style.display = "block";
+        // document.getElementById(`bcMadde${selected}`).style.display = "block";
 
-            //slider visibility
-            document.getElementById("slidersCember").style.display = "none";
-
-        } else if (selected === "degree") {
-            labelsKoordinat.style("display", "none");
-            labelsRadyan.style("display", "none");
-            labelsDegree.style("display", "block");
-            labelsYon.style("display", "none");
-            labelsBolge.style("display", "none");
-            document.querySelector("#toggleKoordinat").checked = false;
-            document.querySelector("#toggleRadyan").checked = false;
-            document.querySelector("#toggleDegree").checked = true;
-            document.querySelector("#toggleYon").checked = false;
-            document.querySelector("#toggleBolge").checked = false;
-
-            //slider visibility
-            document.getElementById("slidersCember").style.display = "none";
-
-        } else if (selected === "yon") {
-            labelsKoordinat.style("display", "none");
-            labelsRadyan.style("display", "none");
-            labelsDegree.style("display", "none");
-            labelsYon.style("display", "block");
-            labelsBolge.style("display", "none");
-            document.querySelector("#toggleKoordinat").checked = false;
-            document.querySelector("#toggleRadyan").checked = false;
-            document.querySelector("#toggleDegree").checked = false;
-            document.querySelector("#toggleYon").checked = true;
-            document.querySelector("#toggleBolge").checked = false;
-            
-            //slider visibility
-            document.getElementById("slidersCember").style.display = "block";
-
-        } else if (selected === "bolge") {
-            labelsKoordinat.style("display", "none");
-            labelsRadyan.style("display", "none");
-            labelsDegree.style("display", "none");
-            labelsYon.style("display", "none");
-            labelsBolge.style("display", "block");
-            document.querySelector("#toggleKoordinat").checked = false;
-            document.querySelector("#toggleRadyan").checked = false;
-            document.querySelector("#toggleDegree").checked = false;
-            document.querySelector("#toggleYon").checked = false;
-            document.querySelector("#toggleBolge").checked = true;
-
-            //slider visibility
-            document.getElementById("slidersCember").style.display = "none";
-        }
+        excluded.forEach((item) => {
+            d3.select(`#svg${item}`).style("display", "none");
+            document.querySelector(`#toggle${item}`).checked = false;
+            document.getElementById(`${item}Paragraf`).style.display = "none";
+            // document.getElementById(`bcMadde${item}`).style.display = "none";
+        });
     }
 
     document
@@ -753,36 +706,36 @@
         .getElementById("negativeAngle")
         .addEventListener("input", function () {
             document.getElementById("negativeAngleValue").textContent =
-               - this.value;
+                -this.value;
         });
     // **Checkbox Event Listeners**
     document
         .querySelector("#toggleKoordinat")
         .addEventListener("change", function () {
-            toggleDisplay("koordinat");
+            toggleDisplay("Koordinat");
         });
 
     document
         .querySelector("#toggleRadyan")
         .addEventListener("change", function () {
-            toggleDisplay("radyan");
+            toggleDisplay("Radyan");
         });
 
     document
         .querySelector("#toggleDegree")
         .addEventListener("change", function () {
-            toggleDisplay("degree");
+            toggleDisplay("Degree");
         });
 
     document
         .querySelector("#toggleYon")
         .addEventListener("change", function () {
-            toggleDisplay("yon");
+            toggleDisplay("Yon");
         });
 
     document
         .querySelector("#toggleBolge")
         .addEventListener("change", function () {
-            toggleDisplay("bolge");
+            toggleDisplay("Bolge");
         });
 })();

@@ -531,15 +531,40 @@
             angleRadSon = (angleDeg * Math.PI) / 180;
             drawStopLines(runnerX, runnerY, 2 * Math.PI - angleRadSon, posneg);
 
-            elementEsasCounter.style.color = "red";
-            elementEsasCounter.style.transition = "transform 1s, color 1s"; // Geçiş süresi
-            elementEsasCounter.style.transform = "scale(1.2)"; // 1.5 kat büyüt
+            if (posneg === true) {
+                elementEsasCounter.style.color = "red";
+                elementEsasCounter.style.transition = "transform 1s, color 1s"; // Geçiş süresi
+                elementEsasCounter.style.transform = "scale(1.2)"; // 1.5 kat büyüt
 
-            // 1 saniye sonra eski haline getir
-            setTimeout(() => {
-                elementEsasCounter.style.transform = "scale(1)"; // Eski boyuta dön
-                elementEsasCounter.style.color = "black";
-            }, 3000);
+                // 1 saniye sonra eski haline getir
+                setTimeout(() => {
+                    elementEsasCounter.style.transform = "scale(1)"; // Eski boyuta dön
+                    elementEsasCounter.style.color = "black";
+                }, 3000);
+            } else if (posneg === false) {
+                elementDegreeCounter.style.color = "blue";
+                elementDegreeCounter.style.transition =
+                    "transform 1s, color 1s"; // Geçiş süresi
+                elementDegreeCounter.style.transform = "scale(1.2)"; // 1.5 kat büyüt
+
+                setTimeout(() => {
+                    elementDegreeCounter.style.color = "black";
+                    elementDegreeCounter.style.transform = "scale(1)";
+                }, 1000);
+
+
+                setTimeout(() => {
+                    elementEsasCounter.style.color = "red";
+                    elementEsasCounter.style.transition =
+                        "transform 1s, color 1s";
+                    elementEsasCounter.style.transform = "scale(1.2)";
+                }, 1000);
+
+                setTimeout(() => {
+                    elementEsasCounter.style.transform = "scale(1)"; // Eski boyuta dön
+                    elementEsasCounter.style.color = "black";
+                }, 4000);
+            }
 
             runner.attr("xlink:href", "/images/runner_still.png");
         }
