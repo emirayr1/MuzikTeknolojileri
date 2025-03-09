@@ -1233,6 +1233,7 @@ tbody tr:nth-child(odd) {
 .tanRowMaddes{
     margin-top: 60px;
     height: fit-content;
+    width: 295px;
 }
 
 .rootDivSvg{

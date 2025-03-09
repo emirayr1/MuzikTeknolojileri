@@ -481,7 +481,7 @@
         .append("text")
         .attr("x", centerX + radius / 2 - 5)
         .attr("y", centerY - radius / 2 + 35)
-        .attr("font-size", "24px")
+        .attr("font-size", "20px")
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("text-anchor", "middle")
@@ -492,7 +492,7 @@
         .append("text")
         .attr("x", centerX - radius / 2 + 5)
         .attr("y", centerY - radius / 2 + 35)
-        .attr("font-size", "24px")
+        .attr("font-size", "20px")
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("text-anchor", "middle")
@@ -503,7 +503,7 @@
         .append("text")
         .attr("x", centerX - radius / 2 + 5)
         .attr("y", centerY + radius / 2 - 15)
-        .attr("font-size", "24px")
+        .attr("font-size", "20px")
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("text-anchor", "middle")
@@ -514,7 +514,7 @@
         .append("text")
         .attr("x", centerX + radius / 2 - 5)
         .attr("y", centerY + radius / 2 - 15)
-        .attr("font-size", "24px")
+        .attr("font-size", "20px")
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("text-anchor", "middle")
@@ -526,7 +526,7 @@
         .append("text")
         .attr("x", centerX + radius / 2 - 5)
         .attr("y", centerY - radius / 2 - 10)
-        .attr("font-size", "20px")
+        .attr("font-size", "18px")
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("text-anchor", "middle")
@@ -537,7 +537,7 @@
         .append("text")
         .attr("x", centerX - radius / 2 + 5)
         .attr("y", centerY - radius / 2 - 10)
-        .attr("font-size", "20px")
+        .attr("font-size", "18px")
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("text-anchor", "middle")
@@ -548,7 +548,7 @@
         .append("text")
         .attr("x", centerX - radius / 2 + 5)
         .attr("y", centerY + radius / 2 + 25)
-        .attr("font-size", "20px")
+        .attr("font-size", "18px")
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("text-anchor", "middle")
@@ -559,7 +559,7 @@
         .append("text")
         .attr("x", centerX + radius / 2 - 5)
         .attr("y", centerY + radius / 2 + 25)
-        .attr("font-size", "20px")
+        .attr("font-size", "18px")
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("text-anchor", "middle")
@@ -675,7 +675,7 @@
         koordinat.style.transition = "max-height 1s ease-out";
         sliders.style.transition = "opacity 1s ease-in-out";
         koordinat.style.maxHeight =
-            selected === "Koordinat" ? "300px" : "600px";
+            (selected === "Yon" || selected === "Bolge") ? "550px" : "320px";
         setTimeout(() => {
             sliders.style.opacity = selected === "Yon" ? 1 : 0;
         }, 500);
