@@ -500,7 +500,7 @@ body {
 
 /* çember */
 
-#playButton {
+.startButton {
     height: 50px;
     width: 50px;
     margin-top: 15.5%;
@@ -517,11 +517,15 @@ body {
     width: 30px;
 }
 
-#playButton:hover{
+#lineSvg{
+    width: 30px;
+}
+
+.startButton:hover{
     transform: scale(1.05);
 }
 
-#playButton:disabled {
+.startButton:disabled {
     cursor: not-allowed;
     background-color: red;
 }
@@ -841,8 +845,8 @@ input[type="range"]:active::-moz-range-thumb {
     align-items: center;
     justify-content: center;
     position: absolute;
-    margin-top: 24%;
-    margin-left: 4%;
+    margin-top: 70%;
+    margin-left: 12%;
     width: 500px;
     height: 200px;
 }
@@ -855,6 +859,9 @@ input[type="range"]:active::-moz-range-thumb {
 #sinKapsamasi{
     display: flex;
     transform: scale(0.84);
+    width: 580px;
+    gap: 100px;
+
 }
 
 #sinusTablo{
@@ -928,7 +935,9 @@ input[type="range"]:active::-moz-range-thumb {
 }
 
 #cosKapsamasi{
+    display: flex;
     transform: scale(0.84);
+    width: 580px;
 }
 
 
@@ -1181,17 +1190,21 @@ tbody tr:nth-child(odd) {
     background-color: var(--canvas-color);
     border-radius: 10px;
     margin-bottom: 23%;
-    margin-right: 20px;
+    width: 100px;
 }
 
 #tan2CB label{
     text-align: center;
-    padding-left: 27px;
+    padding-left: 20px;
 }
 
 #tan2Kapsamasi{
     display: flex;
-    gap: 25px;
+    
+}
+
+#toggleBosmaddeTan{
+    width: 805px;
 }
 
 #tanjantCounters{

@@ -230,7 +230,7 @@
 
         document.getElementById(
             "eqCotCounter"
-        ).textContent = `tan${angleDegrees.toFixed(0)}°`;
+        ).textContent = `cot${angleDegrees.toFixed(0)}°`;
         document.getElementById(
             "eqSinCotCounter"
         ).textContent = `sin${angleDegrees.toFixed(0)}°`;

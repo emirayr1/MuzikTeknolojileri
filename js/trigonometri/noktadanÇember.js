@@ -1,6 +1,6 @@
 (function () {
     const div = d3.select("#noktadanCember");
-    const button = document.getElementById("playButton"); // HTML'deki butonu seç
+    const button = document.getElementById("startButtonCircle"); // HTML'deki butonu seç
 
     if (div.empty()) {
         console.error("HATA: #noktadanCember ID'li div bulunamadı!");

@@ -3,7 +3,8 @@
     let svg2 = d3
         .select("#birimçemberCos")
         .append("svg")
-        .attr("width", 1500)
+        .attr("width", 2000)
+        // .style("background-color","white")
         .attr("height", 700);
 
     // Çemberin merkezi ve yarıçapı
@@ -66,9 +67,9 @@
 
     const sinLine2 = svg2
         .append("line")
-        .attr("x1", centerX + 550 + 250)
+        .attr("x1", centerX + 750 + radius)
         .attr("y1", centerY - 20)
-        .attr("x2", centerX + radius + 550 + 250)
+        .attr("x2", centerX + radius + 750 + radius)
         .attr("y2", centerY - 20)
         .attr("stroke", "blue")
         .attr("stroke-width", 10);
@@ -175,12 +176,13 @@
         .text("y");
 
     // cetvel
+
     const tapeContainer = svg2
         .append("g")
         .attr("id", "tapeContainer")
         .attr(
             "transform",
-            `translate(${centerX + radius + 500}, ${centerY + 100})`
+            `translate(${centerX + radius + 700}, ${centerY + 100})`
         );
 
     const body = tapeContainer
@@ -357,9 +359,9 @@
             .attr("y2", centerY);
 
         sinLine2
-            .attr("x1", centerX + 550 + 250)
+            .attr("x1", centerX + 750 + radius)
             .attr("y1", centerY - 20)
-            .attr("x2", newX2 + 550 + 250)
+            .attr("x2", newX2 + 750 + radius)
             .attr("y2", centerY - 20);
 
         // 300den küçük olursa solda demek 550 max sağ 50 max sol NEWX2

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>D3.js Sinüs Grafiği</title>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+            svg {
+                border: 1px solid #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>D3.js ile Sinüs Fonksiyonu</h2>
+
+        <!-- Slider -->
+        <label for="pointSlider">Nokta Yoğunluğu:</label>
+        <input
+            type="range"
+            id="pointSlider"
+            min="0"
+            max="3"
+            step="1"
+            value="0"
+        />
+
+        <div id="asdas"></div>
+
+        <script>
+            // SVG boyutları
+
+            svg = d3
+                .select("#asdas")
+                .append("svg")
+                .attr("width", 600)
+                .attr("height", 400);
+
+            const width = 600;
+            const height = 400;
+            const margin = 50;
+
+            // Ölçekler
+            const xScale = d3
+                .scaleLinear()
+                .domain([0, 360])
+                .range([margin, width - margin]);
+
+            const yScale = d3
+                .scaleLinear()
+                .domain([-1, 1])
+                .range([height - margin, margin]);
+
+            // X ekseni
+            svg.append("g")
+                .attr("transform", `translate(0, ${yScale(0)})`)
+                .call(d3.axisBottom(xScale).tickValues([0, 90, 180, 270, 360]));
+
+            // Y ekseni
+            svg.append("g")
+                .attr("transform", `translate(${margin}, 0)`)
+                .call(d3.axisLeft(yScale));
+
+            // // Sinüs eğrisi çizimi
+            // const sineLine = d3.line()
+            //     .x(d => xScale(d))
+            //     .y(d => yScale(Math.sin(d * Math.PI / 180)));
+
+            // svg.append("path")
+            //     .datum(d3.range(0, 361, 1))
+            //     .attr("fill", "none")
+            //     .attr("stroke", "blue")
+            //     .attr("stroke-width", 2)
+            //     .attr("d", sineLine);
+
+            // Başlangıç noktaları (Sadece ana açılar)
+            let points = [0, 90, 180, 270, 360];
+
+            // Nokta çizme fonksiyonu
+            function updatePoints() {
+                // Slider değerini al
+                const sliderValue =
+                    +document.getElementById("pointSlider").value;
+
+                // Nokta yoğunluğuna göre yeni noktaları belirle
+                if (sliderValue === 0) {
+                    points = [0, 90, 180, 270, 360];
+                } else if (sliderValue === 1) {
+                    points = d3.range(0, 361, 45); // 90° aralıklarla
+                } else if (sliderValue === 2) {
+                    points = d3.range(0, 361, 30); // 45° aralıklarla
+                } else if (sliderValue === 3) {
+                    points = d3.range(0, 361, 15); // 30° aralıklarla
+                }
+
+                // Önce eski noktaları temizle
+                svg.selectAll(".sine-point").remove();
+
+                // Yeni noktaları ekle
+                svg.selectAll(".sine-point")
+                    .data(points)
+                    .enter()
+                    .append("circle")
+                    .attr("class", "sine-point")
+                    .attr("cx", (d) => xScale(d))
+                    .attr("cy", (d) => yScale(Math.sin((d * Math.PI) / 180)))
+                    .attr("r", 5)
+                    .attr("fill", "red");
+            }
+
+            // İlk çizim
+            updatePoints();
+
+            // Slider değiştikçe güncelle
+            document
+                .getElementById("pointSlider")
+                .addEventListener("input", updatePoints);
+        </script>
+    </body>
+</html>

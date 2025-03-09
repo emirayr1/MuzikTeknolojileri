@@ -188,7 +188,7 @@
             <br>
             <div id="cemberKapsamasi">
                 <div id="noktadanCember"></div>
-                <button id="playButton"><img id="playCircleImage" src="/images/playCircle.svg" alt="play"></button>
+                <button class="startButton" id="startButtonCircle"><img id="playCircleImage" src="/images/playCircle.svg" alt="play"></button>
                     <div class = "maddelers" id="maddeCember">
                         <div style="display: flex; align-items: flex-start; gap: 10px;">
                             <h4 style="flex-shrink: 0; white-space: nowrap;">•</h4>
@@ -1321,8 +1321,9 @@
                 </div>
             </div>
             <br>
-            <div id="tan2Kapsamasi">
-                <div id="tanInteractive" style="cursor: pointer;"></div>
+            <br>
+            <div id="tan2Kapsamasi" style="background-color: #F8EFCA; border: 10px solid black; border-radius: 10px; height: 800px; padding: 40px;">
+                <div id="tanInteractive" style="cursor: pointer; margin-right: 50px;"></div>
                 <div class="checkBoxes" id="tan2CB">
                     <label>
                         <input type="checkbox" id="toggleBosTan" style="opacity: 0;"> <img src="/images/home.svg" alt="home">
@@ -1732,8 +1733,8 @@
                     </span></small>
                 </div>
             </div>
-            <div id="cotInteractiveRect" style="display: flex;">
-                <div id="tableCot">
+            <div id="cotInteractiveRect" style="display: flex; gap: 100px; height: 650px; border: 10px solid rgb(0, 0, 0); border-radius: 10px; background-color: #F8EFCA; padding: 20px; ">
+                <div id="tableCot" style="margin-top: 50px;">
                     <div class="counters" id="cotCounters" style="position: absolute; margin-left: 45px;">
                         <div id="eqCotCounter" style="font-size: 25px; font-weight: 500;">cot45°</div>=
                         <div id="cosDivSin">
@@ -1757,7 +1758,92 @@
                 </div>
                 <div id="cotInteractive" style="cursor: pointer; margin: 0 auto;"></div>
             </div>
+            <br>
+            <br>
+            <br>
+            <br>
             <h3>Trigonometrik Fonksiyonların Grafikleri</h3>
+            <br>
+            <h4>Fonksiyon</h4>
+            <p>• Matematikte fonksiyon, bir girdiyi alıp belirli bir kurala göre işleyerek bir çıktı üreten sistemdir.</p>
+            <p>• Girdilerin bulunduğu kümeye <a style="color: rgb(255, 0, 0); font-weight: 600;">"tanım kümesi"</a>, çıktıların bulunduğu kümeye ise 
+                <a style="color: red; font-weight: 600;">"değer kümesi"</a> denir.
+            </p>
+            <p>• Bir fonksiyon tanımlarken önce fonksiyonun adı, ardından tanım kümesi ve değer kümesi, en sonunda ise fonksiyonun kuralı belirtilir.</p>
+            <br>
+            <div style="margin-left: 20%; display: flex; flex-direction: column;">
+                <div style="display: flex; align-items: center; margin-left: 17%;">
+                    <p style="margin-right: 10px;">\[
+                        f: A \to B, \quad f(x) =
+                    \]</p>
+                    <p style="margin-top: 3px;">Kural</p>
+                </div>
+                <small style="display: flex; align-items: center;">A kümesinden B kümesine tanımlı bir <a style="margin-right: 7px; margin-left: 7px;">\[f\]</a>fonksiyonu</small>
+            </div>
+            <br>
+            <p>• Şimdi yeni bir fonksiyon tanımlayalım ve bu fonksiyonun grafiğini nasıl çizebileceğimize bakalım.</p>
+            <small>Bu fonksiyon, tanım kümesi olarak 1, 2, 3, 4 ve 5 değerlerini alacak ve her girdiyi 2 ile çarparak çıktıyı oluşturacaktır.</small>
+            <p>\[
+                f: \{1,2,3,4,5\} \to \mathbb{R}, \quad f(x) = 2x
+            \]</p>
+            <br>
+            <small>• Bu fonksiyonun grafiğini oluşturmak için, önce giriş değerlerini x eksenine, 
+                çıkış değerlerini ise 
+                <br>
+                y eksenine yerleştiririz ve ardından bu değerlerin karşılıklarını gösteren noktalar çizelim.</small>
+                <br>
+                <small>• Sonrasında noktaları birleştiren bir çizgi çizdiğimiz zaman fonksiyonun grafiğini çizmiş oluruz.</small>
+            <div id="f5Grafik" style="display: flex; gap: 100px;">
+                <div id="f5s" style="display: flex; flex-direction: column; margin-top: 60px;">
+                    <small>\[
+                        f(1) = 2
+                    \]</small>
+                    <small>\[
+                        f(2) = 4
+                    \]</small>
+                    <small>\[
+                        f(3) = 6
+                    \]</small>
+                    <small>\[
+                        f(4) = 8
+                    \]</small>
+                    <small>\[
+                        f(5) = 10
+                    \]</small>
+                </div>
+                <div id="f5Grafik_Svg"></div>
+                <button class="startButton" id="startButtonLine"><img src="/images/line.svg" id="lineSvg" alt="line"></button>
+            </div>
+            <br>
+            <h3 style="font-size: 20px;">Sinüs</h3>
+            <p>• Sinüs fonksiyonunun grafiğini çizmek için aldığı açı değerleri ve buna karşılık verdiği 
+                <br>
+                çıktı değerlerini gösteren noktaları çizip birleştirelim</p>
+            <p>\[
+                f: \mathbb{R} \to \mathbb{R}, \quad f(x) = sin(x)
+            \]</p>
+            <div id="sinGrafikKapsamasi" style="display: flex; align-items: center; gap: 100px;">
+                <div id="sinusFormuls" style="display: flex; flex-direction: column;">
+                    <small>\[
+                        sin\left(0\right) = 0
+                    \]</small>
+                    <small>\[
+                        sin\left(\frac{\pi}{2}\right) = 1
+                    \]</small>
+                    <small>\[
+                        sin\left(\pi\right) = 0
+                    \]</small>
+                    <small>\[
+                        sin\left(\frac{3\pi}{2}\right) = -1
+                    \]</small>
+                    <small>\[
+                        sin\left(2\pi\right) = -1
+                    \]</small>
+                </div>
+                <div id="sinGrafikDot"></div>
+                <input type="range" id="dotSlider" min="0" max="3" step="1" value="0" style="width: 150px;">
+                <button class="startButton" id="startButtonSine"><img src="/images/sine_icon.svg" alt="sine" style="width: 40px; height: 40px;"></button>
+            </div>
         </div>
         <ex-sidebar-fizik></ex-sidebar-fizik>
         <!-- <ex-footer></ex-footer> -->
@@ -1807,6 +1893,8 @@
         <script src="/js/trigonometri/cotProof.js"></script>
         <script src="/js/trigonometri/cotInteractive.js"></script>
         <script src="/js/trigonometri/tableCot.js"></script>
+        <script src="/js/trigonometri/f5Graph.js"></script>
+        <script src="/js/trigonometri/sinGrafikDot.js"></script>
         <script src="/js/trigonometri/birimçember_sincos.js" defer></script>
 </body>
 </html>

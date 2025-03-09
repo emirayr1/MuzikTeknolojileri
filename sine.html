@@ -1,88 +1,186 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D3.js Sinüs Grafiği</title>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>D3.js Sinüs Grafiği</title>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+    </head>
+    <body>
+        <!-- Slider -->
+        <input
+            type="range"
+            id="slider"
+            min="0"
+            max="6.28"
+            step="0.01"
+            value="0"
+        />
+        <input
+            type="range"
+            id="sliderAmp"
+            min="1"
+            max="2"
+            step="0.01"
+            value="1"
+        />
+        <input
+            type="range"
+            id="sliderFreq"
+            min="1"
+            max="10"
+            step="1"
+            value="1"
+        />
+        <input type="range" id="pointSlider" min="0" max="5" step="1" value="0">
+        <label for="slider">İlerleme</label>
 
-    <!-- Slider -->
-    <input type="range" id="slider" min="0" max="6.28" step="0.01" value="0">
-    <input type="range" id="sliderAmp" min="1" max="2" step="0.01" value="1">
-    <input type="range" id="sliderFreq" min="1" max="10" step="1" value="1">
-    <label for="slider">İlerleme</label>
+        <!-- SVG alanı -->
+        <svg width="600" height="400"></svg>
 
-    <!-- SVG alanı -->
-    <svg width="600" height="400"></svg>
+        <script>
+            // SVG ve ölçekler
+            const width = 600;
+            const height = 300;
+            const margin = { top: 20, right: 20, bottom: 20, left: 50 };
 
-    <script>
-        // SVG ve ölçekler
-        const width = 600;
-        const height = 300;
-        const margin = { top: 20, right: 20, bottom: 20, left: 50 };
+            const svg = d3
+                .select("svg")
+                .append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
 
-        const svg = d3.select("svg")
-                      .append("g")
-                      .attr("transform", `translate(${margin.left},${margin.top})`);
+            const xScale = d3
+                .scaleLinear()
+                .domain([0, 6.28])
+                .range([0, width - margin.left - margin.right]);
+            const yScale = d3.scaleLinear().domain([-1, 1]).range([height, 0]);
 
-        const xScale = d3.scaleLinear().domain([0, 6.28]).range([0, width - margin.left - margin.right]);
-        const yScale = d3.scaleLinear().domain([-1, 1]).range([height, 0]);
+            // X ekseninde sadece belirli dereceler için etiketleri ekle
+            const tickValues = [
+                0,
+                Math.PI / 6,
+                Math.PI / 4,
+                Math.PI / 3,
+                Math.PI / 2,
+                Math.PI,
+                (3 * Math.PI) / 2,
+                2 * Math.PI,
+            ];
+            const tickLabels = [
+                "0°",
+                "30°",
+                "45°",
+                "60°",
+                "90°",
+                "180°",
+                "270°",
+                "360°",
+            ];
 
-        // X ekseninde sadece belirli dereceler için etiketleri ekle
-        const tickValues = [0, Math.PI / 2, Math.PI, (3 * Math.PI) / 2, 2 * Math.PI]; // 0°, 90°, 180°, 270°, 360°
-        const tickLabels = ['0°', '90°', '180°', '270°', '360°'];
+            const xAxis = svg
+                .append("g")
+                .attr("transform", `translate(0,${height / 2})`)
+                .call(
+                    d3
+                        .axisBottom(xScale)
+                        .tickValues(tickValues) // Burada sadece istediğimiz değerleri belirliyoruz
+                        .tickFormat((d, i) => tickLabels[i]) // Her değere uygun etiket
+                );
 
-        svg.append("g")
-            .attr("transform", `translate(0,${height / 2})`)
-            .call(d3.axisBottom(xScale)
-                .tickValues(tickValues)  // Burada sadece istediğimiz değerleri belirliyoruz
-                .tickFormat((d, i) => tickLabels[i])  // Her değere uygun etiket
-            )
-            .selectAll("text")  // Etiketleri seç
-            .style("font-size", "16px")  // Font boyutunu ayarlayalım
-            .style("fill", "black");  // Font rengini siyah yapalım;
+            xAxis.selectAll("path").style("stroke-width", "4px");
+            xAxis.selectAll("text").style("font-size", "15px");
 
-        svg.append("g")
-            .call(d3.axisLeft(yScale).ticks(5));
+            svg.append("g").call(d3.axisLeft(yScale).ticks(5));
 
-        // Çizgi fonksiyonu
-        const line = d3.line()
-            .x(d => xScale(d.x))
-            .y(d => yScale(d.y));
+            // Çizgi fonksiyonu
+            const line = d3
+                .line()
+                .x((d) => xScale(d.x))
+                .y((d) => yScale(d.y));
 
-        // Başlangıçta boş çizgi
-        const path = svg.append("path")
-                        .datum([])
-                        .attr("fill", "none")
-                        .attr("stroke", "steelblue")
-                        .attr("stroke-width", 5);
+            // Başlangıçta boş çizgi
+            const path = svg
+                .append("path")
+                .datum([])
+                .attr("fill", "none")
+                .attr("stroke", "steelblue")
+                .attr("stroke-width", 5);
 
-        // Slider event listener
-        d3.select("#slider").on("input", function() {
-            const maxX = +this.value; // Slider değeri (0 ile 2π arasında)
-            const data = d3.range(0, maxX, 0.05).map(x => ({ x, y: sliderAmp.value * Math.sin(sliderFreq.value * x) }));
-            
-            path.datum(data)
-                .attr("d", line);
-        });
-        d3.select("#sliderAmp").on("input", function() {
-            const maxX = slider.value; // Slider değeri (0 ile 2π arasında)
-            const data = d3.range(0, maxX, 0.05).map(x => ({ x, y: this.value * Math.sin(sliderFreq.value * x) }));
-            
-            path.datum(data)
-                .attr("d", line);
-        });
+            let points = [0, 90, 180, 270, 360];
 
-        d3.select("#sliderFreq").on("input", function() {
-            const maxX = slider.value; // Slider değeri (0 ile 2π arasında)
-            const data = d3.range(0, maxX, 0.05).map(x => ({ x, y: sliderAmp.value * Math.sin(sliderFreq.value * x) }));
-            
-            path.datum(data)
-                .attr("d", line);
-        });
-    </script>
+            // Nokta çizme fonksiyonu
+            function updatePoints() {
+                // Slider değerini al
+                const sliderValue =
+                    +document.getElementById("pointSlider").value;
 
-</body>
+                // Nokta yoğunluğuna göre yeni noktaları belirle
+                if (sliderValue === 0) {
+                    points = [0, 90, 180, 270, 360];
+                } else if (sliderValue === 1) {
+                    points = d3.range(0, 361, 90); // 90° aralıklarla
+                } else if (sliderValue === 2) {
+                    points = d3.range(0, 361, 45); // 45° aralıklarla
+                } else if (sliderValue === 3) {
+                    points = d3.range(0, 361, 30); // 30° aralıklarla
+                } else if (sliderValue === 4) {
+                    points = d3.range(0, 361, 15); // 15° aralıklarla
+                } else if (sliderValue === 5) {
+                    points = d3.range(0, 361, 5); // 5° aralıklarla (çok sık nokta)
+                }
+
+                // Önce eski noktaları temizle
+                svg.selectAll(".sine-point").remove();
+
+                // Yeni noktaları ekle
+                svg.selectAll(".sine-point")
+                    .data(points)
+                    .enter()
+                    .append("circle")
+                    .attr("class", "sine-point")
+                    .attr("cx", (d) => xScale(d))
+                    .attr("cy", (d) => yScale(Math.sin((d * Math.PI) / 180)))
+                    .attr("r", 5)
+                    .attr("fill", "red");
+            }
+
+            // İlk çizim
+            updatePoints();
+
+            // Slider değiştikçe güncelle
+            document
+                .getElementById("pointSlider")
+                .addEventListener("input", updatePoints);
+
+            // Slider event listener
+            d3.select("#slider").on("input", function () {
+                const maxX = +this.value; // Slider değeri (0 ile 2π arasında)
+                const data = d3.range(0, maxX, 0.05).map((x) => ({
+                    x,
+                    y: sliderAmp.value * Math.sin(sliderFreq.value * x),
+                }));
+
+                path.datum(data).attr("d", line);
+            });
+            d3.select("#sliderAmp").on("input", function () {
+                const maxX = slider.value; // Slider değeri (0 ile 2π arasında)
+                const data = d3.range(0, maxX, 0.05).map((x) => ({
+                    x,
+                    y: this.value * Math.sin(sliderFreq.value * x),
+                }));
+
+                path.datum(data).attr("d", line);
+            });
+
+            d3.select("#sliderFreq").on("input", function () {
+                const maxX = slider.value; // Slider değeri (0 ile 2π arasında)
+                const data = d3.range(0, maxX, 0.05).map((x) => ({
+                    x,
+                    y: sliderAmp.value * Math.sin(sliderFreq.value * x),
+                }));
+
+                path.datum(data).attr("d", line);
+            });
+        </script>
+    </body>
 </html>
