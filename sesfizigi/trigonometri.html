@@ -12,7 +12,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <!-- Bu paragrafta bir metin <a href="https://example.com" target="_blank"><small>kaynak</small></a> yer alıyor.  ispat için -->
-<body style="height: 2000vh;">
+<body style="height: 2500vh;">
     <ex-header-fizik></ex-header-fizik> <!--HEADER-->
     <div class="mainCanvas">
         <div class="ana">
@@ -1770,6 +1770,7 @@
                 <a style="color: red; font-weight: 600;">"değer kümesi"</a> denir.
             </p>
             <p>• Bir fonksiyon tanımlarken önce fonksiyonun adı, ardından tanım kümesi ve değer kümesi, en sonunda ise fonksiyonun kuralı belirtilir.</p>
+            <small><a href="https://www.matematikciler.com/sayi-kumeleri-konu-anlatimi/" style="color: black; text-decoration: none; font-weight: 700;" target="_blank">• Sayı Kümeleri (incele)</a></small>
             <br>
             <div style="margin-left: 20%; display: flex; flex-direction: column;">
                 <div style="display: flex; align-items: center; margin-left: 17%;">
@@ -1812,7 +1813,7 @@
                     \]</small>
                 </div>
                 <div id="f5Grafik_Svg"></div>
-                <button class="startButton" id="startButtonLine"><img src="/images/line.svg" id="lineSvg" alt="line"></button>
+                <button class="startButton" id="startButtonLine" style="margin-top: 25%; margin-left: 0%;"><img src="/images/line.svg" id="lineSvg" alt="line"></button>
             </div>
             <br>
             <h3 style="font-size: 20px;">Sinüs</h3>
@@ -1822,6 +1823,7 @@
             <p>\[
                 f: \mathbb{R} \to \mathbb{R}, \quad f(x) = sin(x)
             \]</p>
+            <small>• Sinüs fonksiyonunun grafiğini çizerken ne kadar fazla örnek noktası alırsanız, grafik o kadar doğru ve düzgün olur.</small>
             <div id="sinGrafikKapsamasi" style="display: flex; align-items: center; gap: 100px;">
                 <div id="sinusFormuls" style="display: flex; flex-direction: column;">
                     <small>\[
@@ -1841,9 +1843,52 @@
                     \]</small>
                 </div>
                 <div id="sinGrafikDot"></div>
-                <input type="range" id="dotSlider" min="0" max="3" step="1" value="0" style="width: 150px;">
-                <button class="startButton" id="startButtonSine"><img src="/images/sine_icon.svg" alt="sine" style="width: 40px; height: 40px;"></button>
+                <div id="sinGrafikDotYani" style="display: flex; flex-direction: column; gap: 5vh; margin-bottom: 11.5%;">
+                    <button class="startButton" id="startButtonSine" style="margin-left: 30%;"><img src="/images/sine_icon.svg" alt="sine" style="width: 40px; height: 40px;"></button>
+                    <input type="range" id="dotSliderSine" min="0" max="3" step="1" value="0" style="width: 100%;">
+                </div>
             </div>
+            <h3 style="font-size: 20px;">Kosinüs</h3>
+            <p>• Kosinüs fonksiyonunun grafiğini çizmek için aldığı açı değerleri ve buna karşılık verdiği 
+                <br>
+                çıktı değerlerini gösteren noktaları çizip birleştirelim</p>
+            <p>\[
+                f: \mathbb{R} \to \mathbb{R}, \quad f(x) = cos(x)
+            \]</p>
+            <small>• Kosinüs fonksiyonunun grafiğini çizerken ne kadar fazla örnek noktası alırsanız, grafik o kadar doğru ve düzgün olur.</small>
+            <div id="cosGrafikKapsamasi" style="display: flex; align-items: center; gap: 100px;">
+                <div id="cosFormuls" style="display: flex; flex-direction: column;">
+                    <small>\[
+                        cos\left(0\right) = 1
+                    \]</small>
+                    <small>\[
+                        cos\left(\frac{\pi}{2}\right) = 0
+                    \]</small>
+                    <small>\[
+                        cos\left(\pi\right) = -1
+                    \]</small>
+                    <small>\[
+                        cos\left(\frac{3\pi}{2}\right) = 0
+                    \]</small>
+                    <small>\[
+                        cos\left(2\pi\right) = 1
+                    \]</small>
+                </div>
+                <div id="cosGrafikDot"></div>
+                <div id="cosGrafikDotYani" style="display: flex; flex-direction: column; gap: 5vh; margin-bottom: 11.5%;">
+                    <button class="startButton" id="startButtonCos" style="margin-left: 30%;"><img src="/images/sine_icon.svg" alt="sine" style="width: 40px; height: 40px;"></button>
+                    <input type="range" id="dotSliderCos" min="0" max="3" step="1" value="0" style="width: 100%;">
+                </div>
+            </div>
+            <p style="font-weight: 600;">NOT: Sinüs ve kosinüs fonksiyonları aynı şekle sahiptir; aralarındaki tek fark, sinüsün 0’dan, kosinüsün ise 1’den başlamasıdır.</p>
+            <br>
+            <br>
+            <h3>Ters Trigonometrik Fonksiyonlar</h3>
+            <br>
+            <h4>Ters Fonksiyon</h4>
+            <p>• Matematikte fonksiyon, bir girdiyi alıp belirli bir kurala göre işleyerek bir çıktı üreten sistemdir.</p>
+            
+            
         </div>
         <ex-sidebar-fizik></ex-sidebar-fizik>
         <!-- <ex-footer></ex-footer> -->
@@ -1895,6 +1940,7 @@
         <script src="/js/trigonometri/tableCot.js"></script>
         <script src="/js/trigonometri/f5Graph.js"></script>
         <script src="/js/trigonometri/sinGrafikDot.js"></script>
+        <script src="/js/trigonometri/cosGrafikDot.js"></script>
         <script src="/js/trigonometri/birimçember_sincos.js" defer></script>
 </body>
 </html>

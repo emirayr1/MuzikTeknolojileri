@@ -1,8 +1,9 @@
 (function () {
-    const button = document.getElementById("startButtonSine");
+    const button = document.getElementById("startButtonCos");
 
-    svg = d3
-        .select("#sinGrafikDot")
+    svg2 = d3
+        .select("#cosGrafikDot")
+        // .style("background-color","white")
         .append("svg")
         .attr("width", 600)
         .attr("height", 400);
@@ -23,19 +24,19 @@
         .range([height - margin, margin]);
 
     // X ekseni
-    svg.append("g")
+    svg2.append("g")
         .attr("transform", `translate(0, ${yScale(0)})`)
         .call(d3.axisBottom(xScale).tickValues([0, 90, 180, 270, 360]));
 
     // Y ekseni
-    svg.append("g")
+    svg2.append("g")
         .attr("transform", `translate(${margin}, 0)`)
         .call(d3.axisLeft(yScale));
 
-    const sineLine = d3
+    const cosLine = d3
         .line()
         .x((d) => xScale(d))
-        .y((d) => yScale(Math.sin((d * Math.PI) / 180)));
+        .y((d) => yScale(Math.cos((d * Math.PI) / 180)));
 
     // Başlangıç noktaları (Sadece ana açılar)
     let points = [0, 90, 180, 270, 360];
@@ -43,7 +44,7 @@
     // Nokta çizme fonksiyonu
     function updatePoints() {
         // Slider değerini al
-        const sliderValue = +document.getElementById("dotSliderSine").value;
+        const sliderValue = +document.getElementById("dotSliderCos").value;
 
         // Nokta yoğunluğuna göre yeni noktaları belirle
         if (sliderValue === 0) {
@@ -57,46 +58,46 @@
         }
 
         // Önce eski noktaları temizle
-        svg.selectAll(".sine-point").remove();
-        svg.selectAll(".dash-lineYsine").remove();
-        svg.selectAll(".dash-lineXsine").remove();
+        svg2.selectAll(".cos-point").remove();
+        svg2.selectAll(".dash-lineY").remove();
+        svg2.selectAll(".dash-lineX").remove();
 
         // Yeni noktaları ekle
-        svg.selectAll(".sine-point")
+        svg2.selectAll(".cos-point")
             .data(points)
             .enter()
             .append("circle")
-            .attr("class", "sine-point")
+            .attr("class", "cos-point")
             .attr("cx", (d) => xScale(d))
-            .attr("cy", (d) => yScale(Math.sin((d * Math.PI) / 180)))
+            .attr("cy", (d) => yScale(Math.cos((d * Math.PI) / 180)))
             .attr("r", 5)
             .lower()
             .attr("fill", "red");
             
 
-        svg.selectAll(".dash-lineYsine")
+        svg2.selectAll(".dash-lineY")
             .data(points)
             .enter()
             .append("line")
-            .attr("class", "dash-lineYsine")
+            .attr("class", "dash-lineY")
             .attr("x1", (d) => xScale(d))
             .attr("y1", 200)
             .attr("x2", (d) => xScale(d))
-            .attr("y2", (d) => yScale(Math.sin((d * Math.PI) / 180)))
+            .attr("y2", (d) => yScale(Math.cos((d * Math.PI) / 180)))
             .attr("stroke", "black")
             .attr("stroke-dasharray", 5.5)
             .attr("opacity", 0.2)
             .attr("stroke-width", 2);
 
-        svg.selectAll(".dash-lineXsine")
+        svg2.selectAll(".dash-lineX")
             .data(points)
             .enter()
             .append("line")
-            .attr("class", "dash-lineXsine")
+            .attr("class", "dash-lineX")
             .attr("x1", 50)
-            .attr("y1", (d) => yScale(Math.sin((d * Math.PI) / 180)))
+            .attr("y1", (d) => yScale(Math.cos((d * Math.PI) / 180)))
             .attr("x2", (d) => xScale(d))
-            .attr("y2", (d) => yScale(Math.sin((d * Math.PI) / 180)))
+            .attr("y2", (d) => yScale(Math.cos((d * Math.PI) / 180)))
             .attr("stroke", "black")
             .attr("stroke-dasharray", 5.5)
             .attr("opacity", 0.05)
@@ -108,19 +109,20 @@
 
     function startAnimation() {
         button.disabled = true; // Butonu devre dışı bırak
-        console.log("sineGirdi")
+        console.log("KOSAGirdi")
+
         // 0'dan 360'a kadar olan açıları al
         const data = d3.range(0, 361, 1);
-        svg.selectAll(".sinLine").remove();
-        const linePath = svg
+        svg2.selectAll(".cosLine").remove();
+        const linePath = svg2
             .append("path")
             .datum(data)
             .attr("fill", "none")
             .attr("stroke", "green")
-            .attr("class", "sinLine")
+            .attr("class", "cosLine")
             .raise()
             .attr("stroke-width", 3)
-            .attr("d", sineLine)
+            .attr("d", cosLine)
 
         // Çizgiyi 3 saniye içinde çizmek için animasyon ekleyelim
         linePath
@@ -139,14 +141,12 @@
         }, 3000);
     }
 
-    
-
     document
-        .getElementById("startButtonSine")
+        .getElementById("startButtonCos")
         .addEventListener("click", startAnimation);
 
     // Slider değiştikçe güncelle
     document
-        .getElementById("dotSliderSine")
+        .getElementById("dotSliderCos")
         .addEventListener("input", updatePoints);
 })();
