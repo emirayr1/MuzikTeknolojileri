@@ -153,13 +153,13 @@ class ExHeaderF extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <header class="header">
-                <a href="/index.html" class="logo">
+                <a href="../index.html" class="logo">
                     <span class="logo-text">ayr.</span>
-                    <img src="/images/elec-gitar.svg" alt="Logo" class="logo-img hidden">
+                    <img src="../images/elec-gitar.svg" alt="Logo" class="logo-img hidden">
                 </a>
                 <nav class="navbar">
-                    <a href="sesfizigi.html" class="sesFizigi-btn">Ses Fiziği</a>
-                    <a href="/mikrofonlama/mikrofonlamaGiris.html" class="mikrofonlama-btn">Mikrofonlama Teknikleri</a>
+                    <a href="./sesfizigi.html" class="sesFizigi-btn">Ses Fiziği</a>
+                    <a href="../mikrofonlama/mikrofonlamaGiris.html" class="mikrofonlama-btn">Mikrofonlama Teknikleri</a>
                     <a href="#" class="sinyalAkisi-btn">Sinyal Akışı</a>
                     <a href="#">Contact</a>
                 </nav>
