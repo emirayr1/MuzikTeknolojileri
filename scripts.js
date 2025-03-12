@@ -210,8 +210,8 @@ class ExSidebarF extends HTMLElement {
                     <div class="inner-scrollbox">
                         <div class="konular konular_fizik">
                             <ul>
-                                <li><a href="fizikGiris.html">Giriş</a></li>
-                                <li><a href="trigonometri.html">Trigonometri</a></li>
+                                <li><a href="./fizikGiris.html">Giriş</a></li>
+                                <li><a href="./trigonometri.html">Trigonometri</a></li>
                                 <li><a href="#">Temel Kavramlar</a></li>
                                 <li><a href="vektorler.html">Vektörler</a></li>
                                 <li><a href="#">Kuvvet</a></li>
@@ -239,7 +239,7 @@ class ExSidebarF extends HTMLElement {
                         </div>
                         <div class="konular konular_mikrofonlama">
                             <ul>
-                                <li><a href="/mikarofonlama/mikrofonlamaGiris.html">Mikrofon</a></li>
+                                <li><a href="../mikrofonlama/mikrofonlamaGiris.html">Mikrofon</a></li>
                                 <li><a href="#">Kondenser</a></li>
                                 <li><a href="#">Dinamik</a></li>
                                 <li><a href="#">Ribbon</a></li>
