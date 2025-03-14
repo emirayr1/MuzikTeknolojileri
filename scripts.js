@@ -86,12 +86,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // SVG dizisi
     const assets = [
         {
-            svg: "/images/elec-gitar.svg",
+            svg: "./images/elec-gitar.svg",
             sound: "/sounds/elec-gitarSample.mp3",
         }, // 1. SVG ve 1. ses
-        { svg: "/images/davul.svg", sound: "/sounds/drumSample.mp3" }, // 2. SVG ve 2. ses
-        { svg: "/images/piyano.svg", sound: "/sounds/piyanoSample.mp3" }, // 3. SVG ve 3. ses
-        { svg: "/images/keyboard.svg", sound: "/sounds/synthSample.mp3" }, // 4. SVG ve 4. ses
+        { svg: "./images/davul.svg", sound: "/sounds/drumSample.mp3" }, // 2. SVG ve 2. ses
+        { svg: "./images/piyano.svg", sound: "/sounds/piyanoSample.mp3" }, // 3. SVG ve 3. ses
+        { svg: "./images/keyboard.svg", sound: "/sounds/synthSample.mp3" }, // 4. SVG ve 4. ses
     ];
 
     let hoverCount = 0;
@@ -180,7 +180,7 @@ class ExHeaderI extends HTMLElement {
             <header class="header">
                 <a href="index.html" class="logo">
                     <span class="logo-text">ayr.</span>
-                    <img src="/images/elec-gitar.svg" alt="Logo" class="logo-img hidden">
+                    <img src="./images/elec-gitar.svg" alt="Logo" class="logo-img hidden">
                 </a>
                 <nav class="navbar">
                     <a href="sesfizigi/sesfizigi.html" class="sesFizigi-btn">Ses Fiziği</a>
@@ -265,7 +265,7 @@ class ExFooter extends HTMLElement {
             <a href="#">Mail</a> |
             <a href="#">YouTube</a> |
             <a href="https://www.instagram.com/emirayarmusic/" target="_blank">
-                <img src="/images/instagram_icon.svg" alt="instagram" width="30px">
+                <img src="./images/instagram_icon.svg" alt="instagram" width="30px">
             </a>
         </div>
     </footer>

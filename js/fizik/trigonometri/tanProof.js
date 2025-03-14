@@ -425,7 +425,7 @@
 
     const bracketTan = svg2
         .append("image")
-        .attr("href", "/images/bracket.svg")
+        .attr("href", "../../images/bracket.svg")
         .attr("width", 110)
         .raise()
         .attr("height", 110)
@@ -438,7 +438,7 @@
 
     const bracketR = svg2
         .append("image")
-        .attr("href", "/images/bracket.svg")
+        .attr("href", "../../images/bracket.svg")
         .attr("width", 110)
         .raise()
         .attr("height", 110)
