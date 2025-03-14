@@ -187,7 +187,7 @@
     // Koşan adam (GIF)
     const runner = svg
         .append("image")
-        .attr("xlink:href", "../../images/runner_still.png") // GIF dosyasının yolu
+        .attr("xlink:href", "../../../images/runner_still.png") // GIF dosyasının yolu
         .attr("width", 60)
         .raise()
         .attr("height", 60)
@@ -466,7 +466,7 @@
             stopLines.forEach((line) => line.remove());
             stopLines = [];
 
-            runner.attr("xlink:href", "../../images/runner.gif");
+            runner.attr("xlink:href", "../../../images/runner.gif");
             animation = d3.timer((elapsed) => {
                 const angle = -(elapsed * speed) % (2 * Math.PI); // Açıyı hesapla
                 const x =
@@ -566,7 +566,7 @@
                 }, 4000);
             }
 
-            runner.attr("xlink:href", "../../images/runner_still.png");
+            runner.attr("xlink:href", "../../../images/runner_still.png");
         }
     }
 

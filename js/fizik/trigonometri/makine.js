@@ -4,7 +4,7 @@
     let animationFrames = []; // Animasyonları saklamak için
     let isRunning = false; // Animasyon durumu
     // **Motor SVG'yi yükle**
-    d3.xml("../../images/motor.svg").then(function (xml) {
+    d3.xml("../../../images/motor.svg").then(function (xml) {
         document.getElementById("motorSvg").appendChild(xml.documentElement);
 
         let motor = d3

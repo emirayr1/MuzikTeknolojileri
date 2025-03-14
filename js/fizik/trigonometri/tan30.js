@@ -148,7 +148,7 @@
 
     const bracket = svg2
         .append("image")
-        .attr("href", "../../images/bracket.svg")
+        .attr("href", "../../../images/bracket.svg")
         .attr("width", 80)
         .raise()
         .attr("height", 80)
@@ -385,7 +385,7 @@
 
     const bracket = svg2
         .append("image")
-        .attr("href", "../../images/bracket.svg")
+        .attr("href", "../../../images/bracket.svg")
         .attr("width", 145)
         .raise()
         .attr("height", 145)
@@ -623,7 +623,7 @@
 
     const bracket = svg2
         .append("image")
-        .attr("href", "../../images/bracket.svg")
+        .attr("href", "../../../images/bracket.svg")
         .attr("width", 250)
         .raise()
         .attr("height", 250)
@@ -1027,7 +1027,7 @@
 
     const bracket = svg2
         .append("image")
-        .attr("href", "../../images/bracket.svg")
+        .attr("href", "../../../images/bracket.svg")
         .attr("width", 80)
         .raise()
         .attr("height", 80)
@@ -1284,7 +1284,7 @@
 
     const bracket = svg2
         .append("image")
-        .attr("href", "../../images/bracket.svg")
+        .attr("href", "../../../images/bracket.svg")
         .attr("width", 250)
         .raise()
         .attr("height", 250)
@@ -1685,7 +1685,7 @@
 
     const bracket = svg2
         .append("image")
-        .attr("href", "../../images/bracket.svg")
+        .attr("href", "../../../images/bracket.svg")
         .attr("width", 80)
         .raise()
         .attr("height", 80)
