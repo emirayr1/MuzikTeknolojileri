@@ -11,14 +11,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<!-- Bu paragrafta bir metin <a href="https://example.com" target="_blank"><small>kaynak</small></a> yer alıyor.  ispat için -->
-<body style="height: 2500vh;">
+<body style="height: 2200vh;">
     <ex-header-fizik></ex-header-fizik> <!--HEADER-->
     <div class="mainCanvas">
         <div class="ana">
             <h2>Trigonometri</h2>
-            <p>
-                Trigonometri konularına geçmeden önce üçgenleri hatırlamakta fayda var. Trigonometri nedir nerden ortaya çıkmıştırı ANLAT
+            <br>
+            <p>• Trigonometri, Yunanca "trigónon" (üçgen) ve "metron" (ölçmek) kelimelerinin 
+                birleşiminden türetilmiş olup, üçgenlerin iç açıları ile kenarları arasındaki ilişkiyi ve bu ilişkilerin oranlarını inceleyen bir matematik dalıdır.
+            </p>
+            <p>• Trigonometri, pek çok farklı alanda kullanıldığı gibi, 
+                ses fiziğinde de dalgaların temsili, frekans analizleri ve sesin yayılması gibi birçok önemli süreçte vazgeçilmez bir araç haline gelir.
             </p>
             <br>
             <br>
@@ -1911,62 +1914,100 @@
                 kenar uzunluklarını verip, 
                 bu kenarların oluşturduğu açıyı bulabiliriz.</p>
                 <br>
-                <br>
-                <br>
-            <h3 style="font-size: 20px;">Sinüs</h3>
+            <h3 style="font-size: 20px;">Arcsin</h3>
+            <p style="display: flex; text-align: center; align-items: center;">• Sinüs fonksiyonunun tersi &nbsp; <a style="color: red;">\[ arcsinx\]</a> &nbsp; diye yazılır.</p>
+            <p>• Ters fonksiyonda birebir ve örtenlik şartı arandığı için sinüs fonksiyonunun 
+                tanım kümesini buna göre değiştirmemiz gerekir.</p>
+            <p>• Sinüs fonksiyonunun birebir ve örten olduğu aralık [\(\frac{-\pi}{2}\),\(\frac{\pi}{2}\)] aralığıdır.</p>
+            <small>• Sinüs fonksiyonu derece değerlerini alıp -1 ile 1 aralığı arasında değerler üretiyordu.</small>
+            <small>• Arcsin fonksiyonu ise -1 ile 1 arasında değerleri alıp [\(\frac{-\pi}{2}\),\(\frac{\pi}{2}\)] arasında derece değerleri üretecektir.</small>
+            <br>
+            <p>
+                \( f: [-1, 1] \to \left[ \frac{-\pi}{2}, \frac{\pi}{2} \right], \quad f(x) = arcsin x \)
+            </p>
+            <br>
+            <div id="arcsinRow" style="display: flex; gap: 60px; text-align: center; align-items: center;">
+                <div id="arcsinOrnek">
+                    <p>• \(arcsin \frac{\sqrt{3}}{2}\) = 60° = \(\frac{\pi}{3}\)</p>
+                    <br>
+                    <p>• \(arcsin \frac{\sqrt{2}}{2}\) = 45° = \(\frac{\pi}{4}\)</p>
+                    <br>
+                    <p>• \(arcsin\) 1 = 90° = \(\frac{\pi}{2}\)</p>
+                </div>
+                <div id="arcsinUcgen"></div>
+                <p>• \(arcsin \frac{{karsı}}{hipotenus}\) = θ°</p>
+            </div>
+            <br>
+            <h3 style="font-size: 20px;">Arctan</h3>
+            <p>• Tanjant fonksiyonunun birebir ve örten olduğu aralık (\(\frac{-\pi}{2}\),\(\frac{\pi}{2}\)) aralığıdır.</p>
+            <small>• Tanjant fonksiyonu derece değerlerini alıp -∞ ile ∞ aralığı arasında değerler üretiyordu.</small>
+            <small>• Arctan fonksiyonu ise -∞ ile ∞ arasında değerleri(Reel sayılar) alıp (\(\frac{-\pi}{2}\),\(\frac{\pi}{2}\)) arasında derece değerleri üretecektir.</small>
+            <p>
+                \[
+                f: \mathbb{R} \to \left(\frac{-\pi}{2}, \frac{\pi}{2} \right), \quad f(x) = arctanx
+                \]
+            </p>
+            <small>! Arctan fonksiyonu ters fonksiyonlar arasında en çok kullanacağımız fonksiyondur.</small>
+            <div id="arctanRow" style="display: flex; align-items: center;">
+                <div id="arctanUcgen"></div>
+                <p>• \(arctan \frac{{karsı}}{komsu}\) = θ°</p>
+            </div>
             
+            <a href="./temelKavramlar.html" id="trigonometri-nxt" class="next-btn">Sonraki sayfa</a>
         </div>
         <ex-sidebar-fizik></ex-sidebar-fizik>
         <!-- <ex-footer></ex-footer> -->
         <script src="../scripts.js"></script>
-        <script src="../js/trigonometri/noktadanÜçgen.js"></script>
-        <script src="../js/trigonometri/dikÜçgen.js"></script>
-        <script src="../js/trigonometri/dikÜçgenHipotenüs.js"></script>
-        <script src="../js/trigonometri/üçgenAçı.js"></script>
-        <script src="../js/trigonometri/tri_1234Pisagor_Ornek.js"></script>
-        <script src="../js/trigonometri/noktadanÇember.js"></script>
-        <script src="../js/trigonometri/piCircle.js"></script>
-        <script src="../js/trigonometri/dereceÇember.js"></script>
-        <script src="../js/trigonometri/radyanÇember.js"></script>
-        <script src="../js/trigonometri/birimçemberBOS.js"></script>
-        <script src="../js/trigonometri/kucukAciSvg.js"></script>
-        <script src="../js/trigonometri/parkur.js"></script>
-        <script src="../js/trigonometri/kronometre.js"></script>
-        <script src="../js/trigonometri/birimçember_sin.js"></script>
-        <script src="../js/trigonometri/birimçember_sin2.js"></script>
-        <script src="../js/trigonometri/sinüsTablo.js"></script>
-        <script src="../js/trigonometri/makine.js"></script>
-        <script src="../js/trigonometri/sin369triangle.js"></script>
-        <script src="../js/trigonometri/sin30triangle.js"></script>
-        <script src="../js/trigonometri/sin45-90triangle.js"></script>
-        <script src="../js/trigonometri/sin45triangle.js"></script>
-        <script src="../js/trigonometri/sin60triangle.js"></script>
-        <script src="../js/trigonometri/birimçember_cos.js"></script>
-        <script src="../js/trigonometri/birimçember_cos2.js"></script>
-        <script src="../js/trigonometri/kosinüsTablo.js"></script>
-        <script src="../js/trigonometri/cos30triangle.js"></script>
-        <script src="../js/trigonometri/cos30triSin.js"></script>
-        <script src="../js/trigonometri/cos45triangle.js"></script>
-        <script src="../js/trigonometri/cos45triSin.js"></script>
-        <script src="../js/trigonometri/cos60triangle.js"></script>
-        <script src="../js/trigonometri/cos60triSin.js"></script>
-        <script src="../js/trigonometri/cos150triangle.js"></script>
-        <script src="../js/trigonometri/cos240triangle.js"></script>
-        <script src="../js/trigonometri/cos330triangle.js"></script>
-        <script src="../js/trigonometri/tri1234.js"></script>
-        <script src="../js/trigonometri/eğimDoğru.js"></script>
-        <script src="../js/trigonometri/tanjant1234.js"></script>
-        <script src="../js/trigonometri/tanProof.js"></script>
-        <script src="../js/trigonometri/tanInteractive.js"></script>
-        <script src="../js/trigonometri/tanjantTablo.js"></script>
-        <script src="../js/trigonometri/tan30.js"></script>
-        <script src="../js/trigonometri/kotanjant123.js"></script>
-        <script src="../js/trigonometri/cotProof.js"></script>
-        <script src="../js/trigonometri/cotInteractive.js"></script>
-        <script src="../js/trigonometri/tableCot.js"></script>
-        <script src="../js/trigonometri/f5Graph.js"></script>
-        <script src="../js/trigonometri/sinGrafikDot.js"></script>
-        <script src="../js/trigonometri/cosGrafikDot.js"></script>
-        <script src="../js/trigonometri/birimçember_sincos.js" defer></script>
+        <script src="../js/fizik/trigonometri/noktadanÜçgen.js"></script>
+        <script src="../js/fizik/trigonometri/dikÜçgen.js"></script>
+        <script src="../js/fizik/trigonometri/dikÜçgenHipotenüs.js"></script>
+        <script src="../js/fizik/trigonometri/üçgenAçı.js"></script>
+        <script src="../js/fizik/trigonometri/tri_1234Pisagor_Ornek.js"></script>
+        <script src="../js/fizik/trigonometri/noktadanÇember.js"></script>
+        <script src="../js/fizik/trigonometri/piCircle.js"></script>
+        <script src="../js/fizik/trigonometri/dereceÇember.js"></script>
+        <script src="../js/fizik/trigonometri/radyanÇember.js"></script>
+        <script src="../js/fizik/trigonometri/birimçemberBOS.js"></script>
+        <script src="../js/fizik/trigonometri/kucukAciSvg.js"></script>
+        <script src="../js/fizik/trigonometri/parkur.js"></script>
+        <script src="../js/fizik/trigonometri/kronometre.js"></script>
+        <script src="../js/fizik/trigonometri/birimçember_sin.js"></script>
+        <script src="../js/fizik/trigonometri/birimçember_sin2.js"></script>
+        <script src="../js/fizik/trigonometri/sinüsTablo.js"></script>
+        <script src="../js/fizik/trigonometri/makine.js"></script>
+        <script src="../js/fizik/trigonometri/sin369triangle.js"></script>
+        <script src="../js/fizik/trigonometri/sin30triangle.js"></script>
+        <script src="../js/fizik/trigonometri/sin45-90triangle.js"></script>
+        <script src="../js/fizik/trigonometri/sin45triangle.js"></script>
+        <script src="../js/fizik/trigonometri/sin60triangle.js"></script>
+        <script src="../js/fizik/trigonometri/birimçember_cos.js"></script>
+        <script src="../js/fizik/trigonometri/birimçember_cos2.js"></script>
+        <script src="../js/fizik/trigonometri/kosinüsTablo.js"></script>
+        <script src="../js/fizik/trigonometri/cos30triangle.js"></script>
+        <script src="../js/fizik/trigonometri/cos30triSin.js"></script>
+        <script src="../js/fizik/trigonometri/cos45triangle.js"></script>
+        <script src="../js/fizik/trigonometri/cos45triSin.js"></script>
+        <script src="../js/fizik/trigonometri/cos60triangle.js"></script>
+        <script src="../js/fizik/trigonometri/cos60triSin.js"></script>
+        <script src="../js/fizik/trigonometri/cos150triangle.js"></script>
+        <script src="../js/fizik/trigonometri/cos240triangle.js"></script>
+        <script src="../js/fizik/trigonometri/cos330triangle.js"></script>
+        <script src="../js/fizik/trigonometri/tri1234.js"></script>
+        <script src="../js/fizik/trigonometri/eğimDoğru.js"></script>
+        <script src="../js/fizik/trigonometri/tanjant1234.js"></script>
+        <script src="../js/fizik/trigonometri/tanProof.js"></script>
+        <script src="../js/fizik/trigonometri/tanInteractive.js"></script>
+        <script src="../js/fizik/trigonometri/tanjantTablo.js"></script>
+        <script src="../js/fizik/trigonometri/tan30.js"></script>
+        <script src="../js/fizik/trigonometri/kotanjant123.js"></script>
+        <script src="../js/fizik/trigonometri/cotProof.js"></script>
+        <script src="../js/fizik/trigonometri/cotInteractive.js"></script>
+        <script src="../js/fizik/trigonometri/tableCot.js"></script>
+        <script src="../js/fizik/trigonometri/f5Graph.js"></script>
+        <script src="../js/fizik/trigonometri/sinGrafikDot.js"></script>
+        <script src="../js/fizik/trigonometri/cosGrafikDot.js"></script>
+        <script src="../js/fizik/trigonometri/arcsinUcgen.js"></script>
+        <script src="../js/fizik/trigonometri/arctanUcgen.js"></script>
+        <script src="../js/fizik/trigonometri/birimçember_sincos.js" defer></script>
 </body>
 </html>

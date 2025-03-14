@@ -1,42 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.querySelectorAll('.navbar a');  // Navbar bağlantıları
-    const sidebar = document.querySelector('.sidebar')
-    const sidebarLinks = document.querySelectorAll('.sidebar a');  // Sidebar bağlantıları
-    const logo = document.querySelector('.logo');  // Logo bağlantısı
-    const sesFizigiButon = document.querySelector('.sesFizigi-btn')
-    const konularFizik = document.querySelector('.konular_fizik');  // Konular fizik
-    const konularMikrofonlama = document.querySelector('.konular_mikrofonlama');  // Konular mikrofonlama
-    const checkbox = document.getElementById('acikmi');
+    const navLinks = document.querySelectorAll(".navbar a"); // Navbar bağlantıları
+    const sidebar = document.querySelector(".sidebar");
+    const sidebarLinks = document.querySelectorAll(".sidebar a"); // Sidebar bağlantıları
+    const logo = document.querySelector(".logo"); // Logo bağlantısı
+    const sesFizigiButon = document.querySelector(".sesFizigi-btn");
+    const konularFizik = document.querySelector(".konular_fizik"); // Konular fizik
+    const konularMikrofonlama = document.querySelector(".konular_mikrofonlama"); // Konular mikrofonlama
+    const checkbox = document.getElementById("acikmi");
     // Mevcut sayfa yolunu alıyoruz
     const currentPath = window.location.pathname;
 
+    // navLinks.forEach((link) => {
+    //     const linkPath = new URL(link.href).pathname;
+    //     if (link.href.includes("#")) {
+    //         return;
+    //     }
+    //     // Eğer bağlantının path'i mevcut sayfaya eşitse veya path'inde 'sesfizigi' varsa, aktif yap
+    //     if (linkPath === currentPath || currentPath.includes(linkPath)) {
+    //         link.classList.add("active");
+    //         // Sidebar konularını güncelle
+    //         // if (linkPath.includes('/sesfizigi')) {
+    //         //     konularFizik.style.display = 'block';
+    //         //     console.log("içeriyor")
+    //         //     //konularMikrofonlama.style.visibility = 'hidden';
+    //         //     konularMikrofonlama.style.display = 'none';
+    //         // } else if (linkPath.includes('/mikrofonlama')) {               // sidebareach'de gözüken ses fizigi include yapıp navbardaki aktifliği etkilemeyi bulman lazım
+    //         //     konularFizik.style.display = 'none';
+    //         //     konularMikrofonlama.style.display = 'block';
+    //         // } else {
+    //         //     //link.classList.remove('active');
+    //         // }
+    //     }
+    // });
 
-    navLinks.forEach(link => {
+    sidebarLinks.forEach((link) => {
         const linkPath = new URL(link.href).pathname;
-        if (link.href.includes("#")) {
-            return;
-        }
-        // Eğer bağlantının path'i mevcut sayfaya eşitse veya path'inde 'sesfizigi' varsa, aktif yap
-        if ((linkPath === currentPath || currentPath.includes(linkPath))) {
-            link.classList.add('active');
-            // Sidebar konularını güncelle
-            if (linkPath.includes('/sesfizigi')) {
-                konularFizik.style.display = 'block';
-                //konularMikrofonlama.style.visibility = 'hidden';
-                konularMikrofonlama.style.display = 'none';
-            } else if (linkPath.includes('/mikrofonlama')) {               // sidebareach'de gözüken ses fizigi include yapıp navbardaki aktifliği etkilemeyi bulman lazım
-                konularFizik.style.display = 'none';
-                konularMikrofonlama.style.display = 'block';
-            } else {
-                //link.classList.remove('active');
-            }
-        }
-
-    });
-
-    sidebarLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname;
-
+        console.log(currentPath);
 
         if (link.href.includes("#")) {
             return;
@@ -44,48 +43,55 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (linkPath === currentPath || currentPath.includes(linkPath)) {
             //console.log("currentPath",currentPath)
-            link.classList.add('active');
-        }
-        else {
-            link.classList.remove('active');
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
         }
 
-        if (currentPath.includes('/sesfizigi') && sesFizigiButon) {
-            sesFizigiButon.classList.add('active');
+        if (currentPath.includes("/sesfizigi") && sesFizigiButon) {
+            sesFizigiButon.classList.add("active");
+        } 
+        if (currentPath.includes("/sesfizigi")) {
+            konularFizik.style.display = "block";
+            konularMikrofonlama.style.display = "none";
+        }
+        else if (linkPath.includes('/mikrofonlama')) {              
+            konularMikrofonlama.style.display = 'block';
+            konularFizik.style.display = 'none';
         }
 
         // Sidebar'daki bağlantılar için tıklama olaylarını ayarla
-        link.addEventListener('click', function () {
+        link.addEventListener("click", function () {
             // Tüm sidebar bağlantılarından aktifliği kaldır
-            sidebarLinks.forEach(sidebarLink => sidebarLink.classList.remove('active'));
+            sidebarLinks.forEach((sidebarLink) =>
+                sidebarLink.classList.remove("active")
+            );
             // Tıklanan bağlantıyı aktif yap
-            link.classList.add('active');
+            link.classList.add("active");
         });
     });
 
     // Logo'ya tıklanınca tüm aktiflikleri temizle
-    logo.addEventListener('click', function () {
+    logo.addEventListener("click", function () {
         // Navbar ve sidebar bağlantılarındaki aktifliği temizle
-        navLinks.forEach(link => link.classList.remove('active'));
-        sidebarLinks.forEach(link => link.classList.remove('active'));
+        navLinks.forEach((link) => link.classList.remove("active"));
+        sidebarLinks.forEach((link) => link.classList.remove("active"));
     });
     // NAVBAR SIDEBAR LOGO AKTİFLİK //
 
-
-
-
-
-
-    // LOGO SVG ANİMASYON 
+    // LOGO SVG ANİMASYON
     const logoText = document.querySelector(".logo-text");
     const logoImg = document.querySelector(".logo-img");
 
     // SVG dizisi
     const assets = [
-        { svg: "/images/elec-gitar.svg", sound: "/sounds/elec-gitarSample.mp3" }, // 1. SVG ve 1. ses
+        {
+            svg: "/images/elec-gitar.svg",
+            sound: "/sounds/elec-gitarSample.mp3",
+        }, // 1. SVG ve 1. ses
         { svg: "/images/davul.svg", sound: "/sounds/drumSample.mp3" }, // 2. SVG ve 2. ses
         { svg: "/images/piyano.svg", sound: "/sounds/piyanoSample.mp3" }, // 3. SVG ve 3. ses
-        { svg: "/images/keyboard.svg", sound: "/sounds/synthSample.mp3" }  // 4. SVG ve 4. ses
+        { svg: "/images/keyboard.svg", sound: "/sounds/synthSample.mp3" }, // 4. SVG ve 4. ses
     ];
 
     let hoverCount = 0;
@@ -145,8 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-
 // EXTENDS //
 
 class ExHeaderF extends HTMLElement {
@@ -168,8 +172,7 @@ class ExHeaderF extends HTMLElement {
     }
 }
 
-customElements.define('ex-header-fizik', ExHeaderF);
-
+customElements.define("ex-header-fizik", ExHeaderF);
 
 class ExHeaderI extends HTMLElement {
     connectedCallback() {
@@ -190,9 +193,7 @@ class ExHeaderI extends HTMLElement {
     }
 }
 
-customElements.define('ex-header-index', ExHeaderI);
-
-
+customElements.define("ex-header-index", ExHeaderI);
 
 class ExSidebarF extends HTMLElement {
     connectedCallback() {
@@ -208,11 +209,11 @@ class ExSidebarF extends HTMLElement {
                 </div>
                 <div class="scrollbox">
                     <div class="inner-scrollbox">
-                        <div class="konular konular_fizik">
+                        <div class="konular_fizik">
                             <ul>
                                 <li><a href="./fizikGiris.html">Giriş</a></li>
                                 <li><a href="./trigonometri.html">Trigonometri</a></li>
-                                <li><a href="#">Temel Kavramlar</a></li>
+                                <li><a href="./temelKavramlar.html">Temel Kavramlar</a></li>
                                 <li><a href="vektorler.html">Vektörler</a></li>
                                 <li><a href="#">Kuvvet</a></li>
                                 <li><a href="#">Basınç</a></li>
@@ -237,12 +238,12 @@ class ExSidebarF extends HTMLElement {
                                 <li><a href="#">Molekül</a></li>
                             </ul>
                         </div>
-                        <div class="konular konular_mikrofonlama">
+                        <div class="konular_mikrofonlama">
                             <ul>
                                 <li><a href="../mikrofonlama/mikrofonlamaGiris.html">Mikrofon</a></li>
-                                <li><a href="#">Kondenser</a></li>
-                                <li><a href="#">Dinamik</a></li>
-                                <li><a href="#">Ribbon</a></li>
+                                <li><a href="../mikrofonlama/kondenser.html">Kondenser</a></li>
+                                <li><a href="../mikrofonlama/dinamik.html">Dinamik</a></li>
+                                <li><a href="../mikrofonlama/ribbon.html">Ribbon</a></li>
                             </ul>
                         </div>
                     </div>
@@ -253,10 +254,7 @@ class ExSidebarF extends HTMLElement {
 }
 
 // Custom element tanımlaması
-customElements.define('ex-sidebar-fizik', ExSidebarF);
-
-
-
+customElements.define("ex-sidebar-fizik", ExSidebarF);
 
 class ExFooter extends HTMLElement {
     connectedCallback() {
@@ -275,29 +273,27 @@ class ExFooter extends HTMLElement {
     }
 }
 
-customElements.define('ex-footer', ExFooter);
-
+customElements.define("ex-footer", ExFooter);
 
 // favicon
-(function() {
-    if (!document.querySelector("link[rel='icon']")) {  // Eğer favicon zaten eklenmişse, tekrar ekleme
+(function () {
+    if (!document.querySelector("link[rel='icon']")) {
+        // Eğer favicon zaten eklenmişse, tekrar ekleme
         let link = document.createElement("link");
         link.rel = "icon";
         link.type = "image/x-icon";
-        link.href = "/favicon.ico";  // Dosyanın yolunu doğru ayarla
+        link.href = "/favicon.ico"; // Dosyanın yolunu doğru ayarla
         document.head.appendChild(link);
     }
 })();
 
-
 // scroll into
 
-document.querySelectorAll(".ispat_369").forEach(element => {
+document.querySelectorAll(".ispat_369").forEach((element) => {
     element.addEventListener("click", function () {
         document.getElementById("ucgendeAciKapsamasi").scrollIntoView({
             behavior: "smooth",
-            block: "center"
+            block: "center",
         });
     });
 });
-
