@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vektörel Ve Skaler Nicelikler</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body style="height: 500vh;">
+    <ex-header-fizik></ex-header-fizik>   <!--HEADER-->
+    <div class="mainCanvas">
+        <div class="ana">
+            <h2>Vektörel Ve Skaler Nicelikler</h2>
+            <br>
+            <br>
+            <h3>Vektör</h3>
+                <p>• Vektör, yönü ve büyüklüğü olan matematiksel bir nesnedir.</p>
+                <p>• Geometrik olarak temsil edildiğinde, başlangıç noktasından uç noktasına uzanan bir ok şeklinde gösterilir.</p>
+                <p>• Bu okun doğrultusu, vektörün <span>yönünü</span> belirtirken, uzunluğu da <span>büyüklüğünü</span> ifade eder.</p>
+                <br>
+                <br>
+                <div id="firstVectorRow" style="display: flex; gap: 10vh;">
+                    <div id="firstVector"></div>
+                    <div id="firstVRMadde" style="margin-top: 5.5%;">
+                        <p>• Vektör, x ve y bileşenlerinin birleşiminden oluşur.</p>
+                        <p>• Bir vektörün yönü, pusula yönleriyle tanımlanabilir.</p>
+                        <p>• Adı <span>"\(v\)"</span>, uzunluğu <span>"\(r\)"</span> ve <span>"\(\theta\) "</span> açısıyla çizilmiş olan bir vektörün
+                            <br>
+                            matematiksel gösterimi aşağıdaki gibidir.
+                        </p>
+                        <br>
+                        <br>
+                        <p style="margin-left: 20%; margin-top: 3%;">\(\vec{v} = \langle r \cdot cos(\theta), r \cdot sin(\theta) \rangle\)</p>
+                        <!-- <p>\(\langle x, y \rangle\) \(\vec{A}\)</p> -->
+                    </div>
+                </div>
+                <p style="font-weight: 700;">! Vektörün yönü pozitif veya negatif olabilir ama büyüklüğü her zaman pozitiftir.</p>
+                <small>Bileşenleri verilmiş bir \(\vec{v}\) vektörünün büyüklüğünü ve açısını nasıl bulabileceğimize bakalım.</small>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div id="secondVectorRow" style="display: flex; gap: 10vh;">
+                    <div id="secondVector"></div>
+                    <div id="secondVectorMadde">
+                        <p>• Vektörün büyüklüğünü bulmak için pisagor yöntemini kullanabiliriz.</p>
+                        <small>Bir vektör mutlak değer içinde yer alıyorsa, bu onun büyüklüğünü ifade eder.</small>
+                        <p>
+                            $$ | \vec{v} | = \sqrt{3\,^2 + 4\,^2} $$
+                            $$ | \vec{v} | = 5 $$
+                        </p>
+                        <p>• Şimdi ise vektörün açısını, <span>\(arctan\)</span> fonksiyonunu kullanarak bulalım.</p>
+                        <p>
+                            $$ \theta = arctan\left(\frac{3}{4}\right) \approx 36\,.87\,^\circ $$
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <h4 style="text-decoration: underline; text-decoration-thickness: .2rem;">Gösterim</h4>
+                <p>\(\vec{v} = \langle 5 \cdot cos(36\,.87), 5 \cdot sin(36\,.87) \rangle\)</p>
+                <p>\(\vec{v} = \langle 3\,, 4\, \rangle\)</p>
+                <br>
+                <br>
+                <br>
+                <p>• İki vektörün yönleri ve büyüklükleri aynı ise bu vektörler birbirine eşittir.</p>
+                <small>Aşağıdaki iki vektörün başlangıç noktaları farklı olmasına rağmen büyüklük ve yönleri aynı olduğu için eşit kabul edilir.</small>
+                <div id="thirdVectorRow" style="display: flex; gap: 15vh;">
+                    <div id="thirdVector"></div>
+                    <p style="margin-top: 16%; display: flex; font-size: 17px; color: red;">$$ \vec{A} = \vec{B} $$</p>
+                </div>
+                <h3 style="font-size: 18px;">Vektörlerde Toplama Ve Çıkarma</h3>
+                <p>• Pazarda sebze alırken 2 kg + 3 kg = 5 kg şeklinde basitçe toplama yapabiliriz. Ancak vektörlerde yalnızca büyüklükleri
+                    <br>
+                    toplayıp veya çıkararak işlem yapmak mümkün değildir; yönleri de dikkate almak gerekir.
+                </p>
+                <br>
+                <h4 style="text-decoration: underline; text-decoration-thickness: .2rem;">Toplama</h4>
+                <div id="vectorSum1Row" style="display: flex; gap: 10vh;">
+                    <div id="vectorSum1"></div>
+                    <div id="vectorSum1Madde" style="margin-top: 9.5%;">
+                        <p>• Uç uca eklenen vektörleri toplamak için başlangıç noktasından bitiş noktasına bir bileşke vektör çizilir.</p>
+                        <p>$$ \vec{A} + \vec{B} = \vec{C} $$</p>
+                    </div>
+                </div>
+                <div id="vectorSum2Row" style="display: flex; gap: 10vh;">
+                    <div id="vectorSum2"></div>
+                    <p style="margin-top: 15%; ">$$ \vec{A} + \vec{B} + \vec{C} = \vec{D} $$</p>
+                </div>
+                <div id="vectorSumRow" style="display: flex;">
+                    <div id="instructionsColumns" style="display: flex; flex-direction: column;">
+                        <div id="mouseLeftMadde" style="display: flex; align-items: center;">
+                            <img src="../images/mouseLeft.svg" alt="mouseLeft" style="width: 120px;">
+                            <p>Vektör Ekle</p>
+                        </div>
+                        <div id="mouseRightMadde" style="display: flex; align-items: center;">
+                            <img src="../images/mouseRight.svg" alt="mouseRight" style="width: 120px;">
+                            <p>Bileşke Vektörü Çiz</p>
+                        </div>
+                        <div id="rMadde" style="display: flex; align-items: center; gap: 4vh; margin-left: 21%; margin-top: 13%;">
+                            <img src="../images/letter-r.svg" alt="letter-r">
+                            <p>Ekranı Yinele</p>
+                        </div>
+                    </div>
+                    <div id="vectorSumAni" style="border: 3px solid black; margin-left: 10%;"></div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h4 style="text-decoration: underline; text-decoration-thickness: .2rem;">Çıkarma</h4>
+
+                <div id="vectorSub3"></div>
+        </div>
+    </div>
+    <ex-sidebar-fizik></ex-sidebar-fizik>
+    <!-- <ex-footer></ex-footer> -->
+    <script src="../scripts.js"></script>
+    <script src="../js/fizik/vektorVeSkaler/firstVector_d3.js"></script>
+    <script src="../js/fizik/vektorVeSkaler/firstVector.js"></script>
+    <script src="../js/fizik/vektorVeSkaler/secondVector.js"></script>
+    <script src="../js/fizik/vektorVeSkaler/vectorSum1.js"></script>
+    <script src="../js/fizik/vektorVeSkaler/vectorSum2.js"></script>
+    <script src="../js/fizik/vektorVeSkaler/vectorSumAni.js"></script>
+    <script src="../js/fizik/vektorVeSkaler/vectorSub3.js"></script>
+</body>
+</html>

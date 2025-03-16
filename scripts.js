@@ -213,8 +213,8 @@ class ExSidebarF extends HTMLElement {
                             <ul>
                                 <li><a href="./fizikGiris.html">Giriş</a></li>
                                 <li><a href="./trigonometri.html">Trigonometri</a></li>
-                                <li><a href="./temelKavramlar.html">Temel Kavramlar</a></li>
-                                <li><a href="vektorler.html">Vektörler</a></li>
+                                <li><a href="./temel_ve_turetilmis.html">Temel Ve Türetilmiş Büyüklükler</a></li>
+                                <li><a href="./vektor_ve_skaler.html">Vektörel Ve Skaler Büyüklükler</a></li>
                                 <li><a href="#">Kuvvet</a></li>
                                 <li><a href="#">Basınç</a></li>
                                 <li><a href="#">Güç ve Enerji</a></li>
