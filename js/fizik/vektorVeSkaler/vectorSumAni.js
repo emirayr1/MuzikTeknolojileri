@@ -20,8 +20,6 @@ new p5((p) => {
         canvas.parent("vectorSumAni");
         p.noCursor();
         imgTebesir.resize(70, 53);
-        imgSilgi.resize(100, 100);
-        // p.background(255, 246, 204);
 
         canvas.elt.oncontextmenu = function (e) {
             e.preventDefault(); // Sağ tıklama menüsünü engeller
@@ -31,7 +29,7 @@ new p5((p) => {
     p.draw = function () {
         p.clear();
         p.image(imgTebesir, p.mouseX, p.mouseY - 50);
-       
+
         // Tüm vektörleri çiz
         p.stroke(0);
         p.strokeWeight(3);
@@ -153,7 +151,7 @@ new p5((p) => {
 
     p.keyPressed = function () {
         if (p.key === "r" || p.key === "R") {
-           
+
             vectors = []; 
             p.background(255, 246, 204); // Ekranı temizle
             isDrawing = false;
@@ -162,6 +160,4 @@ new p5((p) => {
           
         }
     };
-
-
 });
