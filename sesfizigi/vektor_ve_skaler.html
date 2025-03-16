@@ -65,7 +65,7 @@
                 <br>
                 <br>
                 <h4 style="text-decoration: underline; text-decoration-thickness: .2rem;">Gösterim</h4>
-                <p>\(\vec{v} = \langle 5 \cdot cos(5\,3\,.13), 5 \cdot sin(5\,3\,.13) \rangle\)</p>
+                <p>\(\vec{v} = \langle 5 \cdot cos(5\,3\,.13\,^\circ), 5 \cdot sin(5\,3\,.13\,^\circ) \rangle\)</p>
                 <p>\(\vec{v} = \langle 3\,, 4\, \rangle\)</p>
                 <br>
                 <br>
@@ -105,7 +105,10 @@
                             <p>Ekranı Yinele</p>
                         </div>
                     </div>
-                    <div id="vectorSumAni" style="border: 3px solid black; margin-left: 10%;"></div>
+                    <div id="karaTahtaGrup">
+                        <div id="vectorSumAni" style="position: absolute; margin-top: 2%; margin-left: 4%;"></div>
+                        <img src="../images/tahta2.svg" alt="tahta" style="width: 1133px; height: 713px; pointer-events: none; user-select: none;">
+                    </div>
                 </div>
                 <br>
                 <br>
@@ -115,9 +118,9 @@
                 <p>• Bir vektörün '-' ile çarpılması, vektörün yönünün tersine dönmesi anlamına gelir.</p>
                 <div id="vectorSub3Row" style="display: flex;">
                     <div id="vectorSub3"></div>
-                    <div id="minusRow" style="display: flex; gap: 2vh;">
-                        <div id="minusSign" style="position: absolute; margin-left: 8px; opacity: 0; margin-top: 2px;">-</div>
-                        <p id="vecSign" style="width: 0px;">\(\vec{A}\)</p>
+                    <div id="minusRow" style="display: flex; gap: 2vh; font-size: 1.5rem;">
+                        <div id="minusSign" style="position: absolute; margin-left: 8px; opacity: 0; margin-top: 3px;">-</div>
+                        <p id="vecSign" style="width: 0px; font-size: 1.5rem;">\(\vec{A}\)</p>
                     </div>
                 </div>
         </div>

@@ -6,12 +6,22 @@ let animationProgress = 0; // Animasyon ilerlemesi
 let animationInProgress = false; // Animasyon durumu
 let canClick = true;
 let redLine = null; // Kırmızı çizgi (ilk vektör ile son vektör arasında)
+let imgTebesir;
 
 new p5((p) => {
+
+    p.preload = function (){
+        imgTebesir = p.loadImage("../../../images/tebeşir.svg"); // Resmi yükle
+        imgSilgi = p.loadImage("../../../images/silgi.svg");
+    }
+
     p.setup = function () {
-        let canvas = p.createCanvas(1000, 600);
+        let canvas = p.createCanvas(1000, 580);
         canvas.parent("vectorSumAni");
-        p.background(255, 246, 204);
+        p.noCursor();
+        imgTebesir.resize(70, 53);
+        imgSilgi.resize(100, 100);
+        // p.background(255, 246, 204);
 
         canvas.elt.oncontextmenu = function (e) {
             e.preventDefault(); // Sağ tıklama menüsünü engeller
@@ -19,22 +29,25 @@ new p5((p) => {
     };
 
     p.draw = function () {
-        p.background(255, 246, 204);
-
+        p.clear();
+        p.image(imgTebesir, p.mouseX, p.mouseY - 50);
+       
         // Tüm vektörleri çiz
         p.stroke(0);
         p.strokeWeight(3);
+
         for (let i = 0; i < vectors.length; i++) {
             let v = vectors[i];
             // Renk kontrolü yapalım, kırmızı çizgiler kırmızı olacak
-            if (v.color === 'red') {
+            if (v.color === "red") {
                 p.stroke(255, 0, 0); // Kırmızı çizgi
                 p.strokeWeight(5);
-                p.fill(255,0,0);
+                p.fill(255, 0, 0);
             } else {
-                p.stroke(0); // Siyah çizgi
+                p.stroke(255, 255, 255); // Siyah çizgi
                 p.strokeWeight(3);
-                p.fill(0);
+                p.stroke(255, 255, 255)
+                p.fill(255, 255, 255);
             }
             p.line(v.startX, v.startY, v.endX, v.endY);
 
@@ -44,7 +57,7 @@ new p5((p) => {
             p.push();
             p.translate(v.endX, v.endY);
             p.rotate(angle);
-            p.triangle(-10, -5, 0, 0, -10, 5); // Üçgenin boyutlarını ayarlayabilirsiniz
+            p.triangle(-12.5, -7.5, 0, 0, -12.5, 7.5); // Üçgenin boyutlarını ayarlayabilirsiniz
             p.pop();
         }
 
@@ -69,7 +82,7 @@ new p5((p) => {
                 canClick = false;
 
                 // Kırmızı çizgiyi kaydet ve renk bilgisini 'red' olarak ekle
-                redLine.color = 'red'; // Kırmızı renk ekleyin
+                redLine.color = "red"; // Kırmızı renk ekleyin
                 vectors.push(redLine); // Kırmızı çizgiyi kaydet
                 redLine = null; // Kırmızı çizgiyi sıfırla
             }
@@ -82,8 +95,7 @@ new p5((p) => {
     };
 
     p.mousePressed = function () {
-
-        if(!canClick){
+        if (!canClick) {
             return false;
         }
 
@@ -107,7 +119,7 @@ new p5((p) => {
             }
             isDrawing = false; // Yeni vektör çizmeyi durdur
             // setTimeout(() => {
-            //     vectors = []; // 15 saniye sonra sıfırla 
+            //     vectors = []; // 15 saniye sonra sıfırla
             // }, 15000);
         } else {
             // Vektör çizme işlemi
@@ -127,7 +139,7 @@ new p5((p) => {
                     startY: startY,
                     endX: endX,
                     endY: endY,
-                    color: 'black', // Siyah renk ekleyelim
+                    color: "white", // Siyah renk ekleyelim
                 });
 
                 // Yeni vektör başlangıcı olarak bitiş noktasını belirle
@@ -138,13 +150,18 @@ new p5((p) => {
     };
 
 
+
     p.keyPressed = function () {
         if (p.key === "r" || p.key === "R") {
-            vectors = []; // Vektörleri temizle
+           
+            vectors = []; 
             p.background(255, 246, 204); // Ekranı temizle
             isDrawing = false;
             animationInProgress = false; // Animasyonu durdur
             canClick = true;
+          
         }
     };
+
+
 });
