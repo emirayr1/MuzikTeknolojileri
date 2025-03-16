@@ -15,7 +15,7 @@ let vecSign = document.getElementById("vecSign");
 new p5(function (p) {
     p.setup = function () {
         let canvas = p.createCanvas(400, 400);
-        canvas.parent("vectorSub3");
+        canvas.parent("vectorSub1");
     };
 
     p.draw = function () {

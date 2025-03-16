@@ -117,12 +117,26 @@
                 <br>
                 <h4 style="text-decoration: underline; text-decoration-thickness: .2rem;">Çıkarma</h4>
                 <p>• Bir vektörün '-' ile çarpılması, vektörün yönünün tersine dönmesi anlamına gelir.</p>
-                <div id="vectorSub3Row" style="display: flex;">
-                    <div id="vectorSub3"></div>
-                    <div id="minusRow" style="display: flex; gap: 2vh; font-size: 1.5rem;">
+                <div id="vectorSub1Row" style="display: flex; align-items: center;">
+                    <div id="vectorSub1"></div>
+                    <div id="minusRow" style="display: flex; gap: 2vh; font-size: 1.5rem; margin-bottom: 30%;">
                         <div id="minusSign" style="position: absolute; margin-left: 8px; opacity: 0; margin-top: 3px;">-</div>
                         <p id="vecSign" style="width: 0px; font-size: 1.5rem;">\(\vec{A}\)</p>
                     </div>
+                </div>
+                <p>• Bu durumu kullanıp çıkarma işlemi yapacağımız zaman çıkaracağımız vektörün ters yönlüsünü alıp toplarız.</p>
+                <p>• \(\vec{A} - \vec{B}\) işlemini yaparken aslında A vektörünün ucuna B vektörünün ters yönlüsünü çizmiş oluruz.</p>
+                <p>• \(\vec{A} + (-\vec{B})\)</p>
+                <div id="vectorSub2Row" style="display: flex;">
+                    <div id="vectorSub2"></div>
+                    <div class="checkBoxes" id="vectorSub2CB">
+                        <label>
+                            <input type="checkbox" id="toplaCB"> Topla
+                        </label>
+            
+                        <label>
+                            <input type="checkbox" id="cikarCB"> Çıkar
+                        </label>
                 </div>
         </div>
     </div>
@@ -135,6 +149,7 @@
     <script src="../js/fizik/vektorVeSkaler/vectorSum1.js"></script>
     <script src="../js/fizik/vektorVeSkaler/vectorSum2.js"></script>
     <script src="../js/fizik/vektorVeSkaler/vectorSumAni.js"></script>
-    <script src="../js/fizik/vektorVeSkaler/vectorSub3.js"></script>
+    <script src="../js/fizik/vektorVeSkaler/vectorSub1.js"></script>
+    <script src="../js/fizik/vektorVeSkaler/vectorSub2.js"></script>
 </body>
 </html>
