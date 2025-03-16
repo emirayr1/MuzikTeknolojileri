@@ -32,6 +32,8 @@ new p5(function (p) {
         p.text("B", 0, 0); // Başlangıç noktasında yazdırma
         p.createVectorSketch(0, -13, 15, -13, 1, true);
         p.pop();
+
+
     };
 
     p.createVectorSketch = function (startX, startY, endX, endY, strokeWeight, isTiny) {

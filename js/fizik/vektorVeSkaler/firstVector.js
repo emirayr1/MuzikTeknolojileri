@@ -6,6 +6,15 @@ new p5(function (p) {
 
     p.draw = function () {
         p.background(255, 246, 204);
+        
+        p.push();
+        p.translate(10, 225);
+        p.rotate(-0.4)
+        p.noFill();
+        p.stroke(0)
+        p.arc(0, 0, 50, 50, -Math.PI / 6, Math.PI / 6)
+        p.pop();
+
         p.createVectorSketch(10, 230, 150, 10, 5, 'red');
         p.createVectorSketch(10, 230, 150, 230, 2, 'black');
         p.strokeWeight(2);
@@ -25,7 +34,9 @@ new p5(function (p) {
     };
 
     p.createVectorSketch = function (startX, startY, endX, endY, strokeWeight, color) {
+       
         p.stroke(color);
+        p.fill(color);
         p.strokeWeight(strokeWeight);
         p.line(startX, startY, endX, endY);
 
@@ -45,6 +56,8 @@ new p5(function (p) {
         p.fill(0);
         p.triangle(-10, -5, 0, 0, -10, 5);
         p.pop();
+
+        
     };
 });
 

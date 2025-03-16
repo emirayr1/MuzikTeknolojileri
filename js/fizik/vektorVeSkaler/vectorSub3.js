@@ -1,3 +1,17 @@
+let angle = 0;
+let startAngle = 0;
+let targetAngle = 0;
+let startAngleX = 200;
+let startAngleY = 200;
+let lineLength = 100;
+let lastToggleTime = 0;
+let duration = 1000; // 1 saniye dönüş süresi
+let cycleTime = 5000; // 3 saniyede bir dönüş başlıyor
+let rotating = false;
+let isMinus = false;
+
+let minusSign = document.getElementById("minusSign");
+let vecSign = document.getElementById("vecSign");
 new p5(function (p) {
     p.setup = function () {
         let canvas = p.createCanvas(400, 400);
@@ -6,60 +20,53 @@ new p5(function (p) {
 
     p.draw = function () {
         p.background(255, 246, 204);
-        p.createVectorSketch(10, 200, 225, 200, 5, false, 'black');
-        p.createVectorSketch(230, 200, 380, 130, 5, false, 'black');
-        p.createVectorSketch(10, 200, 370, 130, 5, false, 'red');
 
-        p.textSize(15);
-        p.stroke("none");
-        p.strokeWeight(0);
-        p.textFont("Georgia");
-        p.fill(0);
+        let elapsedTime = p.millis() - lastToggleTime;
 
-        p.push();
-        p.translate(110, 230); // Konumlandırma
-        p.text("A", 0, 0);
-        p.createVectorSketch(0, -13, 15, -13, 1, true, 'black');
-        p.pop();
+        if (elapsedTime > cycleTime) {
+            rotating = true;
+            startAngle = angle;
+            targetAngle = angle === 0 ? Math.PI : 0; // 180 derece dön, sonra geri dön
+            lastToggleTime = p.millis(); // Zamanı sıfırla
+        }
 
-        p.push();
-        p.stroke(0);
-        p.translate(320, 195); // Konumlandırma
-        p.rotate(-0.4); // -45 derece döndürme (sola yatık)
-        p.text("B", 0, 0); // Başlangıç noktasında yazdırma
-        p.createVectorSketch(0, -13, 15, -13, 1, true, 'black');
-        p.pop();
+        if (rotating) {
+            let progress = (p.millis() - lastToggleTime) / duration;
+            if (progress >= 1) {
+                progress = 1;
+                rotating = false; // Dönme tamamlandı
+                isMinus = !isMinus;
+                // minusSign.style.transition = "margin-left 1s ease-out";
+                vecSign.style.transition = "margin-left 1s ease-in-out";
+                minusSign.style.transition = 
+                isMinus 
+                ? 
+                "opacity 2s ease-in-out"
+                :
+                "opacity 0.35s ease-in-out";
+                vecSign.style.marginLeft = isMinus ? "20px" : "0px";
+                minusSign.style.opacity = isMinus ? "1" : "0";
+                
+                
+                
+            }
+            angle = p.lerp(startAngle, targetAngle, progress);
+        }
 
-        
-
-        p.textSize(11);
-        p.text("Başlangıç", 0, 180);
-        p.text("Bitiş", 360, 110);
-
-
-        p.push();
-        p.fill(255,0,0);
-        p.textSize(15)
-        p.translate(200, 150); // Konumlandırma
-        p.rotate(-0.2); // -45 derece döndürme (sola yatık)
-        p.text("C", 0, 0); // Başlangıç noktasında yazdırma
-        p.createVectorSketch(0, -13, 15, -13, 1, true, 'red');
-        p.pop();
-
+        p.drawLine();
     };
 
-    p.createVectorSketch = function (startX, startY, endX, endY, strokeWeight, isTiny, colors) {
-        p.stroke(colors);
-        p.strokeWeight(strokeWeight);
-        p.line(startX, startY, endX, endY);
-
-        let angle = p.atan2(endY - startY, endX - startX);
-        p.strokeWeight(strokeWeight);
+    p.drawLine = function () {
         p.push();
-        p.translate(endX, endY);
+        p.translate(startAngleX, startAngleY);
         p.rotate(angle);
-        p.fill(colors);
-        isTiny ? p.triangle(-5, -2.5, 0, 0, -5, 2.5) : p.triangle(-10, -5, 0, 0, -10, 5);
+        p.strokeWeight(4);
+        p.line(0, 0, 100, -100);
+        p.translate(68, -95)
+        p.rotate(0.25)
+        p.fill(0);
+        p.triangle(20 * p.cos(-Math.PI / 5), 20 * p.sin(-Math.PI / 6), 40 * p.cos(Math.PI / 6), p.sin(Math.PI / 6), 40 * p.cos(-Math.PI / 6), 40 * p.sin(-Math.PI / 6)); // Üçgenin ucu çizgi ucunda sabit
         p.pop();
     };
+
 });
