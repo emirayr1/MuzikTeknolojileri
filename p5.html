@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>P5.js Resim Takip</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    </head>
+    <body style="background-color: rgb(255, 246, 204)">
+        <h3>Canvasın Üstü</h3>
+        <div id="canvas-container"></div>
+        <h3>Canvasın Altı</h3>
+
+        <script>
+            let img;
+
+            function preload() {
+                img = loadImage("./images/oscilloscope.png"); // Resmi yükle
+            }
+
+            function setup() {
+                let canvas = createCanvas(500, 500);
+                canvas.parent('canvas-container');
+                img.resize(100, 100); // Resmin genişliğini ve yüksekliğini 100x100 olarak değiştir
+            }
+
+            function draw() {
+                background(220);
+                image(img, mouseX, mouseY); // Resmi fare ile hareket ettir
+            }
+        </script>
+    </body>
+</html>
