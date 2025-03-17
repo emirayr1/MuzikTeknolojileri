@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5.js Image Movement</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <script>
+        let img;
+        let points = [
+            {x: 100, y: 100},
+            {x: 200, y: 150},
+            {x: 300, y: 100},
+            {x: 100, y: 100} // Start point (back to the beginning)
+        ];
+        let currentPoint = 0;
+        let pos;
+        let speed = 6;
+        let moving = false;
+
+        function preload() {
+            img = loadImage('../../../images/silgi.svg'); // Replace with your image
+        }
+
+        function setup() {
+            createCanvas(400, 300);
+            pos = createVector(points[0].x, points[0].y);
+        }
+
+        function draw() {
+            background(220);
+            image(img, pos.x, pos.y, 50, 50);
+            
+            if (moving) {
+                let target = createVector(points[currentPoint].x, points[currentPoint].y);
+                let dir = p5.Vector.sub(target, pos);
+                
+                if (dir.mag() > speed) {
+                    dir.setMag(speed);
+                    pos.add(dir);
+                } else {
+                    pos = target.copy();
+                    currentPoint++;
+                    
+                    if (currentPoint >= points.length) {
+                        currentPoint = 0;
+                        moving = false;  // Stop moving when it reaches the start
+                    }
+                }
+            }
+        }
+
+        function keyPressed() {
+            if (key === 'R' || key === 'r') {
+                if (!moving) {
+                    moving = true;
+                    currentPoint = 1;
+                    pos = createVector(points[0].x, points[0].y);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>Press 'R' to move the eraser</h3>
+</body>
+</html>
