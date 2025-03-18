@@ -1,4 +1,4 @@
-//// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! //TARGET INDEX NEDEN OVERLOAD OLUYOR BUNU ÇÖZ
+//// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! //TARGET INDEX NEDEN FEEDBACK OLUYOR BUNU ÇÖZ (ÇÖZDÜM)
 
 
 
@@ -41,7 +41,7 @@ new p5((p) => {
         silgiPosX = 950;
         silgiPosY = 100;
         canvas.elt.oncontextmenu = function (e) {
-            e.preventDefault(); // Sağ tıklama menüsünü engeller
+            e.preventDefault(); // Sağ tıklama menüsünü engelleme
         };
         white = p.color(255, 255, 255);
         red = p.color(255, 0, 0);
