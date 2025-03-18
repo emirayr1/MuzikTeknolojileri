@@ -1,3 +1,7 @@
+//// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! //TARGET INDEX NEDEN OVERLOAD OLUYOR BUNU ÇÖZ
+
+
+
 let startX, startY; // Başlangıç noktası
 let endX, endY; // Bitiş noktası
 let isDrawing = false; // Vektör çizim durumu
@@ -7,20 +11,26 @@ let animationInProgress = false; // Animasyon durumu
 let canClick = true;
 let redLine = null; // Kırmızı çizgi (ilk vektör ile son vektör arasında)
 let imgTebesir;
-let silgiPosX; 
+let silgiPosX;
 let silgiPosY;
 let targetIndex = 0;
 let eraseSpeed = 20;
 let distArr = [];
 let clearScreen = false;
+let whiteChalk = [];
+let white;
+let red;
+let alphaValue = 255; // Başlangıçta opak
+let startTimeTr = 0;  // Geçişin başladığı zaman
+let isTransitioning = false; // Geçişin başlayıp başlamadığını kontrol etmek için
+let eraseStart = false;
 
 
 new p5((p) => {
-
-    p.preload = function (){
+    p.preload = function () {
         imgTebesir = p.loadImage("../../../images/tebesir.svg"); // Resmi yükle
         imgSilgi = p.loadImage("../../../images/silgi.svg");
-    }
+    };
 
     p.setup = function () {
         let canvas = p.createCanvas(1000, 580);
@@ -29,31 +39,84 @@ new p5((p) => {
         imgTebesir.resize(70, 53);
         imgSilgi.resize(100, 100);
         silgiPosX = 950;
-        silgiPosY = 100; 
+        silgiPosY = 100;
         canvas.elt.oncontextmenu = function (e) {
             e.preventDefault(); // Sağ tıklama menüsünü engeller
         };
+        white = p.color(255, 255, 255);
+        red = p.color(255, 0, 0);
     };
 
     p.draw = function () {
         p.clear();
         p.image(imgTebesir, p.mouseX, p.mouseY - 50);
 
-        console.log(clearScreen)
         p.image(imgSilgi, silgiPosX - 50, silgiPosY - 50);
-        
+
         // Tüm vektörleri çiz
-        p.stroke(255, 255, 255)
+        p.stroke(255, 255, 255);
         p.strokeWeight(3);
-
-
-        if(clearScreen){
+        if (clearScreen && !isTransitioning) {
+            startTimeTr = p.millis(); 
+            isTransitioning = true;
+        }
+        if (isTransitioning) {
+            let elapsedTime = p.millis() - startTimeTr;
+            alphaValue = p.map(elapsedTime, 0, 3000, 255, 0); // 3 saniye
+    
+            // alphaValue'yi 0 ile 255 arasında tut
+            alphaValue = p.constrain(alphaValue, 0, 255);
+    
+            
+            if (elapsedTime > 3000) {
+                isTransitioning = false; 
+                clearScreen = false;
+            }
+        }
+        
+        
+        if(eraseStart){
+            whiteChalk.push({ x: silgiPosX, y: silgiPosY }); // yalnızca vektörlerin üzerindeyken pushLa 
+        }
+        
+        if(vectors.length >= 2){
+            if(targetIndex > vectors.length - 1){
+                // white.setAlpha(alphaValue);
+                // red.setAlpha(alphaValue);
+            }
+            else{
+            //    white.setAlpha(255);
+            //    red.setAlpha(255);
+           }
+        }
+        for (let i = 0; i < whiteChalk.length; i++) {
+            p.push();
+            
+            p.stroke(white);
+            p.fill(white);
+            p.circle(whiteChalk[i].x, whiteChalk[i].y, 70);
+            p.pop();
+        }
+        if (clearScreen) {
+            if(vectors.length > 0){
+                if(vectors[0].startX + 15 > silgiPosX){
+                    eraseStart = true;
+                }
+            }
             if (vectors.length >= 2 && targetIndex === 0) {
                 let firstVector = vectors[0];
-                let d = p.dist(silgiPosX, silgiPosY, firstVector.startX, firstVector.startY);
-        
+                let d = p.dist(
+                    silgiPosX,
+                    silgiPosY,
+                    firstVector.startX,
+                    firstVector.startY
+                );
+
                 if (d > eraseSpeed) {
-                    let angle = p.atan2(firstVector.startY - silgiPosY, firstVector.startX - silgiPosX);
+                    let angle = p.atan2(
+                        firstVector.startY - silgiPosY,
+                        firstVector.startX - silgiPosX
+                    );
                     silgiPosX += p.cos(angle) * eraseSpeed;
                     silgiPosY += p.sin(angle) * eraseSpeed;
                 } else {
@@ -62,18 +125,23 @@ new p5((p) => {
                     reachedStart = false; // targetIndex 1 olunca, hedefin start noktasına gitmek için bayrağı sıfırla
                 }
             }
-        
             // Eğer targetIndex 1 ise, hedefin start noktasına ve sonra end noktasına git
             if (vectors.length >= 2 && targetIndex > 0) {
                 let target = vectors[targetIndex];
-        
-                // Eğer hedefin start noktasına gitmek için hala mesafe varsa
                 if (!reachedStart) {
-                    let dToStart = p.dist(silgiPosX, silgiPosY, target.startX, target.startY);
-        
+                    let dToStart = p.dist(
+                        silgiPosX,
+                        silgiPosY,
+                        target.startX, // target.startX
+                        target.startY   // target.startY
+                    );
+
                     // Hedefin start noktasına ulaşmadıysak, ona doğru hareket et
                     if (dToStart > eraseSpeed) {
-                        let angleToStart = p.atan2(target.startY - silgiPosY, target.startX - silgiPosX);
+                        let angleToStart = p.atan2(
+                            target.startY - silgiPosY,
+                            target.startX - silgiPosX
+                        );
                         silgiPosX += p.cos(angleToStart) * eraseSpeed;
                         silgiPosY += p.sin(angleToStart) * eraseSpeed;
                     } else {
@@ -81,53 +149,93 @@ new p5((p) => {
                         reachedStart = true;
                     }
                 }
-        
+
                 // Start noktasına ulaştıysa, end noktasına gitmeye devam et
                 if (reachedStart) {
-                    let dToEnd = p.dist(silgiPosX, silgiPosY, target.endX, target.endY);
-        
+                    let dToEnd = p.dist(
+                        silgiPosX,
+                        silgiPosY,
+                        target.endX,
+                        target.endY
+                    );
                     // Hedefin end noktasına yaklaşıyorsa
                     if (dToEnd > eraseSpeed) {
-                        let angle = p.atan2(target.endY - silgiPosY, target.endX - silgiPosX);
+                        let angle = p.atan2(
+                            target.endY - silgiPosY,
+                            target.endX - silgiPosX
+                        );
                         silgiPosX += p.cos(angle) * eraseSpeed;
                         silgiPosY += p.sin(angle) * eraseSpeed;
+                        
                     } else {
                         // Hedefin end noktasına çok yaklaştıysa, bir sonraki hedefe geç
-                        targetIndex++;
-                        reachedStart = false; // Yeni hedefe geçerken start noktasına gitmeye başlasın
-        
+                        // targetIndex > vectors.length  ? targetIndex : targetIndex++;
+                        targetIndex++;  //TARGET INDEX NEDEN OVERLOAD OLUYOR BUNU ÇÖZ
+                        reachedStart = false; 
                         // Eğer tüm hedefler bitti, başa dön
                         if (targetIndex >= vectors.length) {
-                            targetIndex = 0;
-                            clearScreen = false;
+                            eraseStart = false;
+                            setTimeout(() => {
+                                vectors = [];
+                                whiteChalk = [];
+                            }, 2000);
+                            let lastVector = vectors[vectors.length - 1]; // Son vektörü al
+
+                            vectors.push({
+                                startX: lastVector.endX, // Son vektörün başlangıç noktası
+                                startY: lastVector.endY,
+                                endX: 950, // Hedef noktası
+                                endY: 100,
+                                color: "black", // Beyaz renk ekleyelim
+                            });
+
+                            if (silgiPosX > 900 && silgiPosY < 70) {
+                                clearScreen = false;
+                            }
+                            setTimeout(() => {
+                                targetIndex = 0; // HARDCODE TARGETINDEXI 0LIYORUM diğer rye bastıgımda tekrar 0dan baslasın diye baska bir yolunu bul
+                            }, 3000);
                         }
                     }
                 }
             }
         }
 
+        // if(silgiPosX === 900){
+        //     setTimeout(() => {
+        //         white.setAlpha(255);
+        //         red.setAlpha(255);
+        //     }, 2000);
+        // }
         for (let i = 0; i < vectors.length; i++) {
             let v = vectors[i];
-            // console.log(v);
 
-            // console.log(vectors[1]);
             // Renk kontrolü yapalım, kırmızı çizgiler kırmızı olacak
             if (v.color === "red") {
-                p.stroke(255, 0, 0); // Kırmızı çizgi
+                p.stroke(red);
                 p.strokeWeight(5);
-                p.fill(255, 0, 0);
+                p.fill(red);
+            } else if (v.color === "black") {
+                p.noFill();
+                p.noStroke();
             } else {
-                p.stroke(255, 255, 255); // Siyah çizgi
+                p.stroke(white);
                 p.strokeWeight(3);
-                p.stroke(255, 255, 255)
-                p.fill(255, 255, 255);
+                p.stroke(white);
+                p.fill(white);
             }
             p.line(v.startX, v.startY, v.endX, v.endY);
-            
+
             p.push();
-            p.stroke(255, 255, 255);
-            p.fill(255, 255, 255);
-            p.circle(v.startX, v.startY, 5)
+            if (v.color === "black") {
+                // BLACK OLMASI SON VEKTÖR OLMASI ANLAMINA GELİYOR ASLINDA ÇİZİLİYOR PUSHLUYORUM AMA GÖRÜNMEZ 950, 100 E GERİ DÖNEBİLMESİ İÇİN
+                p.noFill();
+                p.noStroke();
+            } else {
+                p.stroke(white);
+                p.fill(white);
+            }
+            p.circle(v.startX, v.startY, 5);
             p.pop();
 
             // Ok (üçgen) çizecek
@@ -170,13 +278,10 @@ new p5((p) => {
 
         // Şu anda çizilen vektör var mı?
         if (isDrawing) {
-
             // BUNLAR KALICI DEĞİL YALNIZCA MOUSE HAREKETİNDE GÖRÜNEN ŞEYLERİ ÇİZMEK İÇİN
             // KALICI OLANLAR BUNLARIN AYNISINI DRAW FONKSİYONUNDA VECTOR BİLGİSİNDEN ALARAK YAPIYORUM
 
             p.line(startX, startY, p.mouseX, p.mouseY);
-
-
 
             let angle = p.atan2(p.mouseY - startY, p.mouseX - startX);
             p.strokeWeight(3);
@@ -186,11 +291,10 @@ new p5((p) => {
             p.triangle(-12.5, -7.5, 0, 0, -12.5, 7.5); // Üçgenin boyutlarını ayarlayabilirsiniz
             p.pop();
 
-
             p.push();
             p.stroke(255, 255, 255);
             p.fill(255, 255, 255);
-            p.circle(startX, startY, 5)
+            p.circle(startX, startY, 5);
             p.pop();
         }
     };
@@ -240,25 +344,18 @@ new p5((p) => {
                     startY: startY,
                     endX: endX,
                     endY: endY,
-                    color: "white", // Siyah renk ekleyelim
+                    color: "white",
                 });
                 // Yeni vektör başlangıcı olarak bitiş noktasını belirle
                 startX = endX;
                 startY = endY;
-
             }
         }
     };
 
-
-
     p.keyPressed = function () {
         if (p.key === "r" || p.key === "R") {
-
-            setTimeout(() => {
-                vectors = []; 
-                
-            }, 10000);
+            
             // p.background(255, 246, 204); // Ekranı temizle
             isDrawing = false;
             animationInProgress = false; // Animasyonu durdur
