@@ -70,7 +70,7 @@ body {
 
 .sidebar {
     position: fixed;
-    height: 10%;
+    max-height: 85px;
     width: 80px;
     border-radius: 30px;
     background-color: var(--vurguRed-color);
@@ -83,13 +83,13 @@ body {
     z-index: 5;
     overflow: hidden;
     transition: width 0.7s cubic-bezier(0.6, 0.05, 0.28, 0.9),
-        height 0.7s cubic-bezier(0.6, 0.05, 0.28, 0.9);
+        max-height 0.7s cubic-bezier(0.6, 0.05, 0.28, 0.9);
     /* Zamanlama fonksiyonu eklendi */
 }
 
 .sidebar:hover {
     width: 350px;
-    height: 80%;
+    max-height: 80%;
 }
 
 .inner-scrollbox,
@@ -113,7 +113,6 @@ body {
 
 .menuSvg {
     visibility: visible;
-    position: relative;
     display: block;
     justify-content: center;
     margin-left: 9px;
@@ -126,7 +125,7 @@ body {
     color: #ffffff;
     opacity: 0;
     left: 30%;
-    transition: opacity 1s ease;
+    transition: opacity .4s ease-in-out;
 }
 
 .sidebar ul {

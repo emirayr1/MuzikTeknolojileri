@@ -33,12 +33,12 @@ new p5((p) => {
     };
 
     p.setup = function () {
-        let canvas = p.createCanvas(1000, 580);
+        let canvas = p.createCanvas(715, 420);
         canvas.parent("vectorSumAni");
         p.noCursor();
         imgTebesir.resize(70, 53);
-        imgSilgi.resize(100, 100);
-        silgiPosX = 950;
+        imgSilgi.resize(70,70);
+        silgiPosX = 665;
         silgiPosY = 100;
         canvas.elt.oncontextmenu = function (e) {
             e.preventDefault(); // Sağ tıklama menüsünü engelleme
@@ -94,7 +94,7 @@ new p5((p) => {
             
             p.stroke(white);
             p.fill(white);
-            p.circle(whiteChalk[i].x, whiteChalk[i].y, 70);
+            p.circle(whiteChalk[i].x, whiteChalk[i].y, 40);
             p.pop();
         }
         if (clearScreen) {
@@ -184,12 +184,12 @@ new p5((p) => {
                             vectors.push({
                                 startX: lastVector.endX, // Son vektörün başlangıç noktası
                                 startY: lastVector.endY,
-                                endX: 950, // Hedef noktası
+                                endX: 665, 
                                 endY: 100,
-                                color: "black", // Beyaz renk ekleyelim
+                                color: "black", 
                             });
 
-                            if (silgiPosX > 900 && silgiPosY < 70) {
+                            if (silgiPosX > 610 && silgiPosY < 70) {
                                 clearScreen = false;
                             }
                             setTimeout(() => {

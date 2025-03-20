@@ -12,7 +12,7 @@
 
 </head>
 
-<body style="height: 500vh;">
+<body style="height: 1000vh;">
     <ex-header-fizik></ex-header-fizik>   <!--HEADER-->
     <div class="mainCanvas">
         <div class="ana">
@@ -90,9 +90,9 @@
                         <p>$$ \vec{A} + \vec{B} = \vec{C} $$</p>
                     </div>
                 </div>
-                <div id="vectorSumRow" style="display: flex; gap: 12vh;">
+                <div id="vectorSumRow" style="display: flex; gap: 30vh;">
                     <!-- <img src="../images/notdefteri.svg" alt="noteDefteri" width="400px"> -->
-                    <div id="instructionsColumns" style="display: flex; flex-direction: column; width: fit-content; height: fit-content;">
+                    <div id="instructionsColumns" style="display: flex; flex-direction: column; width: fit-content; height: fit-content; margin-top: 4%; margin-left: vh;">
                         <div id="mouseLeftMadde" style="display: flex; align-items: center;">
                             <img src="../images/mouseLeft.svg" alt="mouseLeft" style="width: 120px;">
                             <p>Vektör Ekle</p>
@@ -107,8 +107,8 @@
                         </div>
                     </div>
                     <div id="karaTahtaGrup">
-                        <div id="vectorSumAni" style="position: absolute; margin-top: 2%; margin-left: 4%;"></div>
-                        <img src="../images/tahta2.svg" alt="tahta" style="width: 1133px; height: 713px; pointer-events: none; user-select: none;">
+                        <div id="vectorSumAni" style="position: absolute; margin-top: 1.4%; margin-left: 6.4%;"></div>
+                        <img src="../images/tahta2.svg" alt="tahta" style="width: 933px; height: 513px; pointer-events: none; user-select: none;">
                     </div>
                 </div>
                 <br>
@@ -116,20 +116,19 @@
                 <br>
                 <br>
                 <h4 style="text-decoration: underline; text-decoration-thickness: .2rem;">Çıkarma</h4>
-                <p>• Bir vektörün '-' ile çarpılması, vektörün yönünün tersine dönmesi anlamına gelir.</p>
-                <div id="vectorSub1Row" style="display: flex; align-items: center;">
-                    <div id="vectorSub1"></div>
-                    <div id="minusRow" style="display: flex; gap: 2vh; font-size: 1.5rem; margin-bottom: 30%;">
-                        <div id="minusSign" style="position: absolute; margin-left: 8px; opacity: 0; margin-top: 3px;">-</div>
-                        <p id="vecSign" style="width: 0px; font-size: 1.5rem;">\(\vec{A}\)</p>
+                    <p>• Bir vektörün '-' ile çarpılması, vektörün yönünün tersine dönmesi anlamına gelir.</p>
+                    <div id="vectorSub1Row" style="display: flex; align-items: center;">
+                        <div id="vectorSub1"></div>
+                        <div id="minusRow" style="display: flex; gap: 2vh; font-size: 1.5rem; margin-bottom: 30%;">
+                            <div id="minusSign" style="position: absolute; margin-left: 8px; opacity: 0; margin-top: 3px;">-</div>
+                            <p id="vecSign" style="width: 0px; font-size: 1.5rem;">\(\vec{A}\)</p>
+                        </div>
                     </div>
-                </div>
-                <p>• Bu durumu kullanıp çıkarma işlemi yapacağımız zaman çıkaracağımız vektörün ters yönlüsünü alıp toplarız.</p>
-                <p>• \(\vec{A} - \vec{B}\) işlemini yaparken aslında A vektörünün ucuna B vektörünün ters yönlüsünü çizmiş oluruz.</p>
-                <p>• \(\vec{A} + (-\vec{B})\)</p>
-                <div id="vectorSub2Row" style="display: flex;">
-                    <div id="vectorSub2"></div>
-                    <div class="checkBoxes" id="vectorSub2CB">
+                    <p>• Bu durumu kullanıp çıkarma işlemi yapacağımız zaman çıkaracağımız vektörün ters yönlüsünü alıp toplarız.</p>
+                    <p>• \(\vec{A} - \vec{B}\) işlemini yaparken aslında A vektörünün ucuna B vektörünün ters yönlüsünü çizmiş oluruz.</p>
+                    <p>• \(\vec{A} + (-\vec{B})\)</p>
+                <div id="vectorSub2Row" style="display: flex; gap: 8vh;">
+                    <div class="checkBoxes" id="vectorSub2CB" style="margin-top: 8%;">
                         <label>
                             <input type="checkbox" id="toplaCB"> Topla
                         </label>
@@ -138,8 +137,55 @@
                             <input type="checkbox" id="cikarCB"> Çıkar
                         </label>
                     </div>
-                    <img src="../images/notdefteri.svg" alt="notdefteri" width="350vh">
-        </div>
+                    <div id="vectorSub2"></div>
+                </div>
+                <h3>Vektörel Nicelikler</h3>
+                    <p>• Hem büyüklük hem de yön ile tanımlanan niceliklerdir.</p>
+                    <p>• Bir sayı ve birimle birlikte, hangi yönde olduğu da belirtilmelidir.</p>
+                    <p>• Vektörler niceliklerde toplama, çıkarma, çarpma, bölme gibi aritmetik işlemler vektör kurallarına göre yapılır. </p>
+                    <br>
+                    <h4>Örnekler</h4>
+                    <br>
+                        <p>• Hız \(\vec{v} \rightarrow \) 20 m/s kuzey yönünde</p>
+                        <p>• Kuvvet \(\vec{F} \rightarrow \) 50N sağa doğru</p>
+                        <p>• Yer Değiştirme \(\vec{d} \rightarrow \) 5 metre doğu yönünde</p>
+                        <br>
+                        <div id="toBeContinued" style="margin-left: 10%; opacity: 0.3;">
+                            <p>•</p>
+                            <p>•</p>
+                        </div>
+                        <br>
+                        <p>Kırmızı araba, 20 m/s hızla doğu yönüne ilerlerken, sarı araba ise 15 m/s hızla batıya doğru yol almaktadır.</p>
+                        <small>• Hızları Toplamı?</small>
+                        <small>• Hızları Farkı?</small>
+                        <br>
+                        <br>
+                        <div id="cars"></div>
+                        <br>
+                        <br>
+                        <div id="underCars" style="text-align: center; margin-left: 14%;">
+                            <p style="text-decoration: underline; text-decoration-thickness: .2rem; color: rgb(78, 78, 255);">Hızları Toplamı</p>
+                            <div id="arabaVecSum"></div>
+                            <br>
+                            <p style="text-decoration: underline; text-decoration-thickness: .2rem; color: rgb(78, 78, 255);">Hızları Farkı</p>
+                            <div id="arabaVecSub"></div>
+                        </div>
+                <br>
+                <br>
+                <br>
+                <h3>Skaler Nicelikler</h3>
+                    <p>• Yalnızca büyüklük ile tanımlanan niceliklerdir.</p>
+                    <p>• Yönler yoktur, sadece bir sayı ve bir birim ile ifade edilirler.</p>
+                    <p>• Temel büyüklüklerin hepsi skalerdir.</p>
+                    <br>
+                    <h4>Örnekler</h4>
+                    <br>
+                        <p>• Uzunluk \(\rightarrow\) 2 metre</p>
+                        <p>• Kütle \(\rightarrow\) 5 kilogram</p>
+                        <p>• Zaman \(\rightarrow\) 10 saniye</p>
+                        <p>• Hacim \(\rightarrow\) 3 litre</p>
+                <img src="../images/havana.svg" alt="havana" style="width: 15vh;">
+                <a href="./vektor_ve_skaler.html" id="vektor_ve_skaler-nxt" class="next-btn">Sonraki sayfa</a>
     </div>
     <ex-sidebar-fizik></ex-sidebar-fizik>
     <!-- <ex-footer></ex-footer> -->
@@ -152,5 +198,8 @@
     <script src="../js/fizik/vektorVeSkaler/vectorSumAni.js"></script>
     <script src="../js/fizik/vektorVeSkaler/vectorSub1.js"></script>
     <script src="../js/fizik/vektorVeSkaler/vectorSub2.js"></script>
+    <script src="../js/fizik/vektorVeSkaler/arabaHızVektor.js"></script>
+    <script src="../js/fizik/vektorVeSkaler/arabaVecSum.js"></script>
+    <script src="../js/fizik/vektorVeSkaler/arabaVecSub.js"></script>
 </body>
 </html>
