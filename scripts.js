@@ -86,12 +86,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // SVG dizisi
     const assets = [
         {
-            svg: "./images/elec-gitar.svg",
-            sound: "/sounds/elec-gitarSample.mp3",
+            svg: "../images/elec-gitar.svg",
+            sound: "../sounds/elec-gitarSample.mp3",
         }, // 1. SVG ve 1. ses
-        { svg: "./images/davul.svg", sound: "/sounds/drumSample.mp3" }, // 2. SVG ve 2. ses
-        { svg: "./images/piyano.svg", sound: "/sounds/piyanoSample.mp3" }, // 3. SVG ve 3. ses
-        { svg: "./images/keyboard.svg", sound: "/sounds/synthSample.mp3" }, // 4. SVG ve 4. ses
+        { svg: "../images/davul.svg", sound: "../sounds/drumSample.mp3" }, // 2. SVG ve 2. ses
+        { svg: "../images/piyano.svg", sound: "../sounds/piyanoSample.mp3" }, // 3. SVG ve 3. ses
+        { svg: "../images/keyboard.svg", sound: "../sounds/synthSample.mp3" }, // 4. SVG ve 4. ses
     ];
 
     let hoverCount = 0;
@@ -215,9 +215,9 @@ class ExSidebarF extends HTMLElement {
                                 <li><a href="./trigonometri.html">Trigonometri</a></li>
                                 <li><a href="./temel_ve_turetilmis.html">Temel Ve Türetilmiş Büyüklükler</a></li>
                                 <li><a href="./vektor_ve_skaler.html">Vektörel Ve Skaler Büyüklükler</a></li>
-                                <li><a href="#">Kuvvet</a></li>
+                                <li><a href="./bir_boyutlu_hareket.html">Bir Boyutlu Hareket</a></li>
                                 <li><a href="#">Basınç</a></li>
-                                <li><a href="#">Güç ve Enerji</a></li>
+                                <li><a href="./is_guc_enerji.html">İş, Güç ve Enerji</a></li>
                                 <li><a href="#">Ses Nedir</a></li>
                                 <li><a href="#">Sesin Oluşumu</a></li>
                                 <li><a href="#">Periyodik Hareket</a></li>

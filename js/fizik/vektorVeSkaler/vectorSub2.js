@@ -13,6 +13,9 @@ let rotateAniPoz = false;
 let duranA = false;
 let duranB = false;
 
+const minusPlus = document.querySelector("#minusPlus");
+let isPlus = false;
+
 new p5(function (p) {
     p.setup = function () {
         let canvas = p.createCanvas(400, 400);
@@ -288,6 +291,19 @@ new p5(function (p) {
         document.querySelector("#cikarCB").checked = false;
         duranNegAni = false;
         isNegAni = false;
+
+        if(isPlus){
+            minusPlus.classList.remove("plus");
+            minusPlus.style.opacity = 0;
+            setTimeout(() => {
+                document.querySelector("#minusPlus").textContent = "+"
+                minusPlus.style.opacity = 1;
+            }, 200);
+
+
+            isPlus = false;
+        }
+
         if (duranRotAni === true) {
             rotateAniPoz = true;
             duranRotAni = null;
@@ -304,6 +320,17 @@ new p5(function (p) {
         document.querySelector("#toplaCB").checked = false;
         duranPozAni = false;
         isTani = false;
+
+        if(!isPlus){
+            minusPlus.classList.add("plus");
+
+            setTimeout(() => {
+                document.querySelector("#minusPlus").textContent = "-"
+                minusPlus.style.opacity = 1;
+            }, 200);
+
+            isPlus = true;
+        }
 
         // zaten aşağı yöndeyse bir daha hareket ettirme diye
         if (duranRotAni === false) {

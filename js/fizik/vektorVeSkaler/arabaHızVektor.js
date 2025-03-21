@@ -6,7 +6,7 @@ let newWidth;
 new p5((p) => {
     p.preload = function () {
         imgArabaLeft = p.loadImage("../../../images/arabaLeft.svg"); // Resmi yükle
-        imgArabaRight = p.loadImage("../../../images/arabaRight.svg");
+        imgArabaRight = p.loadImage("../../../images/mavi-porsche.svg");
     };
 
     p.setup = function () {

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bir Boyutlu Hareket</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body style="height: 200vh;">
+    <ex-header-fizik></ex-header-fizik> <!--HEADER-->
+    <div class="mainCanvas">
+        <div class="ana">
+            <h2>Bir Boyutlu Hareket</h2>
+            <br>
+            <br>
+            <h3>Yer Değiştirme</h3>
+            <p>• Yer değiştirme, vektörel bir büyüklüktür</p>
+            <p>• Bir cismin başlangıç konumundan son konumuna doğru olan en kısa <a style="font-weight: 700;">doğrusal</a> mesafedir.</p>
+            <small>• Fizikte değişimi belirtmek için \(\Delta\) sembolü kullanılır.</small>
+            <br>
+            <p>Buna göre</p>
+            <p>\(\Delta x = x_s - x_i\)</p>
+            <br>
+            <div id="trMap"></div> 
+            <h3>Hız</h3>
+            <h3>Sürat</h3>
+            <h3>İvme</h3>
+        </div>
+    </div>
+    <ex-sidebar-fizik></ex-sidebar-fizik>
+    <script src="../scripts.js"></script>
+    <script src="../js/fizik/birBoyutluHareket/trMap.js"></script>
+</body>
+
+</html>
