@@ -1,22 +1,22 @@
-let duration2 = 3000; // 3 saniye (ms)
-let startTime;
-let isTani = false;
-let isNegAni = false;
-let duranPozAni = false;
-let duranNegAni = false;
-let prog = 0;
-let progRot = 0;
-let angleRotate = 0;
-let duranRotAni = false;
-let rotateAniNeg = false;
-let rotateAniPoz = false;
-let duranA = false;
-let duranB = false;
-
-const minusPlus = document.querySelector("#minusPlus");
-let isPlus = false;
-
 new p5(function (p) {
+    let duration2 = 3000; // 3 saniye (ms)
+    let startTime;
+    let isTani = false;
+    let isNegAni = false;
+    let duranPozAni = false;
+    let duranNegAni = false;
+    let prog = 0;
+    let progRot = 0;
+    let angleRotate = 0;
+    let duranRotAni = false;
+    let rotateAniNeg = false;
+    let rotateAniPoz = false;
+    let duranA = false;
+    let duranB = false;
+
+    const minusPlus = document.querySelector("#minusPlus");
+    let isPlus = false;
+
     p.setup = function () {
         let canvas = p.createCanvas(400, 400);
         canvas.parent("vectorSub2");
@@ -292,14 +292,13 @@ new p5(function (p) {
         duranNegAni = false;
         isNegAni = false;
 
-        if(isPlus){
+        if (isPlus) {
             minusPlus.classList.remove("plus");
             minusPlus.style.opacity = 0;
             setTimeout(() => {
-                document.querySelector("#minusPlus").textContent = "+"
+                document.querySelector("#minusPlus").textContent = "+";
                 minusPlus.style.opacity = 1;
             }, 200);
-
 
             isPlus = false;
         }
@@ -321,11 +320,11 @@ new p5(function (p) {
         duranPozAni = false;
         isTani = false;
 
-        if(!isPlus){
+        if (!isPlus) {
             minusPlus.classList.add("plus");
 
             setTimeout(() => {
-                document.querySelector("#minusPlus").textContent = "-"
+                document.querySelector("#minusPlus").textContent = "-";
                 minusPlus.style.opacity = 1;
             }, 200);
 

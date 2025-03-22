@@ -1,9 +1,9 @@
-let imgArabaLeft;
-let imgArabaRight;
-let newHeight;
-let newWidth;
-
 new p5((p) => {
+    let imgArabaLeft;
+    let imgArabaRight;
+    let newHeight;
+    let newWidth;
+
     p.preload = function () {
         imgArabaLeft = p.loadImage("../../../images/arabaLeft.svg"); // Resmi yükle
         imgArabaRight = p.loadImage("../../../images/mavi-porsche.svg");

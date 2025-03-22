@@ -1,6 +1,7 @@
-let map;
 
 new p5((p) => {
+    let map;
+
     p.preload = function () {
         map = p.loadImage("../../../images/turkiye.svg");
     };

@@ -11,7 +11,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-<body style="height: 200vh;">
+<body style="height: 500vh;">
     <ex-header-fizik></ex-header-fizik> <!--HEADER-->
     <div class="mainCanvas">
         <div class="ana">
@@ -26,17 +26,19 @@
             <p>Buna göre</p>
             <p>\(\Delta x = x_s - x_i\)</p>
             <br>
-            <div id="trMap"></div> 
+            <img src="../images/turkiye1.svg" alt="tr" width="700px">;
             <br>
             <br>
             <br>
             <p>Bayrak ve konumu baş, bitiş e koy ve animasyonla s ye bastıgında yukarı doğru fırlayıp çıksın</p>
             <div class="colorPickers">
-                <input type="color" id="bgColorPicker" value="#C2C27A" />
                 <input type="color" id="drawColorPicker" value="#000000" />
             </div>
             <div id="drawRow" style="display: flex;">
-                <div id="drawPathAni"></div>
+                <div id="cerceve"></div>
+                <!-- <img src="../images/tablet.svg" alt="tablet" width="800px" height="496.8px"> -->
+                <div id="drawPathAni" ></div> 
+                <!-- style="position: absolute; margin-left: 1.3%; margin-top: 1.3%;" -->
                 <div id="drawBtn-text">
                     <div id="alinanYol-txt">Alınan Yol: 0 metre</div>
                     <div id="yerDegistirme-txt">Yer Değiştirme: 0 metre</div>
@@ -48,7 +50,6 @@
             <h3>İvme</h3>
             <p>Başlama butonu KOY!!</p>
             <div id="carGame"></div>
-
         </div>
     </div>
     <ex-sidebar-fizik></ex-sidebar-fizik>

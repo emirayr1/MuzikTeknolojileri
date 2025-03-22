@@ -1,6 +1,5 @@
-let progSub = 0;
-
 new p5((p) => {
+    let progSub = 0;
 
     p.setup = function () {
         let canvas = p.createCanvas(400, 200);
@@ -57,13 +56,11 @@ new p5((p) => {
         p.text("20 m/s", 0, 0);
         p.pop();
 
-
         p.push();
         p.stroke(0);
         p.circle(20, 60, 5);
         p.circle(355, 60, 5);
         p.pop();
-
 
         p.push();
         p.textSize(13);
@@ -75,8 +72,6 @@ new p5((p) => {
         p.text("35 m/s Doğu", 0, 0);
         p.pop();
 
-
-
         progSub = p.constrain(progSub + 0.01, 0, 1);
         let current = p.lerp(20, 350, progSub);
 
@@ -84,8 +79,8 @@ new p5((p) => {
         if (progSub === 1) {
             setTimeout(() => {
                 progSub = 0;
-                }, 1000);
-            }
+            }, 1000);
+        }
     };
 
     p.createVectorSketch = function (

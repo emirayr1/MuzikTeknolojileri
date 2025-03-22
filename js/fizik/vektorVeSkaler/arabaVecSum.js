@@ -1,6 +1,5 @@
-let progSum = 0;
-
 new p5((p) => {
+    let progSum = 0;
     p.setup = function () {
         let canvas = p.createCanvas(400, 200);
         canvas.parent("arabaVecSum");

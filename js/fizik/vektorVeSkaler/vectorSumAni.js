@@ -1,32 +1,29 @@
 //// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! //TARGET INDEX NEDEN FEEDBACK OLUYOR BUNU ÇÖZ (ÇÖZDÜM)
 
-
-
-let startX, startY; // Başlangıç noktası
-let endX, endY; // Bitiş noktası
-let isDrawing = false; // Vektör çizim durumu
-let vectors = []; // Çizilen vektörleri ve okları saklamak için bir dizi
-let animationProgress = 0; // Animasyon ilerlemesi
-let animationInProgress = false; // Animasyon durumu
-let canClick = true;
-let redLine = null; // Kırmızı çizgi (ilk vektör ile son vektör arasında)
-let imgTebesir;
-let silgiPosX;
-let silgiPosY;
-let targetIndex = 0;
-let eraseSpeed = 20;
-let distArr = [];
-let clearScreen = false;
-let whiteChalk = [];
-let white;
-let red;
-let alphaValue = 255; // Başlangıçta opak
-let startTimeTr = 0;  // Geçişin başladığı zaman
-let isTransitioning = false; // Geçişin başlayıp başlamadığını kontrol etmek için
-let eraseStart = false;
-
-
 new p5((p) => {
+    let startX, startY; // Başlangıç noktası
+    let endX, endY; // Bitiş noktası
+    let isDrawing = false; // Vektör çizim durumu
+    let vectors = []; // Çizilen vektörleri ve okları saklamak için bir dizi
+    let animationProgress = 0; // Animasyon ilerlemesi
+    let animationInProgress = false; // Animasyon durumu
+    let canClick = true;
+    let redLine = null; // Kırmızı çizgi (ilk vektör ile son vektör arasında)
+    let imgTebesir;
+    let silgiPosX;
+    let silgiPosY;
+    let targetIndex = 0;
+    let eraseSpeed = 20;
+    let distArr = [];
+    let clearScreen = false;
+    let whiteChalk = [];
+    let white;
+    let red;
+    let alphaValue = 255; // Başlangıçta opak
+    let startTimeTr = 0; // Geçişin başladığı zaman
+    let isTransitioning = false; // Geçişin başlayıp başlamadığını kontrol etmek için
+    let eraseStart = false;
+
     p.preload = function () {
         imgTebesir = p.loadImage("../../../images/tebesir.svg"); // Resmi yükle
         imgSilgi = p.loadImage("../../../images/silgi.svg");
@@ -37,7 +34,7 @@ new p5((p) => {
         canvas.parent("vectorSumAni");
         p.noCursor();
         imgTebesir.resize(70, 53);
-        imgSilgi.resize(70,70);
+        imgSilgi.resize(70, 70);
         silgiPosX = 665;
         silgiPosY = 100;
         canvas.elt.oncontextmenu = function (e) {
@@ -57,49 +54,46 @@ new p5((p) => {
         p.stroke(255, 255, 255);
         p.strokeWeight(3);
         if (clearScreen && !isTransitioning) {
-            startTimeTr = p.millis(); 
+            startTimeTr = p.millis();
             isTransitioning = true;
         }
         if (isTransitioning) {
             let elapsedTime = p.millis() - startTimeTr;
             alphaValue = p.map(elapsedTime, 0, 3000, 255, 0); // 3 saniye
-    
+
             // alphaValue'yi 0 ile 255 arasında tut
             alphaValue = p.constrain(alphaValue, 0, 255);
-    
-            
+
             if (elapsedTime > 3000) {
-                isTransitioning = false; 
+                isTransitioning = false;
                 clearScreen = false;
             }
         }
-        
-        
-        if(eraseStart){
-            whiteChalk.push({ x: silgiPosX, y: silgiPosY }); // yalnızca vektörlerin üzerindeyken pushLa 
+
+        if (eraseStart) {
+            whiteChalk.push({ x: silgiPosX, y: silgiPosY }); // yalnızca vektörlerin üzerindeyken pushLa
         }
-        
-        if(vectors.length >= 2){
-            if(targetIndex > vectors.length - 1){
+
+        if (vectors.length >= 2) {
+            if (targetIndex > vectors.length - 1) {
                 // white.setAlpha(alphaValue);
                 // red.setAlpha(alphaValue);
+            } else {
+                //    white.setAlpha(255);
+                //    red.setAlpha(255);
             }
-            else{
-            //    white.setAlpha(255);
-            //    red.setAlpha(255);
-           }
         }
         for (let i = 0; i < whiteChalk.length; i++) {
             p.push();
-            
+
             p.stroke(white);
             p.fill(white);
             p.circle(whiteChalk[i].x, whiteChalk[i].y, 40);
             p.pop();
         }
         if (clearScreen) {
-            if(vectors.length > 0){
-                if(vectors[0].startX + 15 > silgiPosX){
+            if (vectors.length > 0) {
+                if (vectors[0].startX + 15 > silgiPosX) {
                     eraseStart = true;
                 }
             }
@@ -133,7 +127,7 @@ new p5((p) => {
                         silgiPosX,
                         silgiPosY,
                         target.startX, // target.startX
-                        target.startY   // target.startY
+                        target.startY // target.startY
                     );
 
                     // Hedefin start noktasına ulaşmadıysak, ona doğru hareket et
@@ -166,12 +160,11 @@ new p5((p) => {
                         );
                         silgiPosX += p.cos(angle) * eraseSpeed;
                         silgiPosY += p.sin(angle) * eraseSpeed;
-                        
                     } else {
                         // Hedefin end noktasına çok yaklaştıysa, bir sonraki hedefe geç
                         // targetIndex > vectors.length  ? targetIndex : targetIndex++;
-                        targetIndex++;  //TARGET INDEX NEDEN OVERLOAD OLUYOR BUNU ÇÖZ
-                        reachedStart = false; 
+                        targetIndex++; //TARGET INDEX NEDEN OVERLOAD OLUYOR BUNU ÇÖZ
+                        reachedStart = false;
                         // Eğer tüm hedefler bitti, başa dön
                         if (targetIndex >= vectors.length) {
                             eraseStart = false;
@@ -184,9 +177,9 @@ new p5((p) => {
                             vectors.push({
                                 startX: lastVector.endX, // Son vektörün başlangıç noktası
                                 startY: lastVector.endY,
-                                endX: 665, 
+                                endX: 665,
                                 endY: 100,
-                                color: "black", 
+                                color: "black",
                             });
 
                             if (silgiPosX > 610 && silgiPosY < 70) {
@@ -355,7 +348,6 @@ new p5((p) => {
 
     p.keyPressed = function () {
         if (p.key === "r" || p.key === "R") {
-            
             // p.background(255, 246, 204); // Ekranı temizle
             isDrawing = false;
             animationInProgress = false; // Animasyonu durdur

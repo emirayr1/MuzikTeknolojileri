@@ -1,32 +1,61 @@
 new p5((p) => {
     let path = []; // çizgi koordinat
     let img;
+    let bg;
     let prog = 0;
+    let penX;
+    let penY;
+    let pen;
+    let magnetX;
+    let allow = true;
+    let magnetY;
+    let magnetAni = false;
     let progHip = 0;
+    let magnetProg = 0;
+    let alwaysDisplayPen = false;
     let animating = false;
+    let rotatePen = 0;
     let startHipAni = false;
     let angleVec = 0;
+    let imgTablet;
 
     p.preload = function () {
         img = p.loadImage("../../../images/davul.svg");
+        bg = p.loadImage("../../../images/tablet.svg");
+        pen = p.loadImage("../../../images/pen.png");
+        imgTablet = p.loadImage("../../../images/tablet.svg");
     };
 
     p.setup = function () {
-        let canvas = p.createCanvas(800, 400);
+        let canvas = p.createCanvas(950, 720);
+        // 756.7, 453.9
         canvas.parent("drawPathAni");
-        bgColorPicker = document.getElementById("bgColorPicker");
+        p.noCursor();
+        pen.resize(140, 235.4);
+        imgTablet.resize(800, 496.8);
         drawColorPicker = document.getElementById("drawColorPicker");
     };
 
     p.draw = function () {
-        p.background(bgColorPicker.value);
+        // p.image(bg, 0, 0, 1000, 600);
+        p.background(255, 246, 204);
+        // p.filter(p.BLUR, 3);
+
+        p.translate(0, 225);
+
+        p.image(imgTablet, 0, 0);
+        p.push();
+        p.noStroke(); // Kenarlık olmasın
+        p.fill(255); // Beyaz dolgu rengi
+        p.rect((800 - 756.7) / 2, (496.8 - 453.9) / 2, 756.7, 453.9); // Ortaya hizala
+        p.pop();
 
         if (
             p.mouseIsPressed &&
-            p.mouseX >= 0 &&
-            p.mouseX <= p.width &&
-            p.mouseY >= 0 &&
-            p.mouseY <= p.height
+            p.mouseX >= 20 &&
+            p.mouseX <= 773 && // 20 to 773 x
+            p.mouseY >= 22 && // 22 to 475
+            p.mouseY <= 475
         ) {
             // canvas sınırları içeisinde olması lazım
             let point = { x: p.mouseX, y: p.mouseY };
@@ -70,7 +99,7 @@ new p5((p) => {
         if (path.length > 0) {
             if (startHipAni) {
                 progHip = p.constrain(progHip + 0.01, 0, 1);
-                console.log(progHip);
+                // console.log(progHip);
                 let currentX = p.lerp(
                     path[0].x,
                     path[path.length - 1].x,
@@ -87,7 +116,9 @@ new p5((p) => {
                 ).toFixed(0);
                 document.getElementById(
                     "yerDegistirme-txt"
-                ).textContent = `Yer Değiştirme: ${yerDegistirme} metre ${angleVec.toFixed(0)} derece`;
+                ).textContent = `Yer Değiştirme: ${yerDegistirme} metre ${angleVec.toFixed(
+                    0
+                )} derece`;
                 p.createVectorSketch(
                     path[0].x,
                     path[0].y,
@@ -98,6 +129,55 @@ new p5((p) => {
                     "red"
                 );
             }
+        }
+
+        penX = p.constrain(p.mouseX, 20, 770);
+        penY = p.constrain(p.mouseY, 22, 475);
+        // p.mouseY - 235
+
+        // p.mouseX <= p.width ? penY = p.constrain(p.mouseY, 22, 475) : penY = 240;
+        // p.mouseX <= p.width ? penX = p.constrain(p.mouseX, 20, 770) : penX = 240;
+
+        if (p.mouseX >= p.width && allow || p.mouseY < 0 && allow || p.mouseY > p.height && allow) {
+            magnetAni = true;
+        } else if (p.mouseX < p.width && p.mouseY < 720 && p.mouseY > 0) {
+            p.image(pen, penX, penY - 235);
+            magnetAni = false;
+            allow = true;
+            magnetProg = 0;
+            alwaysDisplayPen = false;
+        }
+
+        
+
+        if (magnetAni) {
+            magnetProg = p.constrain(magnetProg + 0.03, 0, 1);
+            magnetX = p.lerp(700, 350, magnetProg);
+            magnetY = p.lerp(penY - 235, -5, magnetProg);
+            rotatePen = p.lerp(0, 1.05, magnetProg);
+
+            p.push();
+            p.translate(magnetX, magnetY);
+            p.rotate(rotatePen);
+            p.image(pen, -pen.width / 2, -pen.height / 2);
+            p.pop();
+
+            // p.image(pen, magnetX, magnetY);
+            if (magnetProg === 1) {
+                allow = false;
+                magnetAni = false;
+                alwaysDisplayPen = true;
+                magnetProg = 0;
+            }
+        }
+
+
+        if(alwaysDisplayPen){
+            p.push();
+            p.translate(magnetX, magnetY);
+            p.rotate(1.05);
+            p.image(pen, -pen.width / 2, -pen.height / 2);
+            p.pop();
         }
     };
 
@@ -135,7 +215,7 @@ new p5((p) => {
         let xN = path[path.length - 1].x,
             yN = path[path.length - 1].y;
 
-        let vecAng = p.atan2((yN - y1), (xN - x1))
+        let vecAng = p.atan2(yN - y1, xN - x1);
 
         let degVecAng = 180 * (vecAng / p.PI);
 
@@ -147,7 +227,7 @@ new p5((p) => {
         //     degVecAng = 360 - degVecAng; // atan -180 +180 aralık verdiği için 360 ekle
         // }
         // if(degVecAng < 0){
-        //     degVecAng *= -1; // bu hiç efficent degil ama şu anlık böyle yaptım 
+        //     degVecAng *= -1; // bu hiç efficent degil ama şu anlık böyle yaptım
         // }
 
         return degVecAng;
