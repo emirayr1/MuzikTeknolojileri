@@ -27,14 +27,35 @@
             <p>\(\Delta x = x_s - x_i\)</p>
             <br>
             <div id="trMap"></div> 
+            <br>
+            <br>
+            <br>
+            <p>Bayrak ve konumu baş, bitiş e koy ve animasyonla s ye bastıgında yukarı doğru fırlayıp çıksın</p>
+            <div class="colorPickers">
+                <input type="color" id="bgColorPicker" value="#C2C27A" />
+                <input type="color" id="drawColorPicker" value="#000000" />
+            </div>
+            <div id="drawRow" style="display: flex;">
+                <div id="drawPathAni"></div>
+                <div id="drawBtn-text">
+                    <div id="alinanYol-txt">Alınan Yol: 0 metre</div>
+                    <div id="yerDegistirme-txt">Yer Değiştirme: 0 metre</div>
+                </div>
+            </div>
+            <br>
             <h3>Hız</h3>
             <h3>Sürat</h3>
             <h3>İvme</h3>
+            <p>Başlama butonu KOY!!</p>
+            <div id="carGame"></div>
+
         </div>
     </div>
     <ex-sidebar-fizik></ex-sidebar-fizik>
     <script src="../scripts.js"></script>
     <script src="../js/fizik/birBoyutluHareket/trMap.js"></script>
+    <script src="../js/fizik/birBoyutluHareket/drawPathAni.js"></script>
+    <script src="../js/fizik/birBoyutluHareket/carGame.js"></script>
 </body>
 
 </html>
