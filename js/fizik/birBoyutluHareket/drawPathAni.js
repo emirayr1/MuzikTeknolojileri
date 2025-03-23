@@ -18,21 +18,25 @@ new p5((p) => {
     let startHipAni = false;
     let angleVec = 0;
     let imgTablet;
+    let imgTablet_png;
+    let canvas;
 
     p.preload = function () {
         img = p.loadImage("../../../images/davul.svg");
         bg = p.loadImage("../../../images/tablet.svg");
         pen = p.loadImage("../../../images/pen.png");
         imgTablet = p.loadImage("../../../images/tablet.svg");
+        imgTablet_png = p.loadImage("../../../images/tablet.svg");
     };
 
     p.setup = function () {
-        let canvas = p.createCanvas(950, 720);
+        canvas = p.createCanvas(950, 720);
         // 756.7, 453.9
         canvas.parent("drawPathAni");
         p.noCursor();
         pen.resize(140, 235.4);
         imgTablet.resize(800, 496.8);
+        imgTablet_png.resize(800, 496.8);
         drawColorPicker = document.getElementById("drawColorPicker");
     };
 
@@ -43,7 +47,8 @@ new p5((p) => {
 
         p.translate(0, 225);
 
-        p.image(imgTablet, 0, 0);
+        // p.image(imgTablet, 0, 0);
+        p.image(imgTablet_png, 0, 0);
         p.push();
         p.noStroke(); // Kenarlık olmasın
         p.fill(255); // Beyaz dolgu rengi
@@ -64,7 +69,7 @@ new p5((p) => {
 
         // Çizgiyi çiz
         p.stroke(drawColorPicker.value);
-        p.strokeWeight(5);
+        p.strokeWeight(7);
         for (let i = 1; i < path.length; i++) {
             p.line(path[i - 1].x, path[i - 1].y, path[i].x, path[i].y);
         }
@@ -148,7 +153,6 @@ new p5((p) => {
             alwaysDisplayPen = false;
         }
 
-        
 
         if (magnetAni) {
             magnetProg = p.constrain(magnetProg + 0.03, 0, 1);
@@ -179,6 +183,8 @@ new p5((p) => {
             p.image(pen, -pen.width / 2, -pen.height / 2);
             p.pop();
         }
+
+        // console.log(canvas.width, canvas.height);
     };
 
     p.calculateTotalDistance = function (path) {
