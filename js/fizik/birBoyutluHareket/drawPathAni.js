@@ -136,7 +136,8 @@ new p5((p) => {
                     currentY,
                     4,
                     false,
-                    "red"
+                    "red" 
+
                 );
                 let smallX = p.lerp(0, 20, progHip);
                 p.push();
