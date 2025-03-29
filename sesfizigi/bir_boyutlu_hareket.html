@@ -95,8 +95,41 @@
             <p>\(\vec{a} = 2\,m/s^2\) &nbsp; Doğu yönünde</p>
             <br>
             <small>• Eğer aracın hızı 20 m/s'den 10 m/s'ye düşseydi, yani araç yavaşlasaydı, ivmesi hareket yönüne zıt bir yönde olurdu.</small>
-            <h3>Ani hız-sürat-ivme</h3>
-            <div id="carGame"></div>
+            <br>
+            <br>
+            <br>
+            <h3>Ani Hız</h3>
+            <p>• Bir cismin hızını, sadece belirli bir zaman aralığı için değil, herhangi spesifik bir an için de bilmek isteriz.</p>
+            <p>• Araba ile yaptığınız bir yolculukta ortalama hızınızı bilmek istersiniz ancak, durmakta olan bir polis otosunu gördüğünüz an
+                <br>
+                bilmek istediğiniz o andaki hızınızdır.
+            </p>
+            <small>Kaynak: [Serway, Beichner]</small>
+            <br>
+            <br>
+            <br>
+            <p style="color: rgb(19, 117, 6);">• Ani hızı hesaplamak için bir konum-zaman grafiği çizelim.</p>
+            <small>Aşağıda, bir hızlı trenin konum-zaman grafiği gösterilmiştir. Grafiğe göre, 5. saniyede trenin 40 metre yer değiştirdiği belirtilmiştir.</small>
+            <br>
+            <div id="aniRow" style="display: flex; gap: 5vh;">
+                <div id="aniGraph"></div>
+                <div id="aniGraphText" style="margin-top: 2.6%; text-align: center; display: flex; flex-direction: column;">  
+                     <small>5. ve 10. saniye arasındaki hızı bulmak istediğimizde yapacağımız şey</small>
+                     <p>\(\vec{v}_o = \frac{10\,0\,m\, - 4\,0\,m}{10\,s\, - 5\,s} = 12\,m/s\)</p>
+                     <br>
+                     <small>Ancak ani hızı, yani belirli bir anlık değeri bulmak istediğimizde, zaman değişimini sıfıra yaklaştırmamız gerekir.</small>
+                     <small>Zaman değişiminin sıfıra yaklaşması, o andaki hıza daha hassas bir şekilde ulaşmamız anlamına gelir.</small>
+                     <br>
+                     <small>Bunu gerçekleştirmek için matematikteki limit kavramını kullanarak \(\Delta t\)'yi sıfıra yaklaştırmamız gerekecek.</small>
+                     <br>
+                    <p>\(\vec{v}_{ani} = lim_{\Delta t \to 0} \,\,\,\frac{\Delta x}{\Delta t}\)</p>
+                    <button id="yaklastir-btn" class="cozum-btn" style="position: relative; margin: 0 auto; margin-top: 5%;">Yaklaştır</button>
+                    <br>
+                    <a href="https://www.youtube.com/watch?v=2IokTmHGxwM" target="_blank" style="text-decoration: underline; font-size: .8rem; color: black;">öneri</a>
+                </div>
+            </div>
+            
+            <div id="carGame" style="margin-top: 20%;"></div>
             <button id="hız-btn" class="cozum-btn" style="position:relative;">Hız Grafik</button>
             <button id="ivme-btn" class="cozum-btn" style="position:relative;">İvme Grafik</button>
             <button id="dondur-btn" class="cozum-btn" style="position:relative;">Dondur</button>
@@ -105,6 +138,7 @@
     </div>
     <ex-sidebar-fizik></ex-sidebar-fizik>
     <script src="../scripts.js"></script>
+    <script src="../js/fizik/birBoyutluHareket/aniGraph.js"></script>
     <script src="../js/fizik/birBoyutluHareket/drawPathAni.js"></script>
     <script src="../js/fizik/birBoyutluHareket/carGame.js"></script>
     <!-- <script src="../js/fizik/birBoyutluHareket/pixDeneme.js"></script> -->
