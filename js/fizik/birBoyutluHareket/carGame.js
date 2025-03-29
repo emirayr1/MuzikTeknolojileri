@@ -6,15 +6,14 @@ new p5((p) => {
     let duman1;
     let duman2;
     let duman3;
+    let alev;
     let ibre;
     let kadran;
     let maxVelocity = 35;
     let progDum = 0;
     let op;
-    let nossProg = 0;
     let clampedVelocity = 0;
     let mapVelocity = 0;
-    let road;
     let noss = 0.3;
     let carX = 0;
     let velocity = 0;
@@ -46,8 +45,8 @@ new p5((p) => {
     let isAccelerationGraph = false;
 
     p.preload = function () {
-        carSön = p.loadImage("../../../images/png-govde.png");
-        carPar = p.loadImage("../../../images/png-govde-fren.png");
+        carSön = p.loadImage("../../../images/egzBos.png");
+        carPar = p.loadImage("../../../images/egzFar.png");
         tekerlekSol = p.loadImage("../../../images/png-teker.png");
         tekerlekSağ = p.loadImage("../../../images/png-teker.png");
         duman1 = p.loadImage("../../../images/Duman1.png");
@@ -60,6 +59,7 @@ new p5((p) => {
         cityPng = p.loadImage("../../../images/city.png")
         bariyerPng = p.loadImage("../../../images/bariyer.png")
         bulutPng = p.loadImage("../../../images/bulut.png")
+        alev = p.loadImage("../../../images/alevi.png");
     };
 
     p.setup = function () {
@@ -85,17 +85,16 @@ new p5((p) => {
     p.draw = function () {
         p.background(255, 255, 255);
 
-        // if(startGame){
-        //     p.carScene();
-        //     p.graphScene();
-        // }else{
-        //     p.startScene();
-        // }
+        if(startGame){
+            p.carScene();
+            p.graphScene();
+        }else{
+            p.startScene();
+        }
 
-        p.carScene();
-        p.graphScene();
-        
 
+        // p.carScene();
+        // p.graphScene();
         // Maintain DISPLAY GRAPH
         for(let i = 1; i < graphValues.length; i++){
             p.push();
@@ -110,31 +109,29 @@ new p5((p) => {
 
     p.carScene = function () {
         yolSpeed = carX * 0.5;
-        bulutSpeed = carX * 0.05;
+        bulutSpeed = carX * 0.02;
         citySpeed = carX * 0.1;
 
         // Yol
-        p.image(yolPng, -yolSpeed + p.width * (Math.floor(yolSpeed / 1500) - 1) + 5,0);
+        p.image(yolPng, -yolSpeed + p.width * (Math.floor(yolSpeed / 1500) - 1) + 2,0);
         p.image(yolPng, -yolSpeed + p.width * Math.floor(yolSpeed / 1500), 0);
-        p.image(yolPng,-yolSpeed + p.width * (Math.floor(yolSpeed / 1500) + 1) - 5, 0);
+        p.image(yolPng,-yolSpeed + p.width * (Math.floor(yolSpeed / 1500) + 1) - 2, 0);
 
 
         // Bulut
-        p.image(bulutPng, -bulutSpeed + p.width * (Math.floor(bulutSpeed / 1500) - 1) + 5,0);
+        p.image(bulutPng, -bulutSpeed + p.width * (Math.floor(bulutSpeed / 1500) - 1) + 2,0);
         p.image(bulutPng, -bulutSpeed + p.width * Math.floor(bulutSpeed / 1500), 0);
-        p.image(bulutPng,-bulutSpeed + p.width * (Math.floor(bulutSpeed / 1500) + 1) - 5, 0);
+        p.image(bulutPng,-bulutSpeed + p.width * (Math.floor(bulutSpeed / 1500) + 1) - 2, 0);
 
         // Şehir
-        p.image(cityPng, -citySpeed + p.width * (Math.floor(citySpeed / 1500) - 1) + 5,121);
+        p.image(cityPng, -citySpeed + p.width * (Math.floor(citySpeed / 1500) - 1) + 2,121);
         p.image(cityPng, -citySpeed + p.width * Math.floor(citySpeed / 1500), 121);
-        p.image(cityPng,-citySpeed + p.width * (Math.floor(citySpeed / 1500) + 1) - 5, 121);
+        p.image(cityPng,-citySpeed + p.width * (Math.floor(citySpeed / 1500) + 1) - 2, 121);
 
         // Bariyer
-        p.image(bariyerPng, -yolSpeed + p.width * (Math.floor(yolSpeed / 1500) - 1) + 5,450);
+        p.image(bariyerPng, -yolSpeed + p.width * (Math.floor(yolSpeed / 1500) - 1) + 2,450);
         p.image(bariyerPng, -yolSpeed + p.width * Math.floor(yolSpeed / 1500), 450);
-        p.image(bariyerPng,-yolSpeed + p.width * (Math.floor(yolSpeed / 1500) + 1) - 5, 450);
-
-        // carX = carX > 1500 ? carX - 1500 : carX;
+        p.image(bariyerPng,-yolSpeed + p.width * (Math.floor(yolSpeed / 1500) + 1) - 2, 450);
 
         acceleration = 0.03; // ivme değeri
 
@@ -165,7 +162,7 @@ new p5((p) => {
         } else if (!moving) {
             // Normal sürtünme etkisi (tuş bırakıldığında)
             velocity *= friction;
-            wheelRotate += velocity / 50;
+            wheelRotate += velocity / 100;
             progDum = p.lerp(progDum, 0, 0.05);
         }
         if (velocity === 0) {
@@ -177,9 +174,9 @@ new p5((p) => {
         // DUMAN ANIMATION
         p.push();
         p.tint(255, op);
-        p.image(duman1, carX + 10, 560);
-        p.image(duman2, carX - 30, 550);
-        p.image(duman3, carX - 50, 545);
+        p.image(duman1, 500, 560);
+        p.image(duman2, 480 , 550);
+        p.image(duman3, 475 , 545);
         p.pop();
 
         // console.log(progDum)
@@ -187,12 +184,13 @@ new p5((p) => {
             noss = p.max(noss - 0.005, 0); // 0'ın altına düşmesin
             allowNoss = false; // NOS dolmayı durdur
             velocity += noss;
-            p.push();
-            p.stroke(255, 0, 0);
-            p.strokeWeight(3);
-            p.fill(255, 0, 0);
-            p.line(500, 560, 500 - noss * 100, 560);
-            p.pop();
+            // p.push();
+            // p.stroke(255, 0, 0);
+            // p.strokeWeight(3);
+            // p.fill(255, 0, 0);
+            // p.line(500, 560, 500 - noss * 100, 560);
+            // p.pop();
+            p.image(alev, 455, 560);
         } else if (allowNoss) {
             noss = p.min(noss + 0.005, 0.3); // 3'ü geçmesin
         }
@@ -215,16 +213,16 @@ new p5((p) => {
 
         p.push();
         p.translate(53, 2);
-        p.translate(25, 25);
+        p.translate(tekerlekSol.width / 2, tekerlekSol.height / 2);
         p.rotate(wheelRotate);
-        p.image(tekerlekSol, -25, -25);
+        p.image(tekerlekSol, -tekerlekSol.width / 2, -tekerlekSol.height / 2);
         p.pop();
 
         p.push();
         p.translate(237, 0);
-        p.translate(25, 25);
+        p.translate(tekerlekSağ.width / 2, tekerlekSağ.height / 2); 
         p.rotate(wheelRotate);
-        p.image(tekerlekSağ, -25, -25);
+        p.image(tekerlekSağ, -tekerlekSağ.width / 2, -tekerlekSağ.height / 2);
         p.pop();
 
         p.pop();
@@ -289,16 +287,19 @@ new p5((p) => {
             p.text("İVME-ZAMAN", graphCanvasX + graphCanvasWidth / 2 - 50, 20); 
             p.pop();
 
-            if(velocity > 0){
-                yValue = 210
-            }
-            else if(velocity < 0){
+            // ivme ayarlaması 
+            if(moving && velocity > 0){
+                yValue = 210;
+            }else if(moving && velocity < 0){
+                yValue = -210;
+            }else if(!moving && velocity > 0){
                 yValue = -210
-            }else{
+            }else if(!moving && velocity < 0){
+                yValue = 210
+            }else if(!moving && velocity === 0){
                 yValue = 0;
             }
         }
-
         if (p.frameCount % 1 === 0 && !isStopGraph) {
             if (xValue > 339){
                 graphValues.shift();
@@ -317,7 +318,6 @@ new p5((p) => {
         }else{
             isStopGraph = false;
         }
-
     }
 
     
@@ -373,14 +373,7 @@ new p5((p) => {
 
 
 
-    p.createVectorSketch = function (
-        startX,
-        startY,
-        endX,
-        endY,
-        strokeWeight,
-        colors
-    ) {
+    p.createVectorSketch = function (startX, startY, endX, endY, strokeWeight, colors) {
         p.stroke(colors);
         p.strokeWeight(strokeWeight);
         p.line(startX, startY, endX, endY);

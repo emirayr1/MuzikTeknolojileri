@@ -8,11 +8,18 @@ new p5((p) => {
     let pen;
     let magnetX;
     let allow = true;
+    let adım;
+    let flagLocAni = false;
+    let flagPng;
+    let flagProg = 0;
+    let locPng;
     let magnetY;
     let magnetAni = false;
+    let easedProg = 0;
     let progHip = 0;
     let magnetProg = 0;
     let alwaysDisplayPen = false;
+    let alwaysDisplayLocFlag = false;
     let animating = false;
     let rotatePen = 0;
     let startHipAni = false;
@@ -20,39 +27,40 @@ new p5((p) => {
     let imgTablet;
     let imgTablet_png;
     let canvas;
-
+    let text = "Alınan Yol: 0 metre";
+    let yerDegistirmeText = "Yer Değiştirme: 0 metre 0 derece";
     p.preload = function () {
         img = p.loadImage("../../../images/davul.svg");
         bg = p.loadImage("../../../images/tablet.svg");
         pen = p.loadImage("../../../images/pen.png");
         imgTablet = p.loadImage("../../../images/tablet.svg");
         imgTablet_png = p.loadImage("../../../images/tablet.svg");
+        flagPng = p.loadImage("../../../images/bayrak.png");
+        locPng = p.loadImage("../../../images/lokasyon.png");
+        adım = p.loadImage("../../../images/adım.png");
     };
 
     p.setup = function () {
-        canvas = p.createCanvas(950, 720);
+        canvas = p.createCanvas(1300, 720);
         // 756.7, 453.9
         canvas.parent("drawPathAni");
         p.noCursor();
         pen.resize(140, 235.4);
         imgTablet.resize(800, 496.8);
         imgTablet_png.resize(800, 496.8);
-        drawColorPicker = document.getElementById("drawColorPicker");
     };
 
     p.draw = function () {
-        // p.image(bg, 0, 0, 1000, 600);
         p.background(255, 246, 204);
-        // p.filter(p.BLUR, 3);
+        // p.background(255, 255, 255);
 
         p.translate(0, 225);
 
-        // p.image(imgTablet, 0, 0);
         p.image(imgTablet_png, 0, 0);
         p.push();
         p.noStroke(); // Kenarlık olmasın
         p.fill(255); // Beyaz dolgu rengi
-        p.rect((800 - 756.7) / 2, (496.8 - 453.9) / 2, 756.7, 453.9); // Ortaya hizala
+        // p.rect((800 - 756.7) / 2, (496.8 - 453.9) / 2, 756.7, 453.9); // Ortaya hizala
         p.pop();
 
         if (
@@ -68,7 +76,7 @@ new p5((p) => {
         }
 
         // Çizgiyi çiz
-        p.stroke(drawColorPicker.value);
+        p.stroke(0);
         p.strokeWeight(7);
         for (let i = 1; i < path.length; i++) {
             p.line(path[i - 1].x, path[i - 1].y, path[i].x, path[i].y);
@@ -79,26 +87,27 @@ new p5((p) => {
             let index = p.floor(prog * (path.length - 1)); // Prog = 0,1; kaç tane nokta varsa onunla çarpıp o kadar yapıyoruz
             let nextIndex = p.min(index + 1, path.length - 1); // Eğer dizisınırları içerisindeyse index+1'i al değilse path.length - 1'e eşitliyoruz
             let t = (prog * (path.length - 1)) % 1; // (4.05) % 1 = 0.05 4 ve 5 arasındaki ilerlemeyei hesaplayabilmek için %1
-
+            let angleProg = p.lerp(0, 2 * Math.PI, prog);
             let currentX = p.lerp(path[index].x, path[nextIndex].x, t);
             let currentY = p.lerp(path[index].y, path[nextIndex].y, t);
 
             if (img) {
                 p.image(img, currentX - 10, currentY - 10, 20, 20);
+                p.push();
+                let tintValue = p.abs(p.sin(prog * Math.PI * 8)) * 255;
+                p.tint(255, tintValue);
+                p.translate(canvas.width - canvas.width / 4 - 40, canvas.height - canvas.height / 1.4);
+                p.rotate(-angleProg);
+                p.image(adım, 0, 0);
+                p.pop();
             }
 
             if (prog >= 1) {
                 animating = false; // Animasyon tamamlandı
             }
             let totalDistance = p.calculateTotalDistance(path);
-
             let alinanYol = (totalDistance * prog).toFixed(0);
-            document.getElementById(
-                "alinanYol-txt"
-            ).textContent = `Alınan Yol: ${alinanYol} metre`;
-            console.log(
-                "Toplam Yol: " + (totalDistance * prog).toFixed(0) + " metre"
-            );
+            text = `Alınan Yol: ${alinanYol} metre`;
         }
 
         if (path.length > 0) {
@@ -119,11 +128,7 @@ new p5((p) => {
                 let yerDegistirme = (
                     p.calculateLinearDistance(path) * progHip
                 ).toFixed(0);
-                document.getElementById(
-                    "yerDegistirme-txt"
-                ).textContent = `Yer Değiştirme: ${yerDegistirme} metre ${angleVec.toFixed(
-                    0
-                )} derece`;
+                yerDegistirmeText = `Yer Değiştirme: ${yerDegistirme} metre ${angleVec.toFixed(0)} derece`;
                 p.createVectorSketch(
                     path[0].x,
                     path[0].y,
@@ -133,17 +138,23 @@ new p5((p) => {
                     false,
                     "red"
                 );
+                let smallX = p.lerp(0, 20, progHip);
+                p.push();
+                p.translate(canvas.width - canvas.width / 4 - 98, canvas.height - canvas.height / 1.6 - 4);
+                p.rotate(-angleVec * Math.PI / 180);
+                p.createVectorSketch(0, 0, smallX, 0, 3, true, "red");
+                p.pop();
             }
         }
 
         penX = p.constrain(p.mouseX, 20, 770);
         penY = p.constrain(p.mouseY, 22, 475);
-        // p.mouseY - 235
 
-        // p.mouseX <= p.width ? penY = p.constrain(p.mouseY, 22, 475) : penY = 240;
-        // p.mouseX <= p.width ? penX = p.constrain(p.mouseX, 20, 770) : penX = 240;
-
-        if (p.mouseX >= p.width && allow || p.mouseY < 0 && allow || p.mouseY > p.height && allow) {
+        if (
+            (p.mouseX >= p.width && allow) ||
+            (p.mouseY < 0 && allow) ||
+            (p.mouseY > p.height && allow)
+        ) {
             magnetAni = true;
         } else if (p.mouseX < p.width && p.mouseY < 720 && p.mouseY > 0) {
             p.image(pen, penX, penY - 235);
@@ -152,7 +163,6 @@ new p5((p) => {
             magnetProg = 0;
             alwaysDisplayPen = false;
         }
-
 
         if (magnetAni) {
             magnetProg = p.constrain(magnetProg + 0.03, 0, 1);
@@ -175,8 +185,7 @@ new p5((p) => {
             }
         }
 
-
-        if(alwaysDisplayPen){
+        if (alwaysDisplayPen) {
             p.push();
             p.translate(magnetX, magnetY);
             p.rotate(1.05);
@@ -184,7 +193,59 @@ new p5((p) => {
             p.pop();
         }
 
-        // console.log(canvas.width, canvas.height);
+        if (alwaysDisplayLocFlag) {
+            if (path.length > 1) {
+                p.push();
+                p.tint(255, 255);
+                p.image(
+                    flagPng,
+                    path[path.length - 1].x,
+                    path[path.length - 1].y - flagPng.height
+                );
+                p.image(locPng, path[0].x - 10, path[0].y - locPng.height);
+                p.pop();
+            }
+        }
+        console.log(alwaysDisplayLocFlag);
+        if (flagLocAni) {
+            let flagStartY = path[path.length - 1].y;
+            flagProg = p.constrain(flagProg + 0.02, 0, 1);
+            let easedProg = p.easeInOutCubic(flagProg);
+            let currentY_flag = p.lerp(
+                flagStartY,
+                flagStartY - flagPng.height,
+                easedProg
+            );
+            let currentY_loc = p.lerp(
+                path[0].y,
+                path[0].y - locPng.height,
+                easedProg
+            );
+            let currentOpp = p.lerp(0, 255, easedProg);
+            p.push();
+            p.tint(255, currentOpp);
+            p.image(flagPng, path[path.length - 1].x, currentY_flag);
+            p.image(locPng, path[0].x - 10, currentY_loc);
+            p.pop();
+
+            if (flagProg === 1) {
+                flagLocAni = false;
+                flagProg = 0;
+                animating = true;
+                alwaysDisplayLocFlag = true;
+            }
+        }
+
+        // TEXT DÜZENLE
+        p.push();
+        p.textSize(18);
+        p.stroke("none");
+        p.strokeWeight(0);
+        p.textFont("Poppins");
+        p.fill(0);
+        p.text(text, canvas.width - canvas.width / 4, canvas.height - canvas.height / 1.4);
+        p.text(yerDegistirmeText, canvas.width - canvas.width / 4 - 65, canvas.height - canvas.height / 1.6);
+        p.pop();
     };
 
     p.calculateTotalDistance = function (path) {
@@ -240,9 +301,14 @@ new p5((p) => {
     };
 
     p.keyPressed = function () {
-        if (p.key === "s" && path.length > 1) {
+        if (p.key === "s" && path.length > 1 && !animating) {
             prog = 0; // Baştan başla
-            animating = true;
+            if (!alwaysDisplayLocFlag) {
+                // eğer bayrak varsa bir daha bayrak animasyonunu başlatma direkt yol almayı başlat
+                flagLocAni = true;
+            } else {
+                animating = true;
+            }
         }
 
         if (p.key === "y" && path.length > 1) {
@@ -256,14 +322,11 @@ new p5((p) => {
             console.log("Ekran temizlendi!");
             animating = false;
             startHipAni = false;
+            alwaysDisplayLocFlag = false;
             prog = 0;
             progHip = 0;
-            document.getElementById(
-                "yerDegistirme-txt"
-            ).textContent = `Yer Değiştirme: 0 metre`;
-            document.getElementById(
-                "alinanYol-txt"
-            ).textContent = `Alınan Yol: 0 metre`;
+            text = "Alınan Yol: 0 metre";
+            yerDegistirmeText = "Yer Değiştirme: 0 metre 0 derece";
         }
     };
 
@@ -290,5 +353,9 @@ new p5((p) => {
             ? p.triangle(-5, -2.5, 0, 0, -5, 2.5)
             : p.triangle(-10, -5, 0, 0, -10, 5);
         p.pop();
+    };
+
+    p.easeInOutCubic = function (t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - p.pow(-2 * t + 2, 3) / 2;
     };
 });

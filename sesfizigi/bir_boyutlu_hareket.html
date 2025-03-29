@@ -23,7 +23,7 @@
             <p>• Bir cismin başlangıç konumundan son konumuna doğru olan en kısa <a style="font-weight: 700;">doğrusal</a> mesafedir.</p>
             <small>• Fizikte değişimi belirtmek için \(\Delta\) sembolü kullanılır.</small>
             <br>
-            <p>Buna göre</p>
+            <p>Buna göre yer değiştirme \(\Delta x\) ile gösterilir.</p>
             <p>\(\Delta x = x_s - x_i\)</p>
             <br>
             <div id="trRow" style="display: flex; gap: 15vh;">
@@ -37,41 +37,77 @@
                     </p>
                 </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <p>Bayrak ve konumu baş, bitiş e koy ve animasyonla s ye bastıgında yukarı doğru fırlayıp çıksın</p>
-            <div class="colorPickers">
-                <input type="color" id="drawColorPicker" value="#000000" />
-            </div>
             <div id="drawRow" style="display: flex;">
                 <div id="cerceve"></div>
-                <!-- <img src="../images/tablet.svg" alt="tablet" width="800px" height="496.8px"> -->
-                <div id="drawPathAni" ></div> 
-                <!-- style="position: absolute; margin-left: 1.3%; margin-top: 1.3%;" -->
-                <div id="drawBtn-text" style="margin-top: 30%;">
-                    <div id="alinanYol-txt">Alınan Yol: 0 metre</div>
-                    <div id="yerDegistirme-txt">Yer Değiştirme: 0 metre</div>
-                </div>
+                <div id="drawPathAni" ></div>
             </div>
             <br>
             <h3>Hız</h3>
-            <p>• Bir cismin <a style="font-weight: 600;">birim zamanda</a> aldığı yol olarak tanımlanır</p>
-
+            <p>• Bir cismin <a style="font-weight: 600;">birim zamanda</a> yaptığı yer değiştirme olarak tanımlanır</p>
             <small>• Vektörel bir büyüklüktür</small>
+            <p>• \(\vec{v}\) sembolü ile gösterilir ve birimi metre/saniyedir.</p>
+            <br>
+            <p">• \(Hız = \frac{Yer \, Değiştirme}{Zaman}\)<span style="display: inline-block; width: 10vh;"></span>• \(\vec{v} = \frac{\Delta \vec{x}}{\Delta t}\) </p>
+            <br>
+            <h4>Örnek</h4>
+            <small>A noktasından B noktasına <a style="font-weight:700; color: red;">doğu</a> yönünde seyahat eden bir aracın B noktasına vardığı esnada yer değiştirmesi 50 metredir.</small>
+            <br>
+            <small>Aracın B noktasına varış süresi 10 saniyedir. Aracın hızını bulunuz.</small>
+            <p style="font-size: 1.3rem;">\(\vec{v} = \frac{50\,m\, - 0\,m}{10\,s}\)</p>
+            <p style="font-size: 1.3rem;">\(\vec{v} = \frac{5\,m}{s}\) <small style="font-size: .9rem;">doğu yönünde</small></p>
+            <br>
+            <br>
             <h3>Sürat</h3>
-            <p>• Hız kavramıyla çok karıştırılan sürat yönsüzdür(skaler), yalnızca büyüklük ifade eder.</p>
+            <p>• Hız kavramıyla çok karıştırılan sürat yönsüzdür, yalnızca büyüklük ifade eder.</p>
+            <small>• Skaler bir büyüklüktür</small>
+            <br>
+            <br>
+            <p>• \(v\) sembolü ile gösterilir.</p>
+            <br>
+            <p style="font-size: 1.2rem;">• \(v = \frac{Alınan\, Yol}{Hareket \,Süresi}\)</p>
+            <br>
+            <p style="font-size: 1.2rem;">• \(v = \frac{x}{\Delta t}\)</p>
+            <br>
+            <h4>Örnek</h4>
+            <small>Bir aracın A noktasından B noktasına 50 saniyede gitmektedir.</small>
+            <small>Aracın aldığı toplam yol 100 metre olduğuna göre aracın sürati nedir?</small>
+            <br>
+            <br>
+            <p style="font-size: 1.2rem;">\(v = \frac{10\,0\,m}{50\,s}\)</p>
+            <br>
+            <p style="font-size: 1.2rem;">\(v = \frac{2\,m}{s}\)</p>
+            <br>
+            <br>
             <h3>İvme</h3>
+            <p>• İvme, hareket eden bir cismin hızlanma veya yavaşlama miktarını ifade eden bir ölçüdür.</p>
+            <small>• İvme vektöreldir.</small>
+            <br>
+            <p>• \(\vec{a}\) sembolü ile gösterilir.</p>
+            <p>• İvme son hız ile ilk hız arasındaki farkın geçen zamana bölünmesiyle bulunur ve birimi \(\frac{metre}{saniye^2}\)'dir.</p>
+            <p>\(\vec{a} = \frac{\Delta \vec{v}}{\Delta t}\)</p>
+            <br>
+            <h4>Örnek</h4>
+            <small>• Bir aracın hızı doğu yönünde 10 m/s'den 20 m/s'ye 5 saniyede artmıştır. Buna göre aracın ivmesi nedir?</small>
+            <br>
+            <br>
+            <p style="font-size: 1.2rem;">\(\vec{a} = \frac{20\,m/s \,\,- \,10\,m/s}{5\,s}\)</p>
+            <br>
+            <p>\(\vec{a} = 2\,m/s^2\) &nbsp; Doğu yönünde</p>
+            <br>
+            <small>• Eğer aracın hızı 20 m/s'den 10 m/s'ye düşseydi, yani araç yavaşlasaydı, ivmesi hareket yönüne zıt bir yönde olurdu.</small>
+            <h3>Ani hız-sürat-ivme</h3>
             <div id="carGame"></div>
             <button id="hız-btn" class="cozum-btn" style="position:relative;">Hız Grafik</button>
             <button id="ivme-btn" class="cozum-btn" style="position:relative;">İvme Grafik</button>
             <button id="dondur-btn" class="cozum-btn" style="position:relative;">Dondur</button>
+            <!-- <div id="pixDenemeA"></div> -->
         </div>
     </div>
     <ex-sidebar-fizik></ex-sidebar-fizik>
     <script src="../scripts.js"></script>
     <script src="../js/fizik/birBoyutluHareket/drawPathAni.js"></script>
     <script src="../js/fizik/birBoyutluHareket/carGame.js"></script>
+    <!-- <script src="../js/fizik/birBoyutluHareket/pixDeneme.js"></script> -->
 </body>
 
 </html>
