@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuvvet</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body style="height: 500vh;">
+    <ex-header-fizik></ex-header-fizik> <!--HEADER-->
+    <div class="mainCanvas">
+        <div class="ana">
+            <h2>Kuvvet</h2>
+            <br>
+            <h3>Kuvvet</h3>
+                <p>• Bir cisme etki eden itme veya çekme etkisidir.</p>
+                <p>• Vektörel bir büyüklüktür.</p>
+                <p>• Kuvvet uygulanan bir cisim:</p>
+                <div id="inlineP" style="margin-left: 12vh;">
+                    <small>- İvme kazanabilir.</small>
+                    <br>
+                    <small>- Yön değiştirebilir.</small>
+                    <br>
+                    <small>- Şekil değiştirebilir.</small>
+                </div>
+                <br>
+                <p>• \(\vec{F}\) ile gösterilir.</p>
+                <br>
+                <br>
+                <p>Bir cismin üzerine birden fazla kuvvet uygulanabilir.</p>
+                <p>Uygulanan kuvvetlerin tamamının vektörel toplamına <a style="color: black; font-weight: 700;">net kuvvet</a> denir. \(\vec{F}_{net}\)</p>
+                <small>-> Net kuvvet 0 ise ivme de sıfırdır ve cismin hızı değişmez.</small>
+                <br>
+                <h3>Temas Kuvvetleri</h3>
+                    <p>Temas kuvvetleri, cisimlerin birbirine dokunarak etkileşimde bulunduğu kuvvetlerdir. Bu kuvvetler, temas eden yüzeyler arasında oluşur ve genellikle şu türlere ayrılır:</p>
+                    <ul>
+                        <li><strong>Normal Kuvvet:</strong> Bir yüzeyin, üzerine konulan cisme uyguladığı dik kuvvettir.</li>
+                        <li><strong>Sürtünme Kuvveti:</strong> İki yüzey arasındaki hareketi engelleyen veya zorlaştıran kuvvettir.</li>
+                        <li><strong>Gerilme Kuvveti:</strong> Bir ip, halat veya çubuk gibi cisimlerin çekilmesiyle oluşan kuvvettir.</li>
+                    </ul>
+                <br>
+                <h3>Alan Kuvvetleri</h3>
+                    <p>Alan kuvvetleri, cisimlerin birbirine dokunmadan etkileşimde bulunduğu kuvvetlerdir. Bu kuvvetler, genellikle bir alan aracılığıyla iletilir ve şu türlere ayrılır:</p>
+                    <ul>
+                        <li><strong>Yerçekimi Kuvveti:</strong> Kütleler arasındaki çekim kuvvetidir. Dünya üzerindeki cisimlere uygulanan yerçekimi kuvveti, ağırlık olarak adlandırılır.</li>
+                        <li><strong>Elektriksel Kuvvet:</strong> Elektrik yükleri arasındaki çekim veya itme kuvvetidir.</li>
+                    </ul>
+                <br>
+                <h3>Kütle</h3>
+                    <p>Bir cismin madde miktarını gösteren fiziksel bir özelliktir.</p>
+                    <p>Skalerdir.</p>
+                    <p>Bir cismin kütlesi ne kadar büyükse, belirli bir kuvvetin etkisi altında o kadar daha az ivme kazanır.</p>
+                    <br>
+                    <p><strong>Örnek</strong> 
+                        <br>
+                            3 kg kütleli bir cisme \(\vec{F}\) kuvveti, \(4\,m/s^2\) lik bir ivme kazandırıyorsa
+                        <br>
+                        aynı \(\vec{F}\) kuvveti 6 kg kütleli bir cisme 2 \(m/s^2\) lik bir ivme kazandırır.
+                    </p>
+                    <br>
+                    <small style="font-weight: 600;">! Kütle ve ağırlık tamamen farklı niceliklerdir.</small>
+                    <small>Bir cismin ağırlığı, ona etki eden yerçekimi kuvvetinin büyüklüğüdür ve bulunduğu konuma bağlı olarak değişkenlik gösterebilir.</small>
+                <br>
+                <h3>Newton'un İkinci Yasası</h3>
+                    <p>• Bir cismin ivmesi, üzerine etki eden net kuvvetle doğru orantılı, kütlesiyle ise ters orantılıdır.</p>
+                    <p>Matematiksel olarak \(\vec{F} = m \cdot \vec{a}\) ifadesiyle gösterilir.</p>
+                    <br>
+                <h4>Kuvvet Birimi</h4>
+                    <div>
+                        <p>• SI birim sisteminde kuvvet birimi Newton'dur.</p>
+                        <p>• 1 Newton, 1 kg kütleli bir cisme 1 \(m/s^2\) ivme kazandıran kuvvet olarak tanımlanır.</p>
+                        <br>
+                        <p style="text-align: center;">\(1N = 1 kg \cdot m/s^2\)</p>
+                    </div>
+                <br>
+                <h3>Çekim Kuvveti</h3>
+                    <div>
+                        <p>• Bir cisme, Dünya'nın kütle çekim etkisiyle uyguladığı kuvvet olarak tanımlanır.</p>
+                        <p>• Bu kuvvet, Dünya'nın merkezine doğru yönelir ve büyüklüğü cismin ağırlığı olarak ifade edilir.</p>
+                        <p style="text-align: center;">\(g\) = yerçekimi ivmesi</p>
+                        <p>-----Dünya ay mars fotoğrafı küçük ve üzerlerinde farklı yerçekimi ivmeler-----</p>
+                        <p>top yukarıdan düşsün dünya mars ay farkı gözüksün p5</p>
+                    </div>
+                    <br>
+                    <small style="text-align: center;">Ağırlık \(g\) ye bağlı olduğu için coğrafi konuma göre değişir. 
+                        <br>
+                        Deniz seviyesinde bulunan 70 kg kütleli bir insan dağda bulunan
+                        70 kg kütleli bir insandan daha ağırdır.</small>
+                    </small>
+                <br>
+                <h3>Newton'un Üçüncü Yasası</h3>
+                    <p>• Her etkiye karşılık eşit ve zıt bir tepki vardır.</p>
+                    <p>• Bir cisme uygulanan kuvvet, o cisim tarafından eşit büyüklükte ve zıt yönde bir kuvvetle karşılık bulur.</p>
+                    <br>
+                    <small style="text-align: center;"><strong>Örnek:</strong> Bir cismi itme kuvveti uyguladığımızda, cisim de bize eşit büyüklükte ve zıt yönde bir kuvvet uygular.</small>
+                    <br>
+                    <p>----- duvar itme fotoğraf ------</p>
+                    <br>
+                <h3>Serbest Cisim Diyagramı</h3>
+                    <p>• Bir cisme etki eden kuvvetlerin gösterildiği diyagramdır.</p>
+                    <p>• Cisim, bir nokta ile temsil edilir ve üzerine etki eden kuvvetler oklar ile gösterilir.</p>
+                    <br>
+                    <small style="text-align: center;">Serbest cisim diyagramı, cisim üzerindeki kuvvetlerin büyüklük ve yönlerini anlamak için kullanılır.</small>
+                    <br>
+                    <p>---- örnek scd -----</p>
+                <img src="../forceDiagram.png" alt="fd">
+                <br>
+                <div id="kuvvetSim"></div>
+        </div>
+    </div>
+    <ex-sidebar-fizik></ex-sidebar-fizik>
+    <script src="../scripts.js"></script>
+    <script src="../js/fizik/kuvvet/kuvvetSim.js"></script>
+</body>
+
+</html>

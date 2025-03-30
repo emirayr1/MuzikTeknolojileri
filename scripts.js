@@ -216,7 +216,9 @@ class ExSidebarF extends HTMLElement {
                                 <li><a href="./temel_ve_turetilmis.html">Temel Ve Türetilmiş Büyüklükler</a></li>
                                 <li><a href="./vektor_ve_skaler.html">Vektörel Ve Skaler Büyüklükler</a></li>
                                 <li><a href="./bir_boyutlu_hareket.html">Bir Boyutlu Hareket</a></li>
-                                <li><a href="#">Basınç</a></li>
+                                <li><a href="./kuvvet.html">Kuvvet</a></li>
+                                <li><a href="./basinc.html">Basınç</a></li>
+                                <li><a href="./yogunluk.html">Yoğunluk</a></li>
                                 <li><a href="./is_guc_enerji.html">İş, Güç ve Enerji</a></li>
                                 <li><a href="#">Ses Nedir</a></li>
                                 <li><a href="#">Sesin Oluşumu</a></li>

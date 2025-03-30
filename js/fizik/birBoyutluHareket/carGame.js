@@ -162,6 +162,7 @@ new p5((p) => {
         } else if (!moving) {
             // Normal sürtünme etkisi (tuş bırakıldığında)
             velocity *= friction;
+            // velocity -= acceleration;
             wheelRotate += velocity / 100;
             progDum = p.lerp(progDum, 0, 0.05);
         }
