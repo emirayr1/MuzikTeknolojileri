@@ -131,10 +131,32 @@
                     <br>
                     <small style="text-align: center;">Serbest cisim diyagramı, cisim üzerindeki kuvvetlerin büyüklük ve yönlerini anlamak için kullanılır.</small>
                     <br>
-                    <p>---- örnek scd -----</p>
-                <img src="../forceDiagram.png" alt="fd">
                 <br>
-                <div id="kuvvetSim"></div>
+                <div id="kuvvet_canvas" style="display: flex; flex-direction: column;">
+                    <div id="kuvvetSim"></div>
+                    <div class="controls">
+                        <label for="planetSel">Select Celestial Body:</label>
+                        <select id="planetSel">
+                            <option value="earth">Earth</option>
+                            <option value="mars">Mars</option>
+                            <option value="moon">Moon</option>
+                        </select>
+                        <br>
+                        <label for="firstFloorSel">Select First Floor Material:</label>
+                        <select id="firstFloorSel">
+                            <option value="ice">Buz</option>
+                            <option value="wood">Asfalt</option>
+                            <option value="sand">Çim</option>
+                        </select>
+                        <br>
+                        <label for="secondFloorSel">Select Second Floor Material:</label>
+                        <select id="secondFloorSel">
+                            <option value="ice">Buz</option>
+                            <option value="wood">Asfalt</option>
+                            <option value="sand">Çimen</option>
+                        </select>
+                    </div>
+                </div>
         </div>
     </div>
     <ex-sidebar-fizik></ex-sidebar-fizik>
