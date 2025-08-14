@@ -1,5 +1,5 @@
 new p5((p) => {
-    let x, y, w, h, k, g, fs, a, v, m, scale;
+    let x, k, g, fs, a, v, m, scale;
     let k1;
     let k2;
     let box, ice, asphalt, grass, earth, moon, mars, bridge;
@@ -12,11 +12,13 @@ new p5((p) => {
     const secondFloorSel = document.getElementById("secondFloorSel");
     let width = 1200;
     let height = 600;
+    let rotationAngle = 0;
+    let dx, dy;
 
     p.preload = function () {
         box = p.loadImage("../../../images/fraction/kutu.png");
         ice = p.loadImage("../../../images/fraction/buz.png");
-        //asphalt = p.loadImage("../../../images/fraction/asfalt.png");
+        asphalt = p.loadImage("../../../images/fraction/beton-zemin.png");
         //grass = p.loadImage("../../../images/fraction/cim.png");
         earth = p.loadImage("../../../images/fraction/dunya.png");
         moon = p.loadImage("../../../images/fraction/ay.png");
@@ -36,24 +38,43 @@ new p5((p) => {
         g = 9.81; // ayda 1.62, Mars'ta 3.71, Jüpiter'de 24.79, Venüs'te 8.87, Uranüs'te 8.69, Neptün'de 11.15, Plüton'da 0.62
         k1 = 0.1; // buz
         k2 = 0.1; // buz
-
-        resetSim(); // Başlangıçta bir kez çalışsın
+        v = 0;
+        a = 0;
+        x = 0;
     };
 
     p.draw = function () {
         p.background(255);
         p.image(currentPlanet, 0, 0, width, height);
-        p.image(box, x, 349, 121, 161);
-        p.image(firstFloor, 0, 472, width / 2, 42);
-        p.image(secondFloor, 600, 472, width / 2, 42);
-        p.image(bridge, 0, 0, width, height);
+
+        p.push();
+        p.translate(x, 104 + 359);
+        p.rotate(-rotationAngle);
+        p.image(box, 0, -112 - Math.sin(rotationAngle) * x, 121, 161);
+        p.pop();
+
+        p.push();
+        p.translate(0, 510);
+        p.rotate(-rotationAngle);
+        p.image(firstFloor, 0, -38, width / 2, 42);
+        p.image(secondFloor, 600, -38, width / 2, 42); // 472
+        p.image(bridge, 0, -510, width, height);
+        p.pop();
+
+        // rotation calculation
+        dx = p.mouseX;
+        dy = p.mouseY - 510;
+        rotationAngle = dy < 0 ? p.atan2(Math.abs(dy), dx) : 0;
+
         let dt = p.deltaTime / 1000;
 
         if (isRunning) {
             // Sürtünme kuvveti
             if (x > width / 2 - 121) {
+                console.log(k2);
                 k = k2;
             } else {
+                console.log("ilk kısım");
                 k = k1;
             }
 
@@ -70,13 +91,8 @@ new p5((p) => {
                 x += v * dt * scale;
             }
         }
-        console.log(k);
-        // Cisim
-        p.fill(200);
-        // test rectangle
-        //p.rect(x, y, w, h);
 
-        // Bilgi
+        console.log(k1);
         p.fill(0);
         p.text(`v = ${v.toFixed(2)} m/s`, 20, 20);
         p.text(`a = ${a.toFixed(2)} m/s²`, 20, 40);
@@ -94,13 +110,9 @@ new p5((p) => {
     function resetSim() {
         // Tüm başlangıç değerlerini yeniden kur
         x = 100;
-        y = p.height - 100;
-        w = 100;
-        h = 100;
-
         //k = 0.2; // sürtünme katsayısı // Buzda 0.1, Tahta 0.3, Kum 0.4, Çim 0.5, Beton 0.6, Kuru zemin 0.7, Kaygan zemin 0.8
         m = 10;
-        scale = 200; // 1 birim = 200px m
+        scale = 350; // 1 birim = 200px m
 
         let F_push = 20; // Uygulanan kuvvet
         let pushDuration = 1; // duration (saniye)
@@ -130,17 +142,18 @@ new p5((p) => {
     });
 
     firstFloorSel.addEventListener("change", function () {
+        console.log(firstFloorSel.value);
         switch (firstFloorSel.value) {
             case "ice":
-                k = 0.1;
+                k1 = 0.1;
                 firstFloor = ice;
                 break;
             case "asphalt":
-                k = 0.3; // asfalt
+                k1 = 0.3; // asfalt
                 firstFloor = asphalt;
                 break;
             case "grass":
-                k = 0.5; // çim
+                k1 = 0.5; // çim
                 firstFloor = grass;
                 break;
         }
