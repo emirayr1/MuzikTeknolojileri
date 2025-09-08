@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chladni Particles (Instance Mode)</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+</head>
+<body>
+<div id="sketch-container"></div>
+
+<p>n: <input type="range" id="nSlider" min="1" max="15" value="2" step="1"></p>
+<p>m: <input type="range" id="mSlider" min="1" max="15" value="3" step="1"></p>
+<p>a: <input type="range" id="aSlider" min="0" max="2" value="1" step="0.1"></p>
+<p>b: <input type="range" id="bSlider" min="0" max="2" value="1" step="0.1"></p>
+<p>velocity: <input type="range" id="vSlider" min="0.001" max="0.05" value="0.01" step="0.001"></p>
+<p>particle count: <input type="range" id="numSlider" min="1000" max="20000" value="5000" step="500"></p>
+
+<script>
+new p5(p => {
+  let particles = [];
+  let sliders = {};
+  let m, n, a, b, v, N;
+  const minWalk = 0.002;
+  const settings = {
+    nParticles : 20000,
+    canvasSize : [600, 600]
+  };
+  const pi = Math.PI;
+
+  const chladni = (x, y, a, b, m, n) => 
+    a * p.sin(pi*n*x) * p.sin(pi*m*y) + b * p.sin(pi*m*x) * p.sin(pi*n*y);
+
+  class Particle {
+    constructor() {
+      this.x = p.random(0,1);
+      this.y = p.random(0,1);
+      this.stochasticAmplitude = 0;
+      this.updateOffsets();
+    }
+    move() {
+      let eq = chladni(this.x, this.y, a, b, m, n);
+      this.stochasticAmplitude = v * Math.abs(eq);
+      if (this.stochasticAmplitude <= minWalk) this.stochasticAmplitude = minWalk;
+      this.x += p.random(-this.stochasticAmplitude, this.stochasticAmplitude);
+      this.y += p.random(-this.stochasticAmplitude, this.stochasticAmplitude);
+      this.updateOffsets();
+    }
+    updateOffsets() {
+      this.x = p.constrain(this.x, 0, 1);
+      this.y = p.constrain(this.y, 0, 1);
+      this.xOff = p.width * this.x;
+      this.yOff = p.height * this.y;
+    }
+    show() {
+      p.point(this.xOff, this.yOff);
+    }
+  }
+
+  const setupParticles = () => {
+    particles = [];
+    for (let i = 0; i < settings.nParticles; i++) {
+      particles[i] = new Particle();
+    }
+  };
+
+  const updateParams = () => {
+    m = parseFloat(sliders.m.value());
+    n = parseFloat(sliders.n.value());
+    a = parseFloat(sliders.a.value());
+    b = parseFloat(sliders.b.value());
+    v = parseFloat(sliders.v.value());
+    N = parseInt(sliders.num.value());
+  };
+
+  const moveParticles = () => {
+    let movingParticles = particles.slice(0, N);
+    for (let part of movingParticles) {
+      part.move();
+      part.show();
+    }
+  };
+
+  p.setup = () => {
+    let canvas = p.createCanvas(...settings.canvasSize);
+    canvas.parent('sketch-container');
+    p.stroke(255);
+
+    sliders = {
+      m : p.select('#mSlider'),
+      n : p.select('#nSlider'),
+      a : p.select('#aSlider'),
+      b : p.select('#bSlider'),
+      v : p.select('#vSlider'),
+      num : p.select('#numSlider')
+    };
+
+    setupParticles();
+  };
+
+  p.draw = () => {
+    p.background(30);
+    updateParams();
+    moveParticles();
+  };
+});
+</script>
+</body>
+</html>

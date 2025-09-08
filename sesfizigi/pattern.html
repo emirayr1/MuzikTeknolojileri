@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body style="height: 500vh;">
+    <ex-header-fizik></ex-header-fizik> <!--HEADER-->
+    <div class="mainCanvas">
+        <div class="ana">
+            <h2>Chladni Paterns</h2>
+            <div id="pattern"></div>
+            <legend>frequency parameters:</legend>
+        <label for="mSlider">m</label>
+        <input name="mSlider" type="range" id="mSlider" min="1" max="16" step="1" value="8">
+        <br>
+        <label for="nSlider">n</label>
+        <input name="nSlider" type="range" id="nSlider" min="1" max="16" step="1" value="4">
+        <br>
+        <label for="aSlider">a</label>
+        <input name="aSlider" type="range" id="aSlider" min="-2" max="2" step="1" value="1">
+        <br>
+        <label for="bSlider">b</label>
+        <input name="bSlider" type="range" id="bSlider" min="-2" max="2" step="1" value="1">
+      </fieldset>	
+      <label for="vSlider">vibration strength:</label>
+      <input name="vSlider" type="range" id="vSlider" min="0.01" max="0.1" step="0.01" value="0.02"> 
+      <label for="numSlider">number of particles:</label>
+      <input name="numSlider" type="range" id="numSlider" min="2000" max="20000" step="2000" value="2000">
+        </div>
+    </div>
+    <ex-sidebar-fizik></ex-sidebar-fizik>
+    <script src="../scripts.js"></script>
+    <script src="../js/fizik/pattern/pattern.js"></script>
+</body>
+
+</html>

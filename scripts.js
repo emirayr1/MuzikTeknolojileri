@@ -220,6 +220,7 @@ class ExSidebarF extends HTMLElement {
                                 <li><a href="./basinc.html">Basınç</a></li>
                                 <li><a href="./yogunluk.html">Yoğunluk</a></li>
                                 <li><a href="./is_guc_enerji.html">İş, Güç ve Enerji</a></li>
+                                <li><a href="./pattern.html">Chladni Patern</a></li>
                                 <li><a href="#">Ses Nedir</a></li>
                                 <li><a href="#">Sesin Oluşumu</a></li>
                                 <li><a href="#">Periyodik Hareket</a></li>
