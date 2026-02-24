@@ -36,7 +36,6 @@ new p5((p) => {
 
         p.fill(140, 0, 0);
 
-        console.log(number);
         p.text(number.toString(), 160, 275);
 
         t += speed;
@@ -54,10 +53,15 @@ new p5((p) => {
         canvasSize: [300, 300],
     };
     const pi = Math.PI;
+    // plate freq resp
+    const freqResp = Array.from(
+        { length: 200 },
+        (_, i) => Math.random() * 0.3 + 0.7 * Math.sin(i * 0.1) * 0.5 + 0.5
+    );
 
     const chladni = (x, y, a, b, m, n) =>
-        a * p.sin(pi * n * x) * p.sin(pi * m * y) +
-        b * p.sin(pi * m * x) * p.sin(pi * n * y);
+        freqResp[m] * p.sin(pi * m /*n*/ * x) * p.sin(pi * m * y) + // n'ler m ler ile degismis hali
+        b * p.sin(pi * m * x) * p.sin(pi * m /*n*/ * y);
 
     class Particle {
         constructor() {

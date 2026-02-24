@@ -50,21 +50,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (currentPath.includes("/sesfizigi") && sesFizigiButon) {
             sesFizigiButon.classList.add("active");
-        } 
+        }
         if (currentPath.includes("/sesfizigi")) {
             konularFizik.style.display = "block";
             konularMikrofonlama.style.display = "none";
-        }
-        else if (linkPath.includes('/mikrofonlama')) {              
-            konularMikrofonlama.style.display = 'block';
-            konularFizik.style.display = 'none';
+        } else if (linkPath.includes("/mikrofonlama")) {
+            konularMikrofonlama.style.display = "block";
+            konularFizik.style.display = "none";
         }
 
         // Sidebar'daki bağlantılar için tıklama olaylarını ayarla
         link.addEventListener("click", function () {
             // Tüm sidebar bağlantılarından aktifliği kaldır
             sidebarLinks.forEach((sidebarLink) =>
-                sidebarLink.classList.remove("active")
+                sidebarLink.classList.remove("active"),
             );
             // Tıklanan bağlantıyı aktif yap
             link.classList.add("active");
@@ -236,6 +235,7 @@ class ExSidebarF extends HTMLElement {
                                 <li><a href="#">Ses Dalgalarının Enerjisi</a></li>
                                 <li><a href="#">Ses Dalgalarının Şiddeti</a></li>
                                 <li><a href="#">Ses Şiddeti Düzeyi</a></li>
+                                <li><a href="./doppler.html">Doppler</a></li>
                                 <li><a href="#">Girişim</a></li>
                                 <li><a href="#">Halat</a></li>
                                 <li><a href="#">Molekül</a></li>
